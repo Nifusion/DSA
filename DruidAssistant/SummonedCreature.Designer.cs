@@ -183,6 +183,7 @@
             this.label54 = new System.Windows.Forms.Label();
             this.label55 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.cbSize = new System.Windows.Forms.ComboBox();
             this.panel2 = new System.Windows.Forms.Panel();
             this.label13 = new System.Windows.Forms.Label();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
@@ -193,7 +194,6 @@
             this.panel14 = new System.Windows.Forms.Panel();
             this.panel13 = new System.Windows.Forms.Panel();
             this.ttSkills = new System.Windows.Forms.ToolTip(this.components);
-            this.cbSize = new System.Windows.Forms.ComboBox();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -2484,6 +2484,28 @@
             this.panel1.Size = new System.Drawing.Size(944, 501);
             this.panel1.TabIndex = 41;
             // 
+            // cbSize
+            // 
+            this.cbSize.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbSize.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbSize.FormattingEnabled = true;
+            this.cbSize.Items.AddRange(new object[] {
+            "Fine",
+            "Diminuitive",
+            "Tiny",
+            "Small",
+            "Medium",
+            "Large",
+            "Huge",
+            "Gargantuan",
+            "Colossal"});
+            this.cbSize.Location = new System.Drawing.Point(314, 2);
+            this.cbSize.Margin = new System.Windows.Forms.Padding(1);
+            this.cbSize.Name = "cbSize";
+            this.cbSize.Size = new System.Drawing.Size(133, 26);
+            this.cbSize.TabIndex = 42;
+            this.cbSize.SelectedIndexChanged += new System.EventHandler(this.CbSize_SelectedIndexChanged);
+            // 
             // panel2
             // 
             this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
@@ -2601,28 +2623,6 @@
             this.panel13.Name = "panel13";
             this.panel13.Size = new System.Drawing.Size(321, 95);
             this.panel13.TabIndex = 42;
-            // 
-            // cbSize
-            // 
-            this.cbSize.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbSize.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cbSize.FormattingEnabled = true;
-            this.cbSize.Items.AddRange(new object[] {
-            "Fine",
-            "Diminuitive",
-            "Tiny",
-            "Small",
-            "Medium",
-            "Large",
-            "Huge",
-            "Gargantuan",
-            "Colossal"});
-            this.cbSize.Location = new System.Drawing.Point(314, 2);
-            this.cbSize.Margin = new System.Windows.Forms.Padding(1);
-            this.cbSize.Name = "cbSize";
-            this.cbSize.Size = new System.Drawing.Size(133, 26);
-            this.cbSize.TabIndex = 42;
-            this.cbSize.SelectedIndexChanged += new System.EventHandler(this.CbSize_SelectedIndexChanged);
             // 
             // SummonedCreature
             // 

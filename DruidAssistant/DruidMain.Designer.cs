@@ -1832,7 +1832,7 @@
             this.tabPageTryParseSpell.Location = new System.Drawing.Point(4, 22);
             this.tabPageTryParseSpell.Name = "tabPageTryParseSpell";
             this.tabPageTryParseSpell.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPageTryParseSpell.Size = new System.Drawing.Size(217, 366);
+            this.tabPageTryParseSpell.Size = new System.Drawing.Size(217, 389);
             this.tabPageTryParseSpell.TabIndex = 1;
             this.tabPageTryParseSpell.Text = "Try Parse Spell";
             this.tabPageTryParseSpell.UseVisualStyleBackColor = true;
@@ -1843,7 +1843,7 @@
             this.rtbSpellText.EnableAutoDragDrop = true;
             this.rtbSpellText.Location = new System.Drawing.Point(3, 3);
             this.rtbSpellText.Name = "rtbSpellText";
-            this.rtbSpellText.Size = new System.Drawing.Size(211, 262);
+            this.rtbSpellText.Size = new System.Drawing.Size(211, 285);
             this.rtbSpellText.TabIndex = 4;
             this.rtbSpellText.Text = "";
             // 
@@ -1853,7 +1853,7 @@
             this.panel7.Controls.Add(this.label2);
             this.panel7.Controls.Add(this.label1);
             this.panel7.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel7.Location = new System.Drawing.Point(3, 265);
+            this.panel7.Location = new System.Drawing.Point(3, 288);
             this.panel7.Name = "panel7";
             this.panel7.Size = new System.Drawing.Size(211, 98);
             this.panel7.TabIndex = 5;
@@ -1935,7 +1935,7 @@
             this.Controls.Add(this.tcMain);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "DruidMain";
-            this.Text = "Druid Summoning Assistant vX.x.x.x";
+            this.Text = "Druid Summoning Assistant v1.0.0.0";
             this.Load += new System.EventHandler(this.DruidMain_Load);
             this.panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.nudCasterLevel)).EndInit();
