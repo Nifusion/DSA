@@ -14,6 +14,7 @@ namespace DruidAssistant
     }
     public class Spell
     {
+        public int Index { get; set; }
         public string Name { get; set; }
         public string Class { get; set; }
         public string Level { get; set; }

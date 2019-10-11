@@ -13,6 +13,7 @@ namespace DruidAssistant
 
     public class SummonToForm
     {
+        public int Index;
         public string SummonSpell;
 
         public int PCCasterLevel;
@@ -68,6 +69,7 @@ namespace DruidAssistant
 
         public SummonToForm(SummonTemplate st)
         {
+            Index = st.Index;
             SummonSpell = string.Copy(st.SummonSpell);
 
             Name = st.Name;
@@ -129,40 +131,42 @@ namespace DruidAssistant
 
     public class SummonTemplate
     {
-        public string SummonSpell;
+        public int Index{ get; set; }
 
-        public string Name;
+        public string SummonSpell{ get; set; }
 
-        public Abilities Abilities;
+        public string Name{ get; set; }
 
-        public Size Size;
-        public string Type;
+        public Abilities Abilities{ get; set; }
 
-        public string Environment;
+        public Size Size{ get; set; }
+        public string Type{ get; set; }
 
-        public int Level;
-        public int HitDie;
+        public string Environment{ get; set; }
 
-        public string Movement;
+        public int Level{ get; set; }
+        public int HitDie{ get; set; }
 
-        public int NaturalArmor;
+        public string Movement{ get; set; }
 
-        public int BAB;
-        public int Grapple;
+        public int NaturalArmor{ get; set; }
 
-        public List<Attack> Attacks;
-        public List<FullAttack> FullAttacks;
+        public int BAB{ get; set; }
+        public int Grapple{ get; set; }
 
-        public List<string> Skills = new List<string>();
-        public List<string> Feats = new List<string>();
+        public List<Attack> Attacks{ get; set; }
+        public List<FullAttack> FullAttacks{ get; set; }
+
+        public List<string> Skills = new List<string>()  ;
+        public List<string> Feats = new List<string>()   ;
         public List<string> SpecAtks = new List<string>();
         public List<string> SpecQual = new List<string>();
         public List<string> Notes = new List<string>();
 
-        public string Space;
-        public string Reach;
+        public string Space{ get; set; }
+        public string Reach{ get; set; }
 
-        public Saves Saves;
+        public Saves Saves{ get; set; }
     }
 
     public enum Size

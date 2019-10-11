@@ -190,7 +190,14 @@ namespace DruidAssistant
 
         private static string InputToFirstCharUpper(string input)
         {
-            return input.First().ToString().ToUpper() + input.Substring(1).ToLower();
+            if (input != "")
+            {
+                return input.First().ToString().ToUpper() + input.Substring(1).ToLower();
+            }
+            else
+            {
+                return "";
+            }
         }
 
         public static SkillMod CorrectSkillModBackward(SkillMod sm, Abilities a)
@@ -305,8 +312,18 @@ namespace DruidAssistant
 
         public static string GetSpaceReach(string spacereach, out string reach)
         {
+            if (spacereach == "")
+            {
+                reach = "";
+                return "";
+            }
             string replaced = spacereach.Replace("Space/Reach:", "").Replace("\t", "");
             string[] splitReplaced = replaced.Split('/');
+            if (splitReplaced.Length != 2)
+            {
+                reach = "";
+                return splitReplaced[0];
+            }
             reach = splitReplaced[1];
             return splitReplaced[0];
         }
@@ -314,6 +331,11 @@ namespace DruidAssistant
         public static List<Attack> GetAttacks(string attack)
         {
             List<Attack> attacks = new List<Attack>();
+
+            if (attack == "")
+            {
+                return new List<Attack>();
+            }
 
             string[] split = attack.Replace("Attack:", "").Replace("\t", "").Replace(" or ", "~").Replace("\n", "~").Split('~');
             for (int i = 0; i < split.Length; i++)
@@ -346,6 +368,10 @@ namespace DruidAssistant
 
         public static List<FullAttack> GetFullAttacks(string fullAttack)
         {
+            if (fullAttack == "")
+            {
+                return new List<FullAttack>();
+            }
             List<FullAttack> fullAttacks = new List<FullAttack>();
             string[] splitor = fullAttack.Replace("Full Attack:", "").Replace("\t", "").Replace(" or ", "~").Replace("\n", "~").Split('~');
 
@@ -458,8 +484,14 @@ namespace DruidAssistant
             Regex bab = new Regex(@"[+-]?[0-9]{1,2}\/");
             Regex gra = new Regex(@"\/[+-]?[0-9]{1,2}");
 
-            int b = Convert.ToInt32(bab.Match(bg).Value.Replace(@"/", ""));
-            grapple = Convert.ToInt32(gra.Match(bg).Value.Replace(@"/", ""));
+            string babString = bab.Match(bg).Value.Replace(@"/", "");
+            string graString = gra.Match(bg).Value.Replace(@"/", "");
+
+            babString = babString != "" ? babString : "0";
+            graString = graString != "" ? graString : "0";
+
+            int b = Convert.ToInt32(babString);
+            grapple = Convert.ToInt32(graString);
 
             return b;
         }
@@ -485,9 +517,15 @@ namespace DruidAssistant
             Regex level = new Regex("[0-9]{1,2}d");
             Regex hitdie = new Regex("d[0-9]{1,2}");
 
-            count = Convert.ToInt32(level.Match(hd).Value.Replace("d", ""));
+            string levelString = level.Match(hd).Value.Replace("d", "");
+            string hitdieString = hitdie.Match(hd).Value.Replace("d", "");
 
-            return Convert.ToInt32(hitdie.Match(hd).Value.Replace("d", ""));
+            levelString =   levelString != ""? levelString  :"0";
+            hitdieString = hitdieString != "" ? hitdieString : "0";
+
+            count = Convert.ToInt32(levelString);
+
+            return Convert.ToInt32(hitdieString);
         }
 
         public static Size GetSize(string size, out string type)
@@ -511,9 +549,21 @@ namespace DruidAssistant
             Regex RefNum = new Regex("[+-][0-9]{1,2}");
             Regex WillNum = new Regex("[+-][0-9]{1,2}");
 
-            int iFort = Convert.ToInt32(FortNum.Match(Fort.Match(saves).Value).Value);
-            int iRef = Convert.ToInt32(RefNum.Match(Ref.Match(saves).Value).Value);
-            int iWill = Convert.ToInt32(WillNum.Match(Will.Match(saves).Value).Value);
+            string FortString = Fort.Match(saves).Value;
+            string RefString = Ref.Match(saves).Value;
+            string WillString = Will.Match(saves).Value;
+
+            string FortStringNum = FortNum.Match(FortString).Value;
+            string RefStringNum = RefNum.Match(RefString).Value;
+            string WillStringNum = WillNum.Match(WillString).Value;
+
+            FortStringNum = FortStringNum != "" ? FortStringNum : "0";
+            RefStringNum = RefStringNum != "" ? RefStringNum : "0";
+            WillStringNum = WillStringNum != "" ? WillStringNum : "0";
+
+            int iFort = Convert.ToInt32(FortStringNum);
+            int iRef = Convert.ToInt32(RefStringNum);
+            int iWill = Convert.ToInt32(WillStringNum);
 
             return new Saves(iFort, iRef, iWill);
         }
@@ -736,13 +786,13 @@ namespace DruidAssistant
                 if (desc)
                 {
                     line.Replace("\r", " ").Replace("\n", " ");
-                    if (line == " "||line == "")
+                    if (line == " " || line == "")
                     {
                         description += "\r\r";
                     }
                     else
                     {
-                        description += line+" ";
+                        description += line + " ";
                     }
                 }
             }
@@ -760,7 +810,7 @@ namespace DruidAssistant
             spellArray[9] = duration.TrimStart(' ').TrimStart('\t');
             spellArray[10] = savingThrow.TrimStart(' ').TrimStart('\t');
             spellArray[11] = spellResistance.TrimStart(' ').TrimStart('\t');
-            spellArray[12] = description.TrimStart(' ').TrimStart('\t').Replace("  "," ");
+            spellArray[12] = description.TrimStart(' ').TrimStart('\t').Replace("  ", " ");
 
             return spellArray;
         }
@@ -826,6 +876,26 @@ namespace DruidAssistant
             using (StreamWriter outputStream = new StreamWriter(xmlPath, false))
             {
                 xs.Serialize(outputStream, spells);
+            }
+        }
+
+        public static DSAConfigs GetConfigsFromXML(string xmlPath)
+        {
+            XmlSerializer xs = new XmlSerializer(typeof(DSAConfigs));
+
+            using (Stream inputStream = File.OpenRead(xmlPath))
+            {
+                return (DSAConfigs)xs.Deserialize(inputStream);
+            }
+        }
+
+        public static void DedicateConfigsToXML(string xmlPath, DSAConfigs configs)
+        {
+            XmlSerializer xs = new XmlSerializer(typeof(DSAConfigs));
+
+            using (StreamWriter outputStream = new StreamWriter(xmlPath, false))
+            {
+                xs.Serialize(outputStream, configs);
             }
         }
     }

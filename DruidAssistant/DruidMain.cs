@@ -24,6 +24,43 @@ namespace DruidAssistant
         public DruidMain()
         {
             InitializeComponent();
+
+            //string defaultConfig = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Config.xml");
+            //
+            //string defaultSpells= Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Spells.xml");
+            //string defaultSummons = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Summons.xml");
+            //string defaultWildShapes = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "WildShapes.xml");
+            //string defaultCharacters = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Characters.xml");
+            //
+            //DSAConfigs dsacs = new DSAConfigs();
+            //if (!File.Exists(defaultConfig))
+            //{
+            //    if (File.Exists(defaultSpells))
+            //    {
+            //        dsacs.Add(new DSAConfig(DSAFiles.Spells, defaultSpells));
+            //    }
+            //
+            //    if (File.Exists(defaultSummons))
+            //    {
+            //        dsacs.Add(new DSAConfig(DSAFiles.Summons, defaultSummons));
+            //    }
+            //
+            //    if (File.Exists(defaultWildShapes))
+            //    {
+            //        dsacs.Add(new DSAConfig(DSAFiles.WildShapes, defaultWildShapes));
+            //    }
+            //
+            //    if (File.Exists(defaultCharacters))
+            //    {
+            //        dsacs.Add(new DSAConfig(DSAFiles.CharacterSheets, defaultCharacters));
+            //    }
+            //
+            //    FileParser.DedicateConfigsToXML(defaultConfig, dsacs);
+            //}
+            //else
+            //{
+            //    dsacs = FileParser.GetConfigsFromXML(defaultConfig);
+            //}
         }
 
         private void DruidMain_Load(object sender, EventArgs e)
@@ -35,6 +72,9 @@ namespace DruidAssistant
                 this.Text = string.Format("Druid Summoning Assistant v{0}",
                     ApplicationDeployment.CurrentDeployment.CurrentVersion.ToString(4));
             }
+
+            ValidateSpellOverride();
+            ValidateSummonOverride();
         }
 
         private void ListDirectory(TreeView treeView, string path)
@@ -403,107 +443,38 @@ namespace DruidAssistant
                     if ((sender as TreeView).SelectedNode.Tag is Spell)
                     {
                         Spell selectedSpell = (sender as TreeView).SelectedNode.Tag as Spell;
-                        chkFavoriteSpell.Checked = selectedSpell.Favorited;
-                        tbSpellName.Text = selectedSpell.Name;
-                        tbSpellClass.Text = selectedSpell.Class;
-                        tbSpellLevel.Text = selectedSpell.Level;
-                        tbSpellDomain.Text = selectedSpell.Domain;
-                        tbSpellComponents.Text = selectedSpell.Components;
-                        tbSpellCastingTime.Text = selectedSpell.Casting;
-                        tbSpellRange.Text = selectedSpell.Range;
-                        tbSpellTarget.Text = selectedSpell.Target;
-                        tbSpellEffect.Text = selectedSpell.Effect;
-                        tbSpellDuration.Text = selectedSpell.Duration;
-                        tbSpellSaving.Text = selectedSpell.SavingThrow;
-                        tbSpellResistance.Text = selectedSpell.SpellResistance;
-                        tbSource.Text = selectedSpell.SourceBook;
-                        rtbSpellDescription.Text = selectedSpell.Description;
+                        LoadSpellPage(selectedSpell);
                     }
 
                 }
             }
         }
 
-        private bool SpellExists(List<Spell> spells, Spell spell, out int indexMatch)
+        private void LoadSpellPage(Spell spell)
         {
-            for (int i = 0; i < spells.Count; i++)
-            {
-                if (spells[i].Name == spell.Name && spells[i].Level == spell.Level)
-                {
-                    indexMatch = i;
-                    return true;
-                }
-            }
-            indexMatch = -1;
-            return false;
-        }
+            sittingSpellIndex = spell.Index;
 
-        private void BtnSaveSpellChanges_Click(object sender, EventArgs e)
-        {
-            if (tbSpellName.Text == "")
-            {
-                MessageBox.Show("Spell Name must be filled out", "Spell Save Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
-            }
-
-            if (!Regex.IsMatch(tbSpellLevel.Text, "[0-9]{1}"))
-            {
-                MessageBox.Show("Spell Level must be a number 0 - 9", "Spell Save Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
-            }
-
-            Spell dedicateSpell = new Spell();
-            dedicateSpell.Favorited = chkFavoriteSpell.Checked;
-            dedicateSpell.Name = tbSpellName.Text;
-            dedicateSpell.Class = tbSpellClass.Text;
-            dedicateSpell.Level = tbSpellLevel.Text;
-            dedicateSpell.Domain = tbSpellDomain.Text;
-            dedicateSpell.Components = tbSpellComponents.Text;
-            dedicateSpell.Casting = tbSpellCastingTime.Text;
-            dedicateSpell.Range = tbSpellRange.Text;
-            dedicateSpell.Target = tbSpellTarget.Text;
-            dedicateSpell.Effect = tbSpellEffect.Text;
-            dedicateSpell.Duration = tbSpellDuration.Text;
-            dedicateSpell.SavingThrow = tbSpellSaving.Text;
-            dedicateSpell.SpellResistance = tbSpellResistance.Text;
-            dedicateSpell.SourceBook = tbSource.Text;
-            dedicateSpell.Description = rtbSpellDescription.Text;
-
-            string xmlPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Spells.xml");
-
-            if (tbOverrideSpellXML.Text != "")
-            {
-                xmlPath = tbOverrideSpellXML.Text;
-            }
-
-            Spells spells = FileParser.GetSpellsFromXML(xmlPath);
-
-            if (SpellExists(spells, dedicateSpell, out int removal))
-            {
-                if (MessageBox.Show("Would you like to overwrite?", "Spell already exists", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
-                {
-                    spells.RemoveAt(removal);
-                    spells.Add(dedicateSpell);
-                    ClearSpellPage();
-                }
-            }
-            else
-            {
-                spells.Add(dedicateSpell);
-                ClearSpellPage();
-            }
-
-            FileParser.DedicateSpellsToXML(xmlPath, spells);
-        }
-
-        private void BtnClearSpell_Click(object sender, EventArgs e)
-        {
-            ClearSpellPage();
+            chkFavoriteSpell.Checked = spell.Favorited;
+            tbSpellName.Text = spell.Name;
+            tbSpellClass.Text = spell.Class;
+            tbSpellLevel.Text = spell.Level;
+            tbSpellDomain.Text = spell.Domain;
+            tbSpellComponents.Text = spell.Components;
+            tbSpellCastingTime.Text = spell.Casting;
+            tbSpellRange.Text = spell.Range;
+            tbSpellTarget.Text = spell.Target;
+            tbSpellEffect.Text = spell.Effect;
+            tbSpellDuration.Text = spell.Duration;
+            tbSpellSaving.Text = spell.SavingThrow;
+            tbSpellResistance.Text = spell.SpellResistance;
+            tbSource.Text = spell.SourceBook;
+            rtbSpellDescription.Text = spell.Description;
         }
 
         private void ClearSpellPage()
         {
-            rtbSpellText.Clear();
+            sittingSpellIndex = 0;
+
             chkFavoriteSpell.Checked = false;
             tbSpellCastingTime.Clear();
             tbSpellClass.Clear();
@@ -526,146 +497,59 @@ namespace DruidAssistant
             RefreshSummonPage();
         }
 
-        private void BtnClearSummonPage_Click(object sender, EventArgs e)
-        {
-            ClearSummonPage();
-        }
-
-        private void BtnSaveSummonChanges_Click(object sender, EventArgs e)
-        {
-            string xmlPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Summons.xml");
-
-            if (tbOverrideSummonXML.Text != "")
-            {
-                xmlPath = tbOverrideSummonXML.Text;
-            }
-
-            tbOverrideSummonXML.Text = xmlPath;
-
-            if (!File.Exists(xmlPath))
-            {
-                MessageBox.Show("XML file was not found.", "File Not Found", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
-            }
-
-            if (tbName.Text == "")
-            {
-                MessageBox.Show("Summon Name must be filled out", "Summon Save Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
-            }
-
-            if (cbSummonSpell.Text == "")
-            {
-                MessageBox.Show("Summon Spell/Category must be specified", "Summon Save Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
-            }
-
-            SummonTemplate st = new SummonTemplate();
-            st.SummonSpell = cbSummonSpell.Text;
-            st.Name = tbName.Text;
-            st.Abilities = new Abilities((int)nudSTR.Value, (int)nudDEX.Value, (int)nudCON.Value, (int)nudINT.Value, (int)nudWIS.Value, (int)nudCHA.Value);
-            st.Saves = new Saves((int)nudFort.Value, (int)nudRef.Value, (int)nudWill.Value);
-
-            st.Level = (int)nudLevel.Value;
-            st.HitDie = (int)nudHD.Value;
-            st.NaturalArmor = (int)nudNatural.Value;
-            st.BAB = (int)nudBAB.Value;
-            st.Grapple = (int)nudGrapple.Value;
-
-            if (cbSize.SelectedItem.ToString() == "Diminuitive") { st.Size = DruidAssistant.Size.Diminuitive; }
-            else if (cbSize.SelectedItem.ToString() == "Fine") { st.Size = DruidAssistant.Size.Fine; }
-            else if (cbSize.SelectedItem.ToString() == "Tiny") { st.Size = DruidAssistant.Size.Tiny; }
-            else if (cbSize.SelectedItem.ToString() == "Small") { st.Size = DruidAssistant.Size.Small; }
-            else if (cbSize.SelectedItem.ToString() == "Medium") { st.Size = DruidAssistant.Size.Medium; }
-            else if (cbSize.SelectedItem.ToString() == "Large") { st.Size = DruidAssistant.Size.Large; }
-            else if (cbSize.SelectedItem.ToString() == "Huge") { st.Size = DruidAssistant.Size.Huge; }
-            else if (cbSize.SelectedItem.ToString() == "Gargantuan") { st.Size = DruidAssistant.Size.Gargantuan; }
-            else if (cbSize.SelectedItem.ToString() == "Colossal") { st.Size = DruidAssistant.Size.Colossal; }
-            else { st.Size = DruidAssistant.Size.Medium; }
-
-            st.Type = tbType.Text;
-            st.Environment = tbEnvironment.Text;
-            st.Space = tbSpace.Text;
-            st.Reach = tbReach.Text;
-            st.Movement = tbMovement.Text;
-
-            st.Skills = rtbSkills.Text.Split(',').ToList();
-            st.Feats = tbFeats.Text.Split(',').ToList();
-            st.SpecAtks = tbSpecAtks.Text.Split(',').ToList();
-            st.SpecQual = tbSpecQual.Text.Split(',').ToList();
-            st.Notes = rtbCombat.Text.Split('\r').ToList();
-
-            st.Attacks = FileParser.GetAttacks(rtbAttacks.Text);
-            st.FullAttacks = FileParser.GetFullAttacks(rtbFullAttacks.Text);
-
-            SummonTemplates summons = FileParser.GetSummonsFromXML(xmlPath);
-
-            if (SummonExists(summons, st, out int removal))
-            {
-                if (MessageBox.Show("Would you like to overwrite?", "Summon already exists", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
-                {
-                    summons.RemoveAt(removal);
-                    summons.Add(st);
-                    ClearSummonPage();
-                }
-            }
-            else
-            {
-                summons.Add(st);
-                ClearSummonPage();
-            }
-
-            FileParser.DedicateSummonsToXML(xmlPath, summons);
-            RefreshSummonPage();
-        }
-
-        private void ClearSummonPage()
-        {
-            rtbSummonText.Clear();
-            tbName.Clear();
-            nudSTR.Value = 0;
-            nudDEX.Value = 0;
-            nudCON.Value = 0;
-            nudINT.Value = 0;
-            nudWIS.Value = 0;
-            nudCHA.Value = 0;
-
-            nudFort.Value = 0;
-            nudRef.Value = 0;
-            nudWill.Value = 0;
-
-            nudLevel.Value = 0;
-            nudHD.Value = 0;
-            nudNatural.Value = 0;
-            nudBAB.Value = 0;
-            nudGrapple.Value = 0;
-
-            cbSize.ResetText();
-            tbType.Clear();
-            tbEnvironment.Clear();
-            tbSpace.Clear();
-            tbReach.Clear();
-            tbMovement.Clear();
-            rtbSkills.Clear();
-            tbFeats.Clear();
-            tbSpecAtks.Clear();
-            tbSpecQual.Clear();
-            rtbCombat.Clear();
-            rtbAttacks.Clear();
-            rtbFullAttacks.Clear();
-        }
-
-        private bool SummonExists(List<SummonTemplate> summons, SummonTemplate summon, out int indexMatch)
+        private bool IsSummonExists(List<SummonTemplate> summons, SummonTemplate summon, out int indexMatch)
         {
             for (int i = 0; i < summons.Count; i++)
             {
-                if (summons[i].Name == summon.Name && summons[i].SummonSpell == summon.SummonSpell)
+                if (summons[i].Name.ToUpper() == summon.Name.ToUpper() && summons[i].SummonSpell.ToUpper() == summon.SummonSpell.ToUpper())
                 {
                     indexMatch = i;
                     return true;
                 }
             }
             indexMatch = -1;
+            return false;
+        }
+
+        private bool FindSummon(List<SummonTemplate> summons, int summonIndex, out int indexMatch)
+        {
+            for (int i = 0; i < summons.Count; i++)
+            {
+                if (summons[i].Index == summonIndex)
+                {
+                    indexMatch = i;
+                    return true;
+                }
+            }
+            indexMatch = -1;
+            return false;
+        }
+
+        private bool IsSpellExists(List<Spell> spells, Spell spell, out int indexMatch)
+        {
+            for (int i = 0; i < spells.Count; i++)
+            {
+                if (spells[i].Name.ToUpper() == spell.Name.ToUpper() && spells[i].Level.ToUpper() == spell.Level.ToUpper())
+                {
+                    indexMatch = i;
+                    return true;
+                }
+            }
+            indexMatch = -1;
+            return false;
+        }
+
+        private bool FindSpell(List<Spell> spells, int spellIndex, out int matchIndex)
+        {
+            for (int i = 0; i < spells.Count; i++)
+            {
+                if (spells[i].Index == spellIndex)
+                {
+                    matchIndex = i;
+                    return true;
+                }
+            }
+            matchIndex = -1;
             return false;
         }
 
@@ -689,6 +573,7 @@ namespace DruidAssistant
 
         private void LoadPreview(SummonTemplate st)
         {
+            sittingSummonIndex = st.Index;
             cbSummonSpell.SelectedItem = st.SummonSpell;
             tbName.Text = st.Name;
             nudSTR.Value = st.Abilities.Str;
@@ -725,8 +610,9 @@ namespace DruidAssistant
             rtbFullAttacks.Text = ListToSeparated(st.FullAttacks, "\r");
         }
 
-        private void BtnTryParse_Click(object sender, EventArgs e)
+        private void BtnTryParseSpell_Click(object sender, EventArgs e)
         {
+            ClearSpellPage();
             Spell tryParseSpell = new Spell(FileParser.GetSpellFromText(rtbSpellText.Text));
             tbSpellName.Text = tryParseSpell.Name;
             tbSpellClass.Text = tryParseSpell.Class;
@@ -747,6 +633,7 @@ namespace DruidAssistant
 
         private void BtnTryParseSummon_Click(object sender, EventArgs e)
         {
+            ClearSummonPage();
             SummonTemplate st = FileParser.GetSummonTemplateFromText(rtbSummonText.Text);
             LoadPreview(st);
         }
@@ -829,7 +716,7 @@ namespace DruidAssistant
                         {
                             SummonTemplates summons = FileParser.GetSummonsFromXML(tbOverrideSummonXML.Text);
 
-                            if (SummonExists(summons, (SummonTemplate)tvTemplates.SelectedNode.Tag, out int indexMatch))
+                            if (IsSummonExists(summons, (SummonTemplate)tvTemplates.SelectedNode.Tag, out int indexMatch))
                             {
                                 summons.RemoveAt(indexMatch);
                             }
@@ -850,6 +737,26 @@ namespace DruidAssistant
         private void BtnDev_Click(object sender, EventArgs e)
         {
             return;
+
+            Spells spells = FileParser.GetSpellsFromXML(tbOverrideSpellXML.Text);
+
+            for (int i = 0; i < spells.Count; i++)
+            {
+                spells[i].Index = i + 1;
+            }
+
+            FileParser.DedicateSpellsToXML(tbOverrideSpellXML.Text, spells);
+
+            SummonTemplates summonTs = FileParser.GetSummonsFromXML(tbOverrideSummonXML.Text);
+
+            for (int i = 0; i < summonTs.Count; i++)
+            {
+                summonTs[i].Index = i + 1;
+            }
+
+            FileParser.DedicateSummonsToXML(tbOverrideSummonXML.Text, summonTs);
+
+
             FolderBrowserDialog fbd = new FolderBrowserDialog();
             if (fbd.ShowDialog() == DialogResult.OK)
             {
@@ -865,7 +772,7 @@ namespace DruidAssistant
                         st.SummonSpell = thisSummon.Name;
 
                         SummonTemplates summons = FileParser.GetSummonsFromXML(tbOverrideSummonXML.Text);
-                        if (SummonExists(summons, st, out int removal))
+                        if (IsSummonExists(summons, st, out int removal))
                         {
                             if (MessageBox.Show("Would you like to overwrite?", "Summon already exists", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                             {
@@ -916,6 +823,11 @@ namespace DruidAssistant
 
         private void TbOverrideSpellXML_Validating(object sender, CancelEventArgs e)
         {
+            ValidateSpellOverride();
+        }
+
+        private void ValidateSpellOverride()
+        {
             if (File.Exists(tbOverrideSpellXML.Text))
             {
                 tbOverrideSpellXML.BackColor = Color.FromArgb(192, 255, 192);
@@ -927,6 +839,11 @@ namespace DruidAssistant
         }
 
         private void TbOverrideSummonXML_Validating(object sender, CancelEventArgs e)
+        {
+            ValidateSummonOverride();
+        }
+
+        private void ValidateSummonOverride()
         {
             if (File.Exists(tbOverrideSpellXML.Text))
             {
@@ -971,7 +888,7 @@ namespace DruidAssistant
             Spells spells = FileParser.GetSpellsFromXML(xmlPath);
             Spell thisSpell = (Spell)tvSpells.SelectedNode.Tag;
 
-            if (SpellExists(spells, thisSpell, out int index))
+            if (IsSpellExists(spells, thisSpell, out int index))
             {
                 if (spells[index].Favorited) { spells[index].Favorited = false; }
                 else if (!spells[index].Favorited) { spells[index].Favorited = true; }
@@ -981,6 +898,459 @@ namespace DruidAssistant
             }
 
             RefreshSpellPage(GetSpellNodesExpansion());
+        }
+
+        private void BtnClearSpell_Click(object sender, EventArgs e)
+        {
+            ClearSpellPage();
+            rtbSpellText.Clear();
+        }
+
+        int sittingSpellIndex = 0;
+        int sittingSummonIndex = 0;
+
+        private void BtnAddSpell_Click(object sender, EventArgs e)
+        {
+            string xmlPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Spells.xml");
+
+            if (tbOverrideSpellXML.Text != "")
+            {
+                xmlPath = tbOverrideSpellXML.Text;
+            }
+
+            tbOverrideSpellXML.Text = xmlPath;
+
+            if (!File.Exists(xmlPath))
+            {
+                MessageBox.Show("XML file was not found.", "File Not Found", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            if (tbSpellName.Text == "")
+            {
+                MessageBox.Show("Spell Name must be filled out", "Spell Update Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            if (!Regex.IsMatch(tbSpellLevel.Text, "[0-9]{1}"))
+            {
+                MessageBox.Show("Spell Level must be a number 0 - 9", "Spell Update Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            Spell addSpell = new Spell();
+            addSpell.Favorited = chkFavoriteSpell.Checked;
+            addSpell.Name = tbSpellName.Text;
+            addSpell.Class = tbSpellClass.Text;
+            addSpell.Level = tbSpellLevel.Text;
+            addSpell.Domain = tbSpellDomain.Text;
+            addSpell.Components = tbSpellComponents.Text;
+            addSpell.Casting = tbSpellCastingTime.Text;
+            addSpell.Range = tbSpellRange.Text;
+            addSpell.Target = tbSpellTarget.Text;
+            addSpell.Effect = tbSpellEffect.Text;
+            addSpell.Duration = tbSpellDuration.Text;
+            addSpell.SavingThrow = tbSpellSaving.Text;
+            addSpell.SpellResistance = tbSpellResistance.Text;
+            addSpell.SourceBook = tbSource.Text;
+            addSpell.Description = rtbSpellDescription.Text;
+
+            Spells spells = FileParser.GetSpellsFromXML(xmlPath);
+
+            if (IsSpellExists(spells, addSpell, out int indexMatch))
+            {
+                if (MessageBox.Show("Spell of the same name and level already exists\rWould you like to add a duplicate?", "Spell already exists", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                {
+                    addSpell.Index = spells.Max(x => x.Index) + 1;
+                    spells.Add(addSpell);
+                    ClearSpellPage();
+                }
+            }
+            else
+            {
+                addSpell.Index = spells.Max(x => x.Index) + 1;
+                spells.Add(addSpell);
+                ClearSpellPage();
+            }
+            rtbSpellText.Clear();
+            FileParser.DedicateSpellsToXML(xmlPath, spells);
+            RefreshSpellPage(GetSpellNodesExpansion());
+        }
+
+        private void BtnUpdateSpell_Click(object sender, EventArgs e)
+        {
+            string xmlPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Spells.xml");
+
+            if (tbOverrideSpellXML.Text != "")
+            {
+                xmlPath = tbOverrideSpellXML.Text;
+            }
+
+            tbOverrideSpellXML.Text = xmlPath;
+
+            if (!File.Exists(xmlPath))
+            {
+                MessageBox.Show("XML file was not found.", "File Not Found", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            if (sittingSpellIndex == 0)
+            {
+                MessageBox.Show("Spell does not exist.", "Spell Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            else
+            {
+                if (tbSpellName.Text == "")
+                {
+                    MessageBox.Show("Spell Name must be filled out", "Spell Update Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+
+                if (!Regex.IsMatch(tbSpellLevel.Text, "[0-9]{1}"))
+                {
+                    MessageBox.Show("Spell Level must be a number 0 - 9", "Spell Update Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+
+                Spell updateSpell = new Spell();
+                updateSpell.Index = sittingSpellIndex;
+                updateSpell.Favorited = chkFavoriteSpell.Checked;
+                updateSpell.Name = tbSpellName.Text;
+                updateSpell.Class = tbSpellClass.Text;
+                updateSpell.Level = tbSpellLevel.Text;
+                updateSpell.Domain = tbSpellDomain.Text;
+                updateSpell.Components = tbSpellComponents.Text;
+                updateSpell.Casting = tbSpellCastingTime.Text;
+                updateSpell.Range = tbSpellRange.Text;
+                updateSpell.Target = tbSpellTarget.Text;
+                updateSpell.Effect = tbSpellEffect.Text;
+                updateSpell.Duration = tbSpellDuration.Text;
+                updateSpell.SavingThrow = tbSpellSaving.Text;
+                updateSpell.SpellResistance = tbSpellResistance.Text;
+                updateSpell.SourceBook = tbSource.Text;
+                updateSpell.Description = rtbSpellDescription.Text;
+
+                Spells spells = FileParser.GetSpellsFromXML(xmlPath);
+
+                if (FindSpell(spells, sittingSpellIndex, out int indexMatch))
+                {
+                    spells[indexMatch] = updateSpell;
+                }
+                else
+                {
+                    MessageBox.Show("Spell cannot be found.", "Spell Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+
+                FileParser.DedicateSpellsToXML(xmlPath, spells);
+                RefreshSpellPage(GetSpellNodesExpansion());
+            }
+        }
+
+        private void BtnDeleteSpell_Click(object sender, EventArgs e)
+        {
+            string xmlPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Spells.xml");
+
+            if (tbOverrideSpellXML.Text != "")
+            {
+                xmlPath = tbOverrideSpellXML.Text;
+            }
+
+            tbOverrideSpellXML.Text = xmlPath;
+
+            if (!File.Exists(xmlPath))
+            {
+                MessageBox.Show("XML file was not found.", "File Not Found", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            if (sittingSpellIndex == 0)
+            {
+                MessageBox.Show("Spell does not exist.", "Spell Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            else
+            {
+
+                Spells spells = FileParser.GetSpellsFromXML(xmlPath);
+
+                if (FindSpell(spells, sittingSpellIndex, out int indexMatch))
+                {
+                    spells.RemoveAt(indexMatch);
+                }
+                else
+                {
+                    MessageBox.Show("Spell cannot be found.", "Spell Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+
+                ClearSpellPage();
+                FileParser.DedicateSpellsToXML(xmlPath, spells);
+                RefreshSpellPage(GetSpellNodesExpansion());
+            }
+        }
+
+        private void BtnClearSummonPage_Click(object sender, EventArgs e)
+        {
+            ClearSummonPage();
+        }
+
+        private void BtnAddSummon_Click(object sender, EventArgs e)
+        {
+            string xmlPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Summons.xml");
+
+            if (tbOverrideSummonXML.Text != "")
+            {
+                xmlPath = tbOverrideSummonXML.Text;
+            }
+
+            tbOverrideSummonXML.Text = xmlPath;
+
+            if (!File.Exists(xmlPath))
+            {
+                MessageBox.Show("XML file was not found.", "File Not Found", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            if (tbName.Text == "")
+            {
+                MessageBox.Show("Summon Name must be filled out", "Summon Save Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            if (cbSummonSpell.Text == "")
+            {
+                MessageBox.Show("Summon Spell/Category must be specified", "Summon Save Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            SummonTemplate addSummon = new SummonTemplate();
+            addSummon.SummonSpell = cbSummonSpell.Text;
+            addSummon.Name = tbName.Text;
+            addSummon.Abilities = new Abilities((int)nudSTR.Value, (int)nudDEX.Value, (int)nudCON.Value, (int)nudINT.Value, (int)nudWIS.Value, (int)nudCHA.Value);
+            addSummon.Saves = new Saves((int)nudFort.Value, (int)nudRef.Value, (int)nudWill.Value);
+
+            addSummon.Level = (int)nudLevel.Value;
+            addSummon.HitDie = (int)nudHD.Value;
+            addSummon.NaturalArmor = (int)nudNatural.Value;
+            addSummon.BAB = (int)nudBAB.Value;
+            addSummon.Grapple = (int)nudGrapple.Value;
+
+            if (cbSize.SelectedItem.ToString() == "Diminuitive") { addSummon.Size = DruidAssistant.Size.Diminuitive; }
+            else if (cbSize.SelectedItem.ToString() == "Fine") { addSummon.Size = DruidAssistant.Size.Fine; }
+            else if (cbSize.SelectedItem.ToString() == "Tiny") { addSummon.Size = DruidAssistant.Size.Tiny; }
+            else if (cbSize.SelectedItem.ToString() == "Small") { addSummon.Size = DruidAssistant.Size.Small; }
+            else if (cbSize.SelectedItem.ToString() == "Medium") { addSummon.Size = DruidAssistant.Size.Medium; }
+            else if (cbSize.SelectedItem.ToString() == "Large") { addSummon.Size = DruidAssistant.Size.Large; }
+            else if (cbSize.SelectedItem.ToString() == "Huge") { addSummon.Size = DruidAssistant.Size.Huge; }
+            else if (cbSize.SelectedItem.ToString() == "Gargantuan") { addSummon.Size = DruidAssistant.Size.Gargantuan; }
+            else if (cbSize.SelectedItem.ToString() == "Colossal") { addSummon.Size = DruidAssistant.Size.Colossal; }
+            else { addSummon.Size = DruidAssistant.Size.Medium; }
+
+            addSummon.Type = tbType.Text;
+            addSummon.Environment = tbEnvironment.Text;
+            addSummon.Space = tbSpace.Text;
+            addSummon.Reach = tbReach.Text;
+            addSummon.Movement = tbMovement.Text;
+
+            addSummon.Skills = rtbSkills.Text.Split(',').ToList();
+            addSummon.Feats = tbFeats.Text.Split(',').ToList();
+            addSummon.SpecAtks = tbSpecAtks.Text.Split(',').ToList();
+            addSummon.SpecQual = tbSpecQual.Text.Split(',').ToList();
+            addSummon.Notes = rtbCombat.Text.Split('\r').ToList();
+
+            addSummon.Attacks = FileParser.GetAttacks(rtbAttacks.Text);
+            addSummon.FullAttacks = FileParser.GetFullAttacks(rtbFullAttacks.Text);
+
+            SummonTemplates summons = FileParser.GetSummonsFromXML(xmlPath);
+
+            if (IsSummonExists(summons, addSummon, out int indexMatch))
+            {
+                if (MessageBox.Show("Summon of the same name and level already exists\rWould you like to add a duplicate?", "Spell already exists", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                {
+                    addSummon.Index = summons.Max(x => x.Index) + 1;
+                    summons.Add(addSummon);
+                    ClearSummonPage();
+                }
+            }
+            else
+            {
+                addSummon.Index = summons.Max(x => x.Index) + 1;
+                summons.Add(addSummon);
+                ClearSummonPage();
+            }
+
+            FileParser.DedicateSummonsToXML(xmlPath, summons);
+            RefreshSummonPage();
+        }
+
+        private void BtnUpdateSummon_Click(object sender, EventArgs e)
+        {
+            string xmlPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Summons.xml");
+
+            if (tbOverrideSummonXML.Text != "")
+            {
+                xmlPath = tbOverrideSummonXML.Text;
+            }
+
+            tbOverrideSummonXML.Text = xmlPath;
+
+            if (!File.Exists(xmlPath))
+            {
+                MessageBox.Show("XML file was not found.", "File Not Found", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            if (sittingSummonIndex == 0)
+            {
+                MessageBox.Show("Summon does not exist.", "Summon Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            else
+            {
+                if (tbName.Text == "")
+                {
+                    MessageBox.Show("Summon Name must be filled out", "Summon Save Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+
+                if (cbSummonSpell.Text == "")
+                {
+                    MessageBox.Show("Summon Spell/Category must be specified", "Summon Save Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+
+                SummonTemplate updateSummon = new SummonTemplate();
+                updateSummon.Index = sittingSummonIndex;
+                updateSummon.SummonSpell = cbSummonSpell.Text;
+                updateSummon.Name = tbName.Text;
+                updateSummon.Abilities = new Abilities((int)nudSTR.Value, (int)nudDEX.Value, (int)nudCON.Value, (int)nudINT.Value, (int)nudWIS.Value, (int)nudCHA.Value);
+                updateSummon.Saves = new Saves((int)nudFort.Value, (int)nudRef.Value, (int)nudWill.Value);
+
+                updateSummon.Level = (int)nudLevel.Value;
+                updateSummon.HitDie = (int)nudHD.Value;
+                updateSummon.NaturalArmor = (int)nudNatural.Value;
+                updateSummon.BAB = (int)nudBAB.Value;
+                updateSummon.Grapple = (int)nudGrapple.Value;
+
+                if (cbSize.SelectedItem.ToString() == "Diminuitive") { updateSummon.Size = DruidAssistant.Size.Diminuitive; }
+                else if (cbSize.SelectedItem.ToString() == "Fine") { updateSummon.Size = DruidAssistant.Size.Fine; }
+                else if (cbSize.SelectedItem.ToString() == "Tiny") { updateSummon.Size = DruidAssistant.Size.Tiny; }
+                else if (cbSize.SelectedItem.ToString() == "Small") { updateSummon.Size = DruidAssistant.Size.Small; }
+                else if (cbSize.SelectedItem.ToString() == "Medium") { updateSummon.Size = DruidAssistant.Size.Medium; }
+                else if (cbSize.SelectedItem.ToString() == "Large") { updateSummon.Size = DruidAssistant.Size.Large; }
+                else if (cbSize.SelectedItem.ToString() == "Huge") { updateSummon.Size = DruidAssistant.Size.Huge; }
+                else if (cbSize.SelectedItem.ToString() == "Gargantuan") { updateSummon.Size = DruidAssistant.Size.Gargantuan; }
+                else if (cbSize.SelectedItem.ToString() == "Colossal") { updateSummon.Size = DruidAssistant.Size.Colossal; }
+                else { updateSummon.Size = DruidAssistant.Size.Medium; }
+
+                updateSummon.Type = tbType.Text;
+                updateSummon.Environment = tbEnvironment.Text;
+                updateSummon.Space = tbSpace.Text;
+                updateSummon.Reach = tbReach.Text;
+                updateSummon.Movement = tbMovement.Text;
+
+                updateSummon.Skills = rtbSkills.Text.Split(',').ToList();
+                updateSummon.Feats = tbFeats.Text.Split(',').ToList();
+                updateSummon.SpecAtks = tbSpecAtks.Text.Split(',').ToList();
+                updateSummon.SpecQual = tbSpecQual.Text.Split(',').ToList();
+                updateSummon.Notes = rtbCombat.Text.Split('\r').ToList();
+
+                updateSummon.Attacks = FileParser.GetAttacks(rtbAttacks.Text);
+                updateSummon.FullAttacks = FileParser.GetFullAttacks(rtbFullAttacks.Text);
+
+                SummonTemplates summons = FileParser.GetSummonsFromXML(xmlPath);
+
+                if (FindSummon(summons,sittingSummonIndex,out int indexMatch))
+                {
+                    summons[indexMatch] = updateSummon;
+                }
+                else
+                {
+                    MessageBox.Show("Summon cannot be found.", "Summon Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+
+                FileParser.DedicateSummonsToXML(xmlPath, summons);
+                RefreshSummonPage();
+            }
+        }
+
+        private void ClearSummonPage()
+        {
+            sittingSummonIndex = 0;
+
+            rtbSummonText.Clear();
+            tbName.Clear();
+            nudSTR.Value = 0;
+            nudDEX.Value = 0;
+            nudCON.Value = 0;
+            nudINT.Value = 0;
+            nudWIS.Value = 0;
+            nudCHA.Value = 0;
+
+            nudFort.Value = 0;
+            nudRef.Value = 0;
+            nudWill.Value = 0;
+
+            nudLevel.Value = 0;
+            nudHD.Value = 0;
+            nudNatural.Value = 0;
+            nudBAB.Value = 0;
+            nudGrapple.Value = 0;
+
+            cbSize.ResetText();
+            tbType.Clear();
+            tbEnvironment.Clear();
+            tbSpace.Clear();
+            tbReach.Clear();
+            tbMovement.Clear();
+            rtbSkills.Clear();
+            tbFeats.Clear();
+            tbSpecAtks.Clear();
+            tbSpecQual.Clear();
+            rtbCombat.Clear();
+            rtbAttacks.Clear();
+            rtbFullAttacks.Clear();
+        }
+
+        private void BtnDeleteSummon_Click(object sender, EventArgs e)
+        {
+            string xmlPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Summons.xml");
+
+            if (tbOverrideSummonXML.Text != "")
+            {
+                xmlPath = tbOverrideSummonXML.Text;
+            }
+
+            tbOverrideSummonXML.Text = xmlPath;
+
+            if (!File.Exists(xmlPath))
+            {
+                MessageBox.Show("XML file was not found.", "File Not Found", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            if (sittingSummonIndex == 0)
+            {
+                MessageBox.Show("Summon does not exist.", "Summon Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            else
+            {
+                SummonTemplates summons = FileParser.GetSummonsFromXML(xmlPath);
+
+                if (FindSummon(summons, sittingSummonIndex, out int indexMatch))
+                {
+                    summons.RemoveAt(indexMatch);
+                }
+                else
+                {
+                    MessageBox.Show("Summon cannot be found.", "Summon Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+
+                ClearSummonPage();
+                FileParser.DedicateSummonsToXML(xmlPath, summons);
+                RefreshSummonPage();
+            }
         }
     }
 }

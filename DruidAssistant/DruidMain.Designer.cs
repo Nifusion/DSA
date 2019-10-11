@@ -41,6 +41,10 @@
             this.tcMain = new System.Windows.Forms.TabControl();
             this.tabPageSummon = new System.Windows.Forms.TabPage();
             this.panel9 = new System.Windows.Forms.Panel();
+            this.tableLayoutPanel8 = new System.Windows.Forms.TableLayoutPanel();
+            this.btnAddSummon = new System.Windows.Forms.Button();
+            this.btnDeleteSummon = new System.Windows.Forms.Button();
+            this.btnUpdateSummon = new System.Windows.Forms.Button();
             this.cbSummonSpell = new System.Windows.Forms.ComboBox();
             this.tableLayoutPanel5 = new System.Windows.Forms.TableLayoutPanel();
             this.label28 = new System.Windows.Forms.Label();
@@ -77,8 +81,6 @@
             this.nudNatural = new System.Windows.Forms.NumericUpDown();
             this.nudBAB = new System.Windows.Forms.NumericUpDown();
             this.nudGrapple = new System.Windows.Forms.NumericUpDown();
-            this.label34 = new System.Windows.Forms.Label();
-            this.label35 = new System.Windows.Forms.Label();
             this.label36 = new System.Windows.Forms.Label();
             this.label37 = new System.Windows.Forms.Label();
             this.tableLayoutPanel6 = new System.Windows.Forms.TableLayoutPanel();
@@ -107,7 +109,6 @@
             this.label49 = new System.Windows.Forms.Label();
             this.rtbCombat = new System.Windows.Forms.RichTextBox();
             this.btnClearSummonPage = new System.Windows.Forms.Button();
-            this.btnSaveSummonChanges = new System.Windows.Forms.Button();
             this.panel8 = new System.Windows.Forms.Panel();
             this.tcSummons = new System.Windows.Forms.TabControl();
             this.tabPageSummons = new System.Windows.Forms.TabPage();
@@ -156,16 +157,18 @@
             this.chkFavoriteSpell = new System.Windows.Forms.CheckBox();
             this.panel4 = new System.Windows.Forms.Panel();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
-            this.btnClearSpell = new System.Windows.Forms.Button();
-            this.btnSaveSpellChanges = new System.Windows.Forms.Button();
+            this.btnDeleteSpell = new System.Windows.Forms.Button();
+            this.btnUpdateSpell = new System.Windows.Forms.Button();
+            this.btnAddSpell = new System.Windows.Forms.Button();
             this.panel3 = new System.Windows.Forms.Panel();
             this.tcSpells = new System.Windows.Forms.TabControl();
             this.tabPageSpellList = new System.Windows.Forms.TabPage();
             this.tvSpells = new System.Windows.Forms.TreeView();
+            this.btnClearSpell = new System.Windows.Forms.Button();
             this.tabPageTryParseSpell = new System.Windows.Forms.TabPage();
             this.rtbSpellText = new System.Windows.Forms.RichTextBox();
             this.panel7 = new System.Windows.Forms.Panel();
-            this.btnTryParse = new System.Windows.Forms.Button();
+            this.btnTryParseSpell = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.tbOverrideSpellXML = new System.Windows.Forms.TextBox();
@@ -177,6 +180,7 @@
             this.tcMain.SuspendLayout();
             this.tabPageSummon.SuspendLayout();
             this.panel9.SuspendLayout();
+            this.tableLayoutPanel8.SuspendLayout();
             this.tableLayoutPanel5.SuspendLayout();
             this.tableLayoutPanel4.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
@@ -221,7 +225,7 @@
             this.rtbSummonText.Dock = System.Windows.Forms.DockStyle.Fill;
             this.rtbSummonText.Location = new System.Drawing.Point(3, 3);
             this.rtbSummonText.Name = "rtbSummonText";
-            this.rtbSummonText.Size = new System.Drawing.Size(211, 304);
+            this.rtbSummonText.Size = new System.Drawing.Size(209, 306);
             this.rtbSummonText.TabIndex = 0;
             this.rtbSummonText.Text = "";
             this.rtbSummonText.TextChanged += new System.EventHandler(this.RtbTextInvestigate_TextChanged);
@@ -231,7 +235,7 @@
             this.tbOverrideSummonXML.Dock = System.Windows.Forms.DockStyle.Top;
             this.tbOverrideSummonXML.Location = new System.Drawing.Point(0, 34);
             this.tbOverrideSummonXML.Name = "tbOverrideSummonXML";
-            this.tbOverrideSummonXML.Size = new System.Drawing.Size(225, 20);
+            this.tbOverrideSummonXML.Size = new System.Drawing.Size(223, 20);
             this.tbOverrideSummonXML.TabIndex = 2;
             this.tbOverrideSummonXML.Validating += new System.ComponentModel.CancelEventHandler(this.TbOverrideSummonXML_Validating);
             // 
@@ -240,16 +244,16 @@
             this.panel1.Controls.Add(this.nudCasterLevel);
             this.panel1.Controls.Add(this.label18);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel1.Location = new System.Drawing.Point(3, 171);
+            this.panel1.Location = new System.Drawing.Point(3, 173);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(211, 26);
+            this.panel1.Size = new System.Drawing.Size(209, 26);
             this.panel1.TabIndex = 10;
             // 
             // nudCasterLevel
             // 
             this.nudCasterLevel.Dock = System.Windows.Forms.DockStyle.Right;
             this.nudCasterLevel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.nudCasterLevel.Location = new System.Drawing.Point(166, 0);
+            this.nudCasterLevel.Location = new System.Drawing.Point(164, 0);
             this.nudCasterLevel.Margin = new System.Windows.Forms.Padding(0);
             this.nudCasterLevel.Name = "nudCasterLevel";
             this.nudCasterLevel.Size = new System.Drawing.Size(45, 26);
@@ -278,7 +282,7 @@
             this.tvTemplates.Location = new System.Drawing.Point(3, 3);
             this.tvTemplates.Margin = new System.Windows.Forms.Padding(0);
             this.tvTemplates.Name = "tvTemplates";
-            this.tvTemplates.Size = new System.Drawing.Size(211, 168);
+            this.tvTemplates.Size = new System.Drawing.Size(209, 170);
             this.tvTemplates.TabIndex = 11;
             this.tvTemplates.NodeMouseDoubleClick += new System.Windows.Forms.TreeNodeMouseClickEventHandler(this.TvTemplates_NodeMouseDoubleClick);
             this.tvTemplates.DragDrop += new System.Windows.Forms.DragEventHandler(this.TvTemplates_DragDrop);
@@ -294,19 +298,19 @@
             "Feat: Augment Summoning",
             "Feat: Greenbound Summoning",
             "Item: Obad-Hai\'s Green Man"});
-            this.clbAugments.Location = new System.Drawing.Point(3, 197);
+            this.clbAugments.Location = new System.Drawing.Point(3, 199);
             this.clbAugments.Name = "clbAugments";
-            this.clbAugments.Size = new System.Drawing.Size(211, 109);
+            this.clbAugments.Size = new System.Drawing.Size(209, 109);
             this.clbAugments.TabIndex = 2;
             // 
             // btnLoad
             // 
             this.btnLoad.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.btnLoad.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnLoad.Location = new System.Drawing.Point(3, 346);
+            this.btnLoad.Location = new System.Drawing.Point(3, 348);
             this.btnLoad.Margin = new System.Windows.Forms.Padding(0);
             this.btnLoad.Name = "btnLoad";
-            this.btnLoad.Size = new System.Drawing.Size(211, 40);
+            this.btnLoad.Size = new System.Drawing.Size(209, 40);
             this.btnLoad.TabIndex = 3;
             this.btnLoad.Text = "Load Selected";
             this.btnLoad.UseVisualStyleBackColor = true;
@@ -325,11 +329,11 @@
             // 
             // tabPageSummon
             // 
+            this.tabPageSummon.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.tabPageSummon.Controls.Add(this.panel9);
             this.tabPageSummon.Controls.Add(this.panel8);
             this.tabPageSummon.Location = new System.Drawing.Point(4, 22);
             this.tabPageSummon.Name = "tabPageSummon";
-            this.tabPageSummon.Padding = new System.Windows.Forms.Padding(3);
             this.tabPageSummon.Size = new System.Drawing.Size(936, 475);
             this.tabPageSummon.TabIndex = 0;
             this.tabPageSummon.Text = "Summon";
@@ -337,14 +341,14 @@
             // 
             // panel9
             // 
+            this.panel9.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel9.Controls.Add(this.tableLayoutPanel8);
             this.panel9.Controls.Add(this.cbSummonSpell);
             this.panel9.Controls.Add(this.tableLayoutPanel5);
             this.panel9.Controls.Add(this.rtbFullAttacks);
             this.panel9.Controls.Add(this.rtbAttacks);
             this.panel9.Controls.Add(this.tableLayoutPanel4);
             this.panel9.Controls.Add(this.tableLayoutPanel2);
-            this.panel9.Controls.Add(this.label34);
-            this.panel9.Controls.Add(this.label35);
             this.panel9.Controls.Add(this.label36);
             this.panel9.Controls.Add(this.label37);
             this.panel9.Controls.Add(this.tableLayoutPanel6);
@@ -355,12 +359,64 @@
             this.panel9.Controls.Add(this.label49);
             this.panel9.Controls.Add(this.rtbCombat);
             this.panel9.Controls.Add(this.btnClearSummonPage);
-            this.panel9.Controls.Add(this.btnSaveSummonChanges);
             this.panel9.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel9.Location = new System.Drawing.Point(228, 3);
+            this.panel9.Location = new System.Drawing.Point(225, 0);
+            this.panel9.Margin = new System.Windows.Forms.Padding(0);
             this.panel9.Name = "panel9";
-            this.panel9.Size = new System.Drawing.Size(705, 469);
+            this.panel9.Size = new System.Drawing.Size(709, 473);
             this.panel9.TabIndex = 3;
+            // 
+            // tableLayoutPanel8
+            // 
+            this.tableLayoutPanel8.ColumnCount = 3;
+            this.tableLayoutPanel8.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
+            this.tableLayoutPanel8.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
+            this.tableLayoutPanel8.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
+            this.tableLayoutPanel8.Controls.Add(this.btnAddSummon, 0, 0);
+            this.tableLayoutPanel8.Controls.Add(this.btnDeleteSummon, 2, 0);
+            this.tableLayoutPanel8.Controls.Add(this.btnUpdateSummon, 1, 0);
+            this.tableLayoutPanel8.Location = new System.Drawing.Point(434, 437);
+            this.tableLayoutPanel8.Name = "tableLayoutPanel8";
+            this.tableLayoutPanel8.RowCount = 1;
+            this.tableLayoutPanel8.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel8.Size = new System.Drawing.Size(274, 36);
+            this.tableLayoutPanel8.TabIndex = 50;
+            // 
+            // btnAddSummon
+            // 
+            this.btnAddSummon.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnAddSummon.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAddSummon.Location = new System.Drawing.Point(3, 3);
+            this.btnAddSummon.Name = "btnAddSummon";
+            this.btnAddSummon.Size = new System.Drawing.Size(85, 30);
+            this.btnAddSummon.TabIndex = 48;
+            this.btnAddSummon.Text = "Add";
+            this.btnAddSummon.UseVisualStyleBackColor = true;
+            this.btnAddSummon.Click += new System.EventHandler(this.BtnAddSummon_Click);
+            // 
+            // btnDeleteSummon
+            // 
+            this.btnDeleteSummon.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnDeleteSummon.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDeleteSummon.Location = new System.Drawing.Point(185, 3);
+            this.btnDeleteSummon.Name = "btnDeleteSummon";
+            this.btnDeleteSummon.Size = new System.Drawing.Size(86, 30);
+            this.btnDeleteSummon.TabIndex = 49;
+            this.btnDeleteSummon.Text = "Delete";
+            this.btnDeleteSummon.UseVisualStyleBackColor = true;
+            this.btnDeleteSummon.Click += new System.EventHandler(this.BtnDeleteSummon_Click);
+            // 
+            // btnUpdateSummon
+            // 
+            this.btnUpdateSummon.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnUpdateSummon.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnUpdateSummon.Location = new System.Drawing.Point(94, 3);
+            this.btnUpdateSummon.Name = "btnUpdateSummon";
+            this.btnUpdateSummon.Size = new System.Drawing.Size(85, 30);
+            this.btnUpdateSummon.TabIndex = 1;
+            this.btnUpdateSummon.Text = "Update";
+            this.btnUpdateSummon.UseVisualStyleBackColor = true;
+            this.btnUpdateSummon.Click += new System.EventHandler(this.BtnUpdateSummon_Click);
             // 
             // cbSummonSpell
             // 
@@ -378,7 +434,7 @@
             this.cbSummonSpell.Location = new System.Drawing.Point(86, 4);
             this.cbSummonSpell.Margin = new System.Windows.Forms.Padding(1);
             this.cbSummonSpell.Name = "cbSummonSpell";
-            this.cbSummonSpell.Size = new System.Drawing.Size(180, 21);
+            this.cbSummonSpell.Size = new System.Drawing.Size(245, 21);
             this.cbSummonSpell.TabIndex = 47;
             // 
             // tableLayoutPanel5
@@ -493,15 +549,15 @@
             // 
             this.rtbFullAttacks.Location = new System.Drawing.Point(31, 361);
             this.rtbFullAttacks.Name = "rtbFullAttacks";
-            this.rtbFullAttacks.Size = new System.Drawing.Size(250, 64);
+            this.rtbFullAttacks.Size = new System.Drawing.Size(303, 64);
             this.rtbFullAttacks.TabIndex = 45;
             this.rtbFullAttacks.Text = "";
             // 
             // rtbAttacks
             // 
-            this.rtbAttacks.Location = new System.Drawing.Point(31, 266);
+            this.rtbAttacks.Location = new System.Drawing.Point(31, 263);
             this.rtbAttacks.Name = "rtbAttacks";
-            this.rtbAttacks.Size = new System.Drawing.Size(250, 64);
+            this.rtbAttacks.Size = new System.Drawing.Size(300, 64);
             this.rtbAttacks.TabIndex = 44;
             this.rtbAttacks.Text = "";
             // 
@@ -688,7 +744,7 @@
             this.tableLayoutPanel2.Controls.Add(this.nudNatural, 1, 2);
             this.tableLayoutPanel2.Controls.Add(this.nudBAB, 1, 3);
             this.tableLayoutPanel2.Controls.Add(this.nudGrapple, 1, 4);
-            this.tableLayoutPanel2.Location = new System.Drawing.Point(272, 3);
+            this.tableLayoutPanel2.Location = new System.Drawing.Point(340, 3);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
             this.tableLayoutPanel2.RowCount = 5;
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
@@ -824,41 +880,21 @@
             this.nudGrapple.Size = new System.Drawing.Size(45, 20);
             this.nudGrapple.TabIndex = 16;
             // 
-            // label34
-            // 
-            this.label34.AutoSize = true;
-            this.label34.Location = new System.Drawing.Point(28, 346);
-            this.label34.Name = "label34";
-            this.label34.Size = new System.Drawing.Size(183, 13);
-            this.label34.TabIndex = 40;
-            this.label34.Text = "Change line to denote new full attack";
-            // 
-            // label35
-            // 
-            this.label35.AutoSize = true;
-            this.label35.Location = new System.Drawing.Point(28, 250);
-            this.label35.Name = "label35";
-            this.label35.Size = new System.Drawing.Size(167, 13);
-            this.label35.TabIndex = 39;
-            this.label35.Text = "Change line to denote new attack";
-            // 
             // label36
             // 
-            this.label36.AutoSize = true;
-            this.label36.Location = new System.Drawing.Point(28, 333);
+            this.label36.Location = new System.Drawing.Point(28, 330);
             this.label36.Name = "label36";
-            this.label36.Size = new System.Drawing.Size(223, 13);
+            this.label36.Size = new System.Drawing.Size(223, 28);
             this.label36.TabIndex = 41;
-            this.label36.Text = "Full Attack: [Attack] and [Attack] (See Above)";
+            this.label36.Text = "Full Attack: [Attack] and [Attack] (See Above) Change line to denote new attack";
             // 
             // label37
             // 
-            this.label37.AutoSize = true;
-            this.label37.Location = new System.Drawing.Point(28, 237);
+            this.label37.Location = new System.Drawing.Point(28, 232);
             this.label37.Name = "label37";
-            this.label37.Size = new System.Drawing.Size(219, 13);
+            this.label37.Size = new System.Drawing.Size(223, 28);
             this.label37.TabIndex = 38;
-            this.label37.Text = "Attack: [Count] [Name] [Melee/Range] (#d#]";
+            this.label37.Text = "Attack: [Count] [Name] [Melee/Range] (#d#] Change line to denote new attack";
             // 
             // tableLayoutPanel6
             // 
@@ -1148,7 +1184,7 @@
             // 
             this.tbName.Location = new System.Drawing.Point(86, 28);
             this.tbName.Name = "tbName";
-            this.tbName.Size = new System.Drawing.Size(180, 20);
+            this.tbName.Size = new System.Drawing.Size(245, 20);
             this.tbName.TabIndex = 29;
             // 
             // label47
@@ -1174,7 +1210,7 @@
             // label49
             // 
             this.label49.AutoSize = true;
-            this.label49.Location = new System.Drawing.Point(418, 276);
+            this.label49.Location = new System.Drawing.Point(337, 276);
             this.label49.Name = "label49";
             this.label49.Size = new System.Drawing.Size(82, 13);
             this.label49.TabIndex = 35;
@@ -1183,16 +1219,16 @@
             // 
             // rtbCombat
             // 
-            this.rtbCombat.Location = new System.Drawing.Point(421, 292);
+            this.rtbCombat.Location = new System.Drawing.Point(340, 292);
             this.rtbCombat.Name = "rtbCombat";
-            this.rtbCombat.Size = new System.Drawing.Size(281, 133);
+            this.rtbCombat.Size = new System.Drawing.Size(362, 133);
             this.rtbCombat.TabIndex = 34;
             this.rtbCombat.Text = "";
             // 
             // btnClearSummonPage
             // 
             this.btnClearSummonPage.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnClearSummonPage.Location = new System.Drawing.Point(490, 431);
+            this.btnClearSummonPage.Location = new System.Drawing.Point(3, 433);
             this.btnClearSummonPage.Name = "btnClearSummonPage";
             this.btnClearSummonPage.Size = new System.Drawing.Size(103, 35);
             this.btnClearSummonPage.TabIndex = 1;
@@ -1200,26 +1236,17 @@
             this.btnClearSummonPage.UseVisualStyleBackColor = true;
             this.btnClearSummonPage.Click += new System.EventHandler(this.BtnClearSummonPage_Click);
             // 
-            // btnSaveSummonChanges
-            // 
-            this.btnSaveSummonChanges.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnSaveSummonChanges.Location = new System.Drawing.Point(599, 431);
-            this.btnSaveSummonChanges.Name = "btnSaveSummonChanges";
-            this.btnSaveSummonChanges.Size = new System.Drawing.Size(103, 35);
-            this.btnSaveSummonChanges.TabIndex = 1;
-            this.btnSaveSummonChanges.Text = "Save Changes";
-            this.btnSaveSummonChanges.UseVisualStyleBackColor = true;
-            this.btnSaveSummonChanges.Click += new System.EventHandler(this.BtnSaveSummonChanges_Click);
-            // 
             // panel8
             // 
+            this.panel8.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel8.Controls.Add(this.tcSummons);
             this.panel8.Controls.Add(this.tbOverrideSummonXML);
             this.panel8.Controls.Add(this.btnRefreshSummons);
             this.panel8.Dock = System.Windows.Forms.DockStyle.Left;
-            this.panel8.Location = new System.Drawing.Point(3, 3);
+            this.panel8.Location = new System.Drawing.Point(0, 0);
+            this.panel8.Margin = new System.Windows.Forms.Padding(0);
             this.panel8.Name = "panel8";
-            this.panel8.Size = new System.Drawing.Size(225, 469);
+            this.panel8.Size = new System.Drawing.Size(225, 473);
             this.panel8.TabIndex = 2;
             // 
             // tcSummons
@@ -1231,7 +1258,7 @@
             this.tcSummons.Margin = new System.Windows.Forms.Padding(0);
             this.tcSummons.Name = "tcSummons";
             this.tcSummons.SelectedIndex = 0;
-            this.tcSummons.Size = new System.Drawing.Size(225, 415);
+            this.tcSummons.Size = new System.Drawing.Size(223, 417);
             this.tcSummons.TabIndex = 2;
             // 
             // tabPageSummons
@@ -1245,7 +1272,7 @@
             this.tabPageSummons.Location = new System.Drawing.Point(4, 22);
             this.tabPageSummons.Name = "tabPageSummons";
             this.tabPageSummons.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPageSummons.Size = new System.Drawing.Size(217, 389);
+            this.tabPageSummons.Size = new System.Drawing.Size(215, 391);
             this.tabPageSummons.TabIndex = 0;
             this.tabPageSummons.Text = "Summons";
             this.tabPageSummons.UseVisualStyleBackColor = true;
@@ -1258,17 +1285,16 @@
             this.btnDev.TabIndex = 48;
             this.btnDev.Text = "Dev";
             this.btnDev.UseVisualStyleBackColor = true;
-            this.btnDev.Visible = false;
             this.btnDev.Click += new System.EventHandler(this.BtnDev_Click);
             // 
             // btnPreview
             // 
             this.btnPreview.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.btnPreview.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnPreview.Location = new System.Drawing.Point(3, 306);
+            this.btnPreview.Location = new System.Drawing.Point(3, 308);
             this.btnPreview.Margin = new System.Windows.Forms.Padding(0);
             this.btnPreview.Name = "btnPreview";
-            this.btnPreview.Size = new System.Drawing.Size(211, 40);
+            this.btnPreview.Size = new System.Drawing.Size(209, 40);
             this.btnPreview.TabIndex = 13;
             this.btnPreview.Text = "Preview Selected";
             this.btnPreview.UseVisualStyleBackColor = true;
@@ -1281,7 +1307,7 @@
             this.tabPageTryParseSummon.Location = new System.Drawing.Point(4, 22);
             this.tabPageTryParseSummon.Name = "tabPageTryParseSummon";
             this.tabPageTryParseSummon.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPageTryParseSummon.Size = new System.Drawing.Size(217, 389);
+            this.tabPageTryParseSummon.Size = new System.Drawing.Size(215, 391);
             this.tabPageTryParseSummon.TabIndex = 1;
             this.tabPageTryParseSummon.Text = "Try Parse Summon";
             this.tabPageTryParseSummon.UseVisualStyleBackColor = true;
@@ -1292,9 +1318,9 @@
             this.panel10.Controls.Add(this.label16);
             this.panel10.Controls.Add(this.label19);
             this.panel10.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel10.Location = new System.Drawing.Point(3, 307);
+            this.panel10.Location = new System.Drawing.Point(3, 309);
             this.panel10.Name = "panel10";
-            this.panel10.Size = new System.Drawing.Size(211, 79);
+            this.panel10.Size = new System.Drawing.Size(209, 79);
             this.panel10.TabIndex = 8;
             // 
             // btnTryParseSummon
@@ -1303,7 +1329,7 @@
             this.btnTryParseSummon.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnTryParseSummon.Location = new System.Drawing.Point(0, 30);
             this.btnTryParseSummon.Name = "btnTryParseSummon";
-            this.btnTryParseSummon.Size = new System.Drawing.Size(211, 34);
+            this.btnTryParseSummon.Size = new System.Drawing.Size(209, 34);
             this.btnTryParseSummon.TabIndex = 1;
             this.btnTryParseSummon.Text = "Try Parse";
             this.btnTryParseSummon.UseVisualStyleBackColor = true;
@@ -1315,7 +1341,7 @@
             this.label16.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label16.Location = new System.Drawing.Point(0, 64);
             this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(211, 15);
+            this.label16.Size = new System.Drawing.Size(209, 15);
             this.label16.TabIndex = 4;
             this.label16.Text = "Fill in what is missing; then save";
             this.label16.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -1326,7 +1352,7 @@
             this.label19.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label19.Location = new System.Drawing.Point(0, 0);
             this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(211, 30);
+            this.label19.Size = new System.Drawing.Size(209, 30);
             this.label19.TabIndex = 3;
             this.label19.Text = "Copy/Paste Summon SRD Wiki page and press";
             this.label19.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -1336,7 +1362,7 @@
             this.btnRefreshSummons.Dock = System.Windows.Forms.DockStyle.Top;
             this.btnRefreshSummons.Location = new System.Drawing.Point(0, 0);
             this.btnRefreshSummons.Name = "btnRefreshSummons";
-            this.btnRefreshSummons.Size = new System.Drawing.Size(225, 34);
+            this.btnRefreshSummons.Size = new System.Drawing.Size(223, 34);
             this.btnRefreshSummons.TabIndex = 4;
             this.btnRefreshSummons.Text = "Refresh";
             this.btnRefreshSummons.UseVisualStyleBackColor = true;
@@ -1344,13 +1370,13 @@
             // 
             // tabPageSpells
             // 
+            this.tabPageSpells.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.tabPageSpells.Controls.Add(this.panel6);
             this.tabPageSpells.Controls.Add(this.label14);
             this.tabPageSpells.Controls.Add(this.panel2);
             this.tabPageSpells.Controls.Add(this.panel3);
             this.tabPageSpells.Location = new System.Drawing.Point(4, 22);
             this.tabPageSpells.Name = "tabPageSpells";
-            this.tabPageSpells.Padding = new System.Windows.Forms.Padding(3);
             this.tabPageSpells.Size = new System.Drawing.Size(936, 475);
             this.tabPageSpells.TabIndex = 1;
             this.tabPageSpells.Text = "Spells";
@@ -1358,22 +1384,24 @@
             // 
             // panel6
             // 
+            this.panel6.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel6.Controls.Add(this.rtbSpellDescription);
             this.panel6.Controls.Add(this.panel5);
             this.panel6.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel6.Location = new System.Drawing.Point(618, 3);
+            this.panel6.Location = new System.Drawing.Point(615, 0);
             this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(315, 469);
+            this.panel6.Size = new System.Drawing.Size(319, 473);
             this.panel6.TabIndex = 2;
             // 
             // rtbSpellDescription
             // 
             this.rtbSpellDescription.AcceptsTab = true;
+            this.rtbSpellDescription.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.rtbSpellDescription.Dock = System.Windows.Forms.DockStyle.Fill;
             this.rtbSpellDescription.Location = new System.Drawing.Point(0, 52);
             this.rtbSpellDescription.MinimumSize = new System.Drawing.Size(315, 417);
             this.rtbSpellDescription.Name = "rtbSpellDescription";
-            this.rtbSpellDescription.Size = new System.Drawing.Size(315, 417);
+            this.rtbSpellDescription.Size = new System.Drawing.Size(317, 419);
             this.rtbSpellDescription.TabIndex = 1;
             this.rtbSpellDescription.Text = "";
             // 
@@ -1383,7 +1411,7 @@
             this.panel5.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel5.Location = new System.Drawing.Point(0, 0);
             this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(315, 52);
+            this.panel5.Size = new System.Drawing.Size(317, 52);
             this.panel5.TabIndex = 17;
             // 
             // btnDevSpells
@@ -1401,7 +1429,7 @@
             // 
             this.label14.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(868, 456);
+            this.label14.Location = new System.Drawing.Point(869, 457);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(60, 13);
             this.label14.TabIndex = 11;
@@ -1410,14 +1438,15 @@
             // 
             // panel2
             // 
+            this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel2.Controls.Add(this.tableLayoutPanel1);
             this.panel2.Controls.Add(this.chkFavoriteSpell);
             this.panel2.Controls.Add(this.panel4);
             this.panel2.Controls.Add(this.tableLayoutPanel3);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Left;
-            this.panel2.Location = new System.Drawing.Point(228, 3);
+            this.panel2.Location = new System.Drawing.Point(225, 0);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(390, 469);
+            this.panel2.Size = new System.Drawing.Size(390, 473);
             this.panel2.TabIndex = 1;
             // 
             // tableLayoutPanel1
@@ -1727,7 +1756,7 @@
             this.chkFavoriteSpell.Dock = System.Windows.Forms.DockStyle.Top;
             this.chkFavoriteSpell.Location = new System.Drawing.Point(0, 52);
             this.chkFavoriteSpell.Name = "chkFavoriteSpell";
-            this.chkFavoriteSpell.Size = new System.Drawing.Size(390, 31);
+            this.chkFavoriteSpell.Size = new System.Drawing.Size(388, 31);
             this.chkFavoriteSpell.TabIndex = 15;
             this.chkFavoriteSpell.Text = "FAVORITED";
             this.chkFavoriteSpell.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -1738,57 +1767,70 @@
             this.panel4.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel4.Location = new System.Drawing.Point(0, 0);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(390, 52);
+            this.panel4.Size = new System.Drawing.Size(388, 52);
             this.panel4.TabIndex = 16;
             // 
             // tableLayoutPanel3
             // 
-            this.tableLayoutPanel3.ColumnCount = 2;
-            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel3.Controls.Add(this.btnClearSpell, 0, 0);
-            this.tableLayoutPanel3.Controls.Add(this.btnSaveSpellChanges, 1, 0);
+            this.tableLayoutPanel3.ColumnCount = 3;
+            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
+            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
+            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
+            this.tableLayoutPanel3.Controls.Add(this.btnDeleteSpell, 2, 0);
+            this.tableLayoutPanel3.Controls.Add(this.btnUpdateSpell, 1, 0);
+            this.tableLayoutPanel3.Controls.Add(this.btnAddSpell, 0, 0);
             this.tableLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.tableLayoutPanel3.Location = new System.Drawing.Point(0, 427);
+            this.tableLayoutPanel3.Location = new System.Drawing.Point(0, 429);
             this.tableLayoutPanel3.Name = "tableLayoutPanel3";
             this.tableLayoutPanel3.RowCount = 1;
-            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel3.Size = new System.Drawing.Size(390, 42);
+            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel3.Size = new System.Drawing.Size(388, 42);
             this.tableLayoutPanel3.TabIndex = 2;
             // 
-            // btnClearSpell
+            // btnDeleteSpell
             // 
-            this.btnClearSpell.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btnClearSpell.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnClearSpell.Location = new System.Drawing.Point(3, 3);
-            this.btnClearSpell.Name = "btnClearSpell";
-            this.btnClearSpell.Size = new System.Drawing.Size(189, 36);
-            this.btnClearSpell.TabIndex = 1;
-            this.btnClearSpell.Text = "Clear";
-            this.btnClearSpell.UseVisualStyleBackColor = true;
-            this.btnClearSpell.Click += new System.EventHandler(this.BtnClearSpell_Click);
+            this.btnDeleteSpell.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDeleteSpell.Location = new System.Drawing.Point(261, 3);
+            this.btnDeleteSpell.Name = "btnDeleteSpell";
+            this.btnDeleteSpell.Size = new System.Drawing.Size(124, 36);
+            this.btnDeleteSpell.TabIndex = 18;
+            this.btnDeleteSpell.Text = "Delete";
+            this.btnDeleteSpell.UseVisualStyleBackColor = true;
+            this.btnDeleteSpell.Click += new System.EventHandler(this.BtnDeleteSpell_Click);
             // 
-            // btnSaveSpellChanges
+            // btnUpdateSpell
             // 
-            this.btnSaveSpellChanges.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btnSaveSpellChanges.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSaveSpellChanges.Location = new System.Drawing.Point(198, 3);
-            this.btnSaveSpellChanges.Name = "btnSaveSpellChanges";
-            this.btnSaveSpellChanges.Size = new System.Drawing.Size(189, 36);
-            this.btnSaveSpellChanges.TabIndex = 2;
-            this.btnSaveSpellChanges.Text = "Save Spell";
-            this.btnSaveSpellChanges.UseVisualStyleBackColor = true;
-            this.btnSaveSpellChanges.Click += new System.EventHandler(this.BtnSaveSpellChanges_Click);
+            this.btnUpdateSpell.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnUpdateSpell.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnUpdateSpell.Location = new System.Drawing.Point(132, 3);
+            this.btnUpdateSpell.Name = "btnUpdateSpell";
+            this.btnUpdateSpell.Size = new System.Drawing.Size(123, 36);
+            this.btnUpdateSpell.TabIndex = 2;
+            this.btnUpdateSpell.Text = "Update";
+            this.btnUpdateSpell.UseVisualStyleBackColor = true;
+            this.btnUpdateSpell.Click += new System.EventHandler(this.BtnUpdateSpell_Click);
+            // 
+            // btnAddSpell
+            // 
+            this.btnAddSpell.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAddSpell.Location = new System.Drawing.Point(3, 3);
+            this.btnAddSpell.Name = "btnAddSpell";
+            this.btnAddSpell.Size = new System.Drawing.Size(123, 36);
+            this.btnAddSpell.TabIndex = 18;
+            this.btnAddSpell.Text = "Add";
+            this.btnAddSpell.UseVisualStyleBackColor = true;
+            this.btnAddSpell.Click += new System.EventHandler(this.BtnAddSpell_Click);
             // 
             // panel3
             // 
+            this.panel3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel3.Controls.Add(this.tcSpells);
             this.panel3.Controls.Add(this.tbOverrideSpellXML);
             this.panel3.Controls.Add(this.btnRefreshSpells);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Left;
-            this.panel3.Location = new System.Drawing.Point(3, 3);
+            this.panel3.Location = new System.Drawing.Point(0, 0);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(225, 469);
+            this.panel3.Size = new System.Drawing.Size(225, 473);
             this.panel3.TabIndex = 0;
             // 
             // tcSpells
@@ -1800,16 +1842,17 @@
             this.tcSpells.Margin = new System.Windows.Forms.Padding(0);
             this.tcSpells.Name = "tcSpells";
             this.tcSpells.SelectedIndex = 0;
-            this.tcSpells.Size = new System.Drawing.Size(225, 415);
+            this.tcSpells.Size = new System.Drawing.Size(223, 417);
             this.tcSpells.TabIndex = 4;
             // 
             // tabPageSpellList
             // 
             this.tabPageSpellList.Controls.Add(this.tvSpells);
+            this.tabPageSpellList.Controls.Add(this.btnClearSpell);
             this.tabPageSpellList.Location = new System.Drawing.Point(4, 22);
             this.tabPageSpellList.Name = "tabPageSpellList";
             this.tabPageSpellList.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPageSpellList.Size = new System.Drawing.Size(217, 389);
+            this.tabPageSpellList.Size = new System.Drawing.Size(215, 391);
             this.tabPageSpellList.TabIndex = 0;
             this.tabPageSpellList.Text = "Spells";
             this.tabPageSpellList.UseVisualStyleBackColor = true;
@@ -1820,10 +1863,22 @@
             this.tvSpells.Location = new System.Drawing.Point(3, 3);
             this.tvSpells.Margin = new System.Windows.Forms.Padding(0);
             this.tvSpells.Name = "tvSpells";
-            this.tvSpells.Size = new System.Drawing.Size(211, 383);
+            this.tvSpells.Size = new System.Drawing.Size(209, 349);
             this.tvSpells.TabIndex = 3;
             this.tvSpells.NodeMouseClick += new System.Windows.Forms.TreeNodeMouseClickEventHandler(this.TvSpells_NodeMouseClick);
             this.tvSpells.NodeMouseDoubleClick += new System.Windows.Forms.TreeNodeMouseClickEventHandler(this.SpellsPageTV_NodeMouseDoubleClick);
+            // 
+            // btnClearSpell
+            // 
+            this.btnClearSpell.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.btnClearSpell.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnClearSpell.Location = new System.Drawing.Point(3, 352);
+            this.btnClearSpell.Name = "btnClearSpell";
+            this.btnClearSpell.Size = new System.Drawing.Size(209, 36);
+            this.btnClearSpell.TabIndex = 1;
+            this.btnClearSpell.Text = "Clear Page";
+            this.btnClearSpell.UseVisualStyleBackColor = true;
+            this.btnClearSpell.Click += new System.EventHandler(this.BtnClearSpell_Click);
             // 
             // tabPageTryParseSpell
             // 
@@ -1832,7 +1887,7 @@
             this.tabPageTryParseSpell.Location = new System.Drawing.Point(4, 22);
             this.tabPageTryParseSpell.Name = "tabPageTryParseSpell";
             this.tabPageTryParseSpell.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPageTryParseSpell.Size = new System.Drawing.Size(217, 389);
+            this.tabPageTryParseSpell.Size = new System.Drawing.Size(215, 391);
             this.tabPageTryParseSpell.TabIndex = 1;
             this.tabPageTryParseSpell.Text = "Try Parse Spell";
             this.tabPageTryParseSpell.UseVisualStyleBackColor = true;
@@ -1843,32 +1898,32 @@
             this.rtbSpellText.EnableAutoDragDrop = true;
             this.rtbSpellText.Location = new System.Drawing.Point(3, 3);
             this.rtbSpellText.Name = "rtbSpellText";
-            this.rtbSpellText.Size = new System.Drawing.Size(211, 285);
+            this.rtbSpellText.Size = new System.Drawing.Size(209, 287);
             this.rtbSpellText.TabIndex = 4;
             this.rtbSpellText.Text = "";
             // 
             // panel7
             // 
-            this.panel7.Controls.Add(this.btnTryParse);
+            this.panel7.Controls.Add(this.btnTryParseSpell);
             this.panel7.Controls.Add(this.label2);
             this.panel7.Controls.Add(this.label1);
             this.panel7.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel7.Location = new System.Drawing.Point(3, 288);
+            this.panel7.Location = new System.Drawing.Point(3, 290);
             this.panel7.Name = "panel7";
-            this.panel7.Size = new System.Drawing.Size(211, 98);
+            this.panel7.Size = new System.Drawing.Size(209, 98);
             this.panel7.TabIndex = 5;
             // 
-            // btnTryParse
+            // btnTryParseSpell
             // 
-            this.btnTryParse.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btnTryParse.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnTryParse.Location = new System.Drawing.Point(0, 30);
-            this.btnTryParse.Name = "btnTryParse";
-            this.btnTryParse.Size = new System.Drawing.Size(211, 36);
-            this.btnTryParse.TabIndex = 1;
-            this.btnTryParse.Text = "Try Parse";
-            this.btnTryParse.UseVisualStyleBackColor = true;
-            this.btnTryParse.Click += new System.EventHandler(this.BtnTryParse_Click);
+            this.btnTryParseSpell.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnTryParseSpell.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnTryParseSpell.Location = new System.Drawing.Point(0, 30);
+            this.btnTryParseSpell.Name = "btnTryParseSpell";
+            this.btnTryParseSpell.Size = new System.Drawing.Size(209, 36);
+            this.btnTryParseSpell.TabIndex = 1;
+            this.btnTryParseSpell.Text = "Try Parse";
+            this.btnTryParseSpell.UseVisualStyleBackColor = true;
+            this.btnTryParseSpell.Click += new System.EventHandler(this.BtnTryParseSpell_Click);
             // 
             // label2
             // 
@@ -1876,7 +1931,7 @@
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.Location = new System.Drawing.Point(0, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(211, 30);
+            this.label2.Size = new System.Drawing.Size(209, 30);
             this.label2.TabIndex = 2;
             this.label2.Text = "Copy/Paste spell SRD Wiki page and press";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -1887,7 +1942,7 @@
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(0, 66);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(211, 32);
+            this.label1.Size = new System.Drawing.Size(209, 32);
             this.label1.TabIndex = 2;
             this.label1.Text = "Fill in what is missing; then save";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -1897,7 +1952,7 @@
             this.tbOverrideSpellXML.Dock = System.Windows.Forms.DockStyle.Top;
             this.tbOverrideSpellXML.Location = new System.Drawing.Point(0, 34);
             this.tbOverrideSpellXML.Name = "tbOverrideSpellXML";
-            this.tbOverrideSpellXML.Size = new System.Drawing.Size(225, 20);
+            this.tbOverrideSpellXML.Size = new System.Drawing.Size(223, 20);
             this.tbOverrideSpellXML.TabIndex = 2;
             this.tbOverrideSpellXML.Validating += new System.ComponentModel.CancelEventHandler(this.TbOverrideSpellXML_Validating);
             // 
@@ -1906,7 +1961,7 @@
             this.btnRefreshSpells.Dock = System.Windows.Forms.DockStyle.Top;
             this.btnRefreshSpells.Location = new System.Drawing.Point(0, 0);
             this.btnRefreshSpells.Name = "btnRefreshSpells";
-            this.btnRefreshSpells.Size = new System.Drawing.Size(225, 34);
+            this.btnRefreshSpells.Size = new System.Drawing.Size(223, 34);
             this.btnRefreshSpells.TabIndex = 2;
             this.btnRefreshSpells.Text = "Refresh";
             this.btnRefreshSpells.UseVisualStyleBackColor = true;
@@ -1943,6 +1998,7 @@
             this.tabPageSummon.ResumeLayout(false);
             this.panel9.ResumeLayout(false);
             this.panel9.PerformLayout();
+            this.tableLayoutPanel8.ResumeLayout(false);
             this.tableLayoutPanel5.ResumeLayout(false);
             this.tableLayoutPanel5.PerformLayout();
             this.tableLayoutPanel4.ResumeLayout(false);
@@ -2036,7 +2092,7 @@
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.RichTextBox rtbSpellDescription;
         private System.Windows.Forms.Button btnClearSpell;
-        private System.Windows.Forms.Button btnSaveSpellChanges;
+        private System.Windows.Forms.Button btnUpdateSpell;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Panel panel5;
@@ -2044,10 +2100,10 @@
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel3;
         private System.Windows.Forms.Panel panel6;
         private System.Windows.Forms.Button btnRefreshSummons;
-        private System.Windows.Forms.Button btnSaveSummonChanges;
+        private System.Windows.Forms.Button btnUpdateSummon;
         private System.Windows.Forms.Button btnClearSummonPage;
         private System.Windows.Forms.Panel panel7;
-        private System.Windows.Forms.Button btnTryParse;
+        private System.Windows.Forms.Button btnTryParseSpell;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.RichTextBox rtbSpellText;
@@ -2099,8 +2155,6 @@
         private System.Windows.Forms.NumericUpDown nudNatural;
         private System.Windows.Forms.NumericUpDown nudBAB;
         private System.Windows.Forms.NumericUpDown nudGrapple;
-        private System.Windows.Forms.Label label34;
-        private System.Windows.Forms.Label label35;
         private System.Windows.Forms.Label label36;
         private System.Windows.Forms.Label label37;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel6;
@@ -2135,6 +2189,11 @@
         private System.Windows.Forms.CheckBox chkFavoriteSpell;
         private System.Windows.Forms.ContextMenuStrip cmsSpells;
         private System.Windows.Forms.ToolStripMenuItem favoriteToolStripMenuItem;
+        private System.Windows.Forms.Button btnAddSummon;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel8;
+        private System.Windows.Forms.Button btnDeleteSummon;
+        private System.Windows.Forms.Button btnDeleteSpell;
+        private System.Windows.Forms.Button btnAddSpell;
     }
 }
 

@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ArrayOfSpell xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <Spell>
+    <Index>1</Index>
     <Name>Charm Animal</Name>
     <Class>Druid</Class>
     <Level>1</Level>
@@ -18,6 +19,7 @@
     <Favorited>false</Favorited>
   </Spell>
   <Spell>
+    <Index>2</Index>
     <Name>Detect Animals or Plants</Name>
     <Class>Druid</Class>
     <Level>1</Level>
@@ -35,6 +37,7 @@
     <Favorited>false</Favorited>
   </Spell>
   <Spell>
+    <Index>3</Index>
     <Name>Detect Snares and Pits</Name>
     <Class>Druid</Class>
     <Level>1</Level>
@@ -52,6 +55,7 @@
     <Favorited>false</Favorited>
   </Spell>
   <Spell>
+    <Index>4</Index>
     <Name>Endure Elements</Name>
     <Class>Druid</Class>
     <Level>1</Level>
@@ -69,6 +73,7 @@
     <Favorited>false</Favorited>
   </Spell>
   <Spell>
+    <Index>5</Index>
     <Name>Entangle</Name>
     <Class>Druid</Class>
     <Level>1</Level>
@@ -86,6 +91,7 @@
     <Favorited>false</Favorited>
   </Spell>
   <Spell>
+    <Index>6</Index>
     <Name>Faerie Fire</Name>
     <Class>Druid</Class>
     <Level>1</Level>
@@ -103,6 +109,7 @@
     <Favorited>false</Favorited>
   </Spell>
   <Spell>
+    <Index>7</Index>
     <Name>Goodberry</Name>
     <Class>Druid</Class>
     <Level>1</Level>
@@ -120,6 +127,7 @@
     <Favorited>false</Favorited>
   </Spell>
   <Spell>
+    <Index>8</Index>
     <Name>Hide from Animals</Name>
     <Class>Druid</Class>
     <Level>1</Level>
@@ -137,6 +145,7 @@
     <Favorited>false</Favorited>
   </Spell>
   <Spell>
+    <Index>9</Index>
     <Name>Jump</Name>
     <Class>Druid</Class>
     <Level>1</Level>
@@ -154,6 +163,7 @@
     <Favorited>false</Favorited>
   </Spell>
   <Spell>
+    <Index>10</Index>
     <Name>Longstrider</Name>
     <Class>Druid</Class>
     <Level>1</Level>
@@ -171,6 +181,7 @@
     <Favorited>false</Favorited>
   </Spell>
   <Spell>
+    <Index>11</Index>
     <Name>Magic Fang</Name>
     <Class>Druid</Class>
     <Level>1</Level>
@@ -188,6 +199,7 @@
     <Favorited>false</Favorited>
   </Spell>
   <Spell>
+    <Index>12</Index>
     <Name>Magic Stone</Name>
     <Class>Druid</Class>
     <Level>1</Level>
@@ -205,6 +217,7 @@
     <Favorited>false</Favorited>
   </Spell>
   <Spell>
+    <Index>13</Index>
     <Name>Obscuring Mist</Name>
     <Class>Druid</Class>
     <Level>1</Level>
@@ -222,6 +235,7 @@
     <Favorited>false</Favorited>
   </Spell>
   <Spell>
+    <Index>14</Index>
     <Name>Pass without Trace</Name>
     <Class>Druid</Class>
     <Level>1</Level>
@@ -239,6 +253,7 @@
     <Favorited>false</Favorited>
   </Spell>
   <Spell>
+    <Index>15</Index>
     <Name>Produce Flame</Name>
     <Class>Druid</Class>
     <Level>1</Level>
@@ -256,6 +271,7 @@
     <Favorited>false</Favorited>
   </Spell>
   <Spell>
+    <Index>16</Index>
     <Name>Shillelagh</Name>
     <Class>Druid</Class>
     <Level>1</Level>
@@ -273,6 +289,7 @@
     <Favorited>false</Favorited>
   </Spell>
   <Spell>
+    <Index>17</Index>
     <Name>Speak with Animals</Name>
     <Class>Druid</Class>
     <Level>1</Level>
@@ -290,6 +307,7 @@
     <Favorited>false</Favorited>
   </Spell>
   <Spell>
+    <Index>18</Index>
     <Name>Summon Nature’s Ally I</Name>
     <Class>Druid</Class>
     <Level>1</Level>
@@ -307,6 +325,7 @@
     <Favorited>false</Favorited>
   </Spell>
   <Spell>
+    <Index>19</Index>
     <Name>Animal Messenger</Name>
     <Class>Druid</Class>
     <Level>2</Level>
@@ -324,6 +343,7 @@
     <Favorited>false</Favorited>
   </Spell>
   <Spell>
+    <Index>20</Index>
     <Name>Animal Trance</Name>
     <Class>Druid</Class>
     <Level>2</Level>
@@ -341,6 +361,7 @@
     <Favorited>false</Favorited>
   </Spell>
   <Spell>
+    <Index>21</Index>
     <Name>Barkskin</Name>
     <Class>Druid</Class>
     <Level>2</Level>
@@ -358,6 +379,7 @@
     <Favorited>false</Favorited>
   </Spell>
   <Spell>
+    <Index>22</Index>
     <Name>Bear’s Endurance</Name>
     <Class>Druid</Class>
     <Level>2</Level>
@@ -375,6 +397,7 @@
     <Favorited>false</Favorited>
   </Spell>
   <Spell>
+    <Index>23</Index>
     <Name>Bull’s Strength</Name>
     <Class>Druid</Class>
     <Level>2</Level>
@@ -392,6 +415,7 @@
     <Favorited>false</Favorited>
   </Spell>
   <Spell>
+    <Index>24</Index>
     <Name>Cat’s Grace</Name>
     <Class>Druid</Class>
     <Level>2</Level>
@@ -409,6 +433,7 @@
     <Favorited>false</Favorited>
   </Spell>
   <Spell>
+    <Index>25</Index>
     <Name>Delay Poison</Name>
     <Class>Druid</Class>
     <Level>2</Level>
@@ -426,6 +451,7 @@
     <Favorited>false</Favorited>
   </Spell>
   <Spell>
+    <Index>26</Index>
     <Name>Fire Trap</Name>
     <Class>Druid</Class>
     <Level>2</Level>
@@ -443,6 +469,7 @@
     <Favorited>false</Favorited>
   </Spell>
   <Spell>
+    <Index>27</Index>
     <Name>Flame Blade</Name>
     <Class>Druid</Class>
     <Level>2</Level>
@@ -460,6 +487,7 @@
     <Favorited>false</Favorited>
   </Spell>
   <Spell>
+    <Index>28</Index>
     <Name>Flaming Sphere</Name>
     <Class>Druid</Class>
     <Level>2</Level>
@@ -477,6 +505,7 @@
     <Favorited>false</Favorited>
   </Spell>
   <Spell>
+    <Index>29</Index>
     <Name>Fog Cloud</Name>
     <Class>Druid</Class>
     <Level>2</Level>
@@ -494,6 +523,7 @@
     <Favorited>false</Favorited>
   </Spell>
   <Spell>
+    <Index>30</Index>
     <Name>Gust of Wind</Name>
     <Class>Druid</Class>
     <Level>2</Level>
@@ -511,6 +541,7 @@
     <Favorited>false</Favorited>
   </Spell>
   <Spell>
+    <Index>31</Index>
     <Name>Hold Animal</Name>
     <Class>Druid</Class>
     <Level>2</Level>
@@ -528,6 +559,7 @@
     <Favorited>false</Favorited>
   </Spell>
   <Spell>
+    <Index>32</Index>
     <Name>Owl’s Wisdom</Name>
     <Class>Druid</Class>
     <Level>2</Level>
@@ -545,6 +577,7 @@
     <Favorited>false</Favorited>
   </Spell>
   <Spell>
+    <Index>33</Index>
     <Name>Reduce Animal</Name>
     <Class>Druid</Class>
     <Level>2</Level>
@@ -562,6 +595,7 @@
     <Favorited>false</Favorited>
   </Spell>
   <Spell>
+    <Index>34</Index>
     <Name>Resist Energy</Name>
     <Class>Druid</Class>
     <Level>2</Level>
@@ -579,6 +613,7 @@
     <Favorited>false</Favorited>
   </Spell>
   <Spell>
+    <Index>35</Index>
     <Name>Restoration, Lesser</Name>
     <Class>Druid</Class>
     <Level>2</Level>
@@ -596,6 +631,7 @@
     <Favorited>false</Favorited>
   </Spell>
   <Spell>
+    <Index>36</Index>
     <Name>Soften Earth and Stone</Name>
     <Class>Druid</Class>
     <Level>2</Level>
@@ -613,6 +649,7 @@
     <Favorited>false</Favorited>
   </Spell>
   <Spell>
+    <Index>37</Index>
     <Name>Spider Climb</Name>
     <Class>Druid</Class>
     <Level>2</Level>
@@ -630,6 +667,7 @@
     <Favorited>false</Favorited>
   </Spell>
   <Spell>
+    <Index>38</Index>
     <Name>Summon Nature’s Ally II</Name>
     <Class>Druid</Class>
     <Level>2</Level>
@@ -647,6 +685,7 @@
     <Favorited>false</Favorited>
   </Spell>
   <Spell>
+    <Index>39</Index>
     <Name>Summon Swarm</Name>
     <Class>Druid</Class>
     <Level>2</Level>
@@ -664,6 +703,7 @@
     <Favorited>false</Favorited>
   </Spell>
   <Spell>
+    <Index>40</Index>
     <Name>Tree Shape</Name>
     <Class>Druid</Class>
     <Level>2</Level>
@@ -681,6 +721,7 @@
     <Favorited>false</Favorited>
   </Spell>
   <Spell>
+    <Index>41</Index>
     <Name>Warp Wood</Name>
     <Class>Druid</Class>
     <Level>2</Level>
@@ -698,6 +739,7 @@
     <Favorited>false</Favorited>
   </Spell>
   <Spell>
+    <Index>42</Index>
     <Name>Wood Shape</Name>
     <Class>Druid</Class>
     <Level>2</Level>
@@ -715,6 +757,7 @@
     <Favorited>false</Favorited>
   </Spell>
   <Spell>
+    <Index>43</Index>
     <Name>Call Lightning</Name>
     <Class>Druid</Class>
     <Level>3</Level>
@@ -732,6 +775,7 @@
     <Favorited>false</Favorited>
   </Spell>
   <Spell>
+    <Index>44</Index>
     <Name>Contagion</Name>
     <Class>Druid</Class>
     <Level>3</Level>
@@ -749,6 +793,7 @@
     <Favorited>false</Favorited>
   </Spell>
   <Spell>
+    <Index>45</Index>
     <Name>Cure Moderate Wounds</Name>
     <Class>Druid</Class>
     <Level>3</Level>
@@ -766,6 +811,7 @@
     <Favorited>false</Favorited>
   </Spell>
   <Spell>
+    <Index>46</Index>
     <Name>Daylight</Name>
     <Class>Druid</Class>
     <Level>3</Level>
@@ -783,6 +829,7 @@
     <Favorited>false</Favorited>
   </Spell>
   <Spell>
+    <Index>47</Index>
     <Name>Diminish Plants</Name>
     <Class>Druid</Class>
     <Level>3</Level>
@@ -800,6 +847,7 @@
     <Favorited>false</Favorited>
   </Spell>
   <Spell>
+    <Index>48</Index>
     <Name>Dominate Animal</Name>
     <Class>Druid</Class>
     <Level>3</Level>
@@ -817,6 +865,7 @@
     <Favorited>false</Favorited>
   </Spell>
   <Spell>
+    <Index>49</Index>
     <Name>Magic Fang, Greater</Name>
     <Class>Druid</Class>
     <Level>3</Level>
@@ -834,6 +883,7 @@
     <Favorited>false</Favorited>
   </Spell>
   <Spell>
+    <Index>50</Index>
     <Name>Meld into Stone</Name>
     <Class>Druid</Class>
     <Level>3</Level>
@@ -851,6 +901,7 @@
     <Favorited>false</Favorited>
   </Spell>
   <Spell>
+    <Index>51</Index>
     <Name>Neutralize Poison</Name>
     <Class>Druid</Class>
     <Level>3</Level>
@@ -868,6 +919,7 @@
     <Favorited>false</Favorited>
   </Spell>
   <Spell>
+    <Index>52</Index>
     <Name>Plant Growth</Name>
     <Class>Druid</Class>
     <Level>3</Level>
@@ -885,6 +937,7 @@
     <Favorited>false</Favorited>
   </Spell>
   <Spell>
+    <Index>53</Index>
     <Name>Poison</Name>
     <Class>Druid</Class>
     <Level>3</Level>
@@ -902,6 +955,7 @@
     <Favorited>false</Favorited>
   </Spell>
   <Spell>
+    <Index>54</Index>
     <Name>Protection from Energy</Name>
     <Class>Druid</Class>
     <Level>3</Level>
@@ -919,6 +973,7 @@
     <Favorited>false</Favorited>
   </Spell>
   <Spell>
+    <Index>55</Index>
     <Name>Quench</Name>
     <Class>Druid</Class>
     <Level>3</Level>
@@ -936,6 +991,7 @@
     <Favorited>false</Favorited>
   </Spell>
   <Spell>
+    <Index>56</Index>
     <Name>Remove Disease</Name>
     <Class>Druid</Class>
     <Level>3</Level>
@@ -953,6 +1009,7 @@
     <Favorited>false</Favorited>
   </Spell>
   <Spell>
+    <Index>57</Index>
     <Name>Sleet Storm</Name>
     <Class>Druid</Class>
     <Level>3</Level>
@@ -970,6 +1027,7 @@
     <Favorited>false</Favorited>
   </Spell>
   <Spell>
+    <Index>58</Index>
     <Name>Snare</Name>
     <Class>Druid</Class>
     <Level>3</Level>
@@ -987,6 +1045,7 @@
     <Favorited>false</Favorited>
   </Spell>
   <Spell>
+    <Index>59</Index>
     <Name>Speak with Plants</Name>
     <Class>Druid</Class>
     <Level>3</Level>
@@ -1004,6 +1063,7 @@
     <Favorited>false</Favorited>
   </Spell>
   <Spell>
+    <Index>60</Index>
     <Name>Spike Growth</Name>
     <Class>Druid</Class>
     <Level>3</Level>
@@ -1021,6 +1081,7 @@
     <Favorited>false</Favorited>
   </Spell>
   <Spell>
+    <Index>61</Index>
     <Name>Stone Shape</Name>
     <Class>Druid</Class>
     <Level>3</Level>
@@ -1038,6 +1099,7 @@
     <Favorited>false</Favorited>
   </Spell>
   <Spell>
+    <Index>62</Index>
     <Name>Summon Nature’s Ally III</Name>
     <Class>Druid</Class>
     <Level>3</Level>
@@ -1055,6 +1117,7 @@
     <Favorited>false</Favorited>
   </Spell>
   <Spell>
+    <Index>63</Index>
     <Name>Water Breathing</Name>
     <Class>Druid</Class>
     <Level>3</Level>
@@ -1072,6 +1135,7 @@
     <Favorited>false</Favorited>
   </Spell>
   <Spell>
+    <Index>64</Index>
     <Name>Wind Wall</Name>
     <Class>Druid</Class>
     <Level>3</Level>
@@ -1089,6 +1153,7 @@
     <Favorited>false</Favorited>
   </Spell>
   <Spell>
+    <Index>65</Index>
     <Name>Chill Metal</Name>
     <Class>Druid</Class>
     <Level>2</Level>
@@ -1115,6 +1180,7 @@ On the first round of the spell, the metal becomes chilly and uncomfortable to t
     <Favorited>false</Favorited>
   </Spell>
   <Spell>
+    <Index>66</Index>
     <Name>Heat Metal</Name>
     <Class>Druid</Class>
     <Level>2</Level>
@@ -1141,6 +1207,7 @@ On the first round of the spell, the metal becomes warm and uncomfortable to tou
     <Favorited>false</Favorited>
   </Spell>
   <Spell>
+    <Index>67</Index>
     <Name>Air Walk</Name>
     <Class>Druid</Class>
     <Level>4</Level>
@@ -1164,6 +1231,7 @@ You can cast air walk on a specially trained mount so it can be ridden through t
     <Favorited>false</Favorited>
   </Spell>
   <Spell>
+    <Index>68</Index>
     <Name>Antiplant Shell</Name>
     <Class>Druid</Class>
     <Level>4</Level>
@@ -1181,6 +1249,7 @@ You can cast air walk on a specially trained mount so it can be ridden through t
     <Favorited>false</Favorited>
   </Spell>
   <Spell>
+    <Index>69</Index>
     <Name>Blight</Name>
     <Class>Druid</Class>
     <Level>4</Level>
@@ -1201,6 +1270,7 @@ This spell has no effect on the soil or surrounding plant life.
     <Favorited>false</Favorited>
   </Spell>
   <Spell>
+    <Index>70</Index>
     <Name>Command Plants</Name>
     <Class>Druid</Class>
     <Level>4</Level>
@@ -1220,6 +1290,7 @@ You can affect a number of plant creatures whose combined level or HD do not exc
     <Favorited>false</Favorited>
   </Spell>
   <Spell>
+    <Index>71</Index>
     <Name>Control Water</Name>
     <Class>Druid</Class>
     <Level>4</Level>
@@ -1248,6 +1319,7 @@ A drop of water (for raise water) or a pinch of dust (for lower water).</Descrip
     <Favorited>false</Favorited>
   </Spell>
   <Spell>
+    <Index>72</Index>
     <Name>Cure Serious Wounds</Name>
     <Class>Druid</Class>
     <Level>4</Level>
@@ -1266,6 +1338,7 @@ A drop of water (for raise water) or a pinch of dust (for lower water).</Descrip
     <Favorited>false</Favorited>
   </Spell>
   <Spell>
+    <Index>73</Index>
     <Name>Dispel Magic</Name>
     <Class>Druid</Class>
     <Level>4</Level>
@@ -1314,6 +1387,7 @@ When dispel magic is used in this way, the spell targets a spellcaster and is ca
     <Favorited>false</Favorited>
   </Spell>
   <Spell>
+    <Index>74</Index>
     <Name>Flame Strike</Name>
     <Class>Druid</Class>
     <Level>4</Level>
@@ -1331,6 +1405,7 @@ When dispel magic is used in this way, the spell targets a spellcaster and is ca
     <Favorited>false</Favorited>
   </Spell>
   <Spell>
+    <Index>75</Index>
     <Name>Freedom of Movement</Name>
     <Class>Druid</Class>
     <Level>4</Level>
@@ -1353,6 +1428,7 @@ A leather thong, bound around the arm or a similar appendage.</Description>
     <Favorited>false</Favorited>
   </Spell>
   <Spell>
+    <Index>76</Index>
     <Name>Giant Vermin</Name>
     <Class>Druid</Class>
     <Level>4</Level>
@@ -1379,6 +1455,7 @@ Any giant vermin created by this spell do not attempt to harm you, but your cont
     <Favorited>false</Favorited>
   </Spell>
   <Spell>
+    <Index>77</Index>
     <Name>Ice Storm</Name>
     <Class>Druid</Class>
     <Level>4</Level>
@@ -1399,6 +1476,7 @@ A pinch of dust and a few drops of water.</Description>
     <Favorited>false</Favorited>
   </Spell>
   <Spell>
+    <Index>78</Index>
     <Name>Reincarnate</Name>
     <Class>Druid</Class>
     <Level>4</Level>
@@ -1450,6 +1528,7 @@ Rare oils and unguents worth a total of least 1,000 gp, spread over the remains.
     <Favorited>false</Favorited>
   </Spell>
   <Spell>
+    <Index>79</Index>
     <Name>Repel Vermin</Name>
     <Class>Druid</Class>
     <Level>4</Level>
@@ -1469,6 +1548,7 @@ A vermin with Hit Dice of one-third your level or more can penetrate the barrier
     <Favorited>false</Favorited>
   </Spell>
   <Spell>
+    <Index>80</Index>
     <Name>Rusting Grasp</Name>
     <Class>Druid</Class>
     <Level>4</Level>
@@ -1494,6 +1574,7 @@ Against a ferrous creature, rusting grasp instantaneously deals 3d6 points of da
     <Favorited>false</Favorited>
   </Spell>
   <Spell>
+    <Index>81</Index>
     <Name>Scrying</Name>
     <Class>Druid</Class>
     <Level>4</Level>
@@ -1540,6 +1621,7 @@ A natural pool of water.</Description>
     <Favorited>false</Favorited>
   </Spell>
   <Spell>
+    <Index>82</Index>
     <Name>Spike Stones</Name>
     <Class>Druid</Class>
     <Level>4</Level>
@@ -1567,6 +1649,7 @@ Note: Magic traps such as spike stones are hard to detect. A rogue (only) can us
     <Favorited>false</Favorited>
   </Spell>
   <Spell>
+    <Index>83</Index>
     <Name>Summon Nature’s Ally IV</Name>
     <Class>Druid</Class>
     <Level>4</Level>
@@ -1587,6 +1670,7 @@ When you use a summoning spell to summon an air, chaotic, earth, evil, fire, goo
     <Favorited>false</Favorited>
   </Spell>
   <Spell>
+    <Index>84</Index>
     <Name>Animal Growth</Name>
     <Class>Druid</Class>
     <Level>5</Level>
@@ -1614,6 +1698,7 @@ Multiple magical effects that increase size do not stack.</Description>
     <Favorited>false</Favorited>
   </Spell>
   <Spell>
+    <Index>85</Index>
     <Name>Atonement</Name>
     <Class>Druid</Class>
     <Level>5</Level>
@@ -1658,6 +1743,7 @@ When cast for the benefit of a creature whose guilt was the result of deliberate
     <Favorited>false</Favorited>
   </Spell>
   <Spell>
+    <Index>86</Index>
     <Name>Awaken</Name>
     <Class>Druid</Class>
     <Level>5</Level>
@@ -1686,6 +1772,7 @@ XP Cost
     <Favorited>false</Favorited>
   </Spell>
   <Spell>
+    <Index>87</Index>
     <Name>Baleful Polymorph</Name>
     <Class>Druid</Class>
     <Level>5</Level>
@@ -1716,6 +1803,7 @@ Incorporeal or gaseous creatures are immune to baleful polymorph, and a creature
     <Favorited>false</Favorited>
   </Spell>
   <Spell>
+    <Index>88</Index>
     <Name>Commune with Nature</Name>
     <Class>Druid</Class>
     <Level>5</Level>
@@ -1733,6 +1821,7 @@ Incorporeal or gaseous creatures are immune to baleful polymorph, and a creature
     <Favorited>false</Favorited>
   </Spell>
   <Spell>
+    <Index>89</Index>
     <Name>Control Winds</Name>
     <Class>Druid</Class>
     <Level>5</Level>
@@ -1770,6 +1859,7 @@ A tornado (175+ mph) destroys all nonfortified buildings and often uproots large
     <Favorited>false</Favorited>
   </Spell>
   <Spell>
+    <Index>90</Index>
     <Name>Cure Critical Wounds</Name>
     <Class>Druid</Class>
     <Level>5</Level>
@@ -1788,6 +1878,7 @@ A tornado (175+ mph) destroys all nonfortified buildings and often uproots large
     <Favorited>false</Favorited>
   </Spell>
   <Spell>
+    <Index>91</Index>
     <Name>Death Ward</Name>
     <Class>Druid</Class>
     <Level>5</Level>
@@ -1809,6 +1900,7 @@ Death ward does not protect against other sorts of attacks even if those attacks
     <Favorited>false</Favorited>
   </Spell>
   <Spell>
+    <Index>92</Index>
     <Name>Hallow</Name>
     <Class>Druid</Class>
     <Level>5</Level>
@@ -1841,6 +1933,7 @@ Herbs, oils, and incense worth at least 1,000 gp, plus 1,000 gp per level of the
     <Favorited>false</Favorited>
   </Spell>
   <Spell>
+    <Index>93</Index>
     <Name>Insect Plague</Name>
     <Class>Druid</Class>
     <Level>5</Level>
@@ -1858,6 +1951,7 @@ Herbs, oils, and incense worth at least 1,000 gp, plus 1,000 gp per level of the
     <Favorited>false</Favorited>
   </Spell>
   <Spell>
+    <Index>94</Index>
     <Name>Stoneskin</Name>
     <Class>Druid</Class>
     <Level>5</Level>
@@ -1879,6 +1973,7 @@ Granite and 250 gp worth of diamond dust sprinkled on the target’s skin.
     <Favorited>false</Favorited>
   </Spell>
   <Spell>
+    <Index>95</Index>
     <Name>Summon Nature’s Ally V</Name>
     <Class>Druid</Class>
     <Level>5</Level>
@@ -1898,6 +1993,7 @@ When you use a summoning spell to summon an air, chaotic, earth, evil, fire, goo
     <Favorited>false</Favorited>
   </Spell>
   <Spell>
+    <Index>96</Index>
     <Name>Transmute Mud to Rock</Name>
     <Class>Druid</Class>
     <Level>5</Level>
@@ -1922,6 +2018,7 @@ Sand, lime, and water.</Description>
     <Favorited>false</Favorited>
   </Spell>
   <Spell>
+    <Index>97</Index>
     <Name>Transmute Rock to Mud</Name>
     <Class>Druid</Class>
     <Level>5</Level>
@@ -1948,6 +2045,7 @@ Clay and water.</Description>
     <Favorited>false</Favorited>
   </Spell>
   <Spell>
+    <Index>98</Index>
     <Name>Tree Stride</Name>
     <Class>Druid</Class>
     <Level>5</Level>
@@ -1976,6 +2074,7 @@ You can, at your option, remain within a tree without transporting yourself, but
     <Favorited>false</Favorited>
   </Spell>
   <Spell>
+    <Index>99</Index>
     <Name>Unhallow</Name>
     <Class>Druid</Class>
     <Level>5</Level>
@@ -2010,6 +2109,7 @@ Herbs, oils, and incense worth at least 1,000 gp, plus 1,000 gp per level of the
     <Favorited>false</Favorited>
   </Spell>
   <Spell>
+    <Index>100</Index>
     <Name>Wall of Fire</Name>
     <Class>Druid</Class>
     <Level>5</Level>
@@ -2034,6 +2134,7 @@ A small piece of phosphorus.</Description>
     <Favorited>false</Favorited>
   </Spell>
   <Spell>
+    <Index>101</Index>
     <Name>Wall of Thorns</Name>
     <Class>Druid</Class>
     <Level>5</Level>
@@ -2061,6 +2162,7 @@ Despite its appearance, a wall of thorns is not actually a living plant, and thu
     <Favorited>false</Favorited>
   </Spell>
   <Spell>
+    <Index>102</Index>
     <Name>Antilife Shell</Name>
     <Class>Druid</Class>
     <Level>6</Level>
@@ -2082,6 +2184,7 @@ This spell may be used only defensively, not aggressively. Forcing an abjuration
     <Favorited>false</Favorited>
   </Spell>
   <Spell>
+    <Index>103</Index>
     <Name>Cure Light Wounds, Mass</Name>
     <Class>Druid</Class>
     <Level>6</Level>
@@ -2101,6 +2204,7 @@ Like other cure spells, mass cure light wounds deals damage to undead in its are
     <Favorited>false</Favorited>
   </Spell>
   <Spell>
+    <Index>104</Index>
     <Name>Dispel Magic, Greater</Name>
     <Class>Druid</Class>
     <Level>6</Level>
@@ -2151,6 +2255,7 @@ Additionally, greater dispel magic has a chance to dispel any effect that remove
     <Favorited>false</Favorited>
   </Spell>
   <Spell>
+    <Index>105</Index>
     <Name>Find the Path</Name>
     <Class>Druid</Class>
     <Level>6</Level>
@@ -2175,6 +2280,7 @@ A set of divination counters of the sort you favor.</Description>
     <Favorited>false</Favorited>
   </Spell>
   <Spell>
+    <Index>106</Index>
     <Name>Fire Seeds</Name>
     <Class>Druid</Class>
     <Level>6</Level>
@@ -2204,6 +2310,7 @@ The acorns or holly berries.
     <Favorited>false</Favorited>
   </Spell>
   <Spell>
+    <Index>107</Index>
     <Name>Ironwood</Name>
     <Class>Druid</Class>
     <Level>6</Level>
@@ -2227,6 +2334,7 @@ Wood shaped into the form of the intended ironwood object.
     <Favorited>false</Favorited>
   </Spell>
   <Spell>
+    <Index>108</Index>
     <Name>Liveoak</Name>
     <Class>Druid</Class>
     <Level>6</Level>
@@ -2249,6 +2357,7 @@ If liveoak is dispelled, the tree takes root immediately, wherever it happens to
     <Favorited>false</Favorited>
   </Spell>
   <Spell>
+    <Index>109</Index>
     <Name>Move Earth</Name>
     <Class>Druid</Class>
     <Level>6</Level>
@@ -2278,6 +2387,7 @@ A mixture of soils (clay, loam, and sand) in a small bag, and an iron blade.
     <Favorited>false</Favorited>
   </Spell>
   <Spell>
+    <Index>110</Index>
     <Name>Owl’s Wisdom, Mass</Name>
     <Class>Druid</Class>
     <Level>6</Level>
@@ -2295,6 +2405,7 @@ A mixture of soils (clay, loam, and sand) in a small bag, and an iron blade.
     <Favorited>false</Favorited>
   </Spell>
   <Spell>
+    <Index>111</Index>
     <Name>Bear’s Endurance, Mass</Name>
     <Class>Druid</Class>
     <Level>6</Level>
@@ -2312,6 +2423,7 @@ A mixture of soils (clay, loam, and sand) in a small bag, and an iron blade.
     <Favorited>false</Favorited>
   </Spell>
   <Spell>
+    <Index>112</Index>
     <Name>Bull’s Strength, Mass</Name>
     <Class>Druid</Class>
     <Level>6</Level>
@@ -2329,6 +2441,7 @@ A mixture of soils (clay, loam, and sand) in a small bag, and an iron blade.
     <Favorited>false</Favorited>
   </Spell>
   <Spell>
+    <Index>113</Index>
     <Name>Cat’s Grace, Mass</Name>
     <Class>Druid</Class>
     <Level>6</Level>
@@ -2346,6 +2459,7 @@ A mixture of soils (clay, loam, and sand) in a small bag, and an iron blade.
     <Favorited>false</Favorited>
   </Spell>
   <Spell>
+    <Index>114</Index>
     <Name>Repel Wood</Name>
     <Class>Druid</Class>
     <Level>6</Level>
@@ -2367,6 +2481,7 @@ The waves of energy continue to sweep down the set path for the spell’s durati
     <Favorited>false</Favorited>
   </Spell>
   <Spell>
+    <Index>115</Index>
     <Name>Spellstaff</Name>
     <Class>Druid</Class>
     <Level>6</Level>
@@ -2388,6 +2503,7 @@ The staff that stores the spell.
     <Favorited>false</Favorited>
   </Spell>
   <Spell>
+    <Index>116</Index>
     <Name>Stone Tell</Name>
     <Class>Druid</Class>
     <Level>6</Level>
@@ -2407,6 +2523,7 @@ You can speak with natural or worked stone.</Description>
     <Favorited>false</Favorited>
   </Spell>
   <Spell>
+    <Index>117</Index>
     <Name>Summon Nature’s Ally VI</Name>
     <Class>Druid</Class>
     <Level>6</Level>
@@ -2427,6 +2544,7 @@ When you use a summoning spell to summon an air, chaotic, earth, evil, fire, goo
     <Favorited>false</Favorited>
   </Spell>
   <Spell>
+    <Index>118</Index>
     <Name>Transport via Plants</Name>
     <Class>Druid</Class>
     <Level>6</Level>
@@ -2450,6 +2568,7 @@ The destruction of an occupied plant slays you and any creatures you have brough
     <Favorited>false</Favorited>
   </Spell>
   <Spell>
+    <Index>119</Index>
     <Name>Wall of Stone</Name>
     <Class>Druid</Class>
     <Level>6</Level>
@@ -2477,6 +2596,7 @@ A small block of granite.
     <Favorited>false</Favorited>
   </Spell>
   <Spell>
+    <Index>120</Index>
     <Name>Animate Plants</Name>
     <Class>Druid</Class>
     <Level>7</Level>
@@ -2501,6 +2621,7 @@ Alternatively, you may imbue all plants within range with a degree of mobility, 
     <Favorited>false</Favorited>
   </Spell>
   <Spell>
+    <Index>121</Index>
     <Name>Changestaff</Name>
     <Class>Druid</Class>
     <Level>7</Level>
@@ -2523,6 +2644,7 @@ You cannot adventure or engage in other strenuous activity during the shaping an
     <Favorited>false</Favorited>
   </Spell>
   <Spell>
+    <Index>122</Index>
     <Name>Control Weather</Name>
     <Class>Druid</Class>
     <Level>7</Level>
@@ -2553,6 +2675,7 @@ A druid casting this spell doubles the duration and affects a circle with a 3-mi
     <Favorited>false</Favorited>
   </Spell>
   <Spell>
+    <Index>123</Index>
     <Name>Creeping Doom</Name>
     <Class>Druid</Class>
     <Level>7</Level>
@@ -2572,6 +2695,7 @@ You may summon the centipede swarms so that they share the area of other creatur
     <Favorited>false</Favorited>
   </Spell>
   <Spell>
+    <Index>124</Index>
     <Name>Cure Moderate Wounds, Mass</Name>
     <Class>Druid</Class>
     <Level>7</Level>
@@ -2591,6 +2715,7 @@ Like other cure spells, mass cure light wounds deals damage to undead in its are
     <Favorited>false</Favorited>
   </Spell>
   <Spell>
+    <Index>125</Index>
     <Name>Fire Storm</Name>
     <Class>Druid</Class>
     <Level>7</Level>
@@ -2608,6 +2733,7 @@ Like other cure spells, mass cure light wounds deals damage to undead in its are
     <Favorited>false</Favorited>
   </Spell>
   <Spell>
+    <Index>126</Index>
     <Name>Heal</Name>
     <Class>Druid</Class>
     <Level>7</Level>
@@ -2628,6 +2754,7 @@ If used against an undead creature, heal instead acts like harm.
     <Favorited>false</Favorited>
   </Spell>
   <Spell>
+    <Index>127</Index>
     <Name>Scrying, Greater</Name>
     <Class>Druid</Class>
     <Level>7</Level>
@@ -2676,6 +2803,7 @@ A natural pool of water.</Description>
     <Favorited>false</Favorited>
   </Spell>
   <Spell>
+    <Index>128</Index>
     <Name>Summon Nature’s Ally VII</Name>
     <Class>Druid</Class>
     <Level>7</Level>
@@ -2696,6 +2824,7 @@ When you use a summoning spell to summon an air, chaotic, earth, evil, fire, goo
     <Favorited>false</Favorited>
   </Spell>
   <Spell>
+    <Index>129</Index>
     <Name>Sunbeam</Name>
     <Class>Druid</Class>
     <Level>7</Level>
@@ -2719,6 +2848,7 @@ The ultraviolet light generated by the spell deals damage to fungi, mold, oozes,
     <Favorited>false</Favorited>
   </Spell>
   <Spell>
+    <Index>130</Index>
     <Name>Transmute Metal to Wood</Name>
     <Class>Druid</Class>
     <Level>7</Level>
@@ -2739,6 +2869,7 @@ Only limited wish, miracle, wish, or similar magic can restore a transmuted obje
     <Favorited>false</Favorited>
   </Spell>
   <Spell>
+    <Index>131</Index>
     <Name>True Seeing</Name>
     <Class>Druid</Class>
     <Level>7</Level>
@@ -2762,6 +2893,7 @@ An ointment for the eyes that costs 250 gp and is made from mushroom powder, saf
     <Favorited>false</Favorited>
   </Spell>
   <Spell>
+    <Index>132</Index>
     <Name>Wind Walk</Name>
     <Class>Druid</Class>
     <Level>7</Level>
@@ -2786,6 +2918,7 @@ For the last minute of the spell’s duration, a wind walker in cloud form autom
     <Favorited>false</Favorited>
   </Spell>
   <Spell>
+    <Index>133</Index>
     <Name>Animal Shapes</Name>
     <Class>Druid</Class>
     <Level>8</Level>
@@ -2804,6 +2937,7 @@ For the last minute of the spell’s duration, a wind walker in cloud form autom
     <Favorited>false</Favorited>
   </Spell>
   <Spell>
+    <Index>134</Index>
     <Name>Control Plants</Name>
     <Class>Druid</Class>
     <Level>8</Level>
@@ -2824,6 +2958,7 @@ Suicidal or self-destructive commands are simply ignored.
     <Favorited>false</Favorited>
   </Spell>
   <Spell>
+    <Index>135</Index>
     <Name>Cure Serious Wounds, Mass</Name>
     <Class>Druid</Class>
     <Level>8</Level>
@@ -2843,6 +2978,7 @@ Like other cure spells, mass cure light wounds deals damage to undead in its are
     <Favorited>false</Favorited>
   </Spell>
   <Spell>
+    <Index>136</Index>
     <Name>Earthquake</Name>
     <Class>Druid</Class>
     <Level>8</Level>
@@ -2878,6 +3014,7 @@ Any creature pinned beneath rubble takes 1d6 points of nonlethal damage per minu
     <Favorited>false</Favorited>
   </Spell>
   <Spell>
+    <Index>137</Index>
     <Name>Finger of Death</Name>
     <Class>Druid</Class>
     <Level>8</Level>
@@ -2898,6 +3035,7 @@ The subject might die from damage even if it succeeds on its saving throw.
     <Favorited>false</Favorited>
   </Spell>
   <Spell>
+    <Index>138</Index>
     <Name>Repel Metal or Stone</Name>
     <Class>Druid</Class>
     <Level>8</Level>
@@ -2919,6 +3057,7 @@ The waves of energy continue to sweep down the set path for the spell’s durati
     <Favorited>false</Favorited>
   </Spell>
   <Spell>
+    <Index>139</Index>
     <Name>Reverse Gravity</Name>
     <Class>Druid</Class>
     <Level>8</Level>
@@ -2942,6 +3081,7 @@ A lodestone and iron filings.
     <Favorited>false</Favorited>
   </Spell>
   <Spell>
+    <Index>140</Index>
     <Name>Summon Nature’s Ally VIII</Name>
     <Class>Druid</Class>
     <Level>8</Level>
@@ -2962,6 +3102,7 @@ When you use a summoning spell to summon an air, chaotic, earth, evil, fire, goo
     <Favorited>false</Favorited>
   </Spell>
   <Spell>
+    <Index>141</Index>
     <Name>Sunburst</Name>
     <Class>Druid</Class>
     <Level>8</Level>
@@ -2988,6 +3129,7 @@ A piece of sunstone and a naked flame.</Description>
     <Favorited>false</Favorited>
   </Spell>
   <Spell>
+    <Index>142</Index>
     <Name>Whirlwind</Name>
     <Class>Druid</Class>
     <Level>8</Level>
@@ -3007,6 +3149,7 @@ Any Large or smaller creature that comes in contact with the spell effect must s
     <Favorited>false</Favorited>
   </Spell>
   <Spell>
+    <Index>143</Index>
     <Name>Word of Recall</Name>
     <Class>Druid</Class>
     <Level>8</Level>
@@ -3026,6 +3169,7 @@ An unwilling creature can’t be teleported by word of recall. Likewise, a creat
     <Favorited>false</Favorited>
   </Spell>
   <Spell>
+    <Index>144</Index>
     <Name>Antipathy</Name>
     <Class>Druid</Class>
     <Level>9</Level>
@@ -3052,6 +3196,7 @@ A lump of alum soaked in vinegar.</Description>
     <Favorited>false</Favorited>
   </Spell>
   <Spell>
+    <Index>145</Index>
     <Name>Cure Critical Wounds, Mass</Name>
     <Class>Druid</Class>
     <Level>9</Level>
@@ -3071,6 +3216,7 @@ Like other cure spells, mass cure light wounds deals damage to undead in its are
     <Favorited>false</Favorited>
   </Spell>
   <Spell>
+    <Index>146</Index>
     <Name>Elemental Swarm</Name>
     <Class>Druid</Class>
     <Level>9</Level>
@@ -3095,6 +3241,7 @@ When you use a summoning spell to summon an air, earth, fire, or water creature,
     <Favorited>false</Favorited>
   </Spell>
   <Spell>
+    <Index>147</Index>
     <Name>Foresight</Name>
     <Class>Druid</Class>
     <Level>9</Level>
@@ -3118,6 +3265,7 @@ A hummingbird’s feather.
     <Favorited>false</Favorited>
   </Spell>
   <Spell>
+    <Index>148</Index>
     <Name>Regenerate</Name>
     <Class>Druid</Class>
     <Level>9</Level>
@@ -3137,6 +3285,7 @@ Regenerate also cures 4d8 points of damage +1 point per caster level (maximum +3
     <Favorited>false</Favorited>
   </Spell>
   <Spell>
+    <Index>149</Index>
     <Name>Shambler</Name>
     <Class>Druid</Class>
     <Level>9</Level>
@@ -3156,6 +3305,7 @@ The shamblers have resistance to fire as normal shambling mounds do only if the 
     <Favorited>false</Favorited>
   </Spell>
   <Spell>
+    <Index>150</Index>
     <Name>Shapechange</Name>
     <Class>Druid</Class>
     <Level>9</Level>
@@ -3180,6 +3330,7 @@ A jade circlet worth no less than 1,500 gp, which you must place on your head wh
     <Favorited>false</Favorited>
   </Spell>
   <Spell>
+    <Index>151</Index>
     <Name>Storm of Vengeance</Name>
     <Class>Druid</Class>
     <Level>9</Level>
@@ -3213,6 +3364,7 @@ Ranged attacks within the area of the storm are impossible. Spells cast within t
     <Favorited>false</Favorited>
   </Spell>
   <Spell>
+    <Index>152</Index>
     <Name>Summon Nature’s Ally IX</Name>
     <Class>Druid</Class>
     <Level>9</Level>
@@ -3232,6 +3384,7 @@ When you use a summoning spell to summon an air, chaotic, earth, evil, fire, goo
     <Favorited>false</Favorited>
   </Spell>
   <Spell>
+    <Index>153</Index>
     <Name>Sympathy</Name>
     <Class>Druid</Class>
     <Level>9</Level>
@@ -3256,6 +3409,7 @@ Material Component
     <Favorited>false</Favorited>
   </Spell>
   <Spell>
+    <Index>154</Index>
     <Name>Create Water</Name>
     <Class>Druid</Class>
     <Level>0</Level>
@@ -3273,6 +3427,7 @@ Material Component
     <Favorited>false</Favorited>
   </Spell>
   <Spell>
+    <Index>155</Index>
     <Name>Cure Minor Wounds</Name>
     <Class>Druid</Class>
     <Level>0</Level>
@@ -3290,6 +3445,7 @@ Material Component
     <Favorited>false</Favorited>
   </Spell>
   <Spell>
+    <Index>156</Index>
     <Name>Detect Magic</Name>
     <Class>Druid</Class>
     <Level>0</Level>
@@ -3307,6 +3463,7 @@ Material Component
     <Favorited>false</Favorited>
   </Spell>
   <Spell>
+    <Index>157</Index>
     <Name>Detect Poison</Name>
     <Class>Druid</Class>
     <Level>0</Level>
@@ -3324,6 +3481,7 @@ Material Component
     <Favorited>false</Favorited>
   </Spell>
   <Spell>
+    <Index>158</Index>
     <Name>Flare</Name>
     <Class>Druid</Class>
     <Level>0</Level>
@@ -3341,6 +3499,7 @@ Material Component
     <Favorited>false</Favorited>
   </Spell>
   <Spell>
+    <Index>159</Index>
     <Name>Guidance</Name>
     <Class>Druid</Class>
     <Level>0</Level>
@@ -3358,6 +3517,7 @@ Material Component
     <Favorited>false</Favorited>
   </Spell>
   <Spell>
+    <Index>160</Index>
     <Name>Know Direction</Name>
     <Class>Druid</Class>
     <Level>0</Level>
@@ -3375,6 +3535,7 @@ Material Component
     <Favorited>false</Favorited>
   </Spell>
   <Spell>
+    <Index>161</Index>
     <Name>Light</Name>
     <Class>Druid</Class>
     <Level>0</Level>
@@ -3392,6 +3553,7 @@ Material Component
     <Favorited>false</Favorited>
   </Spell>
   <Spell>
+    <Index>162</Index>
     <Name>Mending</Name>
     <Class>Druid</Class>
     <Level>0</Level>
@@ -3409,6 +3571,7 @@ Material Component
     <Favorited>false</Favorited>
   </Spell>
   <Spell>
+    <Index>163</Index>
     <Name>Purify Food and Drink</Name>
     <Class>Druid</Class>
     <Level>0</Level>
@@ -3426,6 +3589,7 @@ Material Component
     <Favorited>false</Favorited>
   </Spell>
   <Spell>
+    <Index>164</Index>
     <Name>Read Magic</Name>
     <Class>Druid</Class>
     <Level>0</Level>
@@ -3443,6 +3607,7 @@ Material Component
     <Favorited>false</Favorited>
   </Spell>
   <Spell>
+    <Index>165</Index>
     <Name>Resistance</Name>
     <Class>Druid</Class>
     <Level>0</Level>
@@ -3460,6 +3625,7 @@ Material Component
     <Favorited>false</Favorited>
   </Spell>
   <Spell>
+    <Index>166</Index>
     <Name>Virtue</Name>
     <Class>Druid</Class>
     <Level>0</Level>
@@ -3477,6 +3643,7 @@ Material Component
     <Favorited>false</Favorited>
   </Spell>
   <Spell>
+    <Index>167</Index>
     <Name>Calm Animals</Name>
     <Class>Druid</Class>
     <Level>1</Level>
@@ -3494,6 +3661,7 @@ Material Component
     <Favorited>false</Favorited>
   </Spell>
   <Spell>
+    <Index>168</Index>
     <Name>Kelpstrand</Name>
     <Class>Druid</Class>
     <Level>2</Level>
@@ -3511,6 +3679,7 @@ Material Component
     <Favorited>true</Favorited>
   </Spell>
   <Spell>
+    <Index>169</Index>
     <Name>Charge of the Triceratops</Name>
     <Class>Druid</Class>
     <Level>3</Level>
@@ -3528,6 +3697,7 @@ Material Component
     <Favorited>true</Favorited>
   </Spell>
   <Spell>
+    <Index>170</Index>
     <Name>Bite of the Wererat</Name>
     <Class>Druid</Class>
     <Level>2</Level>
@@ -3560,6 +3730,7 @@ Material Component: A rat’s tail.</Description>
     <Favorited>false</Favorited>
   </Spell>
   <Spell>
+    <Index>171</Index>
     <Name>Bite of the Wereboar</Name>
     <Class>Druid</Class>
     <Level>4</Level>
@@ -3594,6 +3765,7 @@ bristles.</Description>
     <Favorited>false</Favorited>
   </Spell>
   <Spell>
+    <Index>172</Index>
     <Name>Bite of the Weretiger</Name>
     <Class>Druid</Class>
     <Level>5</Level>
@@ -3635,6 +3807,7 @@ Material Component: A tiger’s claw.</Description>
     <Favorited>false</Favorited>
   </Spell>
   <Spell>
+    <Index>173</Index>
     <Name>Bite of the Werebear</Name>
     <Class>Druid</Class>
     <Level>6</Level>
@@ -3678,6 +3851,7 @@ fur.</Description>
     <Favorited>false</Favorited>
   </Spell>
   <Spell>
+    <Index>174</Index>
     <Name>Energy Vortex</Name>
     <Class>Druid</Class>
     <Level>3</Level>
@@ -3712,6 +3886,7 @@ when you cast it.</Description>
     <Favorited>true</Favorited>
   </Spell>
   <Spell>
+    <Index>175</Index>
     <Name>Air Breathing</Name>
     <Class>Druid</Class>
     <Level>3</Level>
@@ -3731,6 +3906,7 @@ Arcane Material Component: A short reed or piece of straw.</Description>
     <Favorited>false</Favorited>
   </Spell>
   <Spell>
+    <Index>176</Index>
     <Name>Call Lightning Storm</Name>
     <Class>Druid</Class>
     <Level>5</Level>
@@ -3756,6 +3932,7 @@ This spell functions like call lightning, except that each bolt deals 5d6 points
     <Favorited>false</Favorited>
   </Spell>
   <Spell>
+    <Index>177</Index>
     <Name>Arc of Lightning</Name>
     <Class>Druid</Class>
     <Level>4</Level>
@@ -3773,6 +3950,7 @@ This spell functions like call lightning, except that each bolt deals 5d6 points
     <Favorited>false</Favorited>
   </Spell>
   <Spell>
+    <Index>178</Index>
     <Name>Heatstroke</Name>
     <Class>Druid</Class>
     <Level>3</Level>
@@ -3790,6 +3968,7 @@ This spell functions like call lightning, except that each bolt deals 5d6 points
     <Favorited>false</Favorited>
   </Spell>
   <Spell>
+    <Index>179</Index>
     <Name>Magic Fang, Superior</Name>
     <Class>Druid</Class>
     <Level>4</Level>
@@ -3807,6 +3986,7 @@ This spell functions like call lightning, except that each bolt deals 5d6 points
     <Favorited>false</Favorited>
   </Spell>
   <Spell>
+    <Index>180</Index>
     <Name>Saltray</Name>
     <Class>Druid</Class>
     <Level>2</Level>
@@ -3824,6 +4004,7 @@ This spell functions like call lightning, except that each bolt deals 5d6 points
     <Favorited>false</Favorited>
   </Spell>
   <Spell>
+    <Index>181</Index>
     <Name>Snake's Swiftness</Name>
     <Class>Druid</Class>
     <Level>1</Level>
@@ -3843,6 +4024,7 @@ The subject can immediately make one melee or ranged attack. Taking this action 
     <Favorited>false</Favorited>
   </Spell>
   <Spell>
+    <Index>182</Index>
     <Name>Snake's Swiftness, Mass</Name>
     <Class>Druid</Class>
     <Level>2</Level>
@@ -3864,6 +4046,7 @@ scales from a snake.</Description>
     <Favorited>false</Favorited>
   </Spell>
   <Spell>
+    <Index>183</Index>
     <Name>Snowshoes</Name>
     <Class>Druid</Class>
     <Level>1</Level>
@@ -3881,6 +4064,7 @@ scales from a snake.</Description>
     <Favorited>false</Favorited>
   </Spell>
   <Spell>
+    <Index>184</Index>
     <Name>Snowshoes, Mass</Name>
     <Class>Druid</Class>
     <Level>3</Level>
@@ -3898,6 +4082,7 @@ scales from a snake.</Description>
     <Favorited>false</Favorited>
   </Spell>
   <Spell>
+    <Index>185</Index>
     <Name>Spiritjaws</Name>
     <Class>Druid</Class>
     <Level>3</Level>
@@ -3915,6 +4100,7 @@ scales from a snake.</Description>
     <Favorited>false</Favorited>
   </Spell>
   <Spell>
+    <Index>186</Index>
     <Name>Splinterbolt</Name>
     <Class>Druid</Class>
     <Level>2</Level>
@@ -3934,6 +4120,7 @@ You must make a ranged attack to hit the target. If you hit, the splinterbolt de
     <Favorited>false</Favorited>
   </Spell>
   <Spell>
+    <Index>187</Index>
     <Name>Treasure Scent</Name>
     <Class>Druid</Class>
     <Level>3</Level>
@@ -3951,6 +4138,7 @@ You must make a ranged attack to hit the target. If you hit, the splinterbolt de
     <Favorited>false</Favorited>
   </Spell>
   <Spell>
+    <Index>188</Index>
     <Name>Vine Mine</Name>
     <Class>Druid</Class>
     <Level>3</Level>
@@ -3968,6 +4156,7 @@ You must make a ranged attack to hit the target. If you hit, the splinterbolt de
     <Favorited>false</Favorited>
   </Spell>
   <Spell>
+    <Index>189</Index>
     <Name>Vine Strike</Name>
     <Class>Druid</Class>
     <Level>1</Level>
@@ -3985,6 +4174,7 @@ You must make a ranged attack to hit the target. If you hit, the splinterbolt de
     <Favorited>false</Favorited>
   </Spell>
   <Spell>
+    <Index>190</Index>
     <Name>Fire Wings</Name>
     <Class>Druid</Class>
     <Level>3</Level>
@@ -4006,6 +4196,7 @@ Focus: A golden amulet shaped like a phoenix (worth 150 gp). </Description>
     <Favorited>false</Favorited>
   </Spell>
   <Spell>
+    <Index>191</Index>
     <Name>Sandblast</Name>
     <Class>Druid</Class>
     <Level>1</Level>
@@ -4023,6 +4214,7 @@ Focus: A golden amulet shaped like a phoenix (worth 150 gp). </Description>
     <Favorited>false</Favorited>
   </Spell>
   <Spell>
+    <Index>192</Index>
     <Name>Wood Wose</Name>
     <Class>Druid</Class>
     <Level>1</Level>
@@ -4040,6 +4232,7 @@ Focus: A golden amulet shaped like a phoenix (worth 150 gp). </Description>
     <Favorited>false</Favorited>
   </Spell>
   <Spell>
+    <Index>193</Index>
     <Name>Cure Light Wounds</Name>
     <Class>Druid</Class>
     <Level>1</Level>
@@ -4057,6 +4250,7 @@ Focus: A golden amulet shaped like a phoenix (worth 150 gp). </Description>
     <Favorited>false</Favorited>
   </Spell>
   <Spell>
+    <Index>194</Index>
     <Name>Luminous Armor, Greater</Name>
     <Class>Druid</Class>
     <Level>4</Level>
@@ -4078,6 +4272,7 @@ Sacrifice: 1d3 points of Strength damage.</Description>
     <Favorited>false</Favorited>
   </Spell>
   <Spell>
+    <Index>195</Index>
     <Name>Luminous Armor</Name>
     <Class>Druid</Class>
     <Level>2</Level>
@@ -4099,6 +4294,7 @@ Sacrifice: 1d2 points of Strength damage. </Description>
     <Favorited>true</Favorited>
   </Spell>
   <Spell>
+    <Index>196</Index>
     <Name>Blinding Spittle</Name>
     <Class>Druid</Class>
     <Level>2</Level>
@@ -4116,6 +4312,7 @@ Sacrifice: 1d2 points of Strength damage. </Description>
     <Favorited>true</Favorited>
   </Spell>
   <Spell>
+    <Index>197</Index>
     <Name>Bite of the Werewolf</Name>
     <Class>Druid</Class>
     <Level>3</Level>
@@ -4137,6 +4334,7 @@ Material Component: A wolf’s tooth.</Description>
     <Favorited>true</Favorited>
   </Spell>
   <Spell>
+    <Index>198</Index>
     <Name>Linked Perception</Name>
     <Class>Druid</Class>
     <Level>2</Level>
@@ -4153,6 +4351,115 @@ Material Component: A wolf’s tooth.</Description>
 
 This spell imparts to all allies in its area a shared awareness of their surroundings. Each ally in the area (including yourself) gains a +2 bonus on Spot and Listen checks per each ally in the area. For example, if you and three allies are in the area, each of you gains a +6 bonus. </Description>
     <SourceBook>PHB II</SourceBook>
+    <Favorited>false</Favorited>
+  </Spell>
+  <Spell>
+    <Index>199</Index>
+    <Name>Creeping Cold</Name>
+    <Class>Druid</Class>
+    <Level>2</Level>
+    <Domain>Transmutation [Cold]</Domain>
+    <Components>V, S, F</Components>
+    <Casting>1 standard action</Casting>
+    <Range>Close (25 ft. + 5 ft./2 levels)</Range>
+    <Target>One creature</Target>
+    <Effect />
+    <Duration>3 rounds</Duration>
+    <SavingThrow>Fortitude half</SavingThrow>
+    <SpellResistance>Yes</SpellResistance>
+    <Description>You turn the subject’s sweat to ice, creating blisters as the ice forms on and inside the skin. The spell deals 1d6 cumulative points of cold damage per round it is in effect (that is, 1d6 on the 1st round, 2d6 on the second, and 3d6 on the third). Only one save is allowed against the spell; if successful, it halves the damage each round. Focus: A small glass or pottery vessel worth at least 25 gp filled with ice, snow, or water.</Description>
+    <SourceBook>CD</SourceBook>
+    <Favorited>false</Favorited>
+  </Spell>
+  <Spell>
+    <Index>200</Index>
+    <Name>Nature's Favor</Name>
+    <Class>Druid</Class>
+    <Level>3</Level>
+    <Domain>Evocation</Domain>
+    <Components>V, S, DF</Components>
+    <Casting>1 standard action</Casting>
+    <Range>Touch</Range>
+    <Target>Animal touched</Target>
+    <Effect />
+    <Duration>1 min/level</Duration>
+    <SavingThrow>Will negates (harmless)</SavingThrow>
+    <SpellResistance>Yes (harmless)</SpellResistance>
+    <Description>By calling on the power of nature, you grant the target animal a +1 luck bonus on attack and damage rolls for every
+2 caster levels you possess.</Description>
+    <SourceBook>CD</SourceBook>
+    <Favorited>false</Favorited>
+  </Spell>
+  <Spell>
+    <Index>201</Index>
+    <Name>Spikes</Name>
+    <Class>Druid</Class>
+    <Level>3</Level>
+    <Domain>Transmutation</Domain>
+    <Components>V, S, M</Components>
+    <Casting>1 standard action</Casting>
+    <Range>Touch</Range>
+    <Target>Wooden weapon touched</Target>
+    <Effect />
+    <Duration>1 hour/level</Duration>
+    <SavingThrow>None</SavingThrow>
+    <SpellResistance>No</SpellResistance>
+    <Description>As brambles, except that the affected weapon gains a +2 enhancement bonus on its attacks, and its threat range is doubled. </Description>
+    <SourceBook>CD</SourceBook>
+    <Favorited>false</Favorited>
+  </Spell>
+  <Spell>
+    <Index>202</Index>
+    <Name>Brambles</Name>
+    <Class>Druid</Class>
+    <Level>2</Level>
+    <Domain>Transmutation</Domain>
+    <Components>V, S, M</Components>
+    <Casting>1 standard action</Casting>
+    <Range>Touch</Range>
+    <Target>Wooden weapon touched</Target>
+    <Effect />
+    <Duration>1 round/level</Duration>
+    <SavingThrow>None</SavingThrow>
+    <SpellResistance>No</SpellResistance>
+    <Description>Small magical thorns or spikes protrude from the surface of a wooden weapon, such as a club, greatclub, nunchaku, or quarterstaff. For the duration of the spell, the weapon deals both piercing and bludgeoning damage. It gains a +1 enhancement bonus on its attacks and deals an additional +1 point of damage per caster level (maximum +10). This spell works only on melee weapons with wooden striking surfaces. For instance, it does not work on a bow, an arrow, or a metal mace. Material Component: A small thorn </Description>
+    <SourceBook>CD</SourceBook>
+    <Favorited>false</Favorited>
+  </Spell>
+  <Spell>
+    <Index>203</Index>
+    <Name>Briar Web</Name>
+    <Class>Druid</Class>
+    <Level>2</Level>
+    <Domain>Transmutation</Domain>
+    <Components>V, S, DF</Components>
+    <Casting>1 standard action</Casting>
+    <Range>Medium (100 ft. + 10 ft./level)</Range>
+    <Target>Plants in a 20-ft.-radius spread</Target>
+    <Effect />
+    <Duration>1 minute/level</Duration>
+    <SavingThrow>Refl ex negates; see text</SavingThrow>
+    <SpellResistance>No</SpellResistance>
+    <Description>This spell causes grasses, weeds, bushes, and even trees to grow thorns and then wrap and twist around creatures in or entering the area. Creatures that make their save against this spell are unaffected other than having to move at half speed within the area of affect. If a creature fails its initial saving throw, it has three options: stay perfectly still, attempt to break free from the thorns, or continue to actnormally. A creature that fails its save but stands perfectly still is entangled (–2 attack, –4 Dexterity), but experiences no other effect and takes no damage. Anyone entangled in this way loses the entangled condition if they leave the area of the spell. Each round in which a creature remains in the area, it may spend a full round action extricating themselves from the thorns. Doing so allows for a new saving throw. If successful, the creature is unaffected by the thorns except it may only move at half speed in the area of the spell. Successfully breaking free in this way is the only thing a character can do that does not cause thorn damage to the character. A failed attempt to break free deals the normal 2d6 thorn piercing damage. Those that attempt actions (such as attack, cast a spell with a somatic component, or move) take 2d6 points of piercing damage from the thorns. A creature that tries to cast a spell must also make a Concentration check (DC 15 + spell level + damage taken) or lose the spell. The plants provide cover. A creature 5 feet away has cover. Creaturs separated by 20 or more feet of briar webs have total cover. </Description>
+    <SourceBook>CD</SourceBook>
+    <Favorited>false</Favorited>
+  </Spell>
+  <Spell>
+    <Index>204</Index>
+    <Name>Cloudburst</Name>
+    <Class>Druid</Class>
+    <Level>2</Level>
+    <Domain>Evocation (Water)</Domain>
+    <Components>V, S</Components>
+    <Casting>1 full round</Casting>
+    <Range>Long (400 ft. + 40 ft./level)</Range>
+    <Target>100-ft.-radius emanation</Target>
+    <Effect />
+    <Duration>10 min./level (D)</Duration>
+    <SavingThrow>None</SavingThrow>
+    <SpellResistance>No</SpellResistance>
+    <Description>You cause clouds to gather and a heavy rain to fall. The rain reduces visibility ranges by half, resulting in a –4 penalty on Spot and Search checks. It automatically extinguishes unprotected flames, and has a 50% chance of extinguishing protected fl ames. Ranged weapon attacks and Listen checks suffer a –4 penalty. This spell does not function indoors, underground, underwater, or in desert climates. After the spell end, the water created evaporates over the next 10 minutes. The water created with this spell does not slake thirst or provide any nourishment to plants. </Description>
+    <SourceBook>CD</SourceBook>
     <Favorited>false</Favorited>
   </Spell>
 </ArrayOfSpell>

@@ -81,6 +81,7 @@
     <Compile Include="DruidMain.Designer.cs">
       <DependentUpon>DruidMain.cs</DependentUpon>
     </Compile>
+    <Compile Include="DSAConfig.cs" />
     <Compile Include="FileParser.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
