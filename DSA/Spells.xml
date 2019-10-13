@@ -88,7 +88,7 @@
     <SpellResistance>No</SpellResistance>
     <Description>Grasses, weeds, bushes, and even trees wrap, twist, and entwine about creatures in the area or those that enter the area, holding them fast and causing them to become entangled. The creature can break free and move half its normal speed by using a full-round action to make a DC 20 Strength check or a DC 20 Escape Artist check. A creature that succeeds on a Reflex save is not entangled but can still move at only half speed through the area. Each round on your turn, the plants once again attempt to entangle all creatures that have avoided or escaped entanglement.  Note: The effects of the spell may be altered somewhat, based on the nature of the entangling plants.</Description>
     <SourceBook>PHB</SourceBook>
-    <Favorited>false</Favorited>
+    <Favorited>true</Favorited>
   </Spell>
   <Spell>
     <Index>6</Index>
@@ -106,7 +106,7 @@
     <SpellResistance>Yes</SpellResistance>
     <Description>A pale glow surrounds and outlines the subjects. Outlined subjects shed light as candles. Outlined creatures do not benefit from the concealment normally provided by darkness (though a 2nd-level or higher magical darkness effect functions normally), blur, displacement, invisibility, or similar effects. The light is too dim to have any special effect on undead or dark-dwelling creatures vulnerable to light. The faerie fire can be blue, green, or violet, according to your choice at the time of casting. The faerie fire does not cause any harm to the objects or creatures thus outlined.</Description>
     <SourceBook>PHB</SourceBook>
-    <Favorited>false</Favorited>
+    <Favorited>true</Favorited>
   </Spell>
   <Spell>
     <Index>7</Index>
@@ -178,7 +178,7 @@
     <SpellResistance />
     <Description>This spell increases your base land speed by 10 feet. (This adjustment counts as an enhancement bonus.) It has no effect on other modes of movement, such as burrow, climb, fly, or swim.  Material Component A pinch of dirt.</Description>
     <SourceBook>PHB</SourceBook>
-    <Favorited>false</Favorited>
+    <Favorited>true</Favorited>
   </Spell>
   <Spell>
     <Index>11</Index>
@@ -268,7 +268,7 @@
     <SpellResistance>Yes</SpellResistance>
     <Description>Flames as bright as a torch appear in your open hand. The flames harm neither you nor your equipment.  In addition to providing illumination, the flames can be hurled or used to touch enemies. You can strike an opponent with a melee touch attack, dealing fire damage equal to 1d6 +1 point per caster level (maximum +5). Alternatively, you can hurl the flames up to 120 feet as a thrown weapon. When doing so, you attack with a ranged touch attack (with no range penalty) and deal the same damage as with the melee attack. No sooner do you hurl the flames than a new set appears in your hand. Each attack you make reduces the remaining duration by 1 minute. If an attack reduces the remaining duration to 0 minutes or less, the spell ends after the attack resolves.  This spell does not function underwater.</Description>
     <SourceBook>PHB</SourceBook>
-    <Favorited>false</Favorited>
+    <Favorited>true</Favorited>
   </Spell>
   <Spell>
     <Index>16</Index>
@@ -502,7 +502,7 @@
     <SpellResistance>Yes</SpellResistance>
     <Description>A burning globe of fire rolls in whichever direction you point and burns those it strikes. It moves 30 feet per round. As part of this movement, it can ascend or jump up to 30 feet to strike a target. If it enters a space with a creature, it stops moving for the round and deals 2d6 points of fire damage to that creature, though a successful Reflex save negates that damage. A flaming sphere rolls over barriers less than 4 feet tall. It ignites flammable substances it touches and illuminates the same area as a torch would.  The sphere moves as long as you actively direct it (a move action for you); otherwise, it merely stays at rest and burns. It can be extinguished by any means that would put out a normal fire of its size. The surface of the sphere has a spongy, yielding consistency and so does not cause damage except by its flame. It cannot push aside unwilling creatures or batter down large obstacles. A flaming sphere winks out if it exceeds the spell’s range.  Arcane Material Component A bit of tallow, a pinch of brimstone, and a dusting of powdered iron.</Description>
     <SourceBook>PHB</SourceBook>
-    <Favorited>false</Favorited>
+    <Favorited>true</Favorited>
   </Spell>
   <Spell>
     <Index>29</Index>
@@ -772,7 +772,7 @@
     <SpellResistance>Yes</SpellResistance>
     <Description>Immediately upon completion of the spell, and once per round thereafter, you may call down a 5-foot-wide, 30-foot-long, vertical bolt of lightning that deals 3d6 points of electricity damage. The bolt of lightning flashes down in a vertical stroke at whatever target point you choose within the spell’s range (measured from your position at the time). Any creature in the target square or in the path of the bolt is affected.  You need not call a bolt of lightning immediately; other actions, even spellcasting, can be performed. However, each round after the first you may use a standard action (concentrating on the spell) to call a bolt. You may call a total number of bolts equal to your caster level (maximum 10 bolts).  If you are outdoors and in a stormy area—a rain shower, clouds and wind, hot and cloudy conditions, or even a tornado (including a whirlwind formed by a djinni or an air elemental of at least Large size)—each bolt deals 3d10 points of electricity damage instead of 3d6.  This spell functions indoors or underground but not underwater.</Description>
     <SourceBook>PHB</SourceBook>
-    <Favorited>false</Favorited>
+    <Favorited>true</Favorited>
   </Spell>
   <Spell>
     <Index>44</Index>
@@ -3424,7 +3424,7 @@ Material Component
     <SpellResistance>No</SpellResistance>
     <Description>This spell generates wholesome, drinkable water, just like clean rain water. Water can be created in an area as small as will actually contain the liquid, or in an area three times as large possibly creating a downpour or filling many small receptacles.  Note: Conjuration spells can t create substances or objects within a creature. Water weighs about 8 pounds per gallon. One cubic foot of water contains roughly 8 gallons and weighs about 60 pounds. </Description>
     <SourceBook>PHB</SourceBook>
-    <Favorited>false</Favorited>
+    <Favorited>true</Favorited>
   </Spell>
   <Spell>
     <Index>155</Index>
@@ -3460,7 +3460,7 @@ Material Component
     <SpellResistance>No</SpellResistance>
     <Description>You detect magical auras. The amount of information revealed depends on how long you study a particular area or subject.  Each round, you can turn to detect magic in a new area. The spell can penetrate barriers, but 1 foot of stone, 1 inch of common metal, a thin sheet of lead, or 3 feet of wood or dirt blocks it.  Detect magic can be made permanent with a permanency spell.</Description>
     <SourceBook>PHB</SourceBook>
-    <Favorited>false</Favorited>
+    <Favorited>true</Favorited>
   </Spell>
   <Spell>
     <Index>157</Index>
@@ -3514,7 +3514,7 @@ Material Component
     <SpellResistance>Yes</SpellResistance>
     <Description>This spell imbues the subject with a touch of divine guidance. The creature gets a +1 competence bonus on a single attack roll, saving throw, or skill check. It must choose to use the bonus before making the roll to which it applies.</Description>
     <SourceBook>PHB</SourceBook>
-    <Favorited>false</Favorited>
+    <Favorited>true</Favorited>
   </Spell>
   <Spell>
     <Index>160</Index>
@@ -3568,7 +3568,7 @@ Material Component
     <SpellResistance>Yes (harmless, object)</SpellResistance>
     <Description>Mending repairs small breaks or tears in objects (but not warps, such as might be caused by a warp wood spell). It will weld broken metallic objects such as a ring, a chain link, a medallion, or a slender dagger, providing but one break exists.  Ceramic or wooden objects with multiple breaks can be invisibly rejoined to be as strong as new. A hole in a leather sack or a wineskin is completely healed over by mending. The spell can repair a magic item, but the item’s magical abilities are not restored. The spell cannot mend broken magic rods, staffs, or wands, nor does it affect creatures (including constructs).</Description>
     <SourceBook>PHB</SourceBook>
-    <Favorited>false</Favorited>
+    <Favorited>true</Favorited>
   </Spell>
   <Spell>
     <Index>163</Index>
@@ -3586,7 +3586,7 @@ Material Component
     <SpellResistance>Yes (object)</SpellResistance>
     <Description>This spell makes spoiled, rotten, poisonous, or otherwise contaminated food and water pure and suitable for eating and drinking. This spell does not prevent subsequent natural decay or spoilage. Unholy water and similar food and drink of significance is spoiled by purify food and drink, but the spell has no effect on creatures of any type nor upon magic potions.  Note: Water weighs about 8 pounds per gallon. One cubic foot of water contains roughly 8 gallons and weighs about 60 pounds.</Description>
     <SourceBook>PHB</SourceBook>
-    <Favorited>false</Favorited>
+    <Favorited>true</Favorited>
   </Spell>
   <Spell>
     <Index>164</Index>
@@ -3604,7 +3604,7 @@ Material Component
     <SpellResistance />
     <Description>By means of read magic, you can decipher magical inscriptions on objects—books, scrolls, weapons, and the like—that would otherwise be unintelligible. This deciphering does not normally invoke the magic contained in the writing, although it may do so in the case of a cursed scroll. Furthermore, once the spell is cast and you have read the magical inscription, you are thereafter able to read that particular writing without recourse to the use of read magic. You can read at the rate of one page (250 words) per minute. The spell allows you to identify a glyph of warding with a DC 13 Spellcraft check, a greater glyph of warding with a DC 16 Spellcraft check, or any symbol spell with a Spellcraft check (DC 10 + spell level).  Read magic can be made permanent with a permanency spell.  Focus A clear crystal or mineral prism.</Description>
     <SourceBook>PHB</SourceBook>
-    <Favorited>false</Favorited>
+    <Favorited>true</Favorited>
   </Spell>
   <Spell>
     <Index>165</Index>
@@ -4001,7 +4001,7 @@ This spell functions like call lightning, except that each bolt deals 5d6 points
     <SpellResistance>Yes</SpellResistance>
     <Description>A thin shaft of whirling salt crystals lances out from your crooked fi nger to strike and shred your foe. You must succeed on a ranged touch attack with the ray to strike a target. A creature struck by a saltray takes 1d6 points of damage per two caster levels (maximum 5d6) and must make a Fortitude save or be stunned for 1 round. </Description>
     <SourceBook>SC</SourceBook>
-    <Favorited>false</Favorited>
+    <Favorited>true</Favorited>
   </Spell>
   <Spell>
     <Index>181</Index>
@@ -4097,7 +4097,7 @@ scales from a snake.</Description>
     <SpellResistance>Yes</SpellResistance>
     <Description>You call upon the power of the dinosaurs to complete the spell. A set of ghostly dinosaur jaws comes into being and attacks the creature you designate. This spell creates a set of powerful jaws of force. The jaws attempt to grapple the designated opponent, starting with one attack in the round the spell is cast and continuing each round thereafter. The spiritjaws use your base attack bonus (possibly allowing it multiple attacks per round in subsequent rounds) + your Wis modifi er as its attack bonus. If an initial attack hits, the spiritjaws deal 2d6 points of damage and attempt to start a grapple as a free action. The jaws’ bonus on grapple checks is equal to their attack bonus + 4. Once the opponent is grappled, the jaws deal 2d6 points of damage with each subsequent grapple check. The target is considered to be grappling and cannot move. The target creature no longer threatens squares and loses its Dexterity bonus to AC against opponents not grappling it. The set of jaws always strikes from your direction. It does not get a bonus for fl anking or help a combatant get one. Your feats do not affect the jaws. If the jaws move beyond the range of the spell, they vanish. Attacking the set of jaws has no effect. As a magical force effect, the jaws cannot be damaged, but disintegrate or a sphere of annihilation destroys the effect. The grappled opponent can cast a spell only if the spell has no somatic component, the material components are in hand, and a Concentration check (DC 20 + spell level) is made. A creature grappled by the set of jaws can attempt to escape by succeeding on a grapple check against the jaws or by making a successful Escape Artist check as a standard action opposed by the set of jaws’ grapple check. As a free action, you can direct the jaws to pin a grappled opponent instead of dealing damage with a grapple check. If the jaws win the opposed grapple check, the opponent is pinned. A pinned opponent is held immobile and must break the pin before it can escape the grapple. Creatures other than those grappling the pinned target gain a +4 bonus on attack rolls to hit it. If the jaws have multiple attacks (granted by your attack bonus), you can use them to cause damage to a pinned target or to make more grapple attempts against that target. If you become unable to command the jaws, they vanish. Material Component: A piece of bone from a dinosaur’s jaw. </Description>
     <SourceBook>SC</SourceBook>
-    <Favorited>false</Favorited>
+    <Favorited>true</Favorited>
   </Spell>
   <Spell>
     <Index>186</Index>
@@ -4134,7 +4134,7 @@ You must make a ranged attack to hit the target. If you hit, the splinterbolt de
     <SavingThrow />
     <SpellResistance />
     <Description>A multihued glow of metallic colors surrounds you. The swirling glow manifests as a thin mist that forces itself up into your nose. Suppressing a sneeze, you note with excitement the unmistakable scent of treasure. You can detect copper, silver, gold, platinum, and gems within 30 feet, as well as differentiate between the fi ve kinds of valuables. When you detect one of these types of valuables, the exact location of the source is not revealed—only its presence and direction. Whenever you come within 5 feet of the treasure, you can pinpoint its exact location. The spell can penetrate barriers, but 1 foot of stone, 1 inch of common metal, a thin sheet of lead, or 3 feet of wood or dirt blocks it. </Description>
-    <SourceBook />
+    <SourceBook>SC</SourceBook>
     <Favorited>false</Favorited>
   </Spell>
   <Spell>
@@ -4193,7 +4193,7 @@ Material Component: The feather of a bird, which you must burn when you cast the
 
 Focus: A golden amulet shaped like a phoenix (worth 150 gp). </Description>
     <SourceBook>SC</SourceBook>
-    <Favorited>false</Favorited>
+    <Favorited>true</Favorited>
   </Spell>
   <Spell>
     <Index>191</Index>
@@ -4211,7 +4211,7 @@ Focus: A golden amulet shaped like a phoenix (worth 150 gp). </Description>
     <SpellResistance>Yes</SpellResistance>
     <Description>Whipping your hand in a wide arc, you spray sand from your fingers in a powerful blast. Creatures in the area take 1d6 points of nonlethal damage. Any creature that fails its Reflex save is also stunned for 1 round. You </Description>
     <SourceBook>SC</SourceBook>
-    <Favorited>false</Favorited>
+    <Favorited>true</Favorited>
   </Spell>
   <Spell>
     <Index>192</Index>
@@ -4229,7 +4229,7 @@ Focus: A golden amulet shaped like a phoenix (worth 150 gp). </Description>
     <SpellResistance>No</SpellResistance>
     <Description>A wood wose is a translucent, green nature spirit that you can command to perform simple natural tasks. It can build a campfire, gather herbs, feed an animal companion, catch a fi sh, or perform any other simple task that doesn’t involve knowledge of technology. It cannot, for example, open a latched chest, since it doesn’t know how a latch works. The wose can perform only one activity at a time, but it repeats the same activity if told to do so. Thus, if you commanded it to gather leaves, it would continue to do so while you turned your attention elsewhere, as long as you remained within range. The wose has an effective Strength score of 2, so it can lift 20 pounds or drag 100 pounds. It can trigger traps, but the 20 pounds of force it can exert is not enough to activate most pressure plates. Its speed is 15 feet in any direction, even up. A wood wose cannot attack in any way; it is never allowed an attack roll or a saving throw. It cannot be killed, but it dissipates if it takes 6 points of damage from area attacks. If you attempt to send the wose beyond the spell’s range (measured from your current position), it ceases to exist. </Description>
     <SourceBook>SC</SourceBook>
-    <Favorited>false</Favorited>
+    <Favorited>true</Favorited>
   </Spell>
   <Spell>
     <Index>193</Index>
@@ -4331,7 +4331,7 @@ You gain a +2 enhancement bonus to Strength, a +4 enhancement bonus to Dexterity
 
 Material Component: A wolf’s tooth.</Description>
     <SourceBook>SC</SourceBook>
-    <Favorited>true</Favorited>
+    <Favorited>false</Favorited>
   </Spell>
   <Spell>
     <Index>198</Index>
@@ -4369,7 +4369,7 @@ This spell imparts to all allies in its area a shared awareness of their surroun
     <SpellResistance>Yes</SpellResistance>
     <Description>You turn the subject’s sweat to ice, creating blisters as the ice forms on and inside the skin. The spell deals 1d6 cumulative points of cold damage per round it is in effect (that is, 1d6 on the 1st round, 2d6 on the second, and 3d6 on the third). Only one save is allowed against the spell; if successful, it halves the damage each round. Focus: A small glass or pottery vessel worth at least 25 gp filled with ice, snow, or water.</Description>
     <SourceBook>CD</SourceBook>
-    <Favorited>false</Favorited>
+    <Favorited>true</Favorited>
   </Spell>
   <Spell>
     <Index>200</Index>
@@ -4479,5 +4479,61 @@ This spell imparts to all allies in its area a shared awareness of their surroun
     <Description>Rapping your staff with a knuckle, you cause it to sprout wriggling vines that grab and lash at the air. Each time you successfully strike a foe with the staff (a normal melee attack), you deal normal damage and can attempt to start a grapple as a free action without provoking attacks of opportunity. This grapple attempt does not require a separate touch attack. You gain a +8 bonus on grapple checks you cause by striking a foe with the entangling staff. You can attempt to grapple creatures up to one size category larger than you. If your grapple check succeeds, your quarterstaff’s vines constrict your foe, dealing 2d6 points of damage (you can choose to deal nonlethal damage instead of normal damage if you wish). You then have two choices: Release: You release your opponent from the grapple. Some vines remain clinging to your foe, leaving it entangled for the duration of the spell. You can attack different enemies in later rounds with the staff, potentially grappling and constricting or entangling them. Maintain: You maintain your hold. In subsequent rounds, you deal constriction damage with a successful grapple check. You can then choose to release or maintain the hold again. Focus: A quarterstaff. </Description>
     <SourceBook>CAd</SourceBook>
     <Favorited>false</Favorited>
+  </Spell>
+  <Spell>
+    <Index>206</Index>
+    <Name>Thunderhead</Name>
+    <Class>Druid</Class>
+    <Level>1</Level>
+    <Domain>Evocation [Electricity]</Domain>
+    <Components>V, S, M</Components>
+    <Casting>1 standard action</Casting>
+    <Range>Close (25 ft. + 5 ft./2 levels)</Range>
+    <Target>One creature</Target>
+    <Effect />
+    <Duration>1 round/level</Duration>
+    <SavingThrow>Reflex negates;</SavingThrow>
+    <SpellResistance>Yes</SpellResistance>
+    <Description>Black mist forms near the ground and sweeps upward to join a small cloud forming above the creature you designate as your target. Miniature peals of thunder erupt from the cloud. Thunderhead creates a small thundercloud over the subject’s head. The cloud moves with the subject, following it unerringly even if he becomes invisible or leaves the region. In every round of the spell’s duration, a miniature bolt of lightning leaps from the thundercloud to strike the subject. Each bolt deals 1 point of electricity damage that is negated by a successful Reflex save.
+
+Material Component: A small piece of copper wire. </Description>
+    <SourceBook>SC</SourceBook>
+    <Favorited>false</Favorited>
+  </Spell>
+  <Spell>
+    <Index>207</Index>
+    <Name>Thunderous Roar</Name>
+    <Class>Druid</Class>
+    <Level>3</Level>
+    <Domain>Evocation [Sonic]</Domain>
+    <Components>V, S, DF</Components>
+    <Casting>1 standard action</Casting>
+    <Range>Long (400 ft. + 40 ft./level)</Range>
+    <Target>20-ft.-radius burst</Target>
+    <Effect />
+    <Duration>Instantaneous</Duration>
+    <SavingThrow>Fortitude partial</SavingThrow>
+    <SpellResistance>Yes</SpellResistance>
+    <Description>Calling upon the lost voices of dead creatures, you cause the targeted area to become fi lled with the enraged roaring of a thousand dinosaurs. The ground beneath the area shakes with the sound. The resulting blast of sound from the casting of thunderous roar can be heard for miles, but the spell affects only those in its area. All creatures in the affected area take 1d6 points of sonic damage per two caster levels (maximum 5d6). A successful Fortitude saving throw halves the damage. Additionally, any creature that takes damage from this spell must make a Reflex saving throw or be knocked prone from the force of the roar. Crystalline creatures take 1d6 points of sonic damage per caster level (maximum 10d6). </Description>
+    <SourceBook>SC</SourceBook>
+    <Favorited>false</Favorited>
+  </Spell>
+  <Spell>
+    <Index>208</Index>
+    <Name>Primal Instinct</Name>
+    <Class>Druid</Class>
+    <Level>3</Level>
+    <Domain>Transmutation</Domain>
+    <Components>V, S</Components>
+    <Casting>1 standard action</Casting>
+    <Range>Personal</Range>
+    <Target>You</Target>
+    <Effect />
+    <Duration>24 hours</Duration>
+    <SavingThrow />
+    <SpellResistance />
+    <Description>Rings of blue-white energy travel from your feet to your head ami back again, vanishing lifter encircling you in their glow. This spell calls upon the raw natural forces within you to grant the basic instincts possessed by your ancestors. You gain a +5 competence bonus on initiative and Survival checks. If primal instinct is active on you at the same time as primal hunter, primal senses, or primal speed, you gain uncanny dodge (as the barbarian class feature). It all four of these spells are active on you at the same time, you gain improved uncanny dodge (as the barbarian class feature; your barbarian level for the purpose of being flanked equals your caster level). Special: If you are of the dragonblood subtype (see page 4), you also gain a +5 competence bonus on any one kind of Knowledge check, chosen when you cast primal instinct, and you are treated as trained in that skill. </Description>
+    <SourceBook>DrM</SourceBook>
+    <Favorited>true</Favorited>
   </Spell>
 </ArrayOfSpell>
