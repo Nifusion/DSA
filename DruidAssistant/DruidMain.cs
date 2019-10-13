@@ -575,6 +575,7 @@ namespace DruidAssistant
         {
             sittingSummonIndex = st.Index;
             cbSummonSpell.SelectedItem = st.SummonSpell;
+            cbSummonSpell.Text = st.SummonSpell;
             tbName.Text = st.Name;
             nudSTR.Value = st.Abilities.Str;
             nudDEX.Value = st.Abilities.Dex;
@@ -1277,6 +1278,7 @@ namespace DruidAssistant
         private void ClearSummonPage()
         {
             sittingSummonIndex = 0;
+            cbSummonSpell.Text = "";
 
             rtbSummonText.Clear();
             tbName.Clear();

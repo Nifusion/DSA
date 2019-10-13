@@ -244,7 +244,7 @@
             this.panel1.Controls.Add(this.nudCasterLevel);
             this.panel1.Controls.Add(this.label18);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel1.Location = new System.Drawing.Point(3, 173);
+            this.panel1.Location = new System.Drawing.Point(3, 203);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(209, 26);
             this.panel1.TabIndex = 10;
@@ -282,7 +282,7 @@
             this.tvTemplates.Location = new System.Drawing.Point(3, 3);
             this.tvTemplates.Margin = new System.Windows.Forms.Padding(0);
             this.tvTemplates.Name = "tvTemplates";
-            this.tvTemplates.Size = new System.Drawing.Size(209, 170);
+            this.tvTemplates.Size = new System.Drawing.Size(209, 200);
             this.tvTemplates.TabIndex = 11;
             this.tvTemplates.NodeMouseDoubleClick += new System.Windows.Forms.TreeNodeMouseClickEventHandler(this.TvTemplates_NodeMouseDoubleClick);
             this.tvTemplates.DragDrop += new System.Windows.Forms.DragEventHandler(this.TvTemplates_DragDrop);
@@ -298,9 +298,9 @@
             "Feat: Augment Summoning",
             "Feat: Greenbound Summoning",
             "Item: Obad-Hai\'s Green Man"});
-            this.clbAugments.Location = new System.Drawing.Point(3, 199);
+            this.clbAugments.Location = new System.Drawing.Point(3, 229);
             this.clbAugments.Name = "clbAugments";
-            this.clbAugments.Size = new System.Drawing.Size(209, 109);
+            this.clbAugments.Size = new System.Drawing.Size(209, 79);
             this.clbAugments.TabIndex = 2;
             // 
             // btnLoad
@@ -358,7 +358,6 @@
             this.panel9.Controls.Add(this.label48);
             this.panel9.Controls.Add(this.label49);
             this.panel9.Controls.Add(this.rtbCombat);
-            this.panel9.Controls.Add(this.btnClearSummonPage);
             this.panel9.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel9.Location = new System.Drawing.Point(225, 0);
             this.panel9.Margin = new System.Windows.Forms.Padding(0);
@@ -368,27 +367,30 @@
             // 
             // tableLayoutPanel8
             // 
-            this.tableLayoutPanel8.ColumnCount = 3;
-            this.tableLayoutPanel8.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
-            this.tableLayoutPanel8.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
-            this.tableLayoutPanel8.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
-            this.tableLayoutPanel8.Controls.Add(this.btnAddSummon, 0, 0);
-            this.tableLayoutPanel8.Controls.Add(this.btnDeleteSummon, 2, 0);
-            this.tableLayoutPanel8.Controls.Add(this.btnUpdateSummon, 1, 0);
-            this.tableLayoutPanel8.Location = new System.Drawing.Point(434, 437);
+            this.tableLayoutPanel8.ColumnCount = 4;
+            this.tableLayoutPanel8.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25.00062F));
+            this.tableLayoutPanel8.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25.00062F));
+            this.tableLayoutPanel8.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25.00062F));
+            this.tableLayoutPanel8.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 24.99813F));
+            this.tableLayoutPanel8.Controls.Add(this.btnDeleteSummon, 3, 0);
+            this.tableLayoutPanel8.Controls.Add(this.btnUpdateSummon, 2, 0);
+            this.tableLayoutPanel8.Controls.Add(this.btnAddSummon, 1, 0);
+            this.tableLayoutPanel8.Controls.Add(this.btnClearSummonPage, 0, 0);
+            this.tableLayoutPanel8.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.tableLayoutPanel8.Location = new System.Drawing.Point(0, 435);
             this.tableLayoutPanel8.Name = "tableLayoutPanel8";
             this.tableLayoutPanel8.RowCount = 1;
             this.tableLayoutPanel8.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel8.Size = new System.Drawing.Size(274, 36);
+            this.tableLayoutPanel8.Size = new System.Drawing.Size(707, 36);
             this.tableLayoutPanel8.TabIndex = 50;
             // 
             // btnAddSummon
             // 
-            this.btnAddSummon.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnAddSummon.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btnAddSummon.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAddSummon.Location = new System.Drawing.Point(3, 3);
+            this.btnAddSummon.Location = new System.Drawing.Point(214, 3);
             this.btnAddSummon.Name = "btnAddSummon";
-            this.btnAddSummon.Size = new System.Drawing.Size(85, 30);
+            this.btnAddSummon.Size = new System.Drawing.Size(100, 30);
             this.btnAddSummon.TabIndex = 48;
             this.btnAddSummon.Text = "Add";
             this.btnAddSummon.UseVisualStyleBackColor = true;
@@ -396,11 +398,11 @@
             // 
             // btnDeleteSummon
             // 
-            this.btnDeleteSummon.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnDeleteSummon.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btnDeleteSummon.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnDeleteSummon.Location = new System.Drawing.Point(185, 3);
+            this.btnDeleteSummon.Location = new System.Drawing.Point(567, 3);
             this.btnDeleteSummon.Name = "btnDeleteSummon";
-            this.btnDeleteSummon.Size = new System.Drawing.Size(86, 30);
+            this.btnDeleteSummon.Size = new System.Drawing.Size(100, 30);
             this.btnDeleteSummon.TabIndex = 49;
             this.btnDeleteSummon.Text = "Delete";
             this.btnDeleteSummon.UseVisualStyleBackColor = true;
@@ -408,11 +410,11 @@
             // 
             // btnUpdateSummon
             // 
-            this.btnUpdateSummon.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnUpdateSummon.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btnUpdateSummon.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnUpdateSummon.Location = new System.Drawing.Point(94, 3);
+            this.btnUpdateSummon.Location = new System.Drawing.Point(390, 3);
             this.btnUpdateSummon.Name = "btnUpdateSummon";
-            this.btnUpdateSummon.Size = new System.Drawing.Size(85, 30);
+            this.btnUpdateSummon.Size = new System.Drawing.Size(100, 30);
             this.btnUpdateSummon.TabIndex = 1;
             this.btnUpdateSummon.Text = "Update";
             this.btnUpdateSummon.UseVisualStyleBackColor = true;
@@ -1227,10 +1229,11 @@
             // 
             // btnClearSummonPage
             // 
-            this.btnClearSummonPage.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnClearSummonPage.Location = new System.Drawing.Point(3, 433);
+            this.btnClearSummonPage.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btnClearSummonPage.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnClearSummonPage.Location = new System.Drawing.Point(38, 3);
             this.btnClearSummonPage.Name = "btnClearSummonPage";
-            this.btnClearSummonPage.Size = new System.Drawing.Size(103, 35);
+            this.btnClearSummonPage.Size = new System.Drawing.Size(100, 30);
             this.btnClearSummonPage.TabIndex = 1;
             this.btnClearSummonPage.Text = "Clear";
             this.btnClearSummonPage.UseVisualStyleBackColor = true;
@@ -1285,6 +1288,7 @@
             this.btnDev.TabIndex = 48;
             this.btnDev.Text = "Dev";
             this.btnDev.UseVisualStyleBackColor = true;
+            this.btnDev.Visible = false;
             this.btnDev.Click += new System.EventHandler(this.BtnDev_Click);
             // 
             // btnPreview
