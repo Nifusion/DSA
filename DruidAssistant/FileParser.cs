@@ -398,7 +398,7 @@ namespace DruidAssistant
                     if (findCount.IsMatch(weapon))
                     {
                         count = Convert.ToInt32(findCount.Match(weapon).Value);
-                        weapon = findCount.Replace(weapon, "");
+                        weapon = findCount.Replace(weapon, "").TrimStart(' ');
                     }
 
                     thisFull.Add(new Attack(count, weapon.Replace("  ", " "), inside));

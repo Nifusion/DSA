@@ -42,9 +42,10 @@
             this.tabPageSummon = new System.Windows.Forms.TabPage();
             this.panel9 = new System.Windows.Forms.Panel();
             this.tableLayoutPanel8 = new System.Windows.Forms.TableLayoutPanel();
-            this.btnAddSummon = new System.Windows.Forms.Button();
             this.btnDeleteSummon = new System.Windows.Forms.Button();
             this.btnUpdateSummon = new System.Windows.Forms.Button();
+            this.btnAddSummon = new System.Windows.Forms.Button();
+            this.btnClearSummonPage = new System.Windows.Forms.Button();
             this.cbSummonSpell = new System.Windows.Forms.ComboBox();
             this.tableLayoutPanel5 = new System.Windows.Forms.TableLayoutPanel();
             this.label28 = new System.Windows.Forms.Label();
@@ -108,7 +109,6 @@
             this.label48 = new System.Windows.Forms.Label();
             this.label49 = new System.Windows.Forms.Label();
             this.rtbCombat = new System.Windows.Forms.RichTextBox();
-            this.btnClearSummonPage = new System.Windows.Forms.Button();
             this.panel8 = new System.Windows.Forms.Panel();
             this.tcSummons = new System.Windows.Forms.TabControl();
             this.tabPageSummons = new System.Windows.Forms.TabPage();
@@ -125,6 +125,7 @@
             this.rtbSpellDescription = new System.Windows.Forms.RichTextBox();
             this.panel5 = new System.Windows.Forms.Panel();
             this.btnDevSpells = new System.Windows.Forms.Button();
+            this.btnClearSpell = new System.Windows.Forms.Button();
             this.label14 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
@@ -164,7 +165,6 @@
             this.tcSpells = new System.Windows.Forms.TabControl();
             this.tabPageSpellList = new System.Windows.Forms.TabPage();
             this.tvSpells = new System.Windows.Forms.TreeView();
-            this.btnClearSpell = new System.Windows.Forms.Button();
             this.tabPageTryParseSpell = new System.Windows.Forms.TabPage();
             this.rtbSpellText = new System.Windows.Forms.RichTextBox();
             this.panel7 = new System.Windows.Forms.Panel();
@@ -228,7 +228,6 @@
             this.rtbSummonText.Size = new System.Drawing.Size(209, 306);
             this.rtbSummonText.TabIndex = 0;
             this.rtbSummonText.Text = "";
-            this.rtbSummonText.TextChanged += new System.EventHandler(this.RtbTextInvestigate_TextChanged);
             // 
             // tbOverrideSummonXML
             // 
@@ -312,7 +311,7 @@
             this.btnLoad.Name = "btnLoad";
             this.btnLoad.Size = new System.Drawing.Size(209, 40);
             this.btnLoad.TabIndex = 3;
-            this.btnLoad.Text = "Load Selected";
+            this.btnLoad.Text = "Summon";
             this.btnLoad.UseVisualStyleBackColor = true;
             this.btnLoad.Click += new System.EventHandler(this.BtnLoad_Click);
             // 
@@ -384,25 +383,13 @@
             this.tableLayoutPanel8.Size = new System.Drawing.Size(707, 36);
             this.tableLayoutPanel8.TabIndex = 50;
             // 
-            // btnAddSummon
-            // 
-            this.btnAddSummon.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btnAddSummon.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAddSummon.Location = new System.Drawing.Point(214, 3);
-            this.btnAddSummon.Name = "btnAddSummon";
-            this.btnAddSummon.Size = new System.Drawing.Size(100, 30);
-            this.btnAddSummon.TabIndex = 48;
-            this.btnAddSummon.Text = "Add";
-            this.btnAddSummon.UseVisualStyleBackColor = true;
-            this.btnAddSummon.Click += new System.EventHandler(this.BtnAddSummon_Click);
-            // 
             // btnDeleteSummon
             // 
             this.btnDeleteSummon.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btnDeleteSummon.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnDeleteSummon.Location = new System.Drawing.Point(567, 3);
             this.btnDeleteSummon.Name = "btnDeleteSummon";
-            this.btnDeleteSummon.Size = new System.Drawing.Size(100, 30);
+            this.btnDeleteSummon.Size = new System.Drawing.Size(100, 29);
             this.btnDeleteSummon.TabIndex = 49;
             this.btnDeleteSummon.Text = "Delete";
             this.btnDeleteSummon.UseVisualStyleBackColor = true;
@@ -414,11 +401,38 @@
             this.btnUpdateSummon.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnUpdateSummon.Location = new System.Drawing.Point(390, 3);
             this.btnUpdateSummon.Name = "btnUpdateSummon";
-            this.btnUpdateSummon.Size = new System.Drawing.Size(100, 30);
+            this.btnUpdateSummon.Size = new System.Drawing.Size(100, 29);
             this.btnUpdateSummon.TabIndex = 1;
             this.btnUpdateSummon.Text = "Update";
             this.btnUpdateSummon.UseVisualStyleBackColor = true;
             this.btnUpdateSummon.Click += new System.EventHandler(this.BtnUpdateSummon_Click);
+            // 
+            // btnAddSummon
+            // 
+            this.btnAddSummon.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btnAddSummon.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAddSummon.Location = new System.Drawing.Point(214, 3);
+            this.btnAddSummon.Name = "btnAddSummon";
+            this.btnAddSummon.Size = new System.Drawing.Size(100, 29);
+            this.btnAddSummon.TabIndex = 48;
+            this.btnAddSummon.Text = "Add";
+            this.btnAddSummon.UseVisualStyleBackColor = true;
+            this.btnAddSummon.Click += new System.EventHandler(this.BtnAddSummon_Click);
+            // 
+            // btnClearSummonPage
+            // 
+            this.btnClearSummonPage.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btnClearSummonPage.AutoSize = true;
+            this.btnClearSummonPage.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.btnClearSummonPage.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnClearSummonPage.Location = new System.Drawing.Point(73, 3);
+            this.btnClearSummonPage.Margin = new System.Windows.Forms.Padding(0);
+            this.btnClearSummonPage.Name = "btnClearSummonPage";
+            this.btnClearSummonPage.Size = new System.Drawing.Size(30, 30);
+            this.btnClearSummonPage.TabIndex = 1;
+            this.btnClearSummonPage.Text = "X";
+            this.btnClearSummonPage.UseVisualStyleBackColor = true;
+            this.btnClearSummonPage.Click += new System.EventHandler(this.BtnClearSummonPage_Click);
             // 
             // cbSummonSpell
             // 
@@ -1227,18 +1241,6 @@
             this.rtbCombat.TabIndex = 34;
             this.rtbCombat.Text = "";
             // 
-            // btnClearSummonPage
-            // 
-            this.btnClearSummonPage.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btnClearSummonPage.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnClearSummonPage.Location = new System.Drawing.Point(38, 3);
-            this.btnClearSummonPage.Name = "btnClearSummonPage";
-            this.btnClearSummonPage.Size = new System.Drawing.Size(100, 30);
-            this.btnClearSummonPage.TabIndex = 1;
-            this.btnClearSummonPage.Text = "Clear";
-            this.btnClearSummonPage.UseVisualStyleBackColor = true;
-            this.btnClearSummonPage.Click += new System.EventHandler(this.BtnClearSummonPage_Click);
-            // 
             // panel8
             // 
             this.panel8.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
@@ -1412,6 +1414,7 @@
             // panel5
             // 
             this.panel5.Controls.Add(this.btnDevSpells);
+            this.panel5.Controls.Add(this.btnClearSpell);
             this.panel5.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel5.Location = new System.Drawing.Point(0, 0);
             this.panel5.Name = "panel5";
@@ -1428,6 +1431,19 @@
             this.btnDevSpells.UseVisualStyleBackColor = true;
             this.btnDevSpells.Visible = false;
             this.btnDevSpells.Click += new System.EventHandler(this.BtnDevSpells_Click);
+            // 
+            // btnClearSpell
+            // 
+            this.btnClearSpell.AutoSize = true;
+            this.btnClearSpell.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.btnClearSpell.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnClearSpell.Location = new System.Drawing.Point(287, 0);
+            this.btnClearSpell.Name = "btnClearSpell";
+            this.btnClearSpell.Size = new System.Drawing.Size(30, 30);
+            this.btnClearSpell.TabIndex = 1;
+            this.btnClearSpell.Text = "X";
+            this.btnClearSpell.UseVisualStyleBackColor = true;
+            this.btnClearSpell.Click += new System.EventHandler(this.BtnClearSpell_Click);
             // 
             // label14
             // 
@@ -1852,7 +1868,6 @@
             // tabPageSpellList
             // 
             this.tabPageSpellList.Controls.Add(this.tvSpells);
-            this.tabPageSpellList.Controls.Add(this.btnClearSpell);
             this.tabPageSpellList.Location = new System.Drawing.Point(4, 22);
             this.tabPageSpellList.Name = "tabPageSpellList";
             this.tabPageSpellList.Padding = new System.Windows.Forms.Padding(3);
@@ -1867,22 +1882,10 @@
             this.tvSpells.Location = new System.Drawing.Point(3, 3);
             this.tvSpells.Margin = new System.Windows.Forms.Padding(0);
             this.tvSpells.Name = "tvSpells";
-            this.tvSpells.Size = new System.Drawing.Size(209, 349);
+            this.tvSpells.Size = new System.Drawing.Size(209, 385);
             this.tvSpells.TabIndex = 3;
             this.tvSpells.NodeMouseClick += new System.Windows.Forms.TreeNodeMouseClickEventHandler(this.TvSpells_NodeMouseClick);
             this.tvSpells.NodeMouseDoubleClick += new System.Windows.Forms.TreeNodeMouseClickEventHandler(this.SpellsPageTV_NodeMouseDoubleClick);
-            // 
-            // btnClearSpell
-            // 
-            this.btnClearSpell.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.btnClearSpell.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnClearSpell.Location = new System.Drawing.Point(3, 352);
-            this.btnClearSpell.Name = "btnClearSpell";
-            this.btnClearSpell.Size = new System.Drawing.Size(209, 36);
-            this.btnClearSpell.TabIndex = 1;
-            this.btnClearSpell.Text = "Clear Page";
-            this.btnClearSpell.UseVisualStyleBackColor = true;
-            this.btnClearSpell.Click += new System.EventHandler(this.BtnClearSpell_Click);
             // 
             // tabPageTryParseSpell
             // 
@@ -1973,6 +1976,7 @@
             // 
             // cmsSpells
             // 
+            this.cmsSpells.ImageScalingSize = new System.Drawing.Size(24, 24);
             this.cmsSpells.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.favoriteToolStripMenuItem});
             this.cmsSpells.Name = "cmsSpells";
@@ -2003,6 +2007,7 @@
             this.panel9.ResumeLayout(false);
             this.panel9.PerformLayout();
             this.tableLayoutPanel8.ResumeLayout(false);
+            this.tableLayoutPanel8.PerformLayout();
             this.tableLayoutPanel5.ResumeLayout(false);
             this.tableLayoutPanel5.PerformLayout();
             this.tableLayoutPanel4.ResumeLayout(false);
@@ -2037,6 +2042,7 @@
             this.tabPageSpells.PerformLayout();
             this.panel6.ResumeLayout(false);
             this.panel5.ResumeLayout(false);
+            this.panel5.PerformLayout();
             this.panel2.ResumeLayout(false);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();

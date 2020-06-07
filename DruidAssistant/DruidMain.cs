@@ -66,7 +66,7 @@ namespace DruidAssistant
         private void DruidMain_Load(object sender, EventArgs e)
         {
             RefreshSummonPage();
-            RefreshSpellPage(new bool[] { true, false, false, false, false, false, false, false, false, false, false, true, false, false, false, false, false, false, false, false, false, false });
+            RefreshSpellPage();
             if (ApplicationDeployment.IsNetworkDeployed)
             {
                 this.Text = string.Format("Druid Summoning Assistant v{0}",
@@ -177,10 +177,6 @@ namespace DruidAssistant
                     return 0;
             }
         }
-        private static decimal ScoreToMod(decimal input)
-        {
-            return Math.Floor((input - 10) / 2);
-        }
 
         private void TvTemplates_DragDrop(object sender, DragEventArgs e)
         {
@@ -202,16 +198,6 @@ namespace DruidAssistant
             }
 
             e.Effect = effects;
-        }
-
-        private void RtbTextInvestigate_TextChanged(object sender, EventArgs e)
-        {
-            UpdateRTBPreview();
-        }
-
-        private void UpdateRTBPreview()
-        {
-
         }
 
         private void BtnLoad_Click(object sender, EventArgs e)
@@ -238,6 +224,90 @@ namespace DruidAssistant
                     LoadPreview((SummonTemplate)tvTemplates.SelectedNode.Tag);
                 }
             }
+        }
+
+        private void RefreshSpellPage()
+        {
+            string xmlPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Spells.xml");
+
+            if (tbOverrideSpellXML.Text != "")
+            {
+                xmlPath = tbOverrideSpellXML.Text;
+            }
+
+            tbOverrideSpellXML.Text = xmlPath;
+
+            if (!File.Exists(xmlPath))
+            {
+                MessageBox.Show("XML file was not found.", "File Not Found", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            tvSpells.Nodes.Clear();
+
+            TreeNode allSpells = tvSpells.Nodes.Add("All Spells");
+            TreeNode favoriteSpells = tvSpells.Nodes.Add("Favorite Spells");
+
+            TreeNode tn0 = allSpells.Nodes.Add("Level 0");
+            TreeNode tn1 = allSpells.Nodes.Add("Level 1");
+            TreeNode tn2 = allSpells.Nodes.Add("Level 2");
+            TreeNode tn3 = allSpells.Nodes.Add("Level 3");
+            TreeNode tn4 = allSpells.Nodes.Add("Level 4");
+            TreeNode tn5 = allSpells.Nodes.Add("Level 5");
+            TreeNode tn6 = allSpells.Nodes.Add("Level 6");
+            TreeNode tn7 = allSpells.Nodes.Add("Level 7");
+            TreeNode tn8 = allSpells.Nodes.Add("Level 8");
+            TreeNode tn9 = allSpells.Nodes.Add("Level 9");
+
+            TreeNode tnf0 = favoriteSpells.Nodes.Add("Level 0");
+            TreeNode tnf1 = favoriteSpells.Nodes.Add("Level 1");
+            TreeNode tnf2 = favoriteSpells.Nodes.Add("Level 2");
+            TreeNode tnf3 = favoriteSpells.Nodes.Add("Level 3");
+            TreeNode tnf4 = favoriteSpells.Nodes.Add("Level 4");
+            TreeNode tnf5 = favoriteSpells.Nodes.Add("Level 5");
+            TreeNode tnf6 = favoriteSpells.Nodes.Add("Level 6");
+            TreeNode tnf7 = favoriteSpells.Nodes.Add("Level 7");
+            TreeNode tnf8 = favoriteSpells.Nodes.Add("Level 8");
+            TreeNode tnf9 = favoriteSpells.Nodes.Add("Level 9");
+
+            Spells spells = FileParser.GetSpellsFromXML(xmlPath);
+
+            for (int i = 0; i < spells.Count; i++)
+            {
+                TreeNode thisSpell = new TreeNode(string.Format("{0} ({1})", spells[i].Name, spells[i].SourceBook));
+                thisSpell.Tag = spells[i];
+
+                TreeNode thisfSpell = new TreeNode(string.Format("{0} ({1})", spells[i].Name, spells[i].SourceBook));
+                thisfSpell.Tag = spells[i];
+
+                if (spells[i].Level == "0") { tn0.Nodes.Add(thisSpell); }
+                if (spells[i].Level == "1") { tn1.Nodes.Add(thisSpell); }
+                if (spells[i].Level == "2") { tn2.Nodes.Add(thisSpell); }
+                if (spells[i].Level == "3") { tn3.Nodes.Add(thisSpell); }
+                if (spells[i].Level == "4") { tn4.Nodes.Add(thisSpell); }
+                if (spells[i].Level == "5") { tn5.Nodes.Add(thisSpell); }
+                if (spells[i].Level == "6") { tn6.Nodes.Add(thisSpell); }
+                if (spells[i].Level == "7") { tn7.Nodes.Add(thisSpell); }
+                if (spells[i].Level == "8") { tn8.Nodes.Add(thisSpell); }
+                if (spells[i].Level == "9") { tn9.Nodes.Add(thisSpell); }
+
+                if (spells[i].Level == "0" && spells[i].Favorited) { tnf0.Nodes.Add(thisfSpell); }
+                if (spells[i].Level == "1" && spells[i].Favorited) { tnf1.Nodes.Add(thisfSpell); }
+                if (spells[i].Level == "2" && spells[i].Favorited) { tnf2.Nodes.Add(thisfSpell); }
+                if (spells[i].Level == "3" && spells[i].Favorited) { tnf3.Nodes.Add(thisfSpell); }
+                if (spells[i].Level == "4" && spells[i].Favorited) { tnf4.Nodes.Add(thisfSpell); }
+                if (spells[i].Level == "5" && spells[i].Favorited) { tnf5.Nodes.Add(thisfSpell); }
+                if (spells[i].Level == "6" && spells[i].Favorited) { tnf6.Nodes.Add(thisfSpell); }
+                if (spells[i].Level == "7" && spells[i].Favorited) { tnf7.Nodes.Add(thisfSpell); }
+                if (spells[i].Level == "8" && spells[i].Favorited) { tnf8.Nodes.Add(thisfSpell); }
+                if (spells[i].Level == "9" && spells[i].Favorited) { tnf9.Nodes.Add(thisfSpell); }
+            }
+            tvSpells.Sort();
+
+            allSpells.Expand();
+            favoriteSpells.Expand();
+
+            allSpells.EnsureVisible();
         }
 
         private void RefreshSpellPage(bool[] expanders)
@@ -1261,7 +1331,7 @@ namespace DruidAssistant
 
                 SummonTemplates summons = FileParser.GetSummonsFromXML(xmlPath);
 
-                if (FindSummon(summons,sittingSummonIndex,out int indexMatch))
+                if (FindSummon(summons, sittingSummonIndex, out int indexMatch))
                 {
                     summons[indexMatch] = updateSummon;
                 }
