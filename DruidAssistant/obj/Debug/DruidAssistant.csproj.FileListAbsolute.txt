@@ -1,34 +1,16 @@
-C:\Users\Nathan Compton\Documents\Development\DSA-master\DruidAssistant\bin\Debug\Spells.xml
-C:\Users\Nathan Compton\Documents\Development\DSA-master\DruidAssistant\bin\Debug\Summons.xml
-C:\Users\Nathan Compton\Documents\Development\DSA-master\DruidAssistant\bin\Debug\Druid Assistant.exe.config
-C:\Users\Nathan Compton\Documents\Development\DSA-master\DruidAssistant\bin\Debug\Druid Assistant.exe.manifest
-C:\Users\Nathan Compton\Documents\Development\DSA-master\DruidAssistant\bin\Debug\Druid Assistant.application
-C:\Users\Nathan Compton\Documents\Development\DSA-master\DruidAssistant\bin\Debug\Druid Assistant.exe
-C:\Users\Nathan Compton\Documents\Development\DSA-master\DruidAssistant\bin\Debug\Druid Assistant.pdb
-C:\Users\Nathan Compton\Documents\Development\DSA-master\DruidAssistant\obj\Debug\DruidAssistant.DruidMain.resources
-C:\Users\Nathan Compton\Documents\Development\DSA-master\DruidAssistant\obj\Debug\DruidAssistant.Properties.Resources.resources
-C:\Users\Nathan Compton\Documents\Development\DSA-master\DruidAssistant\obj\Debug\DruidAssistant.SummonedCreature.resources
-C:\Users\Nathan Compton\Documents\Development\DSA-master\DruidAssistant\obj\Debug\DruidAssistant.csproj.GenerateResource.cache
-C:\Users\Nathan Compton\Documents\Development\DSA-master\DruidAssistant\obj\Debug\DruidAssistant.csproj.CoreCompileInputs.cache
-C:\Users\Nathan Compton\Documents\Development\DSA-master\DruidAssistant\obj\Debug\Druid Assistant.exe.manifest
-C:\Users\Nathan Compton\Documents\Development\DSA-master\DruidAssistant\obj\Debug\Druid Assistant.application
-C:\Users\Nathan Compton\Documents\Development\DSA-master\DruidAssistant\obj\Debug\Druid Assistant.exe
-C:\Users\Nathan Compton\Documents\Development\DSA-master\DruidAssistant\obj\Debug\Druid Assistant.pdb
-C:\Users\Nathan Compton\Documents\Development\DSA-master\DruidAssistant\obj\Debug\DruidAssistant.csprojAssemblyReference.cache
-N:\Development\DruidAssistant-master\DruidAssistant\obj\Debug\Druid Assistant.exe
-N:\Development\DruidAssistant-master\DruidAssistant\obj\Debug\Druid Assistant.pdb
-N:\Development\DruidAssistant-master\DruidAssistant\bin\Debug\Druid Assistant.exe.config
-N:\Development\DruidAssistant-master\DruidAssistant\bin\Debug\Druid Assistant.exe.manifest
-N:\Development\DruidAssistant-master\DruidAssistant\bin\Debug\Druid Assistant.application
-N:\Development\DruidAssistant-master\DruidAssistant\bin\Debug\Druid Assistant.exe
-N:\Development\DruidAssistant-master\DruidAssistant\bin\Debug\Druid Assistant.pdb
-N:\Development\DruidAssistant-master\DruidAssistant\obj\Debug\DruidAssistant.DruidMain.resources
-N:\Development\DruidAssistant-master\DruidAssistant\obj\Debug\DruidAssistant.Properties.Resources.resources
-N:\Development\DruidAssistant-master\DruidAssistant\obj\Debug\DruidAssistant.SummonedCreature.resources
-N:\Development\DruidAssistant-master\DruidAssistant\obj\Debug\DruidAssistant.csproj.GenerateResource.cache
-N:\Development\DruidAssistant-master\DruidAssistant\obj\Debug\DruidAssistant.csproj.CoreCompileInputs.cache
-N:\Development\DruidAssistant-master\DruidAssistant\obj\Debug\Druid Assistant.exe.manifest
-N:\Development\DruidAssistant-master\DruidAssistant\obj\Debug\Druid Assistant.application
-N:\Development\DruidAssistant-master\DruidAssistant\obj\Debug\DruidAssistant.csprojAssemblyReference.cache
-N:\Development\DruidAssistant-master\DruidAssistant\bin\Debug\Spells.xml
-N:\Development\DruidAssistant-master\DruidAssistant\bin\Debug\Summons.xml
+N:\Development\DSA\DruidAssistant\bin\Debug\Spells.xml
+N:\Development\DSA\DruidAssistant\bin\Debug\Summons.xml
+N:\Development\DSA\DruidAssistant\bin\Debug\Druid Assistant.exe.config
+N:\Development\DSA\DruidAssistant\bin\Debug\Druid Assistant.exe.manifest
+N:\Development\DSA\DruidAssistant\bin\Debug\Druid Assistant.application
+N:\Development\DSA\DruidAssistant\bin\Debug\Druid Assistant.exe
+N:\Development\DSA\DruidAssistant\bin\Debug\Druid Assistant.pdb
+N:\Development\DSA\DruidAssistant\obj\Debug\DruidAssistant.DruidMain.resources
+N:\Development\DSA\DruidAssistant\obj\Debug\DruidAssistant.Properties.Resources.resources
+N:\Development\DSA\DruidAssistant\obj\Debug\DruidAssistant.SummonedCreature.resources
+N:\Development\DSA\DruidAssistant\obj\Debug\DruidAssistant.csproj.GenerateResource.cache
+N:\Development\DSA\DruidAssistant\obj\Debug\DruidAssistant.csproj.CoreCompileInputs.cache
+N:\Development\DSA\DruidAssistant\obj\Debug\Druid Assistant.exe.manifest
+N:\Development\DSA\DruidAssistant\obj\Debug\Druid Assistant.application
+N:\Development\DSA\DruidAssistant\obj\Debug\Druid Assistant.exe
+N:\Development\DSA\DruidAssistant\obj\Debug\Druid Assistant.pdb
