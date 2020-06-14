@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ArrayOfSummonTemplate xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-  <SummonTemplate>
+<ArrayOfSummon xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Summon>
     <Skills>
       <string>Climb +11 Dex Str</string>
       <string>Hide +8</string>
@@ -74,8 +74,8 @@
       <Ref>5</Ref>
       <Will>3</Will>
     </Saves>
-  </SummonTemplate>
-  <SummonTemplate>
+  </Summon>
+  <Summon>
     <Skills>
       <string>Listen +4</string>
       <string>Spot +16</string>
@@ -143,8 +143,8 @@
       <Ref>4</Ref>
       <Will>2</Will>
     </Saves>
-  </SummonTemplate>
-  <SummonTemplate>
+  </Summon>
+  <Summon>
     <Skills>
       <string>Balance +12</string>
       <string>Climb +10</string>
@@ -211,8 +211,8 @@
       <Ref>4</Ref>
       <Will>1</Will>
     </Saves>
-  </SummonTemplate>
-  <SummonTemplate>
+  </Summon>
+  <Summon>
     <Skills>
       <string>Escape Artist +13</string>
       <string>Hide +11</string>
@@ -288,8 +288,8 @@
       <Ref>6</Ref>
       <Will>1</Will>
     </Saves>
-  </SummonTemplate>
-  <SummonTemplate>
+  </Summon>
+  <Summon>
     <Skills>
       <string>Listen +16</string>
       <string>Move Silently +17</string>
@@ -353,8 +353,8 @@
       <Ref>5</Ref>
       <Will>2</Will>
     </Saves>
-  </SummonTemplate>
-  <SummonTemplate>
+  </Summon>
+  <Summon>
     <Skills>
       <string>Listen +8*</string>
       <string>Spot +7*</string>
@@ -421,8 +421,8 @@
       <Ref>6</Ref>
       <Will>1</Will>
     </Saves>
-  </SummonTemplate>
-  <SummonTemplate>
+  </Summon>
+  <Summon>
     <Skills>
       <string>Balance +11</string>
       <string>Climb +11</string>
@@ -495,8 +495,8 @@
       <Ref>5</Ref>
       <Will>1</Will>
     </Saves>
-  </SummonTemplate>
-  <SummonTemplate>
+  </Summon>
+  <Summon>
     <Skills>
       <string>Hide +2</string>
       <string>Listen +3</string>
@@ -565,8 +565,8 @@
       <Ref>5</Ref>
       <Will>1</Will>
     </Saves>
-  </SummonTemplate>
-  <SummonTemplate>
+  </Summon>
+  <Summon>
     <Skills>
       <string>Climb +4</string>
       <string>Listen +4</string>
@@ -637,8 +637,8 @@
       <Ref>4</Ref>
       <Will>2</Will>
     </Saves>
-  </SummonTemplate>
-  <SummonTemplate>
+  </Summon>
+  <Summon>
     <Skills>
       <string>Hide +7*</string>
       <string>Listen +4</string>
@@ -720,8 +720,8 @@
       <Ref>4</Ref>
       <Will>2</Will>
     </Saves>
-  </SummonTemplate>
-  <SummonTemplate>
+  </Summon>
+  <Summon>
     <Skills>
       <string>Listen +6</string>
       <string>Spot +6</string>
@@ -791,8 +791,8 @@
       <Ref>6</Ref>
       <Will>4</Will>
     </Saves>
-  </SummonTemplate>
-  <SummonTemplate>
+  </Summon>
+  <Summon>
     <Skills>
       <string>Hide +4</string>
       <string>Listen +12*</string>
@@ -859,8 +859,8 @@
       <Ref>10</Ref>
       <Will>6</Will>
     </Saves>
-  </SummonTemplate>
-  <SummonTemplate>
+  </Summon>
+  <Summon>
     <Skills>
       <string>Listen +4</string>
       <string>Spot +8</string>
@@ -939,8 +939,8 @@
       <Ref>5</Ref>
       <Will>2</Will>
     </Saves>
-  </SummonTemplate>
-  <SummonTemplate>
+  </Summon>
+  <Summon>
     <Skills>
       <string>Listen +6</string>
       <string>Spot +6</string>
@@ -1009,8 +1009,8 @@
       <Ref>5</Ref>
       <Will>2</Will>
     </Saves>
-  </SummonTemplate>
-  <SummonTemplate>
+  </Summon>
+  <Summon>
     <Skills>
       <string>Balance +11</string>
       <string>Climb +11</string>
@@ -1083,8 +1083,8 @@
       <Ref>6</Ref>
       <Will>1</Will>
     </Saves>
-  </SummonTemplate>
-  <SummonTemplate>
+  </Summon>
+  <Summon>
     <Skills>
       <string>Listen +7</string>
       <string>Spot +7</string>
@@ -1159,8 +1159,8 @@
       <Ref>6</Ref>
       <Will>2</Will>
     </Saves>
-  </SummonTemplate>
-  <SummonTemplate>
+  </Summon>
+  <Summon>
     <Skills>
       <string>Climb +10</string>
       <string>Listen +6</string>
@@ -1231,8 +1231,8 @@
       <Ref>5</Ref>
       <Will>2</Will>
     </Saves>
-  </SummonTemplate>
-  <SummonTemplate>
+  </Summon>
+  <Summon>
     <Skills>
       <string>Climb +14</string>
       <string>Listen +6</string>
@@ -1300,8 +1300,8 @@
       <Ref>6</Ref>
       <Will>2</Will>
     </Saves>
-  </SummonTemplate>
-  <SummonTemplate>
+  </Summon>
+  <Summon>
     <Skills>
       <string>Hide +8</string>
       <string>Listen +3</string>
@@ -1371,8 +1371,8 @@
       <Ref>7</Ref>
       <Will>4</Will>
     </Saves>
-  </SummonTemplate>
-  <SummonTemplate>
+  </Summon>
+  <Summon>
     <Skills>
       <string>Hide +0</string>
       <string>Listen +7</string>
@@ -1445,8 +1445,8 @@
       <Ref>7</Ref>
       <Will>6</Will>
     </Saves>
-  </SummonTemplate>
-  <SummonTemplate>
+  </Summon>
+  <Summon>
     <Skills>
       <string>Knowledge (nature) +2</string>
       <string>Listen +6</string>
@@ -1531,8 +1531,8 @@
       <Ref>7</Ref>
       <Will>3</Will>
     </Saves>
-  </SummonTemplate>
-  <SummonTemplate>
+  </Summon>
+  <Summon>
     <Skills>
       <string>Balance +7</string>
       <string>Hide +3*</string>
@@ -1610,8 +1610,8 @@
       <Ref>7</Ref>
       <Will>2</Will>
     </Saves>
-  </SummonTemplate>
-  <SummonTemplate>
+  </Summon>
+  <Summon>
     <Skills>
       <string>Knowledge (nature) +2</string>
       <string>Listen +17</string>
@@ -1691,8 +1691,8 @@
       <Ref>7</Ref>
       <Will>3</Will>
     </Saves>
-  </SummonTemplate>
-  <SummonTemplate>
+  </Summon>
+  <Summon>
     <Skills>
       <string>Bluff +9</string>
       <string>Diplomacy +3</string>
@@ -1783,8 +1783,8 @@
       <Ref>5</Ref>
       <Will>5</Will>
     </Saves>
-  </SummonTemplate>
-  <SummonTemplate>
+  </Summon>
+  <Summon>
     <Skills>
       <string>Listen +8</string>
       <string>Spot +7</string>
@@ -1854,8 +1854,8 @@
       <Ref>7</Ref>
       <Will>3</Will>
     </Saves>
-  </SummonTemplate>
-  <SummonTemplate>
+  </Summon>
+  <Summon>
     <Skills>
       <string>Balance +11</string>
       <string>Climb +14</string>
@@ -1928,8 +1928,8 @@
       <Ref>6</Ref>
       <Will>2</Will>
     </Saves>
-  </SummonTemplate>
-  <SummonTemplate>
+  </Summon>
+  <Summon>
     <Skills>
       <string>Balance +11</string>
       <string>Climb +11</string>
@@ -2001,8 +2001,8 @@
       <Ref>6</Ref>
       <Will>2</Will>
     </Saves>
-  </SummonTemplate>
-  <SummonTemplate>
+  </Summon>
+  <Summon>
     <Skills>
       <string>Listen +5</string>
       <string>Move Silently +3</string>
@@ -2073,8 +2073,8 @@
       <Ref>2</Ref>
       <Will>2</Will>
     </Saves>
-  </SummonTemplate>
-  <SummonTemplate>
+  </Summon>
+  <Summon>
     <Skills>
       <string>Diplomacy +3</string>
       <string>Escape Artist +11</string>
@@ -2161,8 +2161,8 @@
       <Ref>8</Ref>
       <Will>4</Will>
     </Saves>
-  </SummonTemplate>
-  <SummonTemplate>
+  </Summon>
+  <Summon>
     <Skills>
       <string>Listen +4</string>
       <string>Spot +7</string>
@@ -2235,8 +2235,8 @@
       <Ref>6</Ref>
       <Will>3</Will>
     </Saves>
-  </SummonTemplate>
-  <SummonTemplate>
+  </Summon>
+  <Summon>
     <Skills>
       <string>Hide +1*</string>
       <string>Listen +5</string>
@@ -2311,8 +2311,8 @@
       <Ref>6</Ref>
       <Will>3</Will>
     </Saves>
-  </SummonTemplate>
-  <SummonTemplate>
+  </Summon>
+  <Summon>
     <Skills>
       <string>Hide +12</string>
       <string>Jump +26</string>
@@ -2391,8 +2391,8 @@
       <Ref>6</Ref>
       <Will>2</Will>
     </Saves>
-  </SummonTemplate>
-  <SummonTemplate>
+  </Summon>
+  <Summon>
     <Skills>
       <string>Listen +8</string>
       <string>Spot +8</string>
@@ -2457,8 +2457,8 @@
       <Ref>5</Ref>
       <Will>8</Will>
     </Saves>
-  </SummonTemplate>
-  <SummonTemplate>
+  </Summon>
+  <Summon>
     <Skills>
       <string>Climb +14</string>
       <string>Listen +7</string>
@@ -2531,8 +2531,8 @@
       <Ref>7</Ref>
       <Will>5</Will>
     </Saves>
-  </SummonTemplate>
-  <SummonTemplate>
+  </Summon>
+  <Summon>
     <Skills>
       <string>Craft (blacksmithing) +8</string>
       <string>Hide +12</string>
@@ -2615,8 +2615,8 @@
       <Ref>5</Ref>
       <Will>6</Will>
     </Saves>
-  </SummonTemplate>
-  <SummonTemplate>
+  </Summon>
+  <Summon>
     <Skills>
       <string>Listen +8</string>
       <string>Spot +7</string>
@@ -2693,8 +2693,8 @@
       <Ref>6</Ref>
       <Will>5</Will>
     </Saves>
-  </SummonTemplate>
-  <SummonTemplate>
+  </Summon>
+  <Summon>
     <Skills>
       <string>Listen +10</string>
       <string>Spot +10</string>
@@ -2765,8 +2765,8 @@
       <Ref>9</Ref>
       <Will>4</Will>
     </Saves>
-  </SummonTemplate>
-  <SummonTemplate>
+  </Summon>
+  <Summon>
     <Skills>
       <string>Balance +10</string>
       <string>Climb +11</string>
@@ -2840,8 +2840,8 @@
       <Ref>7</Ref>
       <Will>3</Will>
     </Saves>
-  </SummonTemplate>
-  <SummonTemplate>
+  </Summon>
+  <Summon>
     <Skills>
       <string>Balance +6</string>
       <string>Hide +3*</string>
@@ -2921,8 +2921,8 @@
       <Ref>7</Ref>
       <Will>3</Will>
     </Saves>
-  </SummonTemplate>
-  <SummonTemplate>
+  </Summon>
+  <Summon>
     <Skills>
       <string>Diplomacy +1</string>
       <string>Escape Artist +7</string>
@@ -3008,8 +3008,8 @@
       <Ref>4</Ref>
       <Will>4</Will>
     </Saves>
-  </SummonTemplate>
-  <SummonTemplate>
+  </Summon>
+  <Summon>
     <Skills>
       <string>Jump +21</string>
       <string>Listen +11</string>
@@ -3098,8 +3098,8 @@
       <Ref>7</Ref>
       <Will>6</Will>
     </Saves>
-  </SummonTemplate>
-  <SummonTemplate>
+  </Summon>
+  <Summon>
     <Skills>
       <string>Hide +10</string>
       <string>Intimidate +3</string>
@@ -3183,8 +3183,8 @@
       <Ref>3</Ref>
       <Will>3</Will>
     </Saves>
-  </SummonTemplate>
-  <SummonTemplate>
+  </Summon>
+  <Summon>
     <Skills>
       <string>Diplomacy +3</string>
       <string>Escape Artist +15</string>
@@ -3272,8 +3272,8 @@
       <Ref>10</Ref>
       <Will>6</Will>
     </Saves>
-  </SummonTemplate>
-  <SummonTemplate>
+  </Summon>
+  <Summon>
     <Skills>
       <string>Hide -2*</string>
       <string>Listen +5</string>
@@ -3347,8 +3347,8 @@
       <Ref>7</Ref>
       <Will>3</Will>
     </Saves>
-  </SummonTemplate>
-  <SummonTemplate>
+  </Summon>
+  <Summon>
     <Skills>
       <string>Hide +2*</string>
       <string>Listen +7</string>
@@ -3430,8 +3430,8 @@
       <Ref>8</Ref>
       <Will>7</Will>
     </Saves>
-  </SummonTemplate>
-  <SummonTemplate>
+  </Summon>
+  <Summon>
     <Skills>
       <string>Hide -4*</string>
       <string>Listen +4</string>
@@ -3498,8 +3498,8 @@
       <Ref>9</Ref>
       <Will>4</Will>
     </Saves>
-  </SummonTemplate>
-  <SummonTemplate>
+  </Summon>
+  <Summon>
     <Skills>
       <string>Jump +8</string>
       <string>Listen +6</string>
@@ -3583,8 +3583,8 @@
       <Ref>7</Ref>
       <Will>5</Will>
     </Saves>
-  </SummonTemplate>
-  <SummonTemplate>
+  </Summon>
+  <Summon>
     <Skills>
       <string>Appraise +11</string>
       <string>Concentration +10</string>
@@ -3679,8 +3679,8 @@
       <Ref>7</Ref>
       <Will>7</Will>
     </Saves>
-  </SummonTemplate>
-  <SummonTemplate>
+  </Summon>
+  <Summon>
     <Skills>
       <string>Bluff +8</string>
       <string>Craft (any one) +5</string>
@@ -3778,8 +3778,8 @@
       <Ref>5</Ref>
       <Will>3</Will>
     </Saves>
-  </SummonTemplate>
-  <SummonTemplate>
+  </Summon>
+  <Summon>
     <Skills>
       <string>Listen +14</string>
       <string>Spot +3</string>
@@ -3843,8 +3843,8 @@
       <Ref>6</Ref>
       <Will>3</Will>
     </Saves>
-  </SummonTemplate>
-  <SummonTemplate>
+  </Summon>
+  <Summon>
     <Skills>
       <string>Bluff +9</string>
       <string>Diplomacy +3</string>
@@ -3939,8 +3939,8 @@
       <Ref>5</Ref>
       <Will>5</Will>
     </Saves>
-  </SummonTemplate>
-  <SummonTemplate>
+  </Summon>
+  <Summon>
     <Skills>
       <string>Balance +11</string>
       <string>Climb +17</string>
@@ -4015,8 +4015,8 @@
       <Ref>10</Ref>
       <Will>4</Will>
     </Saves>
-  </SummonTemplate>
-  <SummonTemplate>
+  </Summon>
+  <Summon>
     <Skills>
       <string>Diplomacy +1</string>
       <string>Escape Artist +11</string>
@@ -4102,8 +4102,8 @@
       <Ref>6</Ref>
       <Will>6</Will>
     </Saves>
-  </SummonTemplate>
-  <SummonTemplate>
+  </Summon>
+  <Summon>
     <Skills>
       <string>Listen +14*</string>
       <string>Spot +14*</string>
@@ -4173,8 +4173,8 @@
       <Ref>8</Ref>
       <Will>5</Will>
     </Saves>
-  </SummonTemplate>
-  <SummonTemplate>
+  </Summon>
+  <Summon>
     <Skills>
       <string>Listen +10</string>
       <string>Spot +10</string>
@@ -4247,8 +4247,8 @@
       <Ref>9</Ref>
       <Will>9</Will>
     </Saves>
-  </SummonTemplate>
-  <SummonTemplate>
+  </Summon>
+  <Summon>
     <Skills>
       <string>Listen +12</string>
       <string>Spot +10</string>
@@ -4326,8 +4326,8 @@ Trample (Ex): Reflex half DC 25. The save DC is Strength-based.</string>
       <Ref>7</Ref>
       <Will>6</Will>
     </Saves>
-  </SummonTemplate>
-  <SummonTemplate>
+  </Summon>
+  <Summon>
     <Skills>
       <string>Climb +14</string>
       <string>Move Silently +8</string>
@@ -4400,8 +4400,8 @@ Trample (Ex): Reflex half DC 25. The save DC is Strength-based.</string>
       <Ref>8</Ref>
       <Will>5</Will>
     </Saves>
-  </SummonTemplate>
-  <SummonTemplate>
+  </Summon>
+  <Summon>
     <Skills>
       <string>Hide +9</string>
       <string>Jump +27</string>
@@ -4479,8 +4479,8 @@ Trample (Ex): Reflex half DC 25. The save DC is Strength-based.</string>
       <Ref>8</Ref>
       <Will>4</Will>
     </Saves>
-  </SummonTemplate>
-  <SummonTemplate>
+  </Summon>
+  <Summon>
     <Skills>
       <string>Escape Artist +12</string>
       <string>Hide +12</string>
@@ -4563,8 +4563,8 @@ Trample (Ex): Reflex half DC 25. The save DC is Strength-based.</string>
       <Ref>8</Ref>
       <Will>3</Will>
     </Saves>
-  </SummonTemplate>
-  <SummonTemplate>
+  </Summon>
+  <Summon>
     <Skills>
       <string>Bluff +7</string>
       <string>Concentration +4</string>
@@ -4653,8 +4653,8 @@ Trample (Ex): Reflex half DC 25. The save DC is Strength-based.</string>
       <Ref>6</Ref>
       <Will>4</Will>
     </Saves>
-  </SummonTemplate>
-  <SummonTemplate>
+  </Summon>
+  <Summon>
     <Skills>
       <string>Bluff +11</string>
       <string>Craft (blacksmithing) +19</string>
@@ -4744,8 +4744,8 @@ Trample (Ex): Reflex half DC 25. The save DC is Strength-based.</string>
       <Ref>7</Ref>
       <Will>8</Will>
     </Saves>
-  </SummonTemplate>
-  <SummonTemplate>
+  </Summon>
+  <Summon>
     <Skills>
       <string>Listen +15*</string>
       <string>Spot +14*</string>
@@ -4815,8 +4815,8 @@ Trample (Ex): Reflex half DC 25. The save DC is Strength-based.</string>
       <Ref>9</Ref>
       <Will>5</Will>
     </Saves>
-  </SummonTemplate>
-  <SummonTemplate>
+  </Summon>
+  <Summon>
     <Skills>
       <string>Hide +10</string>
       <string>Intimidate +10</string>
@@ -4902,8 +4902,8 @@ Trample (Ex): Reflex half DC 25. The save DC is Strength-based.</string>
       <Ref>5</Ref>
       <Will>5</Will>
     </Saves>
-  </SummonTemplate>
-  <SummonTemplate>
+  </Summon>
+  <Summon>
     <Skills>
       <string>Diplomacy +3</string>
       <string>Escape Artist +23</string>
@@ -4993,8 +4993,8 @@ Trample (Ex): Reflex half DC 25. The save DC is Strength-based.</string>
       <Ref>14</Ref>
       <Will>10</Will>
     </Saves>
-  </SummonTemplate>
-  <SummonTemplate>
+  </Summon>
+  <Summon>
     <Skills>
       <string>Hide +7*</string>
       <string>Jump +14</string>
@@ -5079,8 +5079,8 @@ Trample (Ex): Reflex half DC 25. The save DC is Strength-based.</string>
       <Ref>12</Ref>
       <Will>11</Will>
     </Saves>
-  </SummonTemplate>
-  <SummonTemplate>
+  </Summon>
+  <Summon>
     <Skills>
       <string>Appraise +12</string>
       <string>Concentration +12</string>
@@ -5180,8 +5180,8 @@ Trample (Ex): Reflex half DC 25. The save DC is Strength-based.</string>
       <Ref>9</Ref>
       <Will>7</Will>
     </Saves>
-  </SummonTemplate>
-  <SummonTemplate>
+  </Summon>
+  <Summon>
     <Skills>
       <string>Listen +13</string>
       <string>Move Silently +15</string>
@@ -5255,8 +5255,8 @@ Trample (Ex): Reflex half DC 25. The save DC is Strength-based.</string>
       <Ref>10</Ref>
       <Will>4</Will>
     </Saves>
-  </SummonTemplate>
-  <SummonTemplate>
+  </Summon>
+  <Summon>
     <Skills>
       <string>Bluff +7</string>
       <string>Concentration +4</string>
@@ -5350,8 +5350,8 @@ Trample (Ex): Reflex half DC 25. The save DC is Strength-based.</string>
       <Ref>6</Ref>
       <Will>4</Will>
     </Saves>
-  </SummonTemplate>
-  <SummonTemplate>
+  </Summon>
+  <Summon>
     <Skills>
       <string>Listen +10</string>
       <string>Spot +11</string>
@@ -5438,8 +5438,8 @@ Trample (Ex): Reflex half DC 25. The save DC is Strength-based.</string>
       <Ref>11</Ref>
       <Will>5</Will>
     </Saves>
-  </SummonTemplate>
-  <SummonTemplate>
+  </Summon>
+  <Summon>
     <Skills>
       <string>Listen +13</string>
       <string>Spot +12</string>
@@ -5507,8 +5507,8 @@ Trample (Ex): Reflex half DC 25. The save DC is Strength-based.</string>
       <Ref>9</Ref>
       <Will>6</Will>
     </Saves>
-  </SummonTemplate>
-  <SummonTemplate>
+  </Summon>
+  <Summon>
     <Skills>
       <string>Hide -2</string>
       <string>Listen +14</string>
@@ -5583,8 +5583,8 @@ Trample (Ex): Reflex half DC 25. The save DC is Strength-based.</string>
       <Ref>12</Ref>
       <Will>8</Will>
     </Saves>
-  </SummonTemplate>
-  <SummonTemplate>
+  </Summon>
+  <Summon>
     <Skills>
       <string>Listen +15*</string>
       <string>Spot +14*</string>
@@ -5660,8 +5660,8 @@ Trample (Ex): Reflex half DC 25. The save DC is Strength-based.</string>
       <Ref>9</Ref>
       <Will>6</Will>
     </Saves>
-  </SummonTemplate>
-  <SummonTemplate>
+  </Summon>
+  <Summon>
     <Skills>
       <string>Hide +14</string>
       <string>Intimidate +18</string>
@@ -5750,8 +5750,8 @@ Trample (Ex): Reflex half DC 25. The save DC is Strength-based.</string>
       <Ref>9</Ref>
       <Will>9</Will>
     </Saves>
-  </SummonTemplate>
-  <SummonTemplate>
+  </Summon>
+  <Summon>
     <Skills>
       <string>Listen +12</string>
       <string>Spot +11</string>
@@ -5827,8 +5827,8 @@ Trample (Ex): Reflex half DC 25. The save DC is Strength-based.</string>
       <Ref>13</Ref>
       <Will>12</Will>
     </Saves>
-  </SummonTemplate>
-  <SummonTemplate>
+  </Summon>
+  <Summon>
     <Skills>
       <string>Hide -3</string>
       <string>Listen +10</string>
@@ -5902,8 +5902,8 @@ Trample (Ex): Reflex half DC 25. The save DC is Strength-based.</string>
       <Ref>13</Ref>
       <Will>9</Will>
     </Saves>
-  </SummonTemplate>
-  <SummonTemplate>
+  </Summon>
+  <Summon>
     <Skills>
       <string>Bluff +19</string>
       <string>Craft (blacksmithing) +25</string>
@@ -5997,8 +5997,8 @@ Trample (Ex): Reflex half DC 25. The save DC is Strength-based.</string>
       <Ref>10</Ref>
       <Will>11</Will>
     </Saves>
-  </SummonTemplate>
-  <SummonTemplate>
+  </Summon>
+  <Summon>
     <Skills>
       <string>Escape Artist +19</string>
       <string>Hide +15</string>
@@ -6087,8 +6087,8 @@ Trample (Ex): Reflex half DC 25. The save DC is Strength-based.</string>
       <Ref>10</Ref>
       <Will>10</Will>
     </Saves>
-  </SummonTemplate>
-  <SummonTemplate>
+  </Summon>
+  <Summon>
     <Skills>
       <string>Craft (any one) +4</string>
       <string>Escape Artist +8</string>
@@ -6178,8 +6178,8 @@ Trample (Ex): Reflex half DC 25. The save DC is Strength-based.</string>
       <Ref>6</Ref>
       <Will>3</Will>
     </Saves>
-  </SummonTemplate>
-  <SummonTemplate>
+  </Summon>
+  <Summon>
     <Skills>
       <string>Bluff +7</string>
       <string>Concentration +4</string>
@@ -6277,8 +6277,8 @@ Trample (Ex): Reflex half DC 25. The save DC is Strength-based.</string>
       <Ref>6</Ref>
       <Will>4</Will>
     </Saves>
-  </SummonTemplate>
-  <SummonTemplate>
+  </Summon>
+  <Summon>
     <Skills>
       <string>Concentration +11</string>
       <string>Knowledge (nature) +9</string>
@@ -6389,8 +6389,8 @@ Trample (Ex): Reflex half DC 25. The save DC is Strength-based.</string>
       <Ref>12</Ref>
       <Will>15</Will>
     </Saves>
-  </SummonTemplate>
-  <SummonTemplate>
+  </Summon>
+  <Summon>
     <Skills>
       <string>Hide +16</string>
       <string>Listen +13</string>
@@ -6467,8 +6467,8 @@ When a hunting bat swoops down on its prey, it first attempts to trip its oppone
       <Ref>11</Ref>
       <Will>4</Will>
     </Saves>
-  </SummonTemplate>
-  <SummonTemplate>
+  </Summon>
+  <Summon>
     <Skills>
       <string>Climb +14</string>
       <string>Listen +5</string>
@@ -6541,8 +6541,8 @@ Skills: Dire apes have a +8 racial bonus on Climb checks and can always choose t
       <Ref>6</Ref>
       <Will>5</Will>
     </Saves>
-  </SummonTemplate>
-  <SummonTemplate>
+  </Summon>
+  <Summon>
     <Skills>
       <string>Hide +12*</string>
       <string>Jump +24</string>
@@ -6626,5 +6626,5 @@ Skills: Fleshrakers have a +8 racial bonus on Hide checks and a +6 racial bonus 
       <Ref>8</Ref>
       <Will>3</Will>
     </Saves>
-  </SummonTemplate>
-</ArrayOfSummonTemplate>
+  </Summon>
+</ArrayOfSummon>
