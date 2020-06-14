@@ -376,7 +376,7 @@
     <SpellResistance>Yes (harmless)</SpellResistance>
     <Description>Barkskin toughens a creature’s skin. The effect grants a +2 enhancement bonus to the creature’s existing natural armor bonus. This enhancement bonus increases by 1 for every three caster levels above 3rd, to a maximum of +5 at caster level 12th.  The enhancement bonus provided by barkskin stacks with the target’s natural armor bonus, but not with other enhancement bonuses to natural armor. A creature without natural armor has an effective natural armor bonus of +0.</Description>
     <SourceBook>PHB</SourceBook>
-    <Favorited>false</Favorited>
+    <Favorited>true</Favorited>
   </Spell>
   <Spell>
     <Index>22</Index>
@@ -664,7 +664,7 @@
     <SpellResistance>Yes (harmless)</SpellResistance>
     <Description>The subject can climb and travel on vertical surfaces or even traverse ceilings as well as a spider does. The affected creature must have its hands free to climb in this manner. The subject gains a climb speed of 20 feet; furthermore, it need not make Climb checks to traverse a vertical or horizontal surface (even upside down). A spider climbing creature retains its Dexterity bonus to Armor Class (if any) while climbing, and opponents get no special bonus to their attacks against it. It cannot, however, use the run action while climbing.  Material Component A drop of bitumen and a live spider, both of which must be eaten by the subject.</Description>
     <SourceBook>PHB</SourceBook>
-    <Favorited>false</Favorited>
+    <Favorited>true</Favorited>
   </Spell>
   <Spell>
     <Index>38</Index>
@@ -1287,7 +1287,7 @@ This spell has no effect on the soil or surrounding plant life.
 
 You can affect a number of plant creatures whose combined level or HD do not exceed twice your level.</Description>
     <SourceBook>PHB</SourceBook>
-    <Favorited>false</Favorited>
+    <Favorited>true</Favorited>
   </Spell>
   <Spell>
     <Index>71</Index>
@@ -1402,7 +1402,7 @@ When dispel magic is used in this way, the spell targets a spellcaster and is ca
     <SpellResistance>Yes</SpellResistance>
     <Description>A flame strike produces a vertical column of divine fire roaring downward. The spell deals 1d6 points of damage per caster level (maximum 15d6). Half the damage is fire damage, but the other half results directly from divine power and is therefore not subject to being reduced by resistance to fire-based attacks.</Description>
     <SourceBook>PHB</SourceBook>
-    <Favorited>false</Favorited>
+    <Favorited>true</Favorited>
   </Spell>
   <Spell>
     <Index>75</Index>
@@ -1473,7 +1473,7 @@ Any giant vermin created by this spell do not attempt to harm you, but your cont
 Arcane Material Component
 A pinch of dust and a few drops of water.</Description>
     <SourceBook>PHB</SourceBook>
-    <Favorited>false</Favorited>
+    <Favorited>true</Favorited>
   </Spell>
   <Spell>
     <Index>78</Index>
@@ -3883,7 +3883,7 @@ The descriptor of this spell is the
 same as the energy type you choose
 when you cast it.</Description>
     <SourceBook>SC</SourceBook>
-    <Favorited>true</Favorited>
+    <Favorited>false</Favorited>
   </Spell>
   <Spell>
     <Index>175</Index>
@@ -3947,7 +3947,7 @@ This spell functions like call lightning, except that each bolt deals 5d6 points
     <SpellResistance>No</SpellResistance>
     <Description>Static fills the air as you complete the spell. With a gesture you create magical conductivity between two creatures, and a bolt of electricity arcs between them with a shockingly loud crackle. This bolt deals 1d6 points of electricity damage per caster level (maximum 15d6) to both creatures and to anything in the line between them. Both creatures must be in range, and you must be able to target them both (as if this spell had them as its targets). Draw the line from any corner in one creature’s space to any corner in the other’s space. The bolt affects all squares in this line. Arcane Material Component: Two small iron rods. </Description>
     <SourceBook>SC</SourceBook>
-    <Favorited>false</Favorited>
+    <Favorited>true</Favorited>
   </Spell>
   <Spell>
     <Index>178</Index>
@@ -4061,7 +4061,7 @@ scales from a snake.</Description>
     <SpellResistance>Yes (harmless)</SpellResistance>
     <Description>A chill grips you as you complete the spell and touch your intended subject. The feet of the spell’s subject glow with an ice-blue radiance that fades but lingers. The creature rises slightly out of the snow, as if it weighed much less. The affected creature can walk lightly over ice and snow without having its speed reduced. The affected creature gains a 10-foot enhancement bonus to speed and is not required to make a Balance check or Refl ex save to walk on ice and snow without slipping and falling, to avoid cracking ice it walks over, or to avoid falling through cracked ice. In addition, the affected creature does not leave a more readily discernible trail through ice and snow than it does on solid ground, denying trackers potential bonuses to follow the affected creature’s path. (See Weather, DMG 93–95, and Cold Dangers, DMG 302, for more details on the effects of weather and ice.) </Description>
     <SourceBook>SC</SourceBook>
-    <Favorited>false</Favorited>
+    <Favorited>true</Favorited>
   </Spell>
   <Spell>
     <Index>184</Index>
@@ -4151,7 +4151,14 @@ You must make a ranged attack to hit the target. If you hit, the splinterbolt de
     <Duration>10 minutes/level</Duration>
     <SavingThrow>See text</SavingThrow>
     <SpellResistance>Yes</SpellResistance>
-    <Description>You hold the crown of ivy leaves aloft, invoking the powers of nature, and an explosion of plant growth fi lls the area—plants over which you have control. You create and direct the rapid growth of vines. When you cast the spell, choose one of the following effects. • Climbing aid (treat as knotted ropes) • Bind helpless targets (Escape Artist DC 25 to escape) • Hamper movement (as heavy undergrowth) • Camoufl age (add +4 competence bonus on Hide checks) As a standard action, you can redirect the vines’ growth (thus changing the effect). Material Component: A crown of ivy leaves. </Description>
+    <Description>You hold the crown of ivy leaves aloft, invoking the powers of nature, and an explosion of plant growth fi lls the area—plants over which you have control. You create and direct the rapid growth of vines. When you cast the spell, choose one of the following effects.
+
+• Climbing aid (treat as knotted ropes)
+• Bind helpless targets (Escape Artist DC 25 to escape)
+• Hamper movement (as heavy undergrowth)
+• Camoufl age (add +4 competence bonus on Hide checks) As a standard action, you can redirect the vines’ growth (thus changing the effect).
+
+Material Component: A crown of ivy leaves. </Description>
     <SourceBook>SC</SourceBook>
     <Favorited>false</Favorited>
   </Spell>
@@ -4442,7 +4449,7 @@ This spell imparts to all allies in its area a shared awareness of their surroun
     <SpellResistance>No</SpellResistance>
     <Description>This spell causes grasses, weeds, bushes, and even trees to grow thorns and then wrap and twist around creatures in or entering the area. Creatures that make their save against this spell are unaffected other than having to move at half speed within the area of affect. If a creature fails its initial saving throw, it has three options: stay perfectly still, attempt to break free from the thorns, or continue to actnormally. A creature that fails its save but stands perfectly still is entangled (–2 attack, –4 Dexterity), but experiences no other effect and takes no damage. Anyone entangled in this way loses the entangled condition if they leave the area of the spell. Each round in which a creature remains in the area, it may spend a full round action extricating themselves from the thorns. Doing so allows for a new saving throw. If successful, the creature is unaffected by the thorns except it may only move at half speed in the area of the spell. Successfully breaking free in this way is the only thing a character can do that does not cause thorn damage to the character. A failed attempt to break free deals the normal 2d6 thorn piercing damage. Those that attempt actions (such as attack, cast a spell with a somatic component, or move) take 2d6 points of piercing damage from the thorns. A creature that tries to cast a spell must also make a Concentration check (DC 15 + spell level + damage taken) or lose the spell. The plants provide cover. A creature 5 feet away has cover. Creaturs separated by 20 or more feet of briar webs have total cover. </Description>
     <SourceBook>CD</SourceBook>
-    <Favorited>false</Favorited>
+    <Favorited>true</Favorited>
   </Spell>
   <Spell>
     <Index>204</Index>
@@ -4460,7 +4467,7 @@ This spell imparts to all allies in its area a shared awareness of their surroun
     <SpellResistance>No</SpellResistance>
     <Description>You cause clouds to gather and a heavy rain to fall. The rain reduces visibility ranges by half, resulting in a –4 penalty on Spot and Search checks. It automatically extinguishes unprotected flames, and has a 50% chance of extinguishing protected fl ames. Ranged weapon attacks and Listen checks suffer a –4 penalty. This spell does not function indoors, underground, underwater, or in desert climates. After the spell end, the water created evaporates over the next 10 minutes. The water created with this spell does not slake thirst or provide any nourishment to plants. </Description>
     <SourceBook>CD</SourceBook>
-    <Favorited>false</Favorited>
+    <Favorited>true</Favorited>
   </Spell>
   <Spell>
     <Index>205</Index>
@@ -4498,7 +4505,7 @@ This spell imparts to all allies in its area a shared awareness of their surroun
 
 Material Component: A small piece of copper wire. </Description>
     <SourceBook>SC</SourceBook>
-    <Favorited>false</Favorited>
+    <Favorited>true</Favorited>
   </Spell>
   <Spell>
     <Index>207</Index>
@@ -4516,7 +4523,7 @@ Material Component: A small piece of copper wire. </Description>
     <SpellResistance>Yes</SpellResistance>
     <Description>Calling upon the lost voices of dead creatures, you cause the targeted area to become fi lled with the enraged roaring of a thousand dinosaurs. The ground beneath the area shakes with the sound. The resulting blast of sound from the casting of thunderous roar can be heard for miles, but the spell affects only those in its area. All creatures in the affected area take 1d6 points of sonic damage per two caster levels (maximum 5d6). A successful Fortitude saving throw halves the damage. Additionally, any creature that takes damage from this spell must make a Reflex saving throw or be knocked prone from the force of the roar. Crystalline creatures take 1d6 points of sonic damage per caster level (maximum 10d6). </Description>
     <SourceBook>SC</SourceBook>
-    <Favorited>false</Favorited>
+    <Favorited>true</Favorited>
   </Spell>
   <Spell>
     <Index>208</Index>
@@ -4535,5 +4542,86 @@ Material Component: A small piece of copper wire. </Description>
     <Description>Rings of blue-white energy travel from your feet to your head ami back again, vanishing lifter encircling you in their glow. This spell calls upon the raw natural forces within you to grant the basic instincts possessed by your ancestors. You gain a +5 competence bonus on initiative and Survival checks. If primal instinct is active on you at the same time as primal hunter, primal senses, or primal speed, you gain uncanny dodge (as the barbarian class feature). It all four of these spells are active on you at the same time, you gain improved uncanny dodge (as the barbarian class feature; your barbarian level for the purpose of being flanked equals your caster level). Special: If you are of the dragonblood subtype (see page 4), you also gain a +5 competence bonus on any one kind of Knowledge check, chosen when you cast primal instinct, and you are treated as trained in that skill. </Description>
     <SourceBook>DrM</SourceBook>
     <Favorited>true</Favorited>
+  </Spell>
+  <Spell>
+    <Index>209</Index>
+    <Name>Binding Winds</Name>
+    <Class>Druid</Class>
+    <Level>2</Level>
+    <Domain>Evocation [Air]</Domain>
+    <Components>V, S</Components>
+    <Casting>1 standard action</Casting>
+    <Range>Medium (100 ft. + 10 ft./level)</Range>
+    <Target>One creature</Target>
+    <Effect />
+    <Duration>Concentration</Duration>
+    <SavingThrow>Reflex negates</SavingThrow>
+    <SpellResistance>Yes</SpellResistance>
+    <Description>Calling upon the power of elemental air, you encircle the target in whipping winds. The subject can act normally, but it cannot move from its current location. The winds carry its voice away, so it can speak but cannot be heard, and it cannot hear anything but the roar of the winds. This spell distracts spellcasters, and so a Concentration check is required to successfully cast any spell (DC equal to this spell’s DC + the level of the spell being cast). 
+
+Furthermore, no sonic or languagedependent spells or effects can be cast into or out of the winds (though spells cast by you upon yourself function normally). Ranged attacks made into or out of the winds take a –2 penalty. Binding winds holds fl ying creatures in midair. </Description>
+    <SourceBook>SC</SourceBook>
+    <Favorited>true</Favorited>
+  </Spell>
+  <Spell>
+    <Index>210</Index>
+    <Name>Fly, Swift</Name>
+    <Class>Druid</Class>
+    <Level>3</Level>
+    <Domain>Transmutation</Domain>
+    <Components>V</Components>
+    <Casting>1 swift action</Casting>
+    <Range>Personal</Range>
+    <Target>You</Target>
+    <Effect />
+    <Duration>1 round</Duration>
+    <SavingThrow />
+    <SpellResistance />
+    <Description>You squawk twice like an eagle and suddenly long for the freedom of the skies. This spell functions like fl y (PH 232), except as noted above.
+
+The subject can fly at a speed of 60 feet (or 40 feet if it wears medium or heavy armor, or if it carries a medium or heavy load). It can ascend at half speed and descend at double speed, and its maneuverability is good. Using a fly spell requires only as much concentration as walking, so the subject can attack or cast spells normally. The subject of a fly spell can charge but not run, and it cannot carry aloft more weight than its maximum load, plus any armor it wears.
+
+Should the spell duration expire while the subject is still aloft, the magic fails slowly. The subject floats downward 60 feet per round for 1d6 rounds. If it reaches the ground in that amount of time, it lands safely. If not, it falls the rest of the distance, taking 1d6 points of damage per 10 feet of fall. Since dispelling a spell effectively ends it, the subject also descends in this way if the fly spell is dispelled, but not if it is negated by an antimagic field.
+
+Arcane Focus
+A wing feather from any bird.</Description>
+    <SourceBook>SC</SourceBook>
+    <Favorited>true</Favorited>
+  </Spell>
+  <Spell>
+    <Index>211</Index>
+    <Name>Healing Sting</Name>
+    <Class>Druid</Class>
+    <Level>2</Level>
+    <Domain>Necromancy</Domain>
+    <Components>V, S, M</Components>
+    <Casting>1 standard action</Casting>
+    <Range>Touch</Range>
+    <Target />
+    <Effect />
+    <Duration>Instantaneous</Duration>
+    <SavingThrow>None</SavingThrow>
+    <SpellResistance>Yes</SpellResistance>
+    <Description>Your palms tingle as you smash the dead wasps between your hands. The tingling intensifi es as you strike the opposing warrior, pulling his vitality into yourself. Focusing the power of negative energy, you deal 1d12 points of damage +1 per caster level (maximum 1d12+10) to a living creature and gain an equal amount of hit points if you make a successful melee touch attack. A healing sting cannot give you more hit points than your full normal total. Excess hit points are lost. Material Component: Five dried wasp bodies. </Description>
+    <SourceBook>SC</SourceBook>
+    <Favorited>true</Favorited>
+  </Spell>
+  <Spell>
+    <Index>212</Index>
+    <Name>Icelance</Name>
+    <Class>Druid</Class>
+    <Level>3</Level>
+    <Domain>Conjuration (Creation)</Domain>
+    <Components>V, S, F</Components>
+    <Casting>1 standard action</Casting>
+    <Range>Medium (100 ft. + 10 ft./level)</Range>
+    <Target />
+    <Effect>One lance of ice</Effect>
+    <Duration>Instantaneous</Duration>
+    <SavingThrow>Fortitude partial</SavingThrow>
+    <SpellResistance>Yes</SpellResistance>
+    <Description>You clutch the quartz in your hand, focusing the energy of the spell into a sharp spear. With a thought, you send it whistling through the air at your foe. You must succeed on a normal ranged attack to strike a target with an icelance. You gain a +4 bonus on your attack roll. If you hit, the icelance deals 6d6 points of damage to the target. Half of this damage is piercing damage; the rest is cold damage. In addition, the target must make a Fortitude save or be stunned for 1d4 rounds. Regardless of the result of the attack, the icelance shatters upon its fi rst use. Focus: A 50-gp clear quartz gemstone. Alternatively, if you are in a cold region, you can substitute 10 pounds of ice or snow for the quartz. </Description>
+    <SourceBook>SC</SourceBook>
+    <Favorited>false</Favorited>
   </Spell>
 </ArrayOfSpell>
