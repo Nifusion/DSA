@@ -7,14 +7,14 @@
     <framework targetVersion="4.7.2" profile="Full" supportedRuntime="4.0.30319" />
   </compatibleFrameworks>
   <dependency>
-    <dependentAssembly dependencyType="install" codebase="Druid Assistant.exe.manifest" size="4344">
+    <dependentAssembly dependencyType="install" codebase="Druid Assistant.exe.manifest" size="4345">
       <assemblyIdentity name="Druid Assistant.exe" version="1.0.0.7" publicKeyToken="0000000000000000" language="neutral" processorArchitecture="msil" type="win32" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>t0eKQ8qXhg29tDOhbKoXLcwaxbP+BorPPuHPGmKv880=</dsig:DigestValue>
+        <dsig:DigestValue>Y2sF9QWjEqaj5W4dRHiDk16u7QcDTCOwIgEFsND71x0=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>

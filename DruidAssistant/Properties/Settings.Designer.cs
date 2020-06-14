@@ -8,22 +8,54 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace DruidAssistant.Properties
-{
-
-
+namespace DruidAssistant.Properties {
+    
+    
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.Editors.SettingsDesigner.SettingsSingleFileGenerator", "11.0.0.0")]
-    internal sealed partial class Settings : global::System.Configuration.ApplicationSettingsBase
-    {
-
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.Editors.SettingsDesigner.SettingsSingleFileGenerator", "16.2.0.0")]
+    internal sealed partial class Settings : global::System.Configuration.ApplicationSettingsBase {
+        
         private static Settings defaultInstance = ((Settings)(global::System.Configuration.ApplicationSettingsBase.Synchronized(new Settings())));
-
-        public static Settings Default
-        {
-            get
-            {
+        
+        public static Settings Default {
+            get {
                 return defaultInstance;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("1")]
+        public decimal CasterLevel {
+            get {
+                return ((decimal)(this["CasterLevel"]));
+            }
+            set {
+                this["CasterLevel"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string SpellsXML {
+            get {
+                return ((string)(this["SpellsXML"]));
+            }
+            set {
+                this["SpellsXML"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string SummonsXML {
+            get {
+                return ((string)(this["SummonsXML"]));
+            }
+            set {
+                this["SummonsXML"] = value;
             }
         }
     }

@@ -8,6 +8,12 @@ namespace DruidAssistant
 {
     public class Feats
     {
+        public static SummonToForm SpellFocusConjuration(SummonToForm st)
+        {
+            st.PCCasterLevel++;
+            return st;
+        }
+
         public static SummonToForm AugmentSummoning(SummonToForm st)
         {
             st.Abilities.Str += 4;

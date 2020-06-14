@@ -19,9 +19,9 @@ namespace DruidAssistant
             }
         }
 
-        public static SummonTemplate GetSummonTemplateFromFile(string path)
+        public static Summon GetSummonTemplateFromFile(string path)
         {
-            SummonTemplate thisTemplate = new SummonTemplate();
+            Summon thisTemplate = new Summon();
             string name = "";
             string sizetype = "";
             string hitdie = "";
@@ -105,9 +105,9 @@ namespace DruidAssistant
             return thisTemplate;
         }
 
-        public static SummonTemplate GetSummonTemplateFromText(string text)
+        public static Summon GetSummonTemplateFromText(string text)
         {
-            SummonTemplate thisTemplate = new SummonTemplate();
+            Summon thisTemplate = new Summon();
             string name = "";
             string sizetype = "";
             string hitdie = "";
@@ -836,46 +836,6 @@ namespace DruidAssistant
             else
             {
                 return new string[] { "Class Not Found", "0" };
-            }
-        }
-
-        public static Spells GetSpellsFromXML(string xmlPath)
-        {
-            XmlSerializer xs = new XmlSerializer(typeof(Spells));
-
-            using (Stream inputStream = File.OpenRead(xmlPath))
-            {
-                return (Spells)xs.Deserialize(inputStream);
-            }
-        }
-
-        public static void DedicateSpellsToXML(string xmlPath, Spells spells)
-        {
-            XmlSerializer xs = new XmlSerializer(typeof(Spells));
-
-            using (StreamWriter outputStream = new StreamWriter(xmlPath, false))
-            {
-                xs.Serialize(outputStream, spells);
-            }
-        }
-
-        public static SummonTemplates GetSummonsFromXML(string xmlPath)
-        {
-            XmlSerializer xs = new XmlSerializer(typeof(SummonTemplates));
-
-            using (Stream inputStream = File.OpenRead(xmlPath))
-            {
-                return (SummonTemplates)xs.Deserialize(inputStream);
-            }
-        }
-
-        public static void DedicateSummonsToXML(string xmlPath, SummonTemplates spells)
-        {
-            XmlSerializer xs = new XmlSerializer(typeof(SummonTemplates));
-
-            using (StreamWriter outputStream = new StreamWriter(xmlPath, false))
-            {
-                xs.Serialize(outputStream, spells);
             }
         }
 
