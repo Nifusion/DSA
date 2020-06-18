@@ -211,27 +211,27 @@ namespace DruidAssistant
             else if (sm.DefMod == AbilityMod.Wis) { mods.Add(a.WisMod); }
             else if (sm.DefMod == AbilityMod.Cha) { mods.Add(a.ChaMod); }
 
-            if (sm.ModStr.HasValue)
+            if (sm.AlternateAbility.STR.HasValue)
             {
                 mods.Add(a.StrMod);
             }
-            if (sm.ModDex.HasValue)
+            if (sm.AlternateAbility.DEX.HasValue)
             {
                 mods.Add(a.DexMod);
             }
-            if (sm.ModCon.HasValue)
+            if (sm.AlternateAbility.CON.HasValue)
             {
                 mods.Add(a.ConMod);
             }
-            if (sm.ModInt.HasValue)
+            if (sm.AlternateAbility.INT.HasValue)
             {
                 mods.Add(a.IntMod);
             }
-            if (sm.ModWis.HasValue)
+            if (sm.AlternateAbility.WIS.HasValue)
             {
                 mods.Add(a.WisMod);
             }
-            if (sm.ModCha.HasValue)
+            if (sm.AlternateAbility.CHA.HasValue)
             {
                 mods.Add(a.ChaMod);
             }
@@ -252,27 +252,27 @@ namespace DruidAssistant
             else if (sm.DefMod == AbilityMod.Wis) { mods.Add(a.WisMod); }
             else if (sm.DefMod == AbilityMod.Cha) { mods.Add(a.ChaMod); }
 
-            if (sm.ModStr.HasValue)
+            if (sm.AlternateAbility.STR.HasValue)
             {
                 mods.Add(a.StrMod);
             }
-            if (sm.ModDex.HasValue)
+            if (sm.AlternateAbility.DEX.HasValue)
             {
                 mods.Add(a.DexMod);
             }
-            if (sm.ModCon.HasValue)
+            if (sm.AlternateAbility.CON.HasValue)
             {
                 mods.Add(a.ConMod);
             }
-            if (sm.ModInt.HasValue)
+            if (sm.AlternateAbility.INT.HasValue)
             {
                 mods.Add(a.IntMod);
             }
-            if (sm.ModWis.HasValue)
+            if (sm.AlternateAbility.WIS.HasValue)
             {
                 mods.Add(a.WisMod);
             }
-            if (sm.ModCha.HasValue)
+            if (sm.AlternateAbility.CHA.HasValue)
             {
                 mods.Add(a.ChaMod);
             }
@@ -520,7 +520,7 @@ namespace DruidAssistant
             string levelString = level.Match(hd).Value.Replace("d", "");
             string hitdieString = hitdie.Match(hd).Value.Replace("d", "");
 
-            levelString =   levelString != ""? levelString  :"0";
+            levelString = levelString != "" ? levelString : "0";
             hitdieString = hitdieString != "" ? hitdieString : "0";
 
             count = Convert.ToInt32(levelString);
@@ -603,108 +603,39 @@ namespace DruidAssistant
 
         public static SkillMod GetSkill(string skill)
         {
-            AbilityMod? amStr = null;
-            AbilityMod? amDex = null;
-            AbilityMod? amCon = null;
-            AbilityMod? amInt = null;
-            AbilityMod? amWis = null;
-            AbilityMod? amCha = null;
+            AlternateAbilityMods addlAbMods = new AlternateAbilityMods();
 
-            string additional = Regex.Match(skill, @"\(([^)]+)\)").Value;
-            int skillNumber = Convert.ToInt32(Regex.Match(skill, "[+-]?[0-9]+").Value);
-            string otherHalf = Regex.Replace(skill, "[0-9]+", "");
-            otherHalf = otherHalf.TrimStart(' ').TrimEnd(' ');
-            bool ast = false;
+            string cleanSkill = skill.Replace("+", "ø").Replace("-", "ø").Replace("*", "ø").Split('ø')[0];
+            string addlComments = Regex.Match(skill, @"\(([^)]+)\)").Value;
+            int skillRanks = Convert.ToInt32(Regex.Match(skill, "[+-]?[0-9]+").Value);
+            string addlMods = Regex.Replace(skill, "[0-9]+", "");
+            addlMods = addlMods.TrimStart(' ').TrimEnd(' ');
+            bool asteriskFound = false;
 
-            if (otherHalf != "")
+            if (addlMods != "")
             {
-                if (otherHalf.Contains("*"))
+                if (addlMods.Contains("*"))
                 {
-                    ast = true;
+                    asteriskFound = true;
                 }
 
-                string[] otherMods = otherHalf.Split(' ');
-                for (int i = 0; i < otherMods.Length; i++)
-                {
-                    if (otherMods[i].ToString().ToUpper() == "STR")
-                    {
-                        amStr = AbilityMod.Str;
-                    }
-                    if (otherMods[i].ToString().ToUpper() == "DEX")
-                    {
-                        amDex = AbilityMod.Dex;
-                    }
-                    if (otherMods[i].ToString().ToUpper() == "CON")
-                    {
-                        amCon = AbilityMod.Con;
-                    }
-                    if (otherMods[i].ToString().ToUpper() == "INT")
-                    {
-                        amInt = AbilityMod.Int;
-                    }
-                    if (otherMods[i].ToString().ToUpper() == "WIS")
-                    {
-                        amWis = AbilityMod.Wis;
-                    }
-                    if (otherMods[i].ToString().ToUpper() == "CHA")
-                    {
-                        amCha = AbilityMod.Cha;
-                    }
-                }
-            }
-            AbilityMod?[] values = new AbilityMod?[] { amStr, amDex, amCon, amInt, amWis, amCha };
-            int counter = 0;
-            AbilityMod? defHolder = null;
+                List<string> otherMods = addlMods.Split(' ').ToList();
 
-            for (int i = 0; i < values.Length; i++)
+                addlAbMods.STR = otherMods.Any(x => x.ToUpper() == "STR") ? AbilityMod.Str : (AbilityMod?)null;
+                addlAbMods.DEX = otherMods.Any(x => x.ToUpper() == "DEX") ? AbilityMod.Str : (AbilityMod?)null;
+                addlAbMods.CON = otherMods.Any(x => x.ToUpper() == "CON") ? AbilityMod.Str : (AbilityMod?)null;
+                addlAbMods.INT = otherMods.Any(x => x.ToUpper() == "INT") ? AbilityMod.Str : (AbilityMod?)null;
+                addlAbMods.WIS = otherMods.Any(x => x.ToUpper() == "WIS") ? AbilityMod.Str : (AbilityMod?)null;
+                addlAbMods.CHA = otherMods.Any(x => x.ToUpper() == "CHA") ? AbilityMod.Str : (AbilityMod?)null;
+            }
+
+            List<Skill> availableSkills = Enum.GetValues(typeof(Skill)).Cast<Skill>().ToList();
+            int foundIndex = availableSkills.FindIndex(x => x.ToString() == cleanSkill.Replace(" ", ""));
+            if (foundIndex > -1)
             {
-                if (values[i].HasValue)
-                {
-                    defHolder = values[i];
-                    counter++;
-                }
+                return new SkillMod(availableSkills[foundIndex], addlComments, skillRanks, addlAbMods, asteriskFound);
             }
 
-            if (counter != 1)
-            {
-                defHolder = null;
-            }
-
-            if (skill.Contains("Appraise")) { return new SkillMod(Skill.Appraise, additional, skillNumber, !defHolder.HasValue ? AbilityMod.Int : defHolder.Value, (!defHolder.HasValue && amStr.HasValue) ? amStr.Value : (AbilityMod?)null, (!defHolder.HasValue && amDex.HasValue) ? amDex.Value : (AbilityMod?)null, (!defHolder.HasValue && amCon.HasValue) ? amCon.Value : (AbilityMod?)null, (!defHolder.HasValue && amInt.HasValue) ? amInt.Value : (AbilityMod?)null, (!defHolder.HasValue && amWis.HasValue) ? amWis.Value : (AbilityMod?)null, (!defHolder.HasValue && amCha.HasValue) ? amCha.Value : (AbilityMod?)null, ast); }
-            if (skill.Contains("Balance")) { return new SkillMod(Skill.Balance, additional, skillNumber, !defHolder.HasValue ? AbilityMod.Dex : defHolder.Value, (!defHolder.HasValue && amStr.HasValue) ? amStr.Value : (AbilityMod?)null, (!defHolder.HasValue && amDex.HasValue) ? amDex.Value : (AbilityMod?)null, (!defHolder.HasValue && amCon.HasValue) ? amCon.Value : (AbilityMod?)null, (!defHolder.HasValue && amInt.HasValue) ? amInt.Value : (AbilityMod?)null, (!defHolder.HasValue && amWis.HasValue) ? amWis.Value : (AbilityMod?)null, (!defHolder.HasValue && amCha.HasValue) ? amCha.Value : (AbilityMod?)null, ast); }
-            if (skill.Contains("Bluff")) { return new SkillMod(Skill.Bluff, additional, skillNumber, !defHolder.HasValue ? AbilityMod.Cha : defHolder.Value, (!defHolder.HasValue && amStr.HasValue) ? amStr.Value : (AbilityMod?)null, (!defHolder.HasValue && amDex.HasValue) ? amDex.Value : (AbilityMod?)null, (!defHolder.HasValue && amCon.HasValue) ? amCon.Value : (AbilityMod?)null, (!defHolder.HasValue && amInt.HasValue) ? amInt.Value : (AbilityMod?)null, (!defHolder.HasValue && amWis.HasValue) ? amWis.Value : (AbilityMod?)null, (!defHolder.HasValue && amCha.HasValue) ? amCha.Value : (AbilityMod?)null, ast); }
-            if (skill.Contains("Climb")) { return new SkillMod(Skill.Climb, additional, skillNumber, !defHolder.HasValue ? AbilityMod.Str : defHolder.Value, (!defHolder.HasValue && amStr.HasValue) ? amStr.Value : (AbilityMod?)null, (!defHolder.HasValue && amDex.HasValue) ? amDex.Value : (AbilityMod?)null, (!defHolder.HasValue && amCon.HasValue) ? amCon.Value : (AbilityMod?)null, (!defHolder.HasValue && amInt.HasValue) ? amInt.Value : (AbilityMod?)null, (!defHolder.HasValue && amWis.HasValue) ? amWis.Value : (AbilityMod?)null, (!defHolder.HasValue && amCha.HasValue) ? amCha.Value : (AbilityMod?)null, ast); }
-            if (skill.Contains("Concentration")) { return new SkillMod(Skill.Concentration, additional, skillNumber, !defHolder.HasValue ? AbilityMod.Con : defHolder.Value, (!defHolder.HasValue && amStr.HasValue) ? amStr.Value : (AbilityMod?)null, (!defHolder.HasValue && amDex.HasValue) ? amDex.Value : (AbilityMod?)null, (!defHolder.HasValue && amCon.HasValue) ? amCon.Value : (AbilityMod?)null, (!defHolder.HasValue && amInt.HasValue) ? amInt.Value : (AbilityMod?)null, (!defHolder.HasValue && amWis.HasValue) ? amWis.Value : (AbilityMod?)null, (!defHolder.HasValue && amCha.HasValue) ? amCha.Value : (AbilityMod?)null, ast); }
-            if (skill.Contains("Craft")) { return new SkillMod(Skill.Craft, additional, skillNumber, !defHolder.HasValue ? AbilityMod.Int : defHolder.Value, (!defHolder.HasValue && amStr.HasValue) ? amStr.Value : (AbilityMod?)null, (!defHolder.HasValue && amDex.HasValue) ? amDex.Value : (AbilityMod?)null, (!defHolder.HasValue && amCon.HasValue) ? amCon.Value : (AbilityMod?)null, (!defHolder.HasValue && amInt.HasValue) ? amInt.Value : (AbilityMod?)null, (!defHolder.HasValue && amWis.HasValue) ? amWis.Value : (AbilityMod?)null, (!defHolder.HasValue && amCha.HasValue) ? amCha.Value : (AbilityMod?)null, ast); }
-            if (skill.Contains("Decipher Script")) { return new SkillMod(Skill.DecipherScript, additional, skillNumber, !defHolder.HasValue ? AbilityMod.Int : defHolder.Value, (!defHolder.HasValue && amStr.HasValue) ? amStr.Value : (AbilityMod?)null, (!defHolder.HasValue && amDex.HasValue) ? amDex.Value : (AbilityMod?)null, (!defHolder.HasValue && amCon.HasValue) ? amCon.Value : (AbilityMod?)null, (!defHolder.HasValue && amInt.HasValue) ? amInt.Value : (AbilityMod?)null, (!defHolder.HasValue && amWis.HasValue) ? amWis.Value : (AbilityMod?)null, (!defHolder.HasValue && amCha.HasValue) ? amCha.Value : (AbilityMod?)null, ast); }
-            if (skill.Contains("Diplomacy")) { return new SkillMod(Skill.Diplomacy, additional, skillNumber, !defHolder.HasValue ? AbilityMod.Cha : defHolder.Value, (!defHolder.HasValue && amStr.HasValue) ? amStr.Value : (AbilityMod?)null, (!defHolder.HasValue && amDex.HasValue) ? amDex.Value : (AbilityMod?)null, (!defHolder.HasValue && amCon.HasValue) ? amCon.Value : (AbilityMod?)null, (!defHolder.HasValue && amInt.HasValue) ? amInt.Value : (AbilityMod?)null, (!defHolder.HasValue && amWis.HasValue) ? amWis.Value : (AbilityMod?)null, (!defHolder.HasValue && amCha.HasValue) ? amCha.Value : (AbilityMod?)null, ast); }
-            if (skill.Contains("Disable Device")) { return new SkillMod(Skill.DisableDevice, additional, skillNumber, !defHolder.HasValue ? AbilityMod.Int : defHolder.Value, (!defHolder.HasValue && amStr.HasValue) ? amStr.Value : (AbilityMod?)null, (!defHolder.HasValue && amDex.HasValue) ? amDex.Value : (AbilityMod?)null, (!defHolder.HasValue && amCon.HasValue) ? amCon.Value : (AbilityMod?)null, (!defHolder.HasValue && amInt.HasValue) ? amInt.Value : (AbilityMod?)null, (!defHolder.HasValue && amWis.HasValue) ? amWis.Value : (AbilityMod?)null, (!defHolder.HasValue && amCha.HasValue) ? amCha.Value : (AbilityMod?)null, ast); }
-            if (skill.Contains("Disguise")) { return new SkillMod(Skill.Disguise, additional, skillNumber, !defHolder.HasValue ? AbilityMod.Cha : defHolder.Value, (!defHolder.HasValue && amStr.HasValue) ? amStr.Value : (AbilityMod?)null, (!defHolder.HasValue && amDex.HasValue) ? amDex.Value : (AbilityMod?)null, (!defHolder.HasValue && amCon.HasValue) ? amCon.Value : (AbilityMod?)null, (!defHolder.HasValue && amInt.HasValue) ? amInt.Value : (AbilityMod?)null, (!defHolder.HasValue && amWis.HasValue) ? amWis.Value : (AbilityMod?)null, (!defHolder.HasValue && amCha.HasValue) ? amCha.Value : (AbilityMod?)null, ast); }
-            if (skill.Contains("Escape Artist")) { return new SkillMod(Skill.EscapeArtist, additional, skillNumber, !defHolder.HasValue ? AbilityMod.Dex : defHolder.Value, (!defHolder.HasValue && amStr.HasValue) ? amStr.Value : (AbilityMod?)null, (!defHolder.HasValue && amDex.HasValue) ? amDex.Value : (AbilityMod?)null, (!defHolder.HasValue && amCon.HasValue) ? amCon.Value : (AbilityMod?)null, (!defHolder.HasValue && amInt.HasValue) ? amInt.Value : (AbilityMod?)null, (!defHolder.HasValue && amWis.HasValue) ? amWis.Value : (AbilityMod?)null, (!defHolder.HasValue && amCha.HasValue) ? amCha.Value : (AbilityMod?)null, ast); }
-            if (skill.Contains("Forgery")) { return new SkillMod(Skill.Forgery, additional, skillNumber, !defHolder.HasValue ? AbilityMod.Int : defHolder.Value, (!defHolder.HasValue && amStr.HasValue) ? amStr.Value : (AbilityMod?)null, (!defHolder.HasValue && amDex.HasValue) ? amDex.Value : (AbilityMod?)null, (!defHolder.HasValue && amCon.HasValue) ? amCon.Value : (AbilityMod?)null, (!defHolder.HasValue && amInt.HasValue) ? amInt.Value : (AbilityMod?)null, (!defHolder.HasValue && amWis.HasValue) ? amWis.Value : (AbilityMod?)null, (!defHolder.HasValue && amCha.HasValue) ? amCha.Value : (AbilityMod?)null, ast); }
-            if (skill.Contains("Gather Information")) { return new SkillMod(Skill.GatherInformation, additional, skillNumber, !defHolder.HasValue ? AbilityMod.Cha : defHolder.Value, (!defHolder.HasValue && amStr.HasValue) ? amStr.Value : (AbilityMod?)null, (!defHolder.HasValue && amDex.HasValue) ? amDex.Value : (AbilityMod?)null, (!defHolder.HasValue && amCon.HasValue) ? amCon.Value : (AbilityMod?)null, (!defHolder.HasValue && amInt.HasValue) ? amInt.Value : (AbilityMod?)null, (!defHolder.HasValue && amWis.HasValue) ? amWis.Value : (AbilityMod?)null, (!defHolder.HasValue && amCha.HasValue) ? amCha.Value : (AbilityMod?)null, ast); }
-            if (skill.Contains("Handle Animal")) { return new SkillMod(Skill.HandleAnimal, additional, skillNumber, !defHolder.HasValue ? AbilityMod.Cha : defHolder.Value, (!defHolder.HasValue && amStr.HasValue) ? amStr.Value : (AbilityMod?)null, (!defHolder.HasValue && amDex.HasValue) ? amDex.Value : (AbilityMod?)null, (!defHolder.HasValue && amCon.HasValue) ? amCon.Value : (AbilityMod?)null, (!defHolder.HasValue && amInt.HasValue) ? amInt.Value : (AbilityMod?)null, (!defHolder.HasValue && amWis.HasValue) ? amWis.Value : (AbilityMod?)null, (!defHolder.HasValue && amCha.HasValue) ? amCha.Value : (AbilityMod?)null, ast); }
-            if (skill.Contains("Heal")) { return new SkillMod(Skill.Heal, additional, skillNumber, !defHolder.HasValue ? AbilityMod.Wis : defHolder.Value, (!defHolder.HasValue && amStr.HasValue) ? amStr.Value : (AbilityMod?)null, (!defHolder.HasValue && amDex.HasValue) ? amDex.Value : (AbilityMod?)null, (!defHolder.HasValue && amCon.HasValue) ? amCon.Value : (AbilityMod?)null, (!defHolder.HasValue && amInt.HasValue) ? amInt.Value : (AbilityMod?)null, (!defHolder.HasValue && amWis.HasValue) ? amWis.Value : (AbilityMod?)null, (!defHolder.HasValue && amCha.HasValue) ? amCha.Value : (AbilityMod?)null, ast); }
-            if (skill.Contains("Hide")) { return new SkillMod(Skill.Hide, additional, skillNumber, !defHolder.HasValue ? AbilityMod.Dex : defHolder.Value, (!defHolder.HasValue && amStr.HasValue) ? amStr.Value : (AbilityMod?)null, (!defHolder.HasValue && amDex.HasValue) ? amDex.Value : (AbilityMod?)null, (!defHolder.HasValue && amCon.HasValue) ? amCon.Value : (AbilityMod?)null, (!defHolder.HasValue && amInt.HasValue) ? amInt.Value : (AbilityMod?)null, (!defHolder.HasValue && amWis.HasValue) ? amWis.Value : (AbilityMod?)null, (!defHolder.HasValue && amCha.HasValue) ? amCha.Value : (AbilityMod?)null, ast); }
-            if (skill.Contains("Intimidate")) { return new SkillMod(Skill.Intimidate, additional, skillNumber, !defHolder.HasValue ? AbilityMod.Cha : defHolder.Value, (!defHolder.HasValue && amStr.HasValue) ? amStr.Value : (AbilityMod?)null, (!defHolder.HasValue && amDex.HasValue) ? amDex.Value : (AbilityMod?)null, (!defHolder.HasValue && amCon.HasValue) ? amCon.Value : (AbilityMod?)null, (!defHolder.HasValue && amInt.HasValue) ? amInt.Value : (AbilityMod?)null, (!defHolder.HasValue && amWis.HasValue) ? amWis.Value : (AbilityMod?)null, (!defHolder.HasValue && amCha.HasValue) ? amCha.Value : (AbilityMod?)null, ast); }
-            if (skill.Contains("Jump")) { return new SkillMod(Skill.Jump, additional, skillNumber, !defHolder.HasValue ? AbilityMod.Str : defHolder.Value, (!defHolder.HasValue && amStr.HasValue) ? amStr.Value : (AbilityMod?)null, (!defHolder.HasValue && amDex.HasValue) ? amDex.Value : (AbilityMod?)null, (!defHolder.HasValue && amCon.HasValue) ? amCon.Value : (AbilityMod?)null, (!defHolder.HasValue && amInt.HasValue) ? amInt.Value : (AbilityMod?)null, (!defHolder.HasValue && amWis.HasValue) ? amWis.Value : (AbilityMod?)null, (!defHolder.HasValue && amCha.HasValue) ? amCha.Value : (AbilityMod?)null, ast); }
-            if (skill.Contains("Knowledge")) { return new SkillMod(Skill.Knowledge, additional, skillNumber, !defHolder.HasValue ? AbilityMod.Int : defHolder.Value, (!defHolder.HasValue && amStr.HasValue) ? amStr.Value : (AbilityMod?)null, (!defHolder.HasValue && amDex.HasValue) ? amDex.Value : (AbilityMod?)null, (!defHolder.HasValue && amCon.HasValue) ? amCon.Value : (AbilityMod?)null, (!defHolder.HasValue && amInt.HasValue) ? amInt.Value : (AbilityMod?)null, (!defHolder.HasValue && amWis.HasValue) ? amWis.Value : (AbilityMod?)null, (!defHolder.HasValue && amCha.HasValue) ? amCha.Value : (AbilityMod?)null, ast); }
-            if (skill.Contains("Listen")) { return new SkillMod(Skill.Listen, additional, skillNumber, !defHolder.HasValue ? AbilityMod.Wis : defHolder.Value, (!defHolder.HasValue && amStr.HasValue) ? amStr.Value : (AbilityMod?)null, (!defHolder.HasValue && amDex.HasValue) ? amDex.Value : (AbilityMod?)null, (!defHolder.HasValue && amCon.HasValue) ? amCon.Value : (AbilityMod?)null, (!defHolder.HasValue && amInt.HasValue) ? amInt.Value : (AbilityMod?)null, (!defHolder.HasValue && amWis.HasValue) ? amWis.Value : (AbilityMod?)null, (!defHolder.HasValue && amCha.HasValue) ? amCha.Value : (AbilityMod?)null, ast); }
-            if (skill.Contains("Move Silently")) { return new SkillMod(Skill.MoveSilently, additional, skillNumber, !defHolder.HasValue ? AbilityMod.Dex : defHolder.Value, (!defHolder.HasValue && amStr.HasValue) ? amStr.Value : (AbilityMod?)null, (!defHolder.HasValue && amDex.HasValue) ? amDex.Value : (AbilityMod?)null, (!defHolder.HasValue && amCon.HasValue) ? amCon.Value : (AbilityMod?)null, (!defHolder.HasValue && amInt.HasValue) ? amInt.Value : (AbilityMod?)null, (!defHolder.HasValue && amWis.HasValue) ? amWis.Value : (AbilityMod?)null, (!defHolder.HasValue && amCha.HasValue) ? amCha.Value : (AbilityMod?)null, ast); }
-            if (skill.Contains("Open Lock")) { return new SkillMod(Skill.OpenLock, additional, skillNumber, !defHolder.HasValue ? AbilityMod.Dex : defHolder.Value, (!defHolder.HasValue && amStr.HasValue) ? amStr.Value : (AbilityMod?)null, (!defHolder.HasValue && amDex.HasValue) ? amDex.Value : (AbilityMod?)null, (!defHolder.HasValue && amCon.HasValue) ? amCon.Value : (AbilityMod?)null, (!defHolder.HasValue && amInt.HasValue) ? amInt.Value : (AbilityMod?)null, (!defHolder.HasValue && amWis.HasValue) ? amWis.Value : (AbilityMod?)null, (!defHolder.HasValue && amCha.HasValue) ? amCha.Value : (AbilityMod?)null, ast); }
-            if (skill.Contains("Perform")) { return new SkillMod(Skill.Perform, additional, skillNumber, !defHolder.HasValue ? AbilityMod.Cha : defHolder.Value, (!defHolder.HasValue && amStr.HasValue) ? amStr.Value : (AbilityMod?)null, (!defHolder.HasValue && amDex.HasValue) ? amDex.Value : (AbilityMod?)null, (!defHolder.HasValue && amCon.HasValue) ? amCon.Value : (AbilityMod?)null, (!defHolder.HasValue && amInt.HasValue) ? amInt.Value : (AbilityMod?)null, (!defHolder.HasValue && amWis.HasValue) ? amWis.Value : (AbilityMod?)null, (!defHolder.HasValue && amCha.HasValue) ? amCha.Value : (AbilityMod?)null, ast); }
-            if (skill.Contains("Profession")) { return new SkillMod(Skill.Profession, additional, skillNumber, !defHolder.HasValue ? AbilityMod.Wis : defHolder.Value, (!defHolder.HasValue && amStr.HasValue) ? amStr.Value : (AbilityMod?)null, (!defHolder.HasValue && amDex.HasValue) ? amDex.Value : (AbilityMod?)null, (!defHolder.HasValue && amCon.HasValue) ? amCon.Value : (AbilityMod?)null, (!defHolder.HasValue && amInt.HasValue) ? amInt.Value : (AbilityMod?)null, (!defHolder.HasValue && amWis.HasValue) ? amWis.Value : (AbilityMod?)null, (!defHolder.HasValue && amCha.HasValue) ? amCha.Value : (AbilityMod?)null, ast); }
-            if (skill.Contains("Ride")) { return new SkillMod(Skill.Ride, additional, skillNumber, !defHolder.HasValue ? AbilityMod.Dex : defHolder.Value, (!defHolder.HasValue && amStr.HasValue) ? amStr.Value : (AbilityMod?)null, (!defHolder.HasValue && amDex.HasValue) ? amDex.Value : (AbilityMod?)null, (!defHolder.HasValue && amCon.HasValue) ? amCon.Value : (AbilityMod?)null, (!defHolder.HasValue && amInt.HasValue) ? amInt.Value : (AbilityMod?)null, (!defHolder.HasValue && amWis.HasValue) ? amWis.Value : (AbilityMod?)null, (!defHolder.HasValue && amCha.HasValue) ? amCha.Value : (AbilityMod?)null, ast); }
-            if (skill.Contains("Search")) { return new SkillMod(Skill.Search, additional, skillNumber, !defHolder.HasValue ? AbilityMod.Int : defHolder.Value, (!defHolder.HasValue && amStr.HasValue) ? amStr.Value : (AbilityMod?)null, (!defHolder.HasValue && amDex.HasValue) ? amDex.Value : (AbilityMod?)null, (!defHolder.HasValue && amCon.HasValue) ? amCon.Value : (AbilityMod?)null, (!defHolder.HasValue && amInt.HasValue) ? amInt.Value : (AbilityMod?)null, (!defHolder.HasValue && amWis.HasValue) ? amWis.Value : (AbilityMod?)null, (!defHolder.HasValue && amCha.HasValue) ? amCha.Value : (AbilityMod?)null, ast); }
-            if (skill.Contains("Sense Motive")) { return new SkillMod(Skill.SenseMotive, additional, skillNumber, !defHolder.HasValue ? AbilityMod.Wis : defHolder.Value, (!defHolder.HasValue && amStr.HasValue) ? amStr.Value : (AbilityMod?)null, (!defHolder.HasValue && amDex.HasValue) ? amDex.Value : (AbilityMod?)null, (!defHolder.HasValue && amCon.HasValue) ? amCon.Value : (AbilityMod?)null, (!defHolder.HasValue && amInt.HasValue) ? amInt.Value : (AbilityMod?)null, (!defHolder.HasValue && amWis.HasValue) ? amWis.Value : (AbilityMod?)null, (!defHolder.HasValue && amCha.HasValue) ? amCha.Value : (AbilityMod?)null, ast); }
-            if (skill.Contains("Sleight of Hand")) { return new SkillMod(Skill.SleightofHand, additional, skillNumber, !defHolder.HasValue ? AbilityMod.Dex : defHolder.Value, (!defHolder.HasValue && amStr.HasValue) ? amStr.Value : (AbilityMod?)null, (!defHolder.HasValue && amDex.HasValue) ? amDex.Value : (AbilityMod?)null, (!defHolder.HasValue && amCon.HasValue) ? amCon.Value : (AbilityMod?)null, (!defHolder.HasValue && amInt.HasValue) ? amInt.Value : (AbilityMod?)null, (!defHolder.HasValue && amWis.HasValue) ? amWis.Value : (AbilityMod?)null, (!defHolder.HasValue && amCha.HasValue) ? amCha.Value : (AbilityMod?)null, ast); }
-            if (skill.Contains("Spellcraft")) { return new SkillMod(Skill.Spellcraft, additional, skillNumber, !defHolder.HasValue ? AbilityMod.Int : defHolder.Value, (!defHolder.HasValue && amStr.HasValue) ? amStr.Value : (AbilityMod?)null, (!defHolder.HasValue && amDex.HasValue) ? amDex.Value : (AbilityMod?)null, (!defHolder.HasValue && amCon.HasValue) ? amCon.Value : (AbilityMod?)null, (!defHolder.HasValue && amInt.HasValue) ? amInt.Value : (AbilityMod?)null, (!defHolder.HasValue && amWis.HasValue) ? amWis.Value : (AbilityMod?)null, (!defHolder.HasValue && amCha.HasValue) ? amCha.Value : (AbilityMod?)null, ast); }
-            if (skill.Contains("Spot")) { return new SkillMod(Skill.Spot, additional, skillNumber, !defHolder.HasValue ? AbilityMod.Wis : defHolder.Value, (!defHolder.HasValue && amStr.HasValue) ? amStr.Value : (AbilityMod?)null, (!defHolder.HasValue && amDex.HasValue) ? amDex.Value : (AbilityMod?)null, (!defHolder.HasValue && amCon.HasValue) ? amCon.Value : (AbilityMod?)null, (!defHolder.HasValue && amInt.HasValue) ? amInt.Value : (AbilityMod?)null, (!defHolder.HasValue && amWis.HasValue) ? amWis.Value : (AbilityMod?)null, (!defHolder.HasValue && amCha.HasValue) ? amCha.Value : (AbilityMod?)null, ast); }
-            if (skill.Contains("Survival")) { return new SkillMod(Skill.Survival, additional, skillNumber, !defHolder.HasValue ? AbilityMod.Wis : defHolder.Value, (!defHolder.HasValue && amStr.HasValue) ? amStr.Value : (AbilityMod?)null, (!defHolder.HasValue && amDex.HasValue) ? amDex.Value : (AbilityMod?)null, (!defHolder.HasValue && amCon.HasValue) ? amCon.Value : (AbilityMod?)null, (!defHolder.HasValue && amInt.HasValue) ? amInt.Value : (AbilityMod?)null, (!defHolder.HasValue && amWis.HasValue) ? amWis.Value : (AbilityMod?)null, (!defHolder.HasValue && amCha.HasValue) ? amCha.Value : (AbilityMod?)null, ast); }
-            if (skill.Contains("Swim")) { return new SkillMod(Skill.Swim, additional, skillNumber, !defHolder.HasValue ? AbilityMod.Str : defHolder.Value, (!defHolder.HasValue && amStr.HasValue) ? amStr.Value : (AbilityMod?)null, (!defHolder.HasValue && amDex.HasValue) ? amDex.Value : (AbilityMod?)null, (!defHolder.HasValue && amCon.HasValue) ? amCon.Value : (AbilityMod?)null, (!defHolder.HasValue && amInt.HasValue) ? amInt.Value : (AbilityMod?)null, (!defHolder.HasValue && amWis.HasValue) ? amWis.Value : (AbilityMod?)null, (!defHolder.HasValue && amCha.HasValue) ? amCha.Value : (AbilityMod?)null, ast); }
-            if (skill.Contains("Tumble")) { return new SkillMod(Skill.Tumble, additional, skillNumber, !defHolder.HasValue ? AbilityMod.Dex : defHolder.Value, (!defHolder.HasValue && amStr.HasValue) ? amStr.Value : (AbilityMod?)null, (!defHolder.HasValue && amDex.HasValue) ? amDex.Value : (AbilityMod?)null, (!defHolder.HasValue && amCon.HasValue) ? amCon.Value : (AbilityMod?)null, (!defHolder.HasValue && amInt.HasValue) ? amInt.Value : (AbilityMod?)null, (!defHolder.HasValue && amWis.HasValue) ? amWis.Value : (AbilityMod?)null, (!defHolder.HasValue && amCha.HasValue) ? amCha.Value : (AbilityMod?)null, ast); }
-            if (skill.Contains("Use Magic Device")) { return new SkillMod(Skill.UseMagicDevice, additional, skillNumber, !defHolder.HasValue ? AbilityMod.Cha : defHolder.Value, (!defHolder.HasValue && amStr.HasValue) ? amStr.Value : (AbilityMod?)null, (!defHolder.HasValue && amDex.HasValue) ? amDex.Value : (AbilityMod?)null, (!defHolder.HasValue && amCon.HasValue) ? amCon.Value : (AbilityMod?)null, (!defHolder.HasValue && amInt.HasValue) ? amInt.Value : (AbilityMod?)null, (!defHolder.HasValue && amWis.HasValue) ? amWis.Value : (AbilityMod?)null, (!defHolder.HasValue && amCha.HasValue) ? amCha.Value : (AbilityMod?)null, ast); }
-            if (skill.Contains("Use Rope")) { return new SkillMod(Skill.UseRope, additional, skillNumber, !defHolder.HasValue ? AbilityMod.Dex : defHolder.Value, (!defHolder.HasValue && amStr.HasValue) ? amStr.Value : (AbilityMod?)null, (!defHolder.HasValue && amDex.HasValue) ? amDex.Value : (AbilityMod?)null, (!defHolder.HasValue && amCon.HasValue) ? amCon.Value : (AbilityMod?)null, (!defHolder.HasValue && amInt.HasValue) ? amInt.Value : (AbilityMod?)null, (!defHolder.HasValue && amWis.HasValue) ? amWis.Value : (AbilityMod?)null, (!defHolder.HasValue && amCha.HasValue) ? amCha.Value : (AbilityMod?)null, ast); }
             return null;
         }
 
@@ -836,26 +767,6 @@ namespace DruidAssistant
             else
             {
                 return new string[] { "Class Not Found", "0" };
-            }
-        }
-
-        public static DSAConfigs GetConfigsFromXML(string xmlPath)
-        {
-            XmlSerializer xs = new XmlSerializer(typeof(DSAConfigs));
-
-            using (Stream inputStream = File.OpenRead(xmlPath))
-            {
-                return (DSAConfigs)xs.Deserialize(inputStream);
-            }
-        }
-
-        public static void DedicateConfigsToXML(string xmlPath, DSAConfigs configs)
-        {
-            XmlSerializer xs = new XmlSerializer(typeof(DSAConfigs));
-
-            using (StreamWriter outputStream = new StreamWriter(xmlPath, false))
-            {
-                xs.Serialize(outputStream, configs);
             }
         }
     }

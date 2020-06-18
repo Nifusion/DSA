@@ -14,3 +14,4 @@ N:\Development\DSA\DruidAssistant\obj\Debug\Druid Assistant.exe.manifest
 N:\Development\DSA\DruidAssistant\obj\Debug\Druid Assistant.application
 N:\Development\DSA\DruidAssistant\obj\Debug\Druid Assistant.exe
 N:\Development\DSA\DruidAssistant\obj\Debug\Druid Assistant.pdb
+N:\Development\DSA\DruidAssistant\obj\Debug\DruidAssistant.csprojAssemblyReference.cache

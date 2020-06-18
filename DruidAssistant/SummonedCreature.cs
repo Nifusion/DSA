@@ -411,12 +411,12 @@ namespace DruidAssistant
                 }
                 SkillMod sm = (lbSkills.SelectedItem as SkillMod);
                 tooltip = string.Format("{0} ({1}) ", sm.Skill, sm.DefMod);
-                tooltip += sm.ModStr.HasValue ? sm.ModStr.ToString() + " " : "";
-                tooltip += sm.ModDex.HasValue ? sm.ModDex.ToString() + " " : "";
-                tooltip += sm.ModCon.HasValue ? sm.ModCon.ToString() + " " : "";
-                tooltip += sm.ModInt.HasValue ? sm.ModInt.ToString() + " " : "";
-                tooltip += sm.ModWis.HasValue ? sm.ModWis.ToString() + " " : "";
-                tooltip += sm.ModCon.HasValue ? sm.ModCon.ToString() + " " : "";
+                tooltip += sm.AlternateAbility.STR.HasValue ? sm.AlternateAbility.STR.ToString() + " " : "";
+                tooltip += sm.AlternateAbility.DEX.HasValue ? sm.AlternateAbility.DEX.ToString() + " " : "";
+                tooltip += sm.AlternateAbility.CON.HasValue ? sm.AlternateAbility.CON.ToString() + " " : "";
+                tooltip += sm.AlternateAbility.INT.HasValue ? sm.AlternateAbility.INT.ToString() + " " : "";
+                tooltip += sm.AlternateAbility.WIS.HasValue ? sm.AlternateAbility.WIS.ToString() + " " : "";
+                tooltip += sm.AlternateAbility.CON.HasValue ? sm.AlternateAbility.CON.ToString() + " " : "";
                 ttSkills.SetToolTip(lbSkills, tooltip);
             }
             if (e.Button == MouseButtons.Right)
@@ -426,12 +426,12 @@ namespace DruidAssistant
                 {
                     SkillMod sm = (lbSkills.Items[i] as SkillMod);
                     tooltip += string.Format("{0} ({1}) ", sm.Skill, sm.DefMod);
-                    tooltip += sm.ModStr.HasValue ? sm.ModStr.ToString() + " " : "";
-                    tooltip += sm.ModDex.HasValue ? sm.ModDex.ToString() + " " : "";
-                    tooltip += sm.ModCon.HasValue ? sm.ModCon.ToString() + " " : "";
-                    tooltip += sm.ModInt.HasValue ? sm.ModInt.ToString() + " " : "";
-                    tooltip += sm.ModWis.HasValue ? sm.ModWis.ToString() + " " : "";
-                    tooltip += sm.ModCon.HasValue ? sm.ModCon.ToString() + " " : "";
+                    tooltip += sm.AlternateAbility.STR.HasValue ? sm.AlternateAbility.STR.ToString() + " " : "";
+                    tooltip += sm.AlternateAbility.DEX.HasValue ? sm.AlternateAbility.DEX.ToString() + " " : "";
+                    tooltip += sm.AlternateAbility.CON.HasValue ? sm.AlternateAbility.CON.ToString() + " " : "";
+                    tooltip += sm.AlternateAbility.INT.HasValue ? sm.AlternateAbility.INT.ToString() + " " : "";
+                    tooltip += sm.AlternateAbility.WIS.HasValue ? sm.AlternateAbility.WIS.ToString() + " " : "";
+                    tooltip += sm.AlternateAbility.CON.HasValue ? sm.AlternateAbility.CON.ToString() + " " : "";
                     tooltip += "\r";
                 }
                 ttSkills.SetToolTip(lbSkills, tooltip);
