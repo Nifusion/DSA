@@ -29,10 +29,10 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.ListViewItem listViewItem1 = new System.Windows.Forms.ListViewItem("Feat: Augment Summoning");
-            System.Windows.Forms.ListViewItem listViewItem2 = new System.Windows.Forms.ListViewItem("Feat: Spell Focus (Conjuration)");
-            System.Windows.Forms.ListViewItem listViewItem3 = new System.Windows.Forms.ListViewItem("Feat: Greenbound Summoning");
-            System.Windows.Forms.ListViewItem listViewItem4 = new System.Windows.Forms.ListViewItem("Item: Obad-Hai\'s Green Man");
+            System.Windows.Forms.ListViewItem listViewItem13 = new System.Windows.Forms.ListViewItem("Feat: Augment Summoning");
+            System.Windows.Forms.ListViewItem listViewItem14 = new System.Windows.Forms.ListViewItem("Feat: Spell Focus (Conjuration)");
+            System.Windows.Forms.ListViewItem listViewItem15 = new System.Windows.Forms.ListViewItem("Feat: Greenbound Summoning");
+            System.Windows.Forms.ListViewItem listViewItem16 = new System.Windows.Forms.ListViewItem("Item: Obad-Hai\'s Green Man");
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(DruidMain));
             this.rtbSummonText = new System.Windows.Forms.RichTextBox();
             this.panel1 = new System.Windows.Forms.Panel();
@@ -110,7 +110,6 @@
             this.menuStripSummon = new System.Windows.Forms.MenuStrip();
             this.addToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.saveToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.deleteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.clearToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panel8 = new System.Windows.Forms.Panel();
             this.tcSummons = new System.Windows.Forms.TabControl();
@@ -118,6 +117,9 @@
             this.btnDev = new System.Windows.Forms.Button();
             this.lvAugments = new System.Windows.Forms.ListView();
             this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.panel13 = new System.Windows.Forms.Panel();
+            this.nudDurationMultiplier = new System.Windows.Forms.NumericUpDown();
+            this.label14 = new System.Windows.Forms.Label();
             this.btnPreview = new System.Windows.Forms.Button();
             this.tabPageTryParseSummon = new System.Windows.Forms.TabPage();
             this.panel10 = new System.Windows.Forms.Panel();
@@ -183,7 +185,6 @@
             this.menuStripSpell = new System.Windows.Forms.MenuStrip();
             this.addSpellToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.saveSpellToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.deleteSpellToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.clearSpellToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panel3 = new System.Windows.Forms.Panel();
             this.tcSpells = new System.Windows.Forms.TabControl();
@@ -211,9 +212,6 @@
             this.changeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tbSummonsXML = new System.Windows.Forms.TextBox();
             this.label52 = new System.Windows.Forms.Label();
-            this.panel13 = new System.Windows.Forms.Panel();
-            this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
-            this.label14 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nudCasterLevel)).BeginInit();
             this.tcMain.SuspendLayout();
@@ -243,6 +241,8 @@
             this.panel8.SuspendLayout();
             this.tcSummons.SuspendLayout();
             this.tabPageSummons.SuspendLayout();
+            this.panel13.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.nudDurationMultiplier)).BeginInit();
             this.tabPageTryParseSummon.SuspendLayout();
             this.panel10.SuspendLayout();
             this.tabPageSpells.SuspendLayout();
@@ -279,8 +279,6 @@
             this.tabPageConfig.SuspendLayout();
             this.groupXMLFiles.SuspendLayout();
             this.cmsConfigXML.SuspendLayout();
-            this.panel13.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
             this.SuspendLayout();
             // 
             // rtbSummonText
@@ -1225,7 +1223,6 @@
             this.menuStripSummon.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.addToolStripMenuItem,
             this.saveToolStripMenuItem,
-            this.deleteToolStripMenuItem,
             this.clearToolStripMenuItem});
             this.menuStripSummon.Location = new System.Drawing.Point(0, 0);
             this.menuStripSummon.Name = "menuStripSummon";
@@ -1246,13 +1243,6 @@
             this.saveToolStripMenuItem.Size = new System.Drawing.Size(43, 20);
             this.saveToolStripMenuItem.Text = "Save";
             this.saveToolStripMenuItem.Click += new System.EventHandler(this.SaveToolStripMenuItem_Click);
-            // 
-            // deleteToolStripMenuItem
-            // 
-            this.deleteToolStripMenuItem.Name = "deleteToolStripMenuItem";
-            this.deleteToolStripMenuItem.Size = new System.Drawing.Size(52, 20);
-            this.deleteToolStripMenuItem.Text = "Delete";
-            this.deleteToolStripMenuItem.Click += new System.EventHandler(this.DeleteToolStripMenuItem_Click);
             // 
             // clearToolStripMenuItem
             // 
@@ -1321,19 +1311,19 @@
             this.columnHeader1});
             this.lvAugments.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.lvAugments.HideSelection = false;
-            listViewItem1.Checked = true;
-            listViewItem1.StateImageIndex = 1;
-            listViewItem2.Checked = true;
-            listViewItem2.StateImageIndex = 1;
-            listViewItem3.Checked = true;
-            listViewItem3.StateImageIndex = 1;
-            listViewItem4.Checked = true;
-            listViewItem4.StateImageIndex = 1;
+            listViewItem13.Checked = true;
+            listViewItem13.StateImageIndex = 1;
+            listViewItem14.Checked = true;
+            listViewItem14.StateImageIndex = 1;
+            listViewItem15.Checked = true;
+            listViewItem15.StateImageIndex = 1;
+            listViewItem16.Checked = true;
+            listViewItem16.StateImageIndex = 1;
             this.lvAugments.Items.AddRange(new System.Windows.Forms.ListViewItem[] {
-            listViewItem1,
-            listViewItem2,
-            listViewItem3,
-            listViewItem4});
+            listViewItem13,
+            listViewItem14,
+            listViewItem15,
+            listViewItem16});
             this.lvAugments.Location = new System.Drawing.Point(3, 179);
             this.lvAugments.Name = "lvAugments";
             this.lvAugments.Size = new System.Drawing.Size(234, 97);
@@ -1344,6 +1334,42 @@
             // columnHeader1
             // 
             this.columnHeader1.Width = 80;
+            // 
+            // panel13
+            // 
+            this.panel13.Controls.Add(this.nudDurationMultiplier);
+            this.panel13.Controls.Add(this.label14);
+            this.panel13.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.panel13.Location = new System.Drawing.Point(3, 302);
+            this.panel13.Name = "panel13";
+            this.panel13.Size = new System.Drawing.Size(234, 26);
+            this.panel13.TabIndex = 50;
+            // 
+            // nudDurationMultiplier
+            // 
+            this.nudDurationMultiplier.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.nudDurationMultiplier.Location = new System.Drawing.Point(189, 0);
+            this.nudDurationMultiplier.Margin = new System.Windows.Forms.Padding(0);
+            this.nudDurationMultiplier.Name = "nudDurationMultiplier";
+            this.nudDurationMultiplier.Size = new System.Drawing.Size(45, 26);
+            this.nudDurationMultiplier.TabIndex = 4;
+            this.nudDurationMultiplier.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Dock = System.Windows.Forms.DockStyle.Left;
+            this.label14.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label14.Location = new System.Drawing.Point(0, 0);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(155, 20);
+            this.label14.TabIndex = 9;
+            this.label14.Text = "Duration Multiplier";
+            this.label14.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // btnPreview
             // 
@@ -2137,7 +2163,6 @@
             this.menuStripSpell.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.addSpellToolStripMenuItem,
             this.saveSpellToolStripMenuItem,
-            this.deleteSpellToolStripMenuItem,
             this.clearSpellToolStripMenuItem});
             this.menuStripSpell.Location = new System.Drawing.Point(0, 0);
             this.menuStripSpell.Name = "menuStripSpell";
@@ -2158,13 +2183,6 @@
             this.saveSpellToolStripMenuItem.Size = new System.Drawing.Size(43, 20);
             this.saveSpellToolStripMenuItem.Text = "Save";
             this.saveSpellToolStripMenuItem.Click += new System.EventHandler(this.SaveSpellToolStripMenuItem_Click);
-            // 
-            // deleteSpellToolStripMenuItem
-            // 
-            this.deleteSpellToolStripMenuItem.Name = "deleteSpellToolStripMenuItem";
-            this.deleteSpellToolStripMenuItem.Size = new System.Drawing.Size(52, 20);
-            this.deleteSpellToolStripMenuItem.Text = "Delete";
-            this.deleteSpellToolStripMenuItem.Click += new System.EventHandler(this.DeleteSpellToolStripMenuItem_Click);
             // 
             // clearSpellToolStripMenuItem
             // 
@@ -2239,6 +2257,7 @@
             this.tvSpells.TabIndex = 3;
             this.tvSpells.NodeMouseClick += new System.Windows.Forms.TreeNodeMouseClickEventHandler(this.TvSpells_NodeMouseClick);
             this.tvSpells.NodeMouseDoubleClick += new System.Windows.Forms.TreeNodeMouseClickEventHandler(this.SpellsPageTV_NodeMouseDoubleClick);
+            this.tvSpells.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TvSpells_KeyDown);
             // 
             // cmsSpells
             // 
@@ -2466,42 +2485,6 @@
             this.label52.TabIndex = 3;
             this.label52.Text = "Spells File";
             // 
-            // panel13
-            // 
-            this.panel13.Controls.Add(this.numericUpDown1);
-            this.panel13.Controls.Add(this.label14);
-            this.panel13.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel13.Location = new System.Drawing.Point(3, 302);
-            this.panel13.Name = "panel13";
-            this.panel13.Size = new System.Drawing.Size(234, 26);
-            this.panel13.TabIndex = 50;
-            // 
-            // numericUpDown1
-            // 
-            this.numericUpDown1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.numericUpDown1.Location = new System.Drawing.Point(189, 0);
-            this.numericUpDown1.Margin = new System.Windows.Forms.Padding(0);
-            this.numericUpDown1.Name = "numericUpDown1";
-            this.numericUpDown1.Size = new System.Drawing.Size(45, 26);
-            this.numericUpDown1.TabIndex = 4;
-            this.numericUpDown1.Value = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
-            // 
-            // label14
-            // 
-            this.label14.AutoSize = true;
-            this.label14.Dock = System.Windows.Forms.DockStyle.Left;
-            this.label14.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label14.Location = new System.Drawing.Point(0, 0);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(155, 20);
-            this.label14.TabIndex = 9;
-            this.label14.Text = "Duration Multiplier";
-            this.label14.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
             // DruidMain
             // 
             this.AllowDrop = true;
@@ -2552,6 +2535,9 @@
             this.panel8.ResumeLayout(false);
             this.tcSummons.ResumeLayout(false);
             this.tabPageSummons.ResumeLayout(false);
+            this.panel13.ResumeLayout(false);
+            this.panel13.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.nudDurationMultiplier)).EndInit();
             this.tabPageTryParseSummon.ResumeLayout(false);
             this.panel10.ResumeLayout(false);
             this.tabPageSpells.ResumeLayout(false);
@@ -2609,9 +2595,6 @@
             this.groupXMLFiles.ResumeLayout(false);
             this.groupXMLFiles.PerformLayout();
             this.cmsConfigXML.ResumeLayout(false);
-            this.panel13.ResumeLayout(false);
-            this.panel13.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -2743,14 +2726,12 @@
         private System.Windows.Forms.MenuStrip menuStripSummon;
         private System.Windows.Forms.ToolStripMenuItem addToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem saveToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem deleteToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem clearToolStripMenuItem;
         private System.Windows.Forms.TreeView tvFavoritedSpells;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.MenuStrip menuStripSpell;
         private System.Windows.Forms.ToolStripMenuItem addSpellToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem saveSpellToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem deleteSpellToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem clearSpellToolStripMenuItem;
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.TabPage tabPageConfig;
@@ -2795,7 +2776,7 @@
         private System.Windows.Forms.Panel panel6;
         private System.Windows.Forms.TextBox tbSpellDomain;
         private System.Windows.Forms.Panel panel13;
-        private System.Windows.Forms.NumericUpDown numericUpDown1;
+        private System.Windows.Forms.NumericUpDown nudDurationMultiplier;
         private System.Windows.Forms.Label label14;
     }
 }

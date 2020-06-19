@@ -141,7 +141,7 @@ namespace DruidAssistant
                 st = Items.ObadHaisGreenMan(st);
             }
 
-            st.Rounds = st.PCCasterLevel;
+            st.Rounds = st.PCCasterLevel * (int.TryParse(nudDurationMultiplier.Value.ToString(), out int durationMult) ? durationMult : 1);
             return st;
         }
 
@@ -766,60 +766,42 @@ namespace DruidAssistant
             }
         }
 
-        private void BtnDev_Click(object sender, EventArgs e)
+        private void TvSpells_KeyDown(object sender, KeyEventArgs e)
         {
-            return;
-
-            Spells spells = Spells.Retrieve(tbSpellsXML.Text);
-
-            for (int i = 0; i < spells.Count; i++)
+            if (e.KeyCode == Keys.Delete)
             {
-                spells[i].Index = i + 1;
-            }
+                string xmlPath = tbSpellsXML.Text;//Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Summons.xml");
 
-            spells.Save(tbSpellsXML.Text);
-
-            Summons summonTs = Summons.Retrieve(tbSummonsXML.Text);
-
-            for (int i = 0; i < summonTs.Count; i++)
-            {
-                summonTs[i].Index = i + 1;
-            }
-
-            summonTs.Save(tbSummonsXML.Text);
-
-            FolderBrowserDialog fbd = new FolderBrowserDialog();
-            if (fbd.ShowDialog() == DialogResult.OK)
-            {
-                DirectoryInfo di = new DirectoryInfo(fbd.SelectedPath);
-                DirectoryInfo[] folders = di.GetDirectories();
-                for (int i = 0; i < folders.Length; i++)
+                if (!File.Exists(xmlPath))
                 {
-                    DirectoryInfo thisSummon = folders[i];
-                    FileInfo[] files = thisSummon.GetFiles();
-                    for (int j = 0; j < files.Length; j++)
+                    MessageBox.Show("XML file was not found.", "File Not Found", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+
+                if (tvSpells.SelectedNode != null)
+                {
+                    if (tvSpells.SelectedNode.Tag is Spell)
                     {
-                        Summon st = FileParser.GetSummonTemplateFromFile(files[j].FullName);
-                        st.SummonSpell = thisSummon.Name;
-
-                        Summons summons = Summons.Retrieve(tbSummonsXML.Text);
-                        if (IsSummonExists(summons, st, out int removal))
+                        if (MessageBox.Show(string.Format("Are you sure you want to delete {0} from this list?", ((Spell)tvSpells.SelectedNode.Tag).Name), "Delete Summon Confirm", MessageBoxButtons.YesNo, MessageBoxIcon.Stop) == DialogResult.Yes)
                         {
-                            if (MessageBox.Show("Would you like to overwrite?", "Summon already exists", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                            Spells spells = Spells.Retrieve(xmlPath);
+
+                            if (IsSpellExists(spells, (Spell)tvSpells.SelectedNode.Tag, out int indexMatch))
                             {
-                                summons.RemoveAt(removal);
-                                summons.Add(st);
+                                spells.RemoveAt(indexMatch);
                             }
-                        }
-                        else
-                        {
-                            summons.Add(st);
-                        }
 
-                        summons.Save(tbSummonsXML.Text);
+                            spells.Save(xmlPath);
+                            RefreshSpellPage(GetSpellNodesExpansion());
+                        }
                     }
                 }
             }
+        }
+
+        private void BtnDev_Click(object sender, EventArgs e)
+        {
+            return;
         }
 
         private void FavoriteToolStripMenuItem_Click(object sender, EventArgs e)
@@ -1060,40 +1042,6 @@ namespace DruidAssistant
             }
         }
 
-        private void DeleteToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            string xmlPath = tbSummonsXML.Text;// Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Summons.xml");
-
-            if (!File.Exists(xmlPath))
-            {
-                MessageBox.Show("XML file was not found.", "File Not Found", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
-            }
-
-            if (sittingSummonIndex == 0)
-            {
-                MessageBox.Show("Summon does not exist.", "Summon Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
-            }
-            else
-            {
-                Summons summons = Summons.Retrieve(xmlPath);
-
-                if (FindSummon(summons, sittingSummonIndex, out int indexMatch))
-                {
-                    summons.RemoveAt(indexMatch);
-                }
-                else
-                {
-                    MessageBox.Show("Summon cannot be found.", "Summon Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
-
-                ClearSummonPage();
-                summons.Save(xmlPath);
-                summons.Save(xmlPath);
-                RefreshSummonPage();
-            }
-        }
 
         private void TvSpells_NodeMouseClick(object sender, TreeNodeMouseClickEventArgs e)
         {
@@ -1259,43 +1207,7 @@ namespace DruidAssistant
 
         private void DeleteSpellToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            string xmlPath = tbSpellsXML.Text;// Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Spells.xml");
 
-            if (MessageBox.Show("Are you sure you want to delete this spell?", "Confirmation Required", MessageBoxButtons.YesNo, MessageBoxIcon.Question) != DialogResult.Yes)
-            {
-                return;
-            }
-
-            if (!File.Exists(xmlPath))
-            {
-                MessageBox.Show("XML file was not found.", "File Not Found", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
-            }
-
-            if (sittingSpellID == 0)
-            {
-                MessageBox.Show("Spell does not exist.", "Spell Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
-            }
-            else
-            {
-
-                Spells spells = Spells.Retrieve(xmlPath);
-
-                if (FindSpell(spells, sittingSpellID, out int indexMatch))
-                {
-                    spells.RemoveAt(indexMatch);
-                }
-                else
-                {
-                    MessageBox.Show("Spell cannot be found.", "Spell Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
-
-                ClearSpellPage();
-                spells.Save(xmlPath);
-
-                RefreshSpellPage(GetSpellNodesExpansion());
-            }
         }
 
         private void ClearSpellToolStripMenuItem_Click(object sender, EventArgs e)
