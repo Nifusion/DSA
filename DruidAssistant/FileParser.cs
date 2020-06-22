@@ -11,99 +11,6 @@ namespace DruidAssistant
 {
     public class FileParser
     {
-        public static string GetTextFile(string path)
-        {
-            using (StreamReader sr = new StreamReader(path))
-            {
-                return sr.ReadToEnd();
-            }
-        }
-
-        public static Summon GetSummonTemplateFromFile(string path)
-        {
-            Summon thisTemplate = new Summon();
-            string name = "";
-            string sizetype = "";
-            string hitdie = "";
-            string speed = "";
-            string armor = "";
-            string babgrapple = "";
-            string attacks = "";
-            string fullattacks = "";
-            string spacereach = "";
-            string specatk = "";
-            string specqual = "";
-            string saves = "";
-            string abilities = "";
-            string skills = "";
-            string feats = "";
-            string environment = "";
-
-            using (StreamReader sr = new StreamReader(path))
-            {
-                string line;
-                int i = 0;
-                bool combat = false;
-                while ((line = sr.ReadLine()) != null)
-                {
-                    line = line.Replace("–", "-");
-                    i++;
-                    if (!combat)
-                    {
-                        if (i == 1 || line.Contains("click to see monster")) { name = line; }
-                        if (line.StartsWith("Size/Type")) { sizetype = line; }
-                        if (line.StartsWith("Hit Dice")) { hitdie = line; }
-                        if (line.StartsWith("Speed")) { speed = line; }
-                        if (line.StartsWith("Armor Class")) { armor = line; }
-                        if (line.StartsWith("Base Attack")) { babgrapple = line; }
-                        if (line.StartsWith("Attack")) { attacks = line; }
-                        if (line.StartsWith("Full Attack")) { fullattacks = line; }
-                        if (line.StartsWith("Space")) { spacereach = line; }
-                        if (line.StartsWith("Special Attacks")) { specatk = line; }
-                        if (line.StartsWith("Special Qualities")) { specqual = line; }
-                        if (line.StartsWith("Saves")) { saves = line; }
-                        if (line.StartsWith("Abilities")) { abilities = line; }
-                        if (line.StartsWith("Skills:")) { skills = line; }
-                        if (line.StartsWith("Feats")) { feats = line; }
-                        if (line.StartsWith("Environment")) { environment = line; }
-                        if (line.ToUpper().StartsWith("COMBAT")) { combat = true; }
-                    }
-                    else
-                    {
-                        thisTemplate.Notes.Add(line);
-                    }
-                }
-            }
-            thisTemplate.Name = InputToFirstCharUpper(name.Replace(" click to see monster", ""));
-            thisTemplate.Size = GetSize(sizetype, out string type);
-            thisTemplate.Type = type;
-            thisTemplate.Abilities = GetAbilities(abilities);
-
-            thisTemplate.NaturalArmor = GetNaturalArmor(armor);
-            thisTemplate.Saves = GetSaves(saves);
-
-            thisTemplate.Environment = GetEnvironment(environment);
-
-            thisTemplate.Movement = GetSpeeds(speed);
-
-            thisTemplate.Space = GetSpaceReach(spacereach, out string reach);
-            thisTemplate.Reach = reach;
-
-            thisTemplate.Attacks = GetAttacks(attacks);
-            thisTemplate.FullAttacks = GetFullAttacks(fullattacks);
-
-            thisTemplate.Skills = GetSkills(skills);
-
-            thisTemplate.Feats = GetFeats(feats);
-            thisTemplate.SpecAtks = GetSpecAtk(specatk);
-            thisTemplate.SpecQual = GetSpecQual(specqual);
-            thisTemplate.BAB = GetBABGrapple(babgrapple, out int grapple);
-            thisTemplate.Grapple = grapple;
-            thisTemplate.HitDie = GetHitDie(hitdie, out int level);
-            thisTemplate.Level = level;
-
-            return thisTemplate;
-        }
 
         public static Summon GetSummonTemplateFromText(string text)
         {
@@ -190,51 +97,19 @@ namespace DruidAssistant
 
         private static string InputToFirstCharUpper(string input)
         {
-            if (input != "")
-            {
-                return input.First().ToString().ToUpper() + input.Substring(1).ToLower();
-            }
-            else
-            {
-                return "";
-            }
+            return input != "" ? input.First().ToString().ToUpper() + input.Substring(1).ToLower() : "";
         }
 
         public static SkillMod CorrectSkillModBackward(SkillMod sm, Abilities a)
         {
             List<int> mods = new List<int>();
 
-            if (sm.DefMod == AbilityMod.Str) { mods.Add(a.StrMod); }
-            else if (sm.DefMod == AbilityMod.Dex) { mods.Add(a.DexMod); }
-            else if (sm.DefMod == AbilityMod.Con) { mods.Add(a.ConMod); }
-            else if (sm.DefMod == AbilityMod.Int) { mods.Add(a.IntMod); }
-            else if (sm.DefMod == AbilityMod.Wis) { mods.Add(a.WisMod); }
-            else if (sm.DefMod == AbilityMod.Cha) { mods.Add(a.ChaMod); }
-
-            if (sm.AlternateAbility.STR.HasValue)
-            {
-                mods.Add(a.StrMod);
-            }
-            if (sm.AlternateAbility.DEX.HasValue)
-            {
-                mods.Add(a.DexMod);
-            }
-            if (sm.AlternateAbility.CON.HasValue)
-            {
-                mods.Add(a.ConMod);
-            }
-            if (sm.AlternateAbility.INT.HasValue)
-            {
-                mods.Add(a.IntMod);
-            }
-            if (sm.AlternateAbility.WIS.HasValue)
-            {
-                mods.Add(a.WisMod);
-            }
-            if (sm.AlternateAbility.CHA.HasValue)
-            {
-                mods.Add(a.ChaMod);
-            }
+            if (sm.DefMod == AbilityMod.Str || sm.AlternateAbility.STR.HasValue) { mods.Add(a.StrMod); }
+            else if (sm.DefMod == AbilityMod.Dex || sm.AlternateAbility.DEX.HasValue) { mods.Add(a.DexMod); }
+            else if (sm.DefMod == AbilityMod.Con || sm.AlternateAbility.CON.HasValue) { mods.Add(a.ConMod); }
+            else if (sm.DefMod == AbilityMod.Int || sm.AlternateAbility.INT.HasValue) { mods.Add(a.IntMod); }
+            else if (sm.DefMod == AbilityMod.Wis || sm.AlternateAbility.WIS.HasValue) { mods.Add(a.WisMod); }
+            else if (sm.DefMod == AbilityMod.Cha || sm.AlternateAbility.CHA.HasValue) { mods.Add(a.ChaMod); }
 
             sm.Bonus -= mods.Max();
 
@@ -245,37 +120,12 @@ namespace DruidAssistant
         {
             List<int> mods = new List<int>();
 
-            if (sm.DefMod == AbilityMod.Str) { mods.Add(a.StrMod); }
-            else if (sm.DefMod == AbilityMod.Dex) { mods.Add(a.DexMod); }
-            else if (sm.DefMod == AbilityMod.Con) { mods.Add(a.ConMod); }
-            else if (sm.DefMod == AbilityMod.Int) { mods.Add(a.IntMod); }
-            else if (sm.DefMod == AbilityMod.Wis) { mods.Add(a.WisMod); }
-            else if (sm.DefMod == AbilityMod.Cha) { mods.Add(a.ChaMod); }
-
-            if (sm.AlternateAbility.STR.HasValue)
-            {
-                mods.Add(a.StrMod);
-            }
-            if (sm.AlternateAbility.DEX.HasValue)
-            {
-                mods.Add(a.DexMod);
-            }
-            if (sm.AlternateAbility.CON.HasValue)
-            {
-                mods.Add(a.ConMod);
-            }
-            if (sm.AlternateAbility.INT.HasValue)
-            {
-                mods.Add(a.IntMod);
-            }
-            if (sm.AlternateAbility.WIS.HasValue)
-            {
-                mods.Add(a.WisMod);
-            }
-            if (sm.AlternateAbility.CHA.HasValue)
-            {
-                mods.Add(a.ChaMod);
-            }
+            if (sm.DefMod == AbilityMod.Str || sm.AlternateAbility.STR.HasValue) { mods.Add(a.StrMod); }
+            else if (sm.DefMod == AbilityMod.Dex || sm.AlternateAbility.DEX.HasValue) { mods.Add(a.DexMod); }
+            else if (sm.DefMod == AbilityMod.Con || sm.AlternateAbility.CON.HasValue) { mods.Add(a.ConMod); }
+            else if (sm.DefMod == AbilityMod.Int || sm.AlternateAbility.INT.HasValue) { mods.Add(a.IntMod); }
+            else if (sm.DefMod == AbilityMod.Wis || sm.AlternateAbility.WIS.HasValue) { mods.Add(a.WisMod); }
+            else if (sm.DefMod == AbilityMod.Cha || sm.AlternateAbility.CHA.HasValue) { mods.Add(a.ChaMod); }
 
             sm.NewBonus = sm.Bonus + mods.Max();
 
@@ -289,25 +139,9 @@ namespace DruidAssistant
 
         public static string GetSpeeds(string speed)
         {
-            speed = speed.Replace("Speed:", "").Replace("\t", "");
+            speed = Regex.Replace(speed.Replace("Speed:", "").Replace("\t", ""), @"\(([^)]+)\)", "");
 
-            speed = Regex.Replace(speed, @"\(([^)]+)\)", "");
-
-            string[] fix = speed.Split(',');
-            string fixBlank = "";
-            for (int i = 0; i < fix.Length; i++)
-            {
-                if (i == 0)
-                {
-                    fixBlank += fix[i].TrimStart(' ').TrimEnd(' ');
-                }
-                else
-                {
-                    fixBlank += " | " + fix[i].TrimStart(' ').TrimEnd(' ');
-                }
-            }
-
-            return fixBlank;
+            return string.Join(" | ", speed.Split(',').Select(x => x.TrimStart(' ').TrimEnd(' ')));
         }
 
         public static string GetSpaceReach(string spacereach, out string reach)
@@ -317,13 +151,14 @@ namespace DruidAssistant
                 reach = "";
                 return "";
             }
-            string replaced = spacereach.Replace("Space/Reach:", "").Replace("\t", "");
-            string[] splitReplaced = replaced.Split('/');
+
+            string[] splitReplaced = spacereach.Replace("Space/Reach:", "").Replace("\t", "").Split('/');
             if (splitReplaced.Length != 2)
             {
                 reach = "";
                 return splitReplaced[0];
             }
+
             reach = splitReplaced[1];
             return splitReplaced[0];
         }
@@ -334,7 +169,7 @@ namespace DruidAssistant
 
             if (attack == "")
             {
-                return new List<Attack>();
+                return attacks;
             }
 
             string[] split = attack.Replace("Attack:", "").Replace("\t", "").Replace(" or ", "~").Replace("\n", "~").Split('~');
@@ -514,11 +349,8 @@ namespace DruidAssistant
 
         public static int GetHitDie(string hd, out int count)
         {
-            Regex level = new Regex("[0-9]{1,2}d");
-            Regex hitdie = new Regex("d[0-9]{1,2}");
-
-            string levelString = level.Match(hd).Value.Replace("d", "");
-            string hitdieString = hitdie.Match(hd).Value.Replace("d", "");
+            string levelString = Regex.Match(hd, "[0-9]{1,2}d").Value.Replace("d", "");
+            string hitdieString = Regex.Match(hd, "d[0-9]{1,2}").Value.Replace("d", "");
 
             levelString = levelString != "" ? levelString : "0";
             hitdieString = hitdieString != "" ? hitdieString : "0";
@@ -605,7 +437,7 @@ namespace DruidAssistant
         {
             AlternateAbilityMods addlAbMods = new AlternateAbilityMods();
 
-            string cleanSkill = skill.Replace("+", "ø").Replace("-", "ø").Replace("*", "ø").Split('ø')[0];
+            string cleanSkill = skill.Replace("+", "ø").Replace("-", "ø").Replace("*", "ø").Replace("(","ø").Split('ø')[0];
             string addlComments = Regex.Match(skill, @"\(([^)]+)\)").Value;
             int skillRanks = Convert.ToInt32(Regex.Match(skill, "[+-]?[0-9]+").Value);
             string addlMods = Regex.Replace(skill, "[0-9]+", "");
@@ -622,18 +454,23 @@ namespace DruidAssistant
                 List<string> otherMods = addlMods.Split(' ').ToList();
 
                 addlAbMods.STR = otherMods.Any(x => x.ToUpper() == "STR") ? AbilityMod.Str : (AbilityMod?)null;
-                addlAbMods.DEX = otherMods.Any(x => x.ToUpper() == "DEX") ? AbilityMod.Str : (AbilityMod?)null;
-                addlAbMods.CON = otherMods.Any(x => x.ToUpper() == "CON") ? AbilityMod.Str : (AbilityMod?)null;
-                addlAbMods.INT = otherMods.Any(x => x.ToUpper() == "INT") ? AbilityMod.Str : (AbilityMod?)null;
-                addlAbMods.WIS = otherMods.Any(x => x.ToUpper() == "WIS") ? AbilityMod.Str : (AbilityMod?)null;
-                addlAbMods.CHA = otherMods.Any(x => x.ToUpper() == "CHA") ? AbilityMod.Str : (AbilityMod?)null;
+                addlAbMods.DEX = otherMods.Any(x => x.ToUpper() == "DEX") ? AbilityMod.Dex : (AbilityMod?)null;
+                addlAbMods.CON = otherMods.Any(x => x.ToUpper() == "CON") ? AbilityMod.Con : (AbilityMod?)null;
+                addlAbMods.INT = otherMods.Any(x => x.ToUpper() == "INT") ? AbilityMod.Int : (AbilityMod?)null;
+                addlAbMods.WIS = otherMods.Any(x => x.ToUpper() == "WIS") ? AbilityMod.Wis : (AbilityMod?)null;
+                addlAbMods.CHA = otherMods.Any(x => x.ToUpper() == "CHA") ? AbilityMod.Cha : (AbilityMod?)null;
             }
 
             List<Skill> availableSkills = Enum.GetValues(typeof(Skill)).Cast<Skill>().ToList();
             int foundIndex = availableSkills.FindIndex(x => x.ToString() == cleanSkill.Replace(" ", ""));
+
             if (foundIndex > -1)
             {
                 return new SkillMod(availableSkills[foundIndex], addlComments, skillRanks, addlAbMods, asteriskFound);
+            }
+            else
+            {
+
             }
 
             return null;
@@ -663,7 +500,6 @@ namespace DruidAssistant
             for (int i = 0; i < textArray.Length; i++)
             {
                 string line = textArray[i];
-
 
                 if (i == 0)
                 {
@@ -748,11 +584,11 @@ namespace DruidAssistant
 
         public static string[] GetSpellLevel(string text)
         {
-            Regex drd = new Regex("Drd [0-9]");
+            Regex drd = new Regex("drd [0-9]");
             Regex druid = new Regex("druid [0-9]");
-            if (drd.IsMatch(text))
+            if (drd.IsMatch(text.ToLower()))
             {
-                string m = drd.Match(text).Value;
+                string m = drd.Match(text.ToLower()).Value;
                 string[] ma = m.Split(' ');
                 ma[0] = "Druid";
                 return ma;

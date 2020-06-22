@@ -20,105 +20,36 @@ namespace DruidAssistant
     {
         public bool flag1;
         public Summon currentST;
+        int sittingSpellID = 0;
+        int sittingSummonIndex = 0;
+        string sittingSpellXML;
+        string sittingSummonXML;
 
         public DruidMain()
         {
             InitializeComponent();
             lvAugments.Columns[lvAugments.Columns.Count - 1].Width = -2;
+            SetElementsFromSettings();
+        }
 
+        private void SetElementsFromSettings()
+        {
             nudCasterLevel.Value = Properties.Settings.Default.CasterLevel;
-            tbSummonsXML.Text = Properties.Settings.Default.SummonsXML;
-            tbSpellsXML.Text = Properties.Settings.Default.SpellsXML;
-
-            //verify up to date with random ass changes you've managed to mess up
-            //1: SummonTemplate renamed to Summon
-
-            string fullFile = "";
-            using (StreamReader sr = new StreamReader(tbSummonsXML.Text))
-            {
-                fullFile = sr.ReadToEnd();
-            }
-
-            fullFile = fullFile.Replace("SummonTemplate", "Summon");
-
-            using (StreamWriter sw = new StreamWriter(tbSummonsXML.Text))
-            {
-                sw.Write(fullFile);
-            }
-
-            //future shit
-            //string defaultConfig = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Config.xml");
-            //
-            //string defaultSpells= Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Spells.xml");
-            //string defaultSummons = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Summons.xml");
-            //string defaultWildShapes = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "WildShapes.xml");
-            //string defaultCharacters = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Characters.xml");
-            //
-            //DSAConfigs dsacs = new DSAConfigs();
-            //if (!File.Exists(defaultConfig))
-            //{
-            //    if (File.Exists(defaultSpells))
-            //    {
-            //        dsacs.Add(new DSAConfig(DSAFiles.Spells, defaultSpells));
-            //    }
-            //
-            //    if (File.Exists(defaultSummons))
-            //    {
-            //        dsacs.Add(new DSAConfig(DSAFiles.Summons, defaultSummons));
-            //    }
-            //
-            //    if (File.Exists(defaultWildShapes))
-            //    {
-            //        dsacs.Add(new DSAConfig(DSAFiles.WildShapes, defaultWildShapes));
-            //    }
-            //
-            //    if (File.Exists(defaultCharacters))
-            //    {
-            //        dsacs.Add(new DSAConfig(DSAFiles.CharacterSheets, defaultCharacters));
-            //    }
-            //
-            //    FileParser.DedicateConfigsToXML(defaultConfig, dsacs);
-            //}
-            //else
-            //{
-            //    dsacs = FileParser.GetConfigsFromXML(defaultConfig);
-            //}
+            sittingSummonXML = tbSummonsXML.Text = Properties.Settings.Default.SummonsXML;
+            sittingSpellXML = tbSpellsXML.Text = Properties.Settings.Default.SpellsXML;
         }
 
         private void DruidMain_Load(object sender, EventArgs e)
         {
-            RefreshSummonPage();
-            RefreshSpellPage();
             if (ApplicationDeployment.IsNetworkDeployed)
             {
-                this.Text = string.Format("Druid Summoning Assistant v{0}",
-                    ApplicationDeployment.CurrentDeployment.CurrentVersion.ToString(4));
+                this.Text = string.Format("Druid Summoning Assistant v{0}", ApplicationDeployment.CurrentDeployment.CurrentVersion.ToString(4));
             }
-        }
 
-        private void ListDirectory(TreeView treeView, string path)
-        {
-            var rootDirectoryInfo = new DirectoryInfo(path);
-            treeView.Nodes.Add(CreateDirectoryNode(rootDirectoryInfo));
-        }
+            RefreshSummonPage();
+            RefreshSpellPage();
 
-        private static TreeNode CreateDirectoryNode(DirectoryInfo directoryInfo)
-        {
-            var directoryNode = new TreeNode(directoryInfo.Name);
-            directoryNode.Tag = directoryInfo.FullName;
-            foreach (var directory in directoryInfo.GetDirectories())
-            {
-                directoryNode.Nodes.Add(CreateDirectoryNode(directory));
-            }
-            foreach (var file in directoryInfo.GetFiles())
-            {
-                TreeNode tn = new TreeNode(file.Name);
-                tn.Tag = file.FullName;
-                directoryNode.Nodes.Add(tn);
-            }
-            return directoryNode;
         }
-
 
         private SummonToForm AugmentTemplate(SummonToForm st)
         {
@@ -145,91 +76,15 @@ namespace DruidAssistant
             return st;
         }
 
-        public int GetSizeMod(Size size)
-        {
-            switch (size)
-            {
-                case DruidAssistant.Size.Fine:
-                    return 8;
-                case DruidAssistant.Size.Diminuitive:
-                    return 4;
-                case DruidAssistant.Size.Tiny:
-                    return 2;
-                case DruidAssistant.Size.Small:
-                    return 1;
-                case DruidAssistant.Size.Medium:
-                    return 0;
-                case DruidAssistant.Size.Large:
-                    return -1;
-                case DruidAssistant.Size.Huge:
-                    return -2;
-                case DruidAssistant.Size.Gargantuan:
-                    return -4;
-                case DruidAssistant.Size.Colossal:
-                    return -8;
-                default:
-                    return 0;
-            }
-        }
-
-        public static int GetGrappleSizeMod(Size size)
-        {
-            switch (size)
-            {
-                case DruidAssistant.Size.Fine:
-                    return -16;
-                case DruidAssistant.Size.Diminuitive:
-                    return -12;
-                case DruidAssistant.Size.Tiny:
-                    return -8;
-                case DruidAssistant.Size.Small:
-                    return -4;
-                case DruidAssistant.Size.Medium:
-                    return 0;
-                case DruidAssistant.Size.Large:
-                    return 4;
-                case DruidAssistant.Size.Huge:
-                    return 8;
-                case DruidAssistant.Size.Gargantuan:
-                    return 12;
-                case DruidAssistant.Size.Colossal:
-                    return 16;
-                default:
-                    return 0;
-            }
-        }
-
-        private void TvTemplates_DragDrop(object sender, DragEventArgs e)
-        {
-            if (e.Data.GetDataPresent(DataFormats.FileDrop))
-            {
-                ListDirectory(tvTemplates, ((string[])e.Data.GetData(DataFormats.FileDrop))[0]);
-
-            }
-        }
-
-        private void TvTemplates_DragEnter(object sender, DragEventArgs e)
-        {
-            DragDropEffects effects = DragDropEffects.None;
-            if (e.Data.GetDataPresent(DataFormats.FileDrop))
-            {
-                var path = ((string[])e.Data.GetData(DataFormats.FileDrop))[0];
-                if (Directory.Exists(path))
-                    effects = DragDropEffects.Copy;
-            }
-
-            e.Effect = effects;
-        }
-
         private void BtnLoad_Click(object sender, EventArgs e)
         {
             if (tvTemplates.SelectedNode != null)
             {
-                if (tvTemplates.SelectedNode.Tag is Summon)
+                if (tvTemplates.SelectedNode.Tag is Summon selSumm)
                 {
-                    SummonToForm st = new SummonToForm((Summon)tvTemplates.SelectedNode.Tag);
+                    SummonToForm st = new SummonToForm(selSumm);
                     st = AugmentTemplate(st);
-                    SummonedCreature sc = new SummonedCreature(st);
+                    Summoned sc = new Summoned(st);
                     sc.Show();
                 }
             }
@@ -249,9 +104,7 @@ namespace DruidAssistant
 
         private void RefreshSpellPage()
         {
-            string xmlPath = tbSpellsXML.Text;// Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Spells.xml");;
-
-            if (!File.Exists(xmlPath))
+            if (!File.Exists(sittingSpellXML))
             {
                 MessageBox.Show("XML file was not found.", "File Not Found", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
@@ -282,7 +135,7 @@ namespace DruidAssistant
             TreeNode tnf8 = tvFavoritedSpells.Nodes.Add("Level 8");
             TreeNode tnf9 = tvFavoritedSpells.Nodes.Add("Level 9");
 
-            Spells spells = Spells.Retrieve(xmlPath);
+            Spells spells = Spells.Retrieve(sittingSpellXML);
 
             for (int i = 0; i < spells.Count; i++)
             {
@@ -320,9 +173,7 @@ namespace DruidAssistant
 
         private void RefreshSpellPage(bool[] expanders)
         {
-            string xmlPath = tbSpellsXML.Text;//string.IsNullOrEmpty(tbOverrideSpellXML.Text) ? Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Spells.xml") : tbOverrideSpellXML.Text;
-
-            if (!File.Exists(xmlPath))
+            if (!File.Exists(sittingSpellXML))
             {
                 MessageBox.Show("XML file was not found.", "File Not Found", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
@@ -353,7 +204,7 @@ namespace DruidAssistant
             TreeNode tnf8 = tvFavoritedSpells.Nodes.Add("Level 8");
             TreeNode tnf9 = tvFavoritedSpells.Nodes.Add("Level 9");
 
-            Spells spells = Spells.Retrieve(xmlPath);
+            Spells spells = Spells.Retrieve(sittingSpellXML);
 
             for (int i = 0; i < spells.Count; i++)
             {
@@ -417,15 +268,13 @@ namespace DruidAssistant
 
         private void RefreshSummonPage()
         {
-            string xmlPath = tbSummonsXML.Text;//string.IsNullOrEmpty(tbOverrideSummonXML.Text) ? Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Summons.xml") : tbOverrideSummonXML.Text;
-
-            if (!File.Exists(xmlPath))
+            if (!File.Exists(sittingSummonXML))
             {
                 MessageBox.Show("XML file was not found.", "File Not Found", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
 
-            Summons summons = Summons.Retrieve(xmlPath);
+            Summons summons = Summons.Retrieve(sittingSummonXML);
 
             tvTemplates.Nodes.Clear();
 
@@ -540,62 +389,6 @@ namespace DruidAssistant
             RefreshSummonPage();
         }
 
-        private bool IsSummonExists(List<Summon> summons, Summon summon, out int indexMatch)
-        {
-            for (int i = 0; i < summons.Count; i++)
-            {
-                if (summons[i].Name.ToUpper() == summon.Name.ToUpper() && summons[i].SummonSpell.ToUpper() == summon.SummonSpell.ToUpper())
-                {
-                    indexMatch = i;
-                    return true;
-                }
-            }
-            indexMatch = -1;
-            return false;
-        }
-
-        private bool FindSummon(List<Summon> summons, int summonIndex, out int indexMatch)
-        {
-            for (int i = 0; i < summons.Count; i++)
-            {
-                if (summons[i].Index == summonIndex)
-                {
-                    indexMatch = i;
-                    return true;
-                }
-            }
-            indexMatch = -1;
-            return false;
-        }
-
-        private bool IsSpellExists(List<Spell> spells, Spell spell, out int indexMatch)
-        {
-            for (int i = 0; i < spells.Count; i++)
-            {
-                if (spells[i].Name.ToUpper() == spell.Name.ToUpper() && spells[i].Level.ToUpper() == spell.Level.ToUpper())
-                {
-                    indexMatch = i;
-                    return true;
-                }
-            }
-            indexMatch = -1;
-            return false;
-        }
-
-        private bool FindSpell(List<Spell> spells, int spellIndex, out int matchIndex)
-        {
-            for (int i = 0; i < spells.Count; i++)
-            {
-                if (spells[i].Index == spellIndex)
-                {
-                    matchIndex = i;
-                    return true;
-                }
-            }
-            matchIndex = -1;
-            return false;
-        }
-
         private void TvTemplates_NodeMouseDoubleClick(object sender, TreeNodeMouseClickEventArgs e)
         {
             if (tvTemplates.SelectedNode != null)
@@ -644,14 +437,13 @@ namespace DruidAssistant
             tbReach.Text = st.Reach;
             tbMovement.Text = st.Movement;
 
-            rtbSkills.Text = ListToSeparated(st.Skills, ",");
-            tbFeats.Text = ListToSeparated(st.Feats, ",");
-            tbSpecAtks.Text = ListToSeparated(st.SpecAtks, ",");
-            tbSpecQual.Text = ListToSeparated(st.SpecQual, ",");
-            rtbCombat.Text = ListToSeparated(st.Notes, "\r");
-
-            rtbAttacks.Text = ListToSeparated(st.Attacks, "\r");
-            rtbFullAttacks.Text = ListToSeparated(st.FullAttacks, "\r");
+            rtbSkills.Text = string.Join(",", st.Skills);
+            tbFeats.Text = string.Join(",", st.Feats);
+            tbSpecAtks.Text = string.Join(",", st.SpecAtks);
+            tbSpecQual.Text = string.Join(",", st.SpecQual);
+            rtbCombat.Text = string.Join("\r", st.Notes);
+            rtbAttacks.Text = string.Join("\r", st.Attacks);
+            rtbFullAttacks.Text = string.Join("\r", st.FullAttacks);
         }
 
         private void BtnTryParseSpell_Click(object sender, EventArgs e)
@@ -682,64 +474,11 @@ namespace DruidAssistant
             LoadPreview(st);
         }
 
-        private string ListToSeparated(List<FullAttack> stringList, string sep)
-        {
-            string builder = "";
-            for (int i = 0; i < stringList.Count; i++)
-            {
-                if (i == 0)
-                {
-                    builder = stringList[i].ToString();
-                }
-                else
-                {
-                    builder += sep + stringList[i].ToString();
-                }
-            }
-            return builder;
-        }
-
-        private string ListToSeparated(List<Attack> stringList, string sep)
-        {
-            string builder = "";
-            for (int i = 0; i < stringList.Count; i++)
-            {
-                if (i == 0)
-                {
-                    builder = stringList[i].ToString();
-                }
-                else
-                {
-                    builder += sep + stringList[i].ToString();
-                }
-            }
-            return builder;
-        }
-
-        private string ListToSeparated(List<string> stringList, string sep)
-        {
-            string builder = "";
-            for (int i = 0; i < stringList.Count; i++)
-            {
-                if (i == 0)
-                {
-                    builder = stringList[i];
-                }
-                else
-                {
-                    builder += sep + stringList[i];
-                }
-            }
-            return builder;
-        }
-
         private void TvTemplates_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Delete)
             {
-                string xmlPath = tbSummonsXML.Text;//Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Summons.xml");
-
-                if (!File.Exists(xmlPath))
+                if (!File.Exists(sittingSummonXML))
                 {
                     MessageBox.Show("XML file was not found.", "File Not Found", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
@@ -747,18 +486,19 @@ namespace DruidAssistant
 
                 if (tvTemplates.SelectedNode != null)
                 {
-                    if (tvTemplates.SelectedNode.Tag is Summon)
+                    if (tvTemplates.SelectedNode.Tag is Summon selSumm)
                     {
                         if (MessageBox.Show(string.Format("Are you sure you want to delete {0} from this list?", ((Summon)tvTemplates.SelectedNode.Tag).Name), "Delete Summon Confirm", MessageBoxButtons.YesNo, MessageBoxIcon.Stop) == DialogResult.Yes)
                         {
-                            Summons summons = Summons.Retrieve(xmlPath);
+                            Summons summons = Summons.Retrieve(sittingSummonXML);
+                            int indexMatch = summons.FindIndex(x => x.Name.ToUpper() == selSumm.Name.ToUpper() && x.SummonSpell.ToUpper() == selSumm.SummonSpell.ToUpper());
 
-                            if (IsSummonExists(summons, (Summon)tvTemplates.SelectedNode.Tag, out int indexMatch))
+                            if (indexMatch > -1)
                             {
                                 summons.RemoveAt(indexMatch);
                             }
 
-                            summons.Save(xmlPath);
+                            summons.Save(sittingSummonXML);
                             RefreshSummonPage();
                         }
                     }
@@ -770,9 +510,7 @@ namespace DruidAssistant
         {
             if (e.KeyCode == Keys.Delete)
             {
-                string xmlPath = tbSpellsXML.Text;//Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Summons.xml");
-
-                if (!File.Exists(xmlPath))
+                if (!File.Exists(sittingSpellXML))
                 {
                     MessageBox.Show("XML file was not found.", "File Not Found", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
@@ -780,18 +518,19 @@ namespace DruidAssistant
 
                 if (tvSpells.SelectedNode != null)
                 {
-                    if (tvSpells.SelectedNode.Tag is Spell)
+                    if (tvSpells.SelectedNode.Tag is Spell selSpell)
                     {
                         if (MessageBox.Show(string.Format("Are you sure you want to delete {0} from this list?", ((Spell)tvSpells.SelectedNode.Tag).Name), "Delete Summon Confirm", MessageBoxButtons.YesNo, MessageBoxIcon.Stop) == DialogResult.Yes)
                         {
-                            Spells spells = Spells.Retrieve(xmlPath);
+                            Spells spells = Spells.Retrieve(sittingSpellXML);
+                            int indexMatch = spells.FindIndex(x => x.Name.ToUpper() == selSpell.Name.ToUpper() && x.Level.ToUpper() == selSpell.Level.ToUpper());
 
-                            if (IsSpellExists(spells, (Spell)tvSpells.SelectedNode.Tag, out int indexMatch))
+                            if (indexMatch > -1)
                             {
                                 spells.RemoveAt(indexMatch);
                             }
 
-                            spells.Save(xmlPath);
+                            spells.Save(sittingSpellXML);
                             RefreshSpellPage(GetSpellNodesExpansion());
                         }
                     }
@@ -799,32 +538,23 @@ namespace DruidAssistant
             }
         }
 
-        private void BtnDev_Click(object sender, EventArgs e)
-        {
-            return;
-        }
-
         private void FavoriteToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            string xmlPath = tbSpellsXML.Text; //string.IsNullOrEmpty(tbOverrideSpellXML.Text) ? Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Spells.xml") : tbOverrideSpellXML.Text;
-
-            Spells spells = Spells.Retrieve(xmlPath);
+            Spells spells = Spells.Retrieve(sittingSpellXML);
             Spell thisSpell = (Spell)((TreeView)((ContextMenuStrip)((ToolStripMenuItem)sender).GetCurrentParent()).SourceControl).SelectedNode.Tag;  //((TreeView)((ContextMenuStrip)((ToolStripMenuItem)sender).GetCurrentParent().tvSpells).SelectedNode.Tag;
+            int indexMatch = spells.FindIndex(x => x.Name.ToUpper() == thisSpell.Name.ToUpper() && x.Level.ToUpper() == thisSpell.Level.ToUpper());
 
-            if (IsSpellExists(spells, thisSpell, out int index))
+            if (indexMatch > -1)
             {
-                if (spells[index].Favorited) { spells[index].Favorited = false; }
-                else if (!spells[index].Favorited) { spells[index].Favorited = true; }
-                else { spells[index].Favorited = true; }
+                if (spells[indexMatch].Favorited) { spells[indexMatch].Favorited = false; }
+                else if (!spells[indexMatch].Favorited) { spells[indexMatch].Favorited = true; }
+                else { spells[indexMatch].Favorited = true; }
 
-                spells.Save(xmlPath);
+                spells.Save(sittingSpellXML);
             }
 
             RefreshSpellPage(GetSpellNodesExpansion());
         }
-
-        int sittingSpellID = 0;
-        int sittingSummonIndex = 0;
 
         private void ClearSummonPage()
         {
@@ -878,9 +608,7 @@ namespace DruidAssistant
 
         private void AddToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            string xmlPath = tbSummonsXML.Text;// Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Summons.xml");
-
-            if (!File.Exists(xmlPath))
+            if (!File.Exists(sittingSummonXML))
             {
                 MessageBox.Show("XML file was not found.", "File Not Found", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
@@ -898,47 +626,40 @@ namespace DruidAssistant
                 return;
             }
 
-            Summon addSummon = new Summon();
-            addSummon.SummonSpell = cbSummonSpell.Text;
-            addSummon.Name = tbName.Text;
-            addSummon.Abilities = new Abilities((int)nudSTR.Value, (int)nudDEX.Value, (int)nudCON.Value, (int)nudINT.Value, (int)nudWIS.Value, (int)nudCHA.Value);
-            addSummon.Saves = new Saves((int)nudFort.Value, (int)nudRef.Value, (int)nudWill.Value);
+            List<Size> sizes = Enum.GetValues(typeof(Size)).Cast<Size>().ToList();
+            int index = sizes.FindIndex(x => x.ToString() == cbSize.SelectedItem.ToString());
+            Size size = index > -1 ? sizes[index] : DruidAssistant.Size.Medium;
 
-            addSummon.Level = (int)nudLevel.Value;
-            addSummon.HitDie = (int)nudHD.Value;
-            addSummon.NaturalArmor = (int)nudNatural.Value;
-            addSummon.BAB = (int)nudBAB.Value;
-            addSummon.Grapple = (int)nudGrapple.Value;
+            Summon addSummon = new Summon
+            {
+                SummonSpell = cbSummonSpell.Text,
+                Name = tbName.Text,
+                Abilities = new Abilities((int)nudSTR.Value, (int)nudDEX.Value, (int)nudCON.Value, (int)nudINT.Value, (int)nudWIS.Value, (int)nudCHA.Value),
+                Saves = new Saves((int)nudFort.Value, (int)nudRef.Value, (int)nudWill.Value),
+                Level = (int)nudLevel.Value,
+                HitDie = (int)nudHD.Value,
+                NaturalArmor = (int)nudNatural.Value,
+                BAB = (int)nudBAB.Value,
+                Grapple = (int)nudGrapple.Value,
+                Size = size,
+                Type = tbType.Text,
+                Environment = tbEnvironment.Text,
+                Space = tbSpace.Text,
+                Reach = tbReach.Text,
+                Movement = tbMovement.Text,
+                Skills = rtbSkills.Text.Split(',').ToList(),
+                Feats = tbFeats.Text.Split(',').ToList(),
+                SpecAtks = tbSpecAtks.Text.Split(',').ToList(),
+                SpecQual = tbSpecQual.Text.Split(',').ToList(),
+                Notes = rtbCombat.Text.Split('\r').ToList(),
+                Attacks = FileParser.GetAttacks(rtbAttacks.Text),
+                FullAttacks = FileParser.GetFullAttacks(rtbFullAttacks.Text)
+            };
 
-            if (cbSize.SelectedItem.ToString() == "Diminuitive") { addSummon.Size = DruidAssistant.Size.Diminuitive; }
-            else if (cbSize.SelectedItem.ToString() == "Fine") { addSummon.Size = DruidAssistant.Size.Fine; }
-            else if (cbSize.SelectedItem.ToString() == "Tiny") { addSummon.Size = DruidAssistant.Size.Tiny; }
-            else if (cbSize.SelectedItem.ToString() == "Small") { addSummon.Size = DruidAssistant.Size.Small; }
-            else if (cbSize.SelectedItem.ToString() == "Medium") { addSummon.Size = DruidAssistant.Size.Medium; }
-            else if (cbSize.SelectedItem.ToString() == "Large") { addSummon.Size = DruidAssistant.Size.Large; }
-            else if (cbSize.SelectedItem.ToString() == "Huge") { addSummon.Size = DruidAssistant.Size.Huge; }
-            else if (cbSize.SelectedItem.ToString() == "Gargantuan") { addSummon.Size = DruidAssistant.Size.Gargantuan; }
-            else if (cbSize.SelectedItem.ToString() == "Colossal") { addSummon.Size = DruidAssistant.Size.Colossal; }
-            else { addSummon.Size = DruidAssistant.Size.Medium; }
+            Summons summons = Summons.Retrieve(sittingSummonXML);
+            int indexMatch = summons.FindIndex(x => x.Name.ToUpper() == addSummon.Name.ToUpper() && x.SummonSpell.ToUpper() == addSummon.SummonSpell.ToUpper());
 
-            addSummon.Type = tbType.Text;
-            addSummon.Environment = tbEnvironment.Text;
-            addSummon.Space = tbSpace.Text;
-            addSummon.Reach = tbReach.Text;
-            addSummon.Movement = tbMovement.Text;
-
-            addSummon.Skills = rtbSkills.Text.Split(',').ToList();
-            addSummon.Feats = tbFeats.Text.Split(',').ToList();
-            addSummon.SpecAtks = tbSpecAtks.Text.Split(',').ToList();
-            addSummon.SpecQual = tbSpecQual.Text.Split(',').ToList();
-            addSummon.Notes = rtbCombat.Text.Split('\r').ToList();
-
-            addSummon.Attacks = FileParser.GetAttacks(rtbAttacks.Text);
-            addSummon.FullAttacks = FileParser.GetFullAttacks(rtbFullAttacks.Text);
-
-            Summons summons = Summons.Retrieve(xmlPath);
-
-            if (IsSummonExists(summons, addSummon, out int indexMatch))
+            if (indexMatch > -1)
             {
                 if (MessageBox.Show("Summon of the same name and level already exists\rWould you like to add a duplicate?", "Spell already exists", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
@@ -954,15 +675,13 @@ namespace DruidAssistant
                 ClearSummonPage();
             }
 
-            summons.Save(xmlPath);
+            summons.Save(sittingSummonXML);
             RefreshSummonPage();
         }
 
         private void SaveToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            string xmlPath = tbSummonsXML.Text;// Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Summons.xml");
-
-            if (!File.Exists(xmlPath))
+            if (!File.Exists(sittingSummonXML))
             {
                 MessageBox.Show("XML file was not found.", "File Not Found", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
@@ -987,48 +706,40 @@ namespace DruidAssistant
                     return;
                 }
 
-                Summon updateSummon = new Summon();
-                updateSummon.Index = sittingSummonIndex;
-                updateSummon.SummonSpell = cbSummonSpell.Text;
-                updateSummon.Name = tbName.Text;
-                updateSummon.Abilities = new Abilities((int)nudSTR.Value, (int)nudDEX.Value, (int)nudCON.Value, (int)nudINT.Value, (int)nudWIS.Value, (int)nudCHA.Value);
-                updateSummon.Saves = new Saves((int)nudFort.Value, (int)nudRef.Value, (int)nudWill.Value);
 
-                updateSummon.Level = (int)nudLevel.Value;
-                updateSummon.HitDie = (int)nudHD.Value;
-                updateSummon.NaturalArmor = (int)nudNatural.Value;
-                updateSummon.BAB = (int)nudBAB.Value;
-                updateSummon.Grapple = (int)nudGrapple.Value;
+                List<Size> sizes = Enum.GetValues(typeof(Size)).Cast<Size>().ToList();
+                int index = sizes.FindIndex(x => x.ToString() == cbSize.SelectedItem.ToString());
+                Size size = index > -1 ? sizes[index] : DruidAssistant.Size.Medium;
 
-                if (cbSize.SelectedItem.ToString() == "Diminuitive") { updateSummon.Size = DruidAssistant.Size.Diminuitive; }
-                else if (cbSize.SelectedItem.ToString() == "Fine") { updateSummon.Size = DruidAssistant.Size.Fine; }
-                else if (cbSize.SelectedItem.ToString() == "Tiny") { updateSummon.Size = DruidAssistant.Size.Tiny; }
-                else if (cbSize.SelectedItem.ToString() == "Small") { updateSummon.Size = DruidAssistant.Size.Small; }
-                else if (cbSize.SelectedItem.ToString() == "Medium") { updateSummon.Size = DruidAssistant.Size.Medium; }
-                else if (cbSize.SelectedItem.ToString() == "Large") { updateSummon.Size = DruidAssistant.Size.Large; }
-                else if (cbSize.SelectedItem.ToString() == "Huge") { updateSummon.Size = DruidAssistant.Size.Huge; }
-                else if (cbSize.SelectedItem.ToString() == "Gargantuan") { updateSummon.Size = DruidAssistant.Size.Gargantuan; }
-                else if (cbSize.SelectedItem.ToString() == "Colossal") { updateSummon.Size = DruidAssistant.Size.Colossal; }
-                else { updateSummon.Size = DruidAssistant.Size.Medium; }
+                Summon updateSummon = new Summon
+                {
+                    SummonSpell = cbSummonSpell.Text,
+                    Name = tbName.Text,
+                    Abilities = new Abilities((int)nudSTR.Value, (int)nudDEX.Value, (int)nudCON.Value, (int)nudINT.Value, (int)nudWIS.Value, (int)nudCHA.Value),
+                    Saves = new Saves((int)nudFort.Value, (int)nudRef.Value, (int)nudWill.Value),
+                    Level = (int)nudLevel.Value,
+                    HitDie = (int)nudHD.Value,
+                    NaturalArmor = (int)nudNatural.Value,
+                    BAB = (int)nudBAB.Value,
+                    Grapple = (int)nudGrapple.Value,
+                    Size = size,
+                    Type = tbType.Text,
+                    Environment = tbEnvironment.Text,
+                    Space = tbSpace.Text,
+                    Reach = tbReach.Text,
+                    Movement = tbMovement.Text,
+                    Skills = rtbSkills.Text.Split(',').ToList(),
+                    Feats = tbFeats.Text.Split(',').ToList(),
+                    SpecAtks = tbSpecAtks.Text.Split(',').ToList(),
+                    SpecQual = tbSpecQual.Text.Split(',').ToList(),
+                    Notes = rtbCombat.Text.Split('\r').ToList(),
+                    Attacks = FileParser.GetAttacks(rtbAttacks.Text),
+                    FullAttacks = FileParser.GetFullAttacks(rtbFullAttacks.Text)
+                };
 
-                updateSummon.Type = tbType.Text;
-                updateSummon.Environment = tbEnvironment.Text;
-                updateSummon.Space = tbSpace.Text;
-                updateSummon.Reach = tbReach.Text;
-                updateSummon.Movement = tbMovement.Text;
-
-                updateSummon.Skills = rtbSkills.Text.Split(',').ToList();
-                updateSummon.Feats = tbFeats.Text.Split(',').ToList();
-                updateSummon.SpecAtks = tbSpecAtks.Text.Split(',').ToList();
-                updateSummon.SpecQual = tbSpecQual.Text.Split(',').ToList();
-                updateSummon.Notes = rtbCombat.Text.Split('\r').ToList();
-
-                updateSummon.Attacks = FileParser.GetAttacks(rtbAttacks.Text);
-                updateSummon.FullAttacks = FileParser.GetFullAttacks(rtbFullAttacks.Text);
-
-                Summons summons = Summons.Retrieve(xmlPath);
-
-                if (FindSummon(summons, sittingSummonIndex, out int indexMatch))
+                Summons summons = Summons.Retrieve(sittingSummonXML);
+                int indexMatch = summons.FindIndex(x => x.Index == sittingSummonIndex);
+                if (indexMatch > -1)
                 {
                     summons[indexMatch] = updateSummon;
                 }
@@ -1037,7 +748,7 @@ namespace DruidAssistant
                     MessageBox.Show("Summon cannot be found.", "Summon Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
 
-                summons.Save(xmlPath);
+                summons.Save(sittingSummonXML);
                 RefreshSummonPage();
             }
         }
@@ -1048,9 +759,8 @@ namespace DruidAssistant
             (sender as TreeView).SelectedNode = e.Node;
             if (e.Button == MouseButtons.Right)
             {
-                if ((sender as TreeView).SelectedNode.Tag is Spell)
+                if ((sender as TreeView).SelectedNode.Tag is Spell thisSpell)
                 {
-                    Spell thisSpell = (Spell)(sender as TreeView).SelectedNode.Tag;
                     if (thisSpell.Favorited)
                     {
                         favoriteToolStripMenuItem.Text = "Unfavorite";
@@ -1081,9 +791,7 @@ namespace DruidAssistant
 
         private void AddSpellToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            string xmlPath = tbSpellsXML.Text;// Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Spells.xml");
-
-            if (!File.Exists(xmlPath))
+            if (!File.Exists(sittingSpellXML))
             {
                 MessageBox.Show("XML file was not found.", "File Not Found", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
@@ -1101,27 +809,30 @@ namespace DruidAssistant
                 return;
             }
 
-            Spell addSpell = new Spell();
-            addSpell.Favorited = chkFavoriteSpell.Checked;
-            addSpell.Name = tbSpellName.Text;
-            addSpell.Class = tbSpellClass.Text;
-            addSpell.Level = tbSpellLevel.Text;
-            addSpell.Domain = tbSpellDomain.Text;
-            addSpell.Components = tbSpellComponents.Text;
-            addSpell.Casting = tbSpellCastingTime.Text;
-            addSpell.Range = tbSpellRange.Text;
-            addSpell.Target = tbSpellTarget.Text;
-            addSpell.Effect = tbSpellEffect.Text;
-            addSpell.Duration = tbSpellDuration.Text;
-            addSpell.SavingThrow = tbSpellSaving.Text;
-            addSpell.SpellResistance = tbSpellResistance.Text;
-            addSpell.SourceBook = tbSource.Text;
-            addSpell.Description = rtbSpellDescription.Text;
-            addSpell.PersonalNotes = rtbPersonalNotes.Text;
+            Spell addSpell = new Spell
+            {
+                Favorited = chkFavoriteSpell.Checked,
+                Name = tbSpellName.Text,
+                Class = tbSpellClass.Text,
+                Level = tbSpellLevel.Text,
+                Domain = tbSpellDomain.Text,
+                Components = tbSpellComponents.Text,
+                Casting = tbSpellCastingTime.Text,
+                Range = tbSpellRange.Text,
+                Target = tbSpellTarget.Text,
+                Effect = tbSpellEffect.Text,
+                Duration = tbSpellDuration.Text,
+                SavingThrow = tbSpellSaving.Text,
+                SpellResistance = tbSpellResistance.Text,
+                SourceBook = tbSource.Text,
+                Description = rtbSpellDescription.Text,
+                PersonalNotes = rtbPersonalNotes.Text
+            };
 
-            Spells spells = Spells.Retrieve(xmlPath);
+            Spells spells = Spells.Retrieve(sittingSpellXML);
+            int indexMatch = spells.FindIndex(x => x.Name.ToUpper() == addSpell.Name.ToUpper() && x.Level.ToUpper() == addSpell.Level.ToUpper());
 
-            if (IsSpellExists(spells, addSpell, out int indexMatch))
+            if (indexMatch > -1)
             {
                 if (MessageBox.Show("Spell of the same name and level already exists\rWould you like to add a duplicate?", "Spell already exists", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
@@ -1137,15 +848,13 @@ namespace DruidAssistant
                 ClearSpellPage();
             }
             rtbSpellText.Clear();
-            spells.Save(xmlPath);
+            spells.Save(sittingSpellXML);
             RefreshSpellPage(GetSpellNodesExpansion());
         }
 
         private void SaveSpellToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            string xmlPath = tbSpellsXML.Text;// Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Spells.xml");
-
-            if (!File.Exists(xmlPath))
+            if (!File.Exists(sittingSpellXML))
             {
                 MessageBox.Show("XML file was not found.", "File Not Found", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
@@ -1170,28 +879,31 @@ namespace DruidAssistant
                     return;
                 }
 
-                Spell updateSpell = new Spell();
-                updateSpell.Index = sittingSpellID;
-                updateSpell.Favorited = chkFavoriteSpell.Checked;
-                updateSpell.Name = tbSpellName.Text;
-                updateSpell.Class = tbSpellClass.Text;
-                updateSpell.Level = tbSpellLevel.Text;
-                updateSpell.Domain = tbSpellDomain.Text;
-                updateSpell.Components = tbSpellComponents.Text;
-                updateSpell.Casting = tbSpellCastingTime.Text;
-                updateSpell.Range = tbSpellRange.Text;
-                updateSpell.Target = tbSpellTarget.Text;
-                updateSpell.Effect = tbSpellEffect.Text;
-                updateSpell.Duration = tbSpellDuration.Text;
-                updateSpell.SavingThrow = tbSpellSaving.Text;
-                updateSpell.SpellResistance = tbSpellResistance.Text;
-                updateSpell.SourceBook = tbSource.Text;
-                updateSpell.Description = rtbSpellDescription.Text;
-                updateSpell.PersonalNotes = rtbPersonalNotes.Text;
+                Spell updateSpell = new Spell
+                {
+                    Index = sittingSpellID,
+                    Favorited = chkFavoriteSpell.Checked,
+                    Name = tbSpellName.Text,
+                    Class = tbSpellClass.Text,
+                    Level = tbSpellLevel.Text,
+                    Domain = tbSpellDomain.Text,
+                    Components = tbSpellComponents.Text,
+                    Casting = tbSpellCastingTime.Text,
+                    Range = tbSpellRange.Text,
+                    Target = tbSpellTarget.Text,
+                    Effect = tbSpellEffect.Text,
+                    Duration = tbSpellDuration.Text,
+                    SavingThrow = tbSpellSaving.Text,
+                    SpellResistance = tbSpellResistance.Text,
+                    SourceBook = tbSource.Text,
+                    Description = rtbSpellDescription.Text,
+                    PersonalNotes = rtbPersonalNotes.Text
+                };
 
-                Spells spells = Spells.Retrieve(xmlPath);
+                Spells spells = Spells.Retrieve(sittingSpellXML);
+                int indexMatch = spells.FindIndex(x => x.Index == sittingSpellID);
 
-                if (FindSpell(spells, sittingSpellID, out int indexMatch))
+                if (indexMatch > -1)
                 {
                     spells[indexMatch] = updateSpell;
                 }
@@ -1200,14 +912,9 @@ namespace DruidAssistant
                     MessageBox.Show("Spell cannot be found.", "Spell Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
 
-                spells.Save(xmlPath);
+                spells.Save(sittingSpellXML);
                 RefreshSpellPage(GetSpellNodesExpansion());
             }
-        }
-
-        private void DeleteSpellToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-
         }
 
         private void ClearSpellToolStripMenuItem_Click(object sender, EventArgs e)
@@ -1218,14 +925,10 @@ namespace DruidAssistant
 
         private void XMLFiles_TextChanged(object sender, EventArgs e)
         {
-            if (sender == tbSummonsXML)
-            {
-                Properties.Settings.Default.SummonsXML = tbSummonsXML.Text;
-            }
-            if (sender == tbSpellsXML)
-            {
-                Properties.Settings.Default.SpellsXML = tbSpellsXML.Text;
-            }
+            if (sender == tbSummonsXML) { Properties.Settings.Default.SummonsXML = tbSummonsXML.Text; }
+            if (sender == tbSpellsXML) { Properties.Settings.Default.SpellsXML = tbSpellsXML.Text; }
+
+            Properties.Settings.Default.Save();
         }
 
         private void CreateNewToolStripMenuItem_Click(object sender, EventArgs e)
@@ -1327,6 +1030,16 @@ namespace DruidAssistant
         {
             RichTextBox rtb = (RichTextBox)((ContextMenuStrip)((ToolStripMenuItem)sender).GetCurrentParent()).SourceControl;
             rtb.Text = rtb.Text.Replace("\n ", " ").Replace("\n", " ").Replace("\r ", " ").Replace("\r", " ").Replace("  ", " ").Replace("  ", "");
+        }
+
+        private void DruidMain_ResizeBegin(object sender, EventArgs e)
+        {
+            this.SuspendLayout();
+        }
+
+        private void DruidMain_ResizeEnd(object sender, EventArgs e)
+        {
+            this.ResumeLayout(true);
         }
     }
 }

@@ -41,7 +41,7 @@ namespace DruidAssistant
                 st.SpecQual.Add("Fast Healing (Ex): +3/round");
                 st.SpecQual.Add("Natural weapons → magic weapons");
                 st.SpecQual.Add("Grapple Bonus (Ex): +4");
-                st.MiscGrapple = 4;
+                st.MiscGrapple += 4;
                 st.SpecQual.Add("Resist Cold and Electricity (Ex): +10");
                 st.SpecQual.Add("Tremorsense");
 
@@ -52,17 +52,11 @@ namespace DruidAssistant
 
                 st.Environment = "Any forests";
 
-                for (int i = 0; i < st.Skills.Count; i++)
-                {
-                    if (st.Skills[i].Skill == Skill.Hide)
-                    {
-                        st.Skills[i].Asterisk = true;
-                    }
-                    if (st.Skills[i].Skill == Skill.MoveSilently)
-                    {
-                        st.Skills[i].Asterisk = true;
-                    }
-                }
+                int hideIndex = st.Skills.FindIndex(x => x.Skill == Skill.Hide);
+                int msIndex = st.Skills.FindIndex(x => x.Skill == Skill.MoveSilently);
+
+                if (hideIndex > -1) { st.Skills[hideIndex].Asterisk = true; }
+                if (msIndex > -1) { st.Skills[msIndex].Asterisk = true; }
 
                 st.Notes.Add("Hide +16 (RB) (forest)");
                 st.Notes.Add("Move Silently +16 (RB) (forest)");
@@ -73,29 +67,7 @@ namespace DruidAssistant
 
             public static string GreenboundSlamDamage(Size size)
             {
-                switch (size)
-                {
-                    case Size.Fine:
-                        return "1";
-                    case Size.Diminuitive:
-                        return "1d2";
-                    case Size.Tiny:
-                        return "1d3";
-                    case Size.Small:
-                        return "1d4";
-                    case Size.Medium:
-                        return "1d6";
-                    case Size.Large:
-                        return "1d8";
-                    case Size.Huge:
-                        return "2d6";
-                    case Size.Gargantuan:
-                        return "2d8";
-                    case Size.Colossal:
-                        return "4d6";
-                    default:
-                        return "Can't Calculate Damage";
-                }
+                return new[] { "1", "1d2", "1d3", "1d4", "1d6", "1d8", "2d6", "2d8", "4d6" }[Enum.GetValues(typeof(Size)).Cast<Size>().ToList().IndexOf(size)];
             }
         }
     }

@@ -12,11 +12,9 @@ namespace DruidAssistant
     {
         public static Summons Retrieve(string xmlPath)
         {
-            XmlSerializer xs = new XmlSerializer(typeof(Summons));
-
             using (Stream inputStream = File.OpenRead(xmlPath))
             {
-                return (Summons)xs.Deserialize(inputStream);
+                return (Summons)new XmlSerializer(typeof(Summons)).Deserialize(inputStream);
             }
         }
     }
@@ -25,48 +23,33 @@ namespace DruidAssistant
     {
         public int Index { get; set; }
         public string SummonSpell { get; set; }
-
         public int PCCasterLevel { get; set; }
         public int Rounds { get; set; }
-
         public string Name { get; set; }
-
         public Abilities Abilities { get; set; }
         public Abilities BaseAbilities { get; set; }
-
         public Size Size { get; set; }
         public string Type { get; set; }
-
         public string Environment { get; set; }
-
         public int Level { get; set; }
         public int HitDie { get; set; }
         public int CurrentHP { get; set; }
-
         public int Initiative { get; set; }
-
         public string Movement { get; set; }
-
         public int NaturalArmor { get; set; }
-
         public int BAB { get; set; }
-
         public int MiscGrapple { get; set; }
         public int MiscMelee { get; set; }
         public int MiscRange { get; set; }
-
         public List<Attack> Attacks { get; set; } = new List<Attack>();
         public List<FullAttack> FullAttacks { get; set; } = new List<FullAttack>();
-
         public List<SkillMod> Skills { get; set; } = new List<SkillMod>();
         public List<string> Feats { get; set; } = new List<string>();
         public List<string> SpecAtks { get; set; } = new List<string>();
         public List<string> SpecQual { get; set; } = new List<string>();
         public List<string> Notes { get; set; } = new List<string>();
-
         public string Space { get; set; }
         public string Reach { get; set; }
-
         public Saves Saves { get; set; }
         public int MiscFort { get; set; }
         public int MiscRef { get; set; }
@@ -85,31 +68,43 @@ namespace DruidAssistant
             Name = s.Name;
             Size = s.Size;
             Type = s.Type;
-            Abilities = new Abilities();
-            Abilities.Str = s.Abilities.Str;
-            Abilities.Dex = s.Abilities.Dex;
-            Abilities.Con = s.Abilities.Con;
-            Abilities.Int = s.Abilities.Int;
-            Abilities.Wis = s.Abilities.Wis;
-            Abilities.Cha = s.Abilities.Cha;
+            Abilities = new Abilities()
+            {
+                Str = s.Abilities.Str,
+                Dex = s.Abilities.Dex,
+                Con = s.Abilities.Con,
+                Int = s.Abilities.Int,
+                Wis = s.Abilities.Wis,
+                Cha = s.Abilities.Cha
+            };
 
-            BaseAbilities = new Abilities();
-            BaseAbilities.Str = s.Abilities.Str;
-            BaseAbilities.Dex = s.Abilities.Dex;
-            BaseAbilities.Con = s.Abilities.Con;
-            BaseAbilities.Int = s.Abilities.Int;
-            BaseAbilities.Wis = s.Abilities.Wis;
-            BaseAbilities.Cha = s.Abilities.Cha;
+            BaseAbilities = new Abilities()
+            {
+                Str = s.Abilities.Str,
+                Dex = s.Abilities.Dex,
+                Con = s.Abilities.Con,
+                Int = s.Abilities.Int,
+                Wis = s.Abilities.Wis,
+                Cha = s.Abilities.Cha
+            };
 
             NaturalArmor = s.NaturalArmor;
-            Saves = new Saves();
-            Saves.Fort = s.Saves.Fort;
-            Saves.Ref = s.Saves.Ref;
-            Saves.Will = s.Saves.Will;
+            Feats = new List<string>(s.Feats);
+            SpecAtks = new List<string>(s.SpecAtks);
+            SpecQual = new List<string>(s.SpecQual);
+
+            Saves = new Saves()
+            {
+                Fort = s.Saves.Fort,
+                Ref = s.Saves.Ref,
+                Will = s.Saves.Will
+            };
 
             Saves.Fort -= s.Abilities.ConMod;
             Saves.Ref -= s.Abilities.DexMod;
             Saves.Will -= s.Abilities.WisMod;
+
+            if (Feats.Any(x => x.ToUpper() == "IRON WILL")) { Saves.Will -= 2; MiscWill += 2; }
 
             Environment = s.Environment;
 
@@ -128,12 +123,9 @@ namespace DruidAssistant
                 Skills[i] = FileParser.CorrectSkillModBackward(Skills[i], BaseAbilities);
             }
 
-            Feats = new List<string>(s.Feats);
-            SpecAtks = new List<string>(s.SpecAtks);
-            SpecQual = new List<string>(s.SpecQual);
             Notes = new List<string>(s.Notes);
             BAB = s.BAB;
-            MiscGrapple = s.Grapple - s.BAB - s.Abilities.StrMod - DruidMain.GetGrappleSizeMod(s.Size);
+            MiscGrapple = s.Grapple - s.BAB - s.Abilities.StrMod - Summoned.GetGrappleSizeMod(s.Size);
             HitDie = s.HitDie;
             Level = s.Level;
         }
@@ -142,40 +134,27 @@ namespace DruidAssistant
     public class Summon
     {
         public int Index { get; set; }
-
         public string SummonSpell { get; set; }
-
         public string Name { get; set; }
-
         public Abilities Abilities { get; set; }
-
         public Size Size { get; set; }
         public string Type { get; set; }
-
         public string Environment { get; set; }
-
         public int Level { get; set; }
         public int HitDie { get; set; }
-
         public string Movement { get; set; }
-
         public int NaturalArmor { get; set; }
-
         public int BAB { get; set; }
         public int Grapple { get; set; }
-
         public List<Attack> Attacks { get; set; }
         public List<FullAttack> FullAttacks { get; set; }
-
-        public List<string> Skills = new List<string>();
-        public List<string> Feats = new List<string>();
-        public List<string> SpecAtks = new List<string>();
-        public List<string> SpecQual = new List<string>();
-        public List<string> Notes = new List<string>();
-
+        public List<string> Skills { get; set; } = new List<string>();
+        public List<string> Feats { get; set; } = new List<string>();
+        public List<string> SpecAtks { get; set; } = new List<string>();
+        public List<string> SpecQual { get; set; } = new List<string>();
+        public List<string> Notes { get; set; } = new List<string>();
         public string Space { get; set; }
         public string Reach { get; set; }
-
         public Saves Saves { get; set; }
     }
 
@@ -197,50 +176,32 @@ namespace DruidAssistant
         public int Str { get; set; }
         public int StrMod
         {
-            get
-            {
-                return Convert.ToInt32(ScoreToMod(Str));
-            }
+            get { return Convert.ToInt32(ScoreToMod(Str)); }
         }
         public int Dex { get; set; }
         public int DexMod
         {
-            get
-            {
-                return Convert.ToInt32(ScoreToMod(Dex));
-            }
+            get { return Convert.ToInt32(ScoreToMod(Dex)); }
         }
         public int Con { get; set; }
         public int ConMod
         {
-            get
-            {
-                return Convert.ToInt32(ScoreToMod(Con));
-            }
+            get { return Convert.ToInt32(ScoreToMod(Con)); }
         }
         public int Int { get; set; }
         public int IntMod
         {
-            get
-            {
-                return Convert.ToInt32(ScoreToMod(Int));
-            }
+            get { return Convert.ToInt32(ScoreToMod(Int)); }
         }
         public int Wis { get; set; }
         public int WisMod
         {
-            get
-            {
-                return Convert.ToInt32(ScoreToMod(Wis));
-            }
+            get { return Convert.ToInt32(ScoreToMod(Wis)); }
         }
         public int Cha { get; set; }
         public int ChaMod
         {
-            get
-            {
-                return Convert.ToInt32(ScoreToMod(Cha));
-            }
+            get { return Convert.ToInt32(ScoreToMod(Cha)); }
         }
 
         public Abilities()
@@ -297,19 +258,7 @@ namespace DruidAssistant
 
         public override string ToString()
         {
-            string builder = "";
-            for (int i = 0; i < this.Count; i++)
-            {
-                if (i == 0)
-                {
-                    builder = this[i].ToString();
-                }
-                else
-                {
-                    builder += " and " + this[i].ToString();
-                }
-            }
-            return builder;
+            return string.Join(" and ", this);
         }
     }
 
@@ -323,6 +272,7 @@ namespace DruidAssistant
         {
 
         }
+
         public Saves(int f, int r, int w)
         {
             Fort = f;
@@ -339,33 +289,12 @@ namespace DruidAssistant
         public int NewBonus { get; set; }
         public AlternateAbilityMods AlternateAbility { get; set; } = new AlternateAbilityMods();
         public AbilityMod DefMod { get; set; }
-        //public AbilityMod? ModStr { get; set; }
-        //public AbilityMod? ModDex { get; set; }
-        //public AbilityMod? ModCon { get; set; }
-        //public AbilityMod? ModInt { get; set; }
-        //public AbilityMod? ModWis { get; set; }
-        //public AbilityMod? ModCha { get; set; }
         public bool Asterisk { get; set; }
 
         public SkillMod()
         {
 
         }
-
-        //public SkillMod(Skill skill, string addition, int bonus, AbilityMod defmod, AbilityMod? modstr, AbilityMod? moddex, AbilityMod? modcon, AbilityMod? modint, AbilityMod? modwis, AbilityMod? modcha, bool ast)
-        //{
-        //    Skill = skill;
-        //    Addition = addition;
-        //    Bonus = bonus;
-        //    DefMod = defmod;
-        //    ModStr = modstr;
-        //    ModDex = moddex;
-        //    ModCon = modcon;
-        //    ModInt = modint;
-        //    ModWis = modwis;
-        //    ModCha = modcha;
-        //    Asterisk = ast;
-        //}
 
         public SkillMod(Skill skill, string addition, int bonus, AlternateAbilityMods alternates, bool ast)
         {
@@ -422,8 +351,8 @@ namespace DruidAssistant
             {Skill.Survival,          AbilityMod.Wis },
             {Skill.Swim,              AbilityMod.Str },
             {Skill.Tumble,            AbilityMod.Dex },
-            {Skill.UseMagicDevice,AbilityMod.Cha },
-            {Skill.UseRope, AbilityMod.Dex }
+            {Skill.UseMagicDevice,    AbilityMod.Cha },
+            {Skill.UseRope,           AbilityMod.Dex }
         };
     }
 

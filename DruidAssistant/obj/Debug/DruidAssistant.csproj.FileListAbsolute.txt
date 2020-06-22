@@ -7,7 +7,6 @@ N:\Development\DSA\DruidAssistant\bin\Debug\Druid Assistant.exe
 N:\Development\DSA\DruidAssistant\bin\Debug\Druid Assistant.pdb
 N:\Development\DSA\DruidAssistant\obj\Debug\DruidAssistant.DruidMain.resources
 N:\Development\DSA\DruidAssistant\obj\Debug\DruidAssistant.Properties.Resources.resources
-N:\Development\DSA\DruidAssistant\obj\Debug\DruidAssistant.SummonedCreature.resources
 N:\Development\DSA\DruidAssistant\obj\Debug\DruidAssistant.csproj.GenerateResource.cache
 N:\Development\DSA\DruidAssistant\obj\Debug\DruidAssistant.csproj.CoreCompileInputs.cache
 N:\Development\DSA\DruidAssistant\obj\Debug\Druid Assistant.exe.manifest
@@ -15,3 +14,4 @@ N:\Development\DSA\DruidAssistant\obj\Debug\Druid Assistant.application
 N:\Development\DSA\DruidAssistant\obj\Debug\Druid Assistant.exe
 N:\Development\DSA\DruidAssistant\obj\Debug\Druid Assistant.pdb
 N:\Development\DSA\DruidAssistant\obj\Debug\DruidAssistant.csprojAssemblyReference.cache
+N:\Development\DSA\DruidAssistant\obj\Debug\DruidAssistant.Summoned.resources

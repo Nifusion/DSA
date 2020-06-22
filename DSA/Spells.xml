@@ -4701,4 +4701,29 @@ A wing feather from any bird.</Description>
     <SourceBook>CM</SourceBook>
     <Favorited>true</Favorited>
   </Spell>
+  <Spell>
+    <Index>217</Index>
+    <Name>False Bravado</Name>
+    <Class>Druid</Class>
+    <Level>3</Level>
+    <Domain>Enchantment (Compulsion) [Mind-Affecting]</Domain>
+    <Components>V, S, F</Components>
+    <Casting />
+    <Range>Close (25 ft. + 5 ft ./2 levels)</Range>
+    <Target />
+    <Effect />
+    <Duration>3 rounds + the subject's Constitution modifier</Duration>
+    <SavingThrow>Will negates</SavingThrow>
+    <SpellResistance>Yes</SpellResistance>
+    <Description>False bravado causes the subject to grow overconfident, believing that he or she has gained the full effects of a barbarian's rage (Constitution and Strength bonuses aswell as improved Will saves). In fact, however, the af- fected creature incurs all the penalties of a barbariansrage but gains none of its advantages. 
+
+The subject suffers a -2 penalty to AC and cannot use skills or abilities that require patience and concentration, such as moving silently or casting spells. At the end of the spell's duration, the creature is fatigued (-2 penalties to Strength and Dexterity, unable to charge or run) for the rest of that encounter.
+
+Focus : A small mirror with a sigil of bravery painted upon it, worth at least 25 gp.</Description>
+    <PersonalNotes>-2 to AC; no skills/abilities that require patience or concentration.
+
+At end, fatigued: -2 to STR &amp; DEX, unable to charge or run for the rest of the encounter</PersonalNotes>
+    <SourceBook>MotW v3.0</SourceBook>
+    <Favorited>false</Favorited>
+  </Spell>
 </ArrayOfSpell>

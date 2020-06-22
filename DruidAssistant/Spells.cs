@@ -13,11 +13,9 @@ namespace DruidAssistant
     {
         public static Spells Retrieve(string xmlPath)
         {
-            XmlSerializer xs = new XmlSerializer(typeof(Spells));
-
             using (Stream inputStream = File.OpenRead(xmlPath))
             {
-                return (Spells)xs.Deserialize(inputStream);
+                return (Spells)new XmlSerializer(typeof(Spells)).Deserialize(inputStream);
             }
         }
     }
