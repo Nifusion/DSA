@@ -42,14 +42,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Druid Assistant.exe" size="292376">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Druid Assistant.exe" size="288792">
       <assemblyIdentity name="Druid Assistant" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>90BrWzaN/4ERC3CHX1j88JUyAdxb5Wv3Mhyes4Nffbs=</dsig:DigestValue>
+        <dsig:DigestValue>jQuX98f8gm6T1mGsYk++mzuT4SPrZM4VNptJ6Rnnm34=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -62,13 +62,13 @@
       <dsig:DigestValue>pcEh8YJsqlwgrU7Bl1knsr/UIQiWbCIkzgpkj9yDs88=</dsig:DigestValue>
     </hash>
   </file>
-  <file name="Spells.xml" size="294749" writeableType="applicationData">
+  <file name="Spells.xml" size="302035" writeableType="applicationData">
     <hash>
       <dsig:Transforms>
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-      <dsig:DigestValue>BI0V9qOuk1sfTZ5YMtDpcpugDCpEIUqecMGuZ0x6sR0=</dsig:DigestValue>
+      <dsig:DigestValue>VwjsxkKqK1/itBzLdiyKq7XLoszCZv4IlzyCehnaQD0=</dsig:DigestValue>
     </hash>
   </file>
   <file name="Summons.xml" size="234821" writeableType="applicationData">

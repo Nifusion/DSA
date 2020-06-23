@@ -1678,7 +1678,7 @@ When you use a summoning spell to summon an air, chaotic, earth, evil, fire, goo
     <Components>V, S</Components>
     <Casting>1 standard action</Casting>
     <Range>Medium (100 ft. + 10 ft./level)</Range>
-    <Target />
+    <Target>Up to one animal (Gargantuan or smaller) per two levels, no two of which can be more than 30 ft. apart</Target>
     <Effect />
     <Duration>1 min./level</Duration>
     <SavingThrow>Fortitude negates</SavingThrow>
@@ -1694,6 +1694,7 @@ Any enlarged item that leaves the enlarged creature’s possession instantly ret
 The spell gives no means of command or influence over the enlarged animals.
 
 Multiple magical effects that increase size do not stack.</Description>
+    <PersonalNotes />
     <SourceBook>PHB</SourceBook>
     <Favorited>false</Favorited>
   </Spell>
@@ -3875,7 +3876,7 @@ per caster level (maximum +20) to
 nearby creatures other than you. If
 you are willing to take the
 damage yourself, you
-deal twice as much damage. You don’t get a Refl ex
+deal twice as much damage. You don’t get a Reflex
 save, but spell resistance applies, as do
 any resistances and immunities you
 have to the energy type.
@@ -3943,7 +3944,7 @@ This spell functions like call lightning, except that each bolt deals 5d6 points
     <Target>A line between two creatures</Target>
     <Effect />
     <Duration>Instantaneous</Duration>
-    <SavingThrow>Refl ex half</SavingThrow>
+    <SavingThrow>Reflex half</SavingThrow>
     <SpellResistance>No</SpellResistance>
     <Description>Static fills the air as you complete the spell. With a gesture you create magical conductivity between two creatures, and a bolt of electricity arcs between them with a shockingly loud crackle. This bolt deals 1d6 points of electricity damage per caster level (maximum 15d6) to both creatures and to anything in the line between them. Both creatures must be in range, and you must be able to target them both (as if this spell had them as its targets). Draw the line from any corner in one creature’s space to any corner in the other’s space. The bolt affects all squares in this line. Arcane Material Component: Two small iron rods. </Description>
     <SourceBook>SC</SourceBook>
@@ -4059,7 +4060,7 @@ scales from a snake.</Description>
     <Duration>1 hour/level (D)</Duration>
     <SavingThrow>Will negates</SavingThrow>
     <SpellResistance>Yes (harmless)</SpellResistance>
-    <Description>A chill grips you as you complete the spell and touch your intended subject. The feet of the spell’s subject glow with an ice-blue radiance that fades but lingers. The creature rises slightly out of the snow, as if it weighed much less. The affected creature can walk lightly over ice and snow without having its speed reduced. The affected creature gains a 10-foot enhancement bonus to speed and is not required to make a Balance check or Refl ex save to walk on ice and snow without slipping and falling, to avoid cracking ice it walks over, or to avoid falling through cracked ice. In addition, the affected creature does not leave a more readily discernible trail through ice and snow than it does on solid ground, denying trackers potential bonuses to follow the affected creature’s path. (See Weather, DMG 93–95, and Cold Dangers, DMG 302, for more details on the effects of weather and ice.) </Description>
+    <Description>A chill grips you as you complete the spell and touch your intended subject. The feet of the spell’s subject glow with an ice-blue radiance that fades but lingers. The creature rises slightly out of the snow, as if it weighed much less. The affected creature can walk lightly over ice and snow without having its speed reduced. The affected creature gains a 10-foot enhancement bonus to speed and is not required to make a Balance check or Reflex save to walk on ice and snow without slipping and falling, to avoid cracking ice it walks over, or to avoid falling through cracked ice. In addition, the affected creature does not leave a more readily discernible trail through ice and snow than it does on solid ground, denying trackers potential bonuses to follow the affected creature’s path. (See Weather, DMG 93–95, and Cold Dangers, DMG 302, for more details on the effects of weather and ice.) </Description>
     <SourceBook>SC</SourceBook>
     <Favorited>true</Favorited>
   </Spell>
@@ -4077,7 +4078,7 @@ scales from a snake.</Description>
     <Duration>1 hour/level (D)</Duration>
     <SavingThrow>Will negates</SavingThrow>
     <SpellResistance>Yes (harmless)</SpellResistance>
-    <Description>A chill grips you as you complete the spell and touch your intended subject. The feet of the spell’s subject glow with an ice-blue radiance that fades but lingers. The creature rises slightly out of the snow, as if it weighed much less. The affected creature can walk lightly over ice and snow without having its speed reduced. The affected creature gains a 10-foot enhancement bonus to speed and is not required to make a Balance check or Refl ex save to walk on ice and snow without slipping and falling, to avoid cracking ice it walks over, or to avoid falling through cracked ice. In addition, the affected creature does not leave a more readily discernible trail through ice and snow than it does on solid ground, denying trackers potential bonuses to follow the affected creature’s path. (See Weather, DMG 93–95, and Cold Dangers, DMG 302, for more details on the effects of weather and ice.) </Description>
+    <Description>A chill grips you as you complete the spell and touch your intended subject. The feet of the spell’s subject glow with an ice-blue radiance that fades but lingers. The creature rises slightly out of the snow, as if it weighed much less. The affected creature can walk lightly over ice and snow without having its speed reduced. The affected creature gains a 10-foot enhancement bonus to speed and is not required to make a Balance check or Reflex save to walk on ice and snow without slipping and falling, to avoid cracking ice it walks over, or to avoid falling through cracked ice. In addition, the affected creature does not leave a more readily discernible trail through ice and snow than it does on solid ground, denying trackers potential bonuses to follow the affected creature’s path. (See Weather, DMG 93–95, and Cold Dangers, DMG 302, for more details on the effects of weather and ice.) </Description>
     <SourceBook>SC</SourceBook>
     <Favorited>false</Favorited>
   </Spell>
@@ -4214,7 +4215,7 @@ Focus: A golden amulet shaped like a phoenix (worth 150 gp). </Description>
     <Target>10-ft.-radius burst centered on your hands</Target>
     <Effect />
     <Duration>Instantaneous</Duration>
-    <SavingThrow>Refl ex half</SavingThrow>
+    <SavingThrow>Reflex half</SavingThrow>
     <SpellResistance>Yes</SpellResistance>
     <Description>Whipping your hand in a wide arc, you spray sand from your fingers in a powerful blast. Creatures in the area take 1d6 points of nonlethal damage. Any creature that fails its Reflex save is also stunned for 1 round. You </Description>
     <SourceBook>SC</SourceBook>
@@ -4392,8 +4393,8 @@ This spell imparts to all allies in its area a shared awareness of their surroun
     <Duration>1 min/level</Duration>
     <SavingThrow>Will negates (harmless)</SavingThrow>
     <SpellResistance>Yes (harmless)</SpellResistance>
-    <Description>By calling on the power of nature, you grant the target animal a +1 luck bonus on attack and damage rolls for every
-2 caster levels you possess.</Description>
+    <Description>By calling on the power of nature, you grant the target animal a +1 luck bonus on attack and damage rolls for every 2 caster levels you possess.</Description>
+    <PersonalNotes />
     <SourceBook>CD</SourceBook>
     <Favorited>false</Favorited>
   </Spell>
@@ -4445,7 +4446,7 @@ This spell imparts to all allies in its area a shared awareness of their surroun
     <Target>Plants in a 20-ft.-radius spread</Target>
     <Effect />
     <Duration>1 minute/level</Duration>
-    <SavingThrow>Refl ex negates; see text</SavingThrow>
+    <SavingThrow>Reflex negates; see text</SavingThrow>
     <SpellResistance>No</SpellResistance>
     <Description>This spell causes grasses, weeds, bushes, and even trees to grow thorns and then wrap and twist around creatures in or entering the area. Creatures that make their save against this spell are unaffected other than having to move at half speed within the area of affect. If a creature fails its initial saving throw, it has three options: stay perfectly still, attempt to break free from the thorns, or continue to actnormally. A creature that fails its save but stands perfectly still is entangled (–2 attack, –4 Dexterity), but experiences no other effect and takes no damage. Anyone entangled in this way loses the entangled condition if they leave the area of the spell. Each round in which a creature remains in the area, it may spend a full round action extricating themselves from the thorns. Doing so allows for a new saving throw. If successful, the creature is unaffected by the thorns except it may only move at half speed in the area of the spell. Successfully breaking free in this way is the only thing a character can do that does not cause thorn damage to the character. A failed attempt to break free deals the normal 2d6 thorn piercing damage. Those that attempt actions (such as attack, cast a spell with a somatic component, or move) take 2d6 points of piercing damage from the thorns. A creature that tries to cast a spell must also make a Concentration check (DC 15 + spell level + damage taken) or lose the spell. The plants provide cover. A creature 5 feet away has cover. Creaturs separated by 20 or more feet of briar webs have total cover. </Description>
     <SourceBook>CD</SourceBook>
@@ -4622,6 +4623,107 @@ A wing feather from any bird.</Description>
     <SpellResistance>Yes</SpellResistance>
     <Description>You clutch the quartz in your hand, focusing the energy of the spell into a sharp spear. With a thought, you send it whistling through the air at your foe. You must succeed on a normal ranged attack to strike a target with an icelance. You gain a +4 bonus on your attack roll. If you hit, the icelance deals 6d6 points of damage to the target. Half of this damage is piercing damage; the rest is cold damage. In addition, the target must make a Fortitude save or be stunned for 1d4 rounds. Regardless of the result of the attack, the icelance shatters upon its fi rst use. Focus: A 50-gp clear quartz gemstone. Alternatively, if you are in a cold region, you can substitute 10 pounds of ice or snow for the quartz. </Description>
     <SourceBook>SC</SourceBook>
+    <Favorited>false</Favorited>
+  </Spell>
+  <Spell>
+    <Index>213</Index>
+    <Name>Heart of Air</Name>
+    <Class>Druid</Class>
+    <Level>2</Level>
+    <Domain>Transmutation [Air]</Domain>
+    <Components>V, S</Components>
+    <Casting>1 standard action</Casting>
+    <Range>Personal</Range>
+    <Target>You</Target>
+    <Effect />
+    <Duration>1 hour/level (D) or until expended</Duration>
+    <SavingThrow />
+    <SpellResistance />
+    <Description>You feel light as a feather, as if the slightest breeze might knock you about. This spell converts part of your body into elemental air, freeing you somewhat from the bonds of gravity. You gain a +10 enhancement bonus on Jump checks, and if you have a fly speed, that speed gains a +10-foot enhancement bonus. Furthermore, while this spell is active, you can activate a feather fall effect (as the spell) on yourself as an immediate action. This benefit lasts for 1 round per level, at the end of which time the spell's entire effect ends. If heart of air is active on you at the same time as heart of earth, heart of fire, or heart of water, you gain light fortification. If all four of these spells are active on you at the same time, you become immune to extra damage from critical hits and sneak attacks. </Description>
+    <PersonalNotes />
+    <SourceBook>CM</SourceBook>
+    <Favorited>true</Favorited>
+  </Spell>
+  <Spell>
+    <Index>214</Index>
+    <Name>Heart of Earth</Name>
+    <Class>Druid</Class>
+    <Level>4</Level>
+    <Domain>Transmutation [Earth]</Domain>
+    <Components>V, S</Components>
+    <Casting>1 standard action</Casting>
+    <Range>Personal</Range>
+    <Target>You</Target>
+    <Effect />
+    <Duration>1 hour/level (D) or until expended</Duration>
+    <SavingThrow />
+    <SpellResistance />
+    <Description>You feel your flesh strengthen with the power of stone. This spell converts part of your body into elemental earth, which toughens you considerably. You gain a +8 bonus on checks to resist a bull rush, overrun, or trip attack. You also gain temporary hit points equal to twice your caster level (up to 30 hp). Furthermore, while this spell is active, you can activate a stoneskin effect (as the spell) on yourself as a swift action. This benefit lasts for 1 round per level (or until the stoneskin's total protection is consumed), at the end of which time the spell's entire effect ends. If heart of earth is active on you at the same time as heart of air, heart of fire, or heart of water, you gain light fortification. If all four of these spells are active on you at the same time, you become immune to extra damage from critical hits and sneak attacks. </Description>
+    <PersonalNotes />
+    <SourceBook>CM</SourceBook>
+    <Favorited>true</Favorited>
+  </Spell>
+  <Spell>
+    <Index>215</Index>
+    <Name>Heart of Fire</Name>
+    <Class>Druid</Class>
+    <Level>5</Level>
+    <Domain>Transmutation [Fire]</Domain>
+    <Components>V, S</Components>
+    <Casting>1 standard action</Casting>
+    <Range>Personal</Range>
+    <Target>You</Target>
+    <Effect />
+    <Duration>1 hour/level (D) or until expended</Duration>
+    <SavingThrow />
+    <SpellResistance />
+    <Description>You feel a sudden flame burning within you. This spell converts part of your body into elemental fire, which speeds your step and toughens your flesh. You gain a +10-foot enhancement bonus to your land speed and resistance to fire 20. Furthermore, while this spell is active, you can activate a fire shield effect (as the spell; fire-based protection only) on yourself as a swift action. This benefit lasts for 1 round per level, at the end of which time the spell's entire effect ends. If heart of fire is active on you at the same time as heart of air, heart of earth, or heart of water, you gain light fortification. If all four of these spells are active on you at the same time, you become immune to extra damage from critical hits and sneak attacks. </Description>
+    <PersonalNotes />
+    <SourceBook>CM</SourceBook>
+    <Favorited>true</Favorited>
+  </Spell>
+  <Spell>
+    <Index>216</Index>
+    <Name>Heart of Water</Name>
+    <Class>Druid</Class>
+    <Level>3</Level>
+    <Domain>Transmutation [Water]</Domain>
+    <Components>V, S</Components>
+    <Casting>1 standard action</Casting>
+    <Range>Personal</Range>
+    <Target>You</Target>
+    <Effect />
+    <Duration>1 hour/level (D) or until expended</Duration>
+    <SavingThrow />
+    <SpellResistance />
+    <Description>The crashing of waves echoes in your ears. This spell converts part of your body into elemental water, which makes you better able to navigate aquatic environments and slip through confined spaces. You gain a swim speed equal to your land speed, which grants you certain benefits (including a +8 racial bonus on Swim checks; see MM 311). You also gain the ability to breathe water (as if under the effect of a water breathing spell). Finally, you gain a +5 enhancement bonus on Escape Artist checks. Furthermore, while this spell is active, you can activate a freedom of movement effect (as the spell) on yourself as a swift action. This benefit lasts for 1 round per level, at the end of which time the spell's entire effect ends. If heart of water is active on you at the same time as heart of air, heart of earth, or heart of fire, you gain light fortification. If all four of these spells are active on you at the same time, you become immune to extra damage from critical hits and sneak attacks. </Description>
+    <PersonalNotes />
+    <SourceBook>CM</SourceBook>
+    <Favorited>true</Favorited>
+  </Spell>
+  <Spell>
+    <Index>217</Index>
+    <Name>False Bravado</Name>
+    <Class>Druid</Class>
+    <Level>3</Level>
+    <Domain>Enchantment (Compulsion) [Mind-Affecting]</Domain>
+    <Components>V, S, F</Components>
+    <Casting />
+    <Range>Close (25 ft. + 5 ft ./2 levels)</Range>
+    <Target />
+    <Effect />
+    <Duration>3 rounds + the subject's Constitution modifier</Duration>
+    <SavingThrow>Will negates</SavingThrow>
+    <SpellResistance>Yes</SpellResistance>
+    <Description>False bravado causes the subject to grow overconfident, believing that he or she has gained the full effects of a barbarian's rage (Constitution and Strength bonuses aswell as improved Will saves). In fact, however, the af- fected creature incurs all the penalties of a barbariansrage but gains none of its advantages. 
+
+The subject suffers a -2 penalty to AC and cannot use skills or abilities that require patience and concentration, such as moving silently or casting spells. At the end of the spell's duration, the creature is fatigued (-2 penalties to Strength and Dexterity, unable to charge or run) for the rest of that encounter.
+
+Focus : A small mirror with a sigil of bravery painted upon it, worth at least 25 gp.</Description>
+    <PersonalNotes>-2 to AC; no skills/abilities that require patience or concentration.
+
+At end, fatigued: -2 to STR &amp; DEX, unable to charge or run for the rest of the encounter</PersonalNotes>
+    <SourceBook>MotW v3.0</SourceBook>
     <Favorited>false</Favorited>
   </Spell>
 </ArrayOfSpell>

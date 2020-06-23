@@ -131,9 +131,7 @@
       <Install>false</Install>
     </BootstrapperPackage>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Resources\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Content Include="Spells.xml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>

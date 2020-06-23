@@ -1031,15 +1031,5 @@ namespace DruidAssistant
             RichTextBox rtb = (RichTextBox)((ContextMenuStrip)((ToolStripMenuItem)sender).GetCurrentParent()).SourceControl;
             rtb.Text = rtb.Text.Replace("\n ", " ").Replace("\n", " ").Replace("\r ", " ").Replace("\r", " ").Replace("  ", " ").Replace("  ", "");
         }
-
-        private void DruidMain_ResizeBegin(object sender, EventArgs e)
-        {
-            this.SuspendLayout();
-        }
-
-        private void DruidMain_ResizeEnd(object sender, EventArgs e)
-        {
-            this.ResumeLayout(true);
-        }
     }
 }
