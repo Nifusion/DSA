@@ -57,19 +57,19 @@ namespace DruidAssistant
             var list = lvAugments.CheckedItems.Cast<object>().Select(x => x.ToString()).ToList();
             if (list.Any(x => x.Contains("Feat: Spell Focus (Conjuration)")))
             {
-                st = Feats.SpellFocusConjuration(st);
+                st = Augments.Feats.SpellFocusConjuration(st);
             }
             if (list.Any(x => x.Contains("Feat: Augment Summoning")))
             {
-                st = Feats.AugmentSummoning(st);
+                st = Augments.Feats.AugmentSummoning(st);
             }
             if (list.Any(x => x.Contains("Feat: Greenbound Summoning")))
             {
-                st = Feats.GreenboundSummoning.Augment(st);
+                st = Augments.Feats.GreenboundSummoning.Augment(st);
             }
             if (list.Any(x => x.Contains("Item: Obad-Hai's Green Man")))
             {
-                st = Items.ObadHaisGreenMan(st);
+                st = Augments.Items.ObadHaisGreenMan(st);
             }
 
             st.Rounds = st.PCCasterLevel * (int.TryParse(nudDurationMultiplier.Value.ToString(), out int durationMult) ? durationMult : 1);
@@ -449,7 +449,7 @@ namespace DruidAssistant
         private void BtnTryParseSpell_Click(object sender, EventArgs e)
         {
             ClearSpellPage();
-            Spell tryParseSpell = new Spell(FileParser.GetSpellFromText(rtbSpellText.Text));
+            Spell tryParseSpell = new Spell(Spell.GetSpellFromText(rtbSpellText.Text));
             tbSpellName.Text = tryParseSpell.Name;
             tbSpellClass.Text = tryParseSpell.Class;
             tbSpellLevel.Text = tryParseSpell.Level;
@@ -470,7 +470,7 @@ namespace DruidAssistant
         private void BtnTryParseSummon_Click(object sender, EventArgs e)
         {
             ClearSummonPage();
-            Summon st = FileParser.GetSummonTemplateFromText(rtbSummonText.Text);
+            Summon st = Summon.GetSummonTemplateFromText(rtbSummonText.Text);
             LoadPreview(st);
         }
 
@@ -652,8 +652,8 @@ namespace DruidAssistant
                 SpecAtks = tbSpecAtks.Text.Split(',').ToList(),
                 SpecQual = tbSpecQual.Text.Split(',').ToList(),
                 Notes = rtbCombat.Text.Split('\r').ToList(),
-                Attacks = FileParser.GetAttacks(rtbAttacks.Text),
-                FullAttacks = FileParser.GetFullAttacks(rtbFullAttacks.Text)
+                Attacks = Summon.GetAttacks(rtbAttacks.Text),
+                FullAttacks = Summon.GetFullAttacks(rtbFullAttacks.Text)
             };
 
             Summons summons = Summons.Retrieve(sittingSummonXML);
@@ -733,8 +733,8 @@ namespace DruidAssistant
                     SpecAtks = tbSpecAtks.Text.Split(',').ToList(),
                     SpecQual = tbSpecQual.Text.Split(',').ToList(),
                     Notes = rtbCombat.Text.Split('\r').ToList(),
-                    Attacks = FileParser.GetAttacks(rtbAttacks.Text),
-                    FullAttacks = FileParser.GetFullAttacks(rtbFullAttacks.Text)
+                    Attacks = Summon.GetAttacks(rtbAttacks.Text),
+                    FullAttacks = Summon.GetFullAttacks(rtbFullAttacks.Text)
                 };
 
                 Summons summons = Summons.Retrieve(sittingSummonXML);

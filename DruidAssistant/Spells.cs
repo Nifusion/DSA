@@ -9,6 +9,18 @@ using System.IO;
 
 namespace DruidAssistant
 {
+    public static class SpellExtensions
+    {
+        public static void Save(this Spells spells, string xmlPath)
+        {
+            XmlSerializer xs = new XmlSerializer(typeof(Spells));
+
+            using (StreamWriter outputStream = new StreamWriter(xmlPath, false))
+            {
+                xs.Serialize(outputStream, spells);
+            }
+        }
+    }
     public class Spells : List<Spell>
     {
         public static Spells Retrieve(string xmlPath)
@@ -59,6 +71,136 @@ namespace DruidAssistant
             SavingThrow = spellArray[10];
             SpellResistance = spellArray[11];
             Description = spellArray[12];
+        }
+
+        public static string[] GetSpellFromText(string text)
+        {
+            string[] textArray = text.Replace("\r\n", "~").Replace("\n", "~").Replace("\r", "~").Split('~');
+
+            bool desc = false;
+
+            string[] spellArray = new string[13];
+
+            string name = "";
+            string domain = "";
+            string spellLevel = "";
+            string components = "";
+            string castingTime = "";
+            string range = "";
+            string target = "";
+            string effect = "";
+            string duration = "";
+            string savingThrow = "";
+            string spellResistance = "";
+            string description = "";
+
+            for (int i = 0; i < textArray.Length; i++)
+            {
+                string line = textArray[i];
+
+                if (i == 0)
+                {
+                    name = line;
+                }
+                if (i == 1)
+                {
+                    domain = line;
+                }
+                if (line.Contains("Level:"))
+                {
+                    spellLevel = line.Split(':')[1];
+                }
+                if (line.Contains("Components:"))
+                {
+                    components = line.Split(':')[1];
+                }
+                if (line.Contains("Casting Time:"))
+                {
+                    castingTime = line.Split(':')[1];
+                }
+                if (line.Contains("Range:"))
+                {
+                    range = line.Split(':')[1];
+                }
+                if (line.Contains("Target:") || line.Contains("Area:"))
+                {
+                    target = line.Split(':')[1];
+                }
+                if (line.Contains("Effect:"))
+                {
+                    effect = line.Split(':')[1];
+                }
+                if (line.Contains("Duration:"))
+                {
+                    duration = line.Split(':')[1];
+                }
+                if (line.Contains("Saving Throw:"))
+                {
+                    savingThrow = line.Split(':')[1];
+                }
+                if (line.Contains("Spell Resistance:"))
+                {
+                    spellResistance = line.Split(':')[1];
+                }
+                if (line.Contains("Description:") || (!line.Contains(":") && i > 3))
+                {
+                    line = line.Replace("Description:", "");
+                    desc = true;
+                }
+                if (desc)
+                {
+                    line.Replace("\r", " ").Replace("\n", " ");
+                    if (line == " " || line == "")
+                    {
+                        description += "\r\r";
+                    }
+                    else
+                    {
+                        description += line + " ";
+                    }
+                }
+            }
+            string[] classLevel = GetSpellLevel(spellLevel.TrimStart(' ').TrimStart('\t'));
+
+            spellArray[0] = classLevel[1].TrimStart(' ').TrimStart('\t');
+            spellArray[1] = classLevel[0].TrimStart(' ').TrimStart('\t');
+            spellArray[2] = name.TrimStart(' ').TrimStart('\t');
+            spellArray[3] = domain.TrimStart(' ').TrimStart('\t');
+            spellArray[4] = components.TrimStart(' ').TrimStart('\t');
+            spellArray[5] = castingTime.TrimStart(' ').TrimStart('\t');
+            spellArray[6] = range.TrimStart(' ').TrimStart('\t');
+            spellArray[7] = target.TrimStart(' ').TrimStart('\t');
+            spellArray[8] = effect.TrimStart(' ').TrimStart('\t');
+            spellArray[9] = duration.TrimStart(' ').TrimStart('\t');
+            spellArray[10] = savingThrow.TrimStart(' ').TrimStart('\t');
+            spellArray[11] = spellResistance.TrimStart(' ').TrimStart('\t');
+            spellArray[12] = description.TrimStart(' ').TrimStart('\t').Replace("  ", " ");
+
+            return spellArray;
+        }
+
+        public static string[] GetSpellLevel(string text)
+        {
+            Regex drd = new Regex("drd [0-9]");
+            Regex druid = new Regex("druid [0-9]");
+            if (drd.IsMatch(text.ToLower()))
+            {
+                string m = drd.Match(text.ToLower()).Value;
+                string[] ma = m.Split(' ');
+                ma[0] = "Druid";
+                return ma;
+            }
+            else if (druid.IsMatch(text.ToLower()))
+            {
+                string m = druid.Match(text.ToLower()).Value;
+                string[] ma = m.Split(' ');
+                ma[0] = "Druid";
+                return ma;
+            }
+            else
+            {
+                return new string[] { "Class Not Found", "0" };
+            }
         }
     }
 

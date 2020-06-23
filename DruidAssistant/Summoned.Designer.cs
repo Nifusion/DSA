@@ -400,7 +400,7 @@
             this.panel10.Size = new System.Drawing.Size(46, 21);
             this.panel10.TabIndex = 42;
             // 
-            // labelFlatMisc
+            // nudFlatMisc
             // 
             this.nudFlatMisc.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
             this.nudFlatMisc.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -412,7 +412,7 @@
             0,
             0,
             -2147483648});
-            this.nudFlatMisc.Name = "labelFlatMisc";
+            this.nudFlatMisc.Name = "nudFlatMisc";
             this.nudFlatMisc.Size = new System.Drawing.Size(46, 20);
             this.nudFlatMisc.TabIndex = 12;
             this.nudFlatMisc.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -441,7 +441,7 @@
             this.panel12.Size = new System.Drawing.Size(46, 20);
             this.panel12.TabIndex = 42;
             // 
-            // labelTouchMisc
+            // nudTouchMisc
             // 
             this.nudTouchMisc.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
             this.nudTouchMisc.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
@@ -454,7 +454,7 @@
             0,
             0,
             -2147483648});
-            this.nudTouchMisc.Name = "labelTouchMisc";
+            this.nudTouchMisc.Name = "nudTouchMisc";
             this.nudTouchMisc.Size = new System.Drawing.Size(46, 20);
             this.nudTouchMisc.TabIndex = 12;
             this.nudTouchMisc.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -496,7 +496,7 @@
             this.panel11.Size = new System.Drawing.Size(46, 20);
             this.panel11.TabIndex = 42;
             // 
-            // labelACMisc
+            // nudACMisc
             // 
             this.nudACMisc.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
             this.nudACMisc.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
@@ -509,7 +509,7 @@
             0,
             0,
             -2147483648});
-            this.nudACMisc.Name = "labelACMisc";
+            this.nudACMisc.Name = "nudACMisc";
             this.nudACMisc.Size = new System.Drawing.Size(46, 20);
             this.nudACMisc.TabIndex = 12;
             this.nudACMisc.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -1545,7 +1545,7 @@
             this.panel6.Size = new System.Drawing.Size(41, 21);
             this.panel6.TabIndex = 42;
             // 
-            // labelWillMisc
+            // nudWillMisc
             // 
             this.nudWillMisc.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
             this.nudWillMisc.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
@@ -1558,7 +1558,7 @@
             0,
             0,
             -2147483648});
-            this.nudWillMisc.Name = "labelWillMisc";
+            this.nudWillMisc.Name = "nudWillMisc";
             this.nudWillMisc.Size = new System.Drawing.Size(41, 20);
             this.nudWillMisc.TabIndex = 12;
             this.nudWillMisc.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -1587,7 +1587,7 @@
             this.panel4.Size = new System.Drawing.Size(41, 20);
             this.panel4.TabIndex = 41;
             // 
-            // labelRefMisc
+            // nudRefMisc
             // 
             this.nudRefMisc.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
             this.nudRefMisc.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
@@ -1600,7 +1600,7 @@
             0,
             0,
             -2147483648});
-            this.nudRefMisc.Name = "labelRefMisc";
+            this.nudRefMisc.Name = "nudRefMisc";
             this.nudRefMisc.Size = new System.Drawing.Size(41, 20);
             this.nudRefMisc.TabIndex = 12;
             this.nudRefMisc.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -1629,7 +1629,7 @@
             this.panel5.Size = new System.Drawing.Size(41, 20);
             this.panel5.TabIndex = 42;
             // 
-            // labelFortMisc
+            // nudFortMisc
             // 
             this.nudFortMisc.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
             this.nudFortMisc.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
@@ -1642,7 +1642,7 @@
             0,
             0,
             -2147483648});
-            this.nudFortMisc.Name = "labelFortMisc";
+            this.nudFortMisc.Name = "nudFortMisc";
             this.nudFortMisc.Size = new System.Drawing.Size(41, 20);
             this.nudFortMisc.TabIndex = 12;
             this.nudFortMisc.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -2020,7 +2020,7 @@
             this.panel9.Size = new System.Drawing.Size(35, 21);
             this.panel9.TabIndex = 42;
             // 
-            // labelRangeMisc
+            // nudRangeMisc
             // 
             this.nudRangeMisc.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
             this.nudRangeMisc.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
@@ -2033,7 +2033,7 @@
             0,
             0,
             -2147483648});
-            this.nudRangeMisc.Name = "labelRangeMisc";
+            this.nudRangeMisc.Name = "nudRangeMisc";
             this.nudRangeMisc.Size = new System.Drawing.Size(35, 20);
             this.nudRangeMisc.TabIndex = 12;
             this.nudRangeMisc.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -2075,7 +2075,7 @@
             this.panel7.Size = new System.Drawing.Size(35, 19);
             this.panel7.TabIndex = 42;
             // 
-            // labelMeleeMisc
+            // nudMeleeMisc
             // 
             this.nudMeleeMisc.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
             this.nudMeleeMisc.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
@@ -2088,7 +2088,7 @@
             0,
             0,
             -2147483648});
-            this.nudMeleeMisc.Name = "labelMeleeMisc";
+            this.nudMeleeMisc.Name = "nudMeleeMisc";
             this.nudMeleeMisc.Size = new System.Drawing.Size(35, 20);
             this.nudMeleeMisc.TabIndex = 12;
             this.nudMeleeMisc.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -2117,7 +2117,7 @@
             this.panel8.Size = new System.Drawing.Size(35, 19);
             this.panel8.TabIndex = 42;
             // 
-            // labelGrappleMisc
+            // nudGrappleMisc
             // 
             this.nudGrappleMisc.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
             this.nudGrappleMisc.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
@@ -2130,7 +2130,7 @@
             0,
             0,
             -2147483648});
-            this.nudGrappleMisc.Name = "labelGrappleMisc";
+            this.nudGrappleMisc.Name = "nudGrappleMisc";
             this.nudGrappleMisc.Size = new System.Drawing.Size(35, 20);
             this.nudGrappleMisc.TabIndex = 12;
             this.nudGrappleMisc.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;

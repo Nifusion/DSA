@@ -29,10 +29,10 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.ListViewItem listViewItem9 = new System.Windows.Forms.ListViewItem("Feat: Augment Summoning");
-            System.Windows.Forms.ListViewItem listViewItem10 = new System.Windows.Forms.ListViewItem("Feat: Spell Focus (Conjuration)");
-            System.Windows.Forms.ListViewItem listViewItem11 = new System.Windows.Forms.ListViewItem("Feat: Greenbound Summoning");
-            System.Windows.Forms.ListViewItem listViewItem12 = new System.Windows.Forms.ListViewItem("Item: Obad-Hai\'s Green Man");
+            System.Windows.Forms.ListViewItem listViewItem13 = new System.Windows.Forms.ListViewItem("Feat: Augment Summoning");
+            System.Windows.Forms.ListViewItem listViewItem14 = new System.Windows.Forms.ListViewItem("Feat: Spell Focus (Conjuration)");
+            System.Windows.Forms.ListViewItem listViewItem15 = new System.Windows.Forms.ListViewItem("Feat: Greenbound Summoning");
+            System.Windows.Forms.ListViewItem listViewItem16 = new System.Windows.Forms.ListViewItem("Item: Obad-Hai\'s Green Man");
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(DruidMain));
             this.rtbSummonText = new System.Windows.Forms.RichTextBox();
             this.panel1 = new System.Windows.Forms.Panel();
@@ -1297,19 +1297,19 @@
             this.columnHeader1});
             this.lvAugments.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.lvAugments.HideSelection = false;
-            listViewItem9.Checked = true;
-            listViewItem9.StateImageIndex = 1;
-            listViewItem10.Checked = true;
-            listViewItem10.StateImageIndex = 1;
-            listViewItem11.Checked = true;
-            listViewItem11.StateImageIndex = 1;
-            listViewItem12.Checked = true;
-            listViewItem12.StateImageIndex = 1;
+            listViewItem13.Checked = true;
+            listViewItem13.StateImageIndex = 1;
+            listViewItem14.Checked = true;
+            listViewItem14.StateImageIndex = 1;
+            listViewItem15.Checked = true;
+            listViewItem15.StateImageIndex = 1;
+            listViewItem16.Checked = true;
+            listViewItem16.StateImageIndex = 1;
             this.lvAugments.Items.AddRange(new System.Windows.Forms.ListViewItem[] {
-            listViewItem9,
-            listViewItem10,
-            listViewItem11,
-            listViewItem12});
+            listViewItem13,
+            listViewItem14,
+            listViewItem15,
+            listViewItem16});
             this.lvAugments.Location = new System.Drawing.Point(3, 179);
             this.lvAugments.Name = "lvAugments";
             this.lvAugments.Size = new System.Drawing.Size(234, 97);

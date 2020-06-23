@@ -42,14 +42,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Druid Assistant.exe" size="293400">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Druid Assistant.exe" size="292376">
       <assemblyIdentity name="Druid Assistant" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>otqeAy0v3Q3QmsEMdM751wF09nPXMS1q4ITj3kTk2+4=</dsig:DigestValue>
+        <dsig:DigestValue>90BrWzaN/4ERC3CHX1j88JUyAdxb5Wv3Mhyes4Nffbs=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>

@@ -54,34 +54,11 @@ namespace DruidAssistant
             nudINT.MouseWheel += new MouseEventHandler(MouseWheelSuppresser);
             nudWIS.MouseWheel += new MouseEventHandler(MouseWheelSuppresser);
             nudCHA.MouseWheel += new MouseEventHandler(MouseWheelSuppresser);
-
         }
 
         private void MouseWheelSuppresser(object sender, MouseEventArgs e)
         {
             ((HandledMouseEventArgs)e).Handled = true;
-        }
-
-        private void ListDirectory(TreeView treeView, string path)
-        {
-            var rootDirectoryInfo = new DirectoryInfo(path);
-            treeView.Nodes.Add(CreateDirectoryNode(rootDirectoryInfo));
-        }
-
-        private static TreeNode CreateDirectoryNode(DirectoryInfo directoryInfo)
-        {
-            var directoryNode = new TreeNode(directoryInfo.Name);
-            foreach (var directory in directoryInfo.GetDirectories())
-            {
-                directoryNode.Nodes.Add(CreateDirectoryNode(directory));
-            }
-            foreach (var file in directoryInfo.GetFiles())
-            {
-                TreeNode tn = new TreeNode(file.Name);
-                tn.Tag = file.FullName;
-                directoryNode.Nodes.Add(tn);
-            }
-            return directoryNode;
         }
 
         private void NudSTR_ValueChanged(object sender, EventArgs e)
@@ -129,7 +106,7 @@ namespace DruidAssistant
 
             for (int i = 0; i < st.Skills.Count; i++)
             {
-                lbSkills.Items.Add(FileParser.CorrectSkillModForward(st.Skills[i], st.Abilities));
+                lbSkills.Items.Add(Summon.CorrectSkillModForward(st.Skills[i], st.Abilities));
             }
 
             for (int i = 0; i < st.Feats.Count; i++)
@@ -323,7 +300,7 @@ namespace DruidAssistant
                 Attack thisAttack = st.Attacks[i];
                 if (thisAttack.Name == "GB Slam")
                 {
-                    thisAttack.Extra = Feats.GreenboundSummoning.GreenboundSlamDamage(st.Size);
+                    thisAttack.Extra = Augments.Feats.GreenboundSummoning.SlamDamage(st.Size);
                 }
             }
 
