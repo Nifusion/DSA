@@ -29,10 +29,10 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.ListViewItem listViewItem5 = new System.Windows.Forms.ListViewItem("Feat: Augment Summoning");
-            System.Windows.Forms.ListViewItem listViewItem6 = new System.Windows.Forms.ListViewItem("Feat: Spell Focus (Conjuration)");
-            System.Windows.Forms.ListViewItem listViewItem7 = new System.Windows.Forms.ListViewItem("Feat: Greenbound Summoning");
-            System.Windows.Forms.ListViewItem listViewItem8 = new System.Windows.Forms.ListViewItem("Item: Obad-Hai\'s Green Man");
+            System.Windows.Forms.ListViewItem listViewItem1 = new System.Windows.Forms.ListViewItem("Feat: Augment Summoning");
+            System.Windows.Forms.ListViewItem listViewItem2 = new System.Windows.Forms.ListViewItem("Feat: Spell Focus (Conjuration)");
+            System.Windows.Forms.ListViewItem listViewItem3 = new System.Windows.Forms.ListViewItem("Feat: Greenbound Summoning");
+            System.Windows.Forms.ListViewItem listViewItem4 = new System.Windows.Forms.ListViewItem("Item: Obad-Hai\'s Green Man");
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(DruidMain));
             this.rtbSummonText = new System.Windows.Forms.RichTextBox();
             this.panel1 = new System.Windows.Forms.Panel();
@@ -121,10 +121,9 @@
             this.label14 = new System.Windows.Forms.Label();
             this.btnPreview = new System.Windows.Forms.Button();
             this.tabPageTryParseSummon = new System.Windows.Forms.TabPage();
-            this.panel10 = new System.Windows.Forms.Panel();
+            this.label19 = new System.Windows.Forms.Label();
             this.btnTryParseSummon = new System.Windows.Forms.Button();
             this.label16 = new System.Windows.Forms.Label();
-            this.label19 = new System.Windows.Forms.Label();
             this.btnRefreshSummons = new System.Windows.Forms.Button();
             this.tabPageSpells = new System.Windows.Forms.TabPage();
             this.panel4 = new System.Windows.Forms.Panel();
@@ -133,24 +132,29 @@
             this.panel5 = new System.Windows.Forms.Panel();
             this.tlpDescriptionHolders = new System.Windows.Forms.TableLayoutPanel();
             this.panel12 = new System.Windows.Forms.Panel();
-            this.label9 = new System.Windows.Forms.Label();
-            this.tbSpellTarget = new System.Windows.Forms.TextBox();
-            this.label8 = new System.Windows.Forms.Label();
-            this.tbSpellRange = new System.Windows.Forms.TextBox();
-            this.tbSpellCastingTime = new System.Windows.Forms.TextBox();
-            this.label6 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
-            this.tbSpellComponents = new System.Windows.Forms.TextBox();
-            this.label5 = new System.Windows.Forms.Label();
-            this.tbSpellDomain = new System.Windows.Forms.TextBox();
-            this.tbSpellName = new System.Windows.Forms.TextBox();
-            this.label3 = new System.Windows.Forms.Label();
             this.rtbPersonalNotes = new System.Windows.Forms.RichTextBox();
             this.label34 = new System.Windows.Forms.Label();
             this.label35 = new System.Windows.Forms.Label();
             this.panel6 = new System.Windows.Forms.Panel();
+            this.rtbSpellDescription = new System.Windows.Forms.RichTextBox();
+            this.cmsDescriptionMethods = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.decomposeLineBreaksToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.tableLayoutPanel20 = new System.Windows.Forms.TableLayoutPanel();
+            this.tbSource = new System.Windows.Forms.TextBox();
             this.label50 = new System.Windows.Forms.Label();
+            this.tbSpellTarget = new System.Windows.Forms.TextBox();
+            this.label9 = new System.Windows.Forms.Label();
+            this.tbSpellResistance = new System.Windows.Forms.TextBox();
             this.label13 = new System.Windows.Forms.Label();
+            this.chkFavoriteSpell = new System.Windows.Forms.CheckBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.tbSpellSaving = new System.Windows.Forms.TextBox();
+            this.label12 = new System.Windows.Forms.Label();
+            this.tbSpellRange = new System.Windows.Forms.TextBox();
+            this.label8 = new System.Windows.Forms.Label();
+            this.tbSpellDuration = new System.Windows.Forms.TextBox();
+            this.label11 = new System.Windows.Forms.Label();
+            this.tbSpellName = new System.Windows.Forms.TextBox();
             this.tableLayoutPanel21 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel9 = new System.Windows.Forms.TableLayoutPanel();
             this.label15 = new System.Windows.Forms.Label();
@@ -158,18 +162,14 @@
             this.tableLayoutPanel11 = new System.Windows.Forms.TableLayoutPanel();
             this.label4 = new System.Windows.Forms.Label();
             this.tbSpellLevel = new System.Windows.Forms.TextBox();
-            this.tbSpellResistance = new System.Windows.Forms.TextBox();
-            this.label12 = new System.Windows.Forms.Label();
-            this.tbSpellSaving = new System.Windows.Forms.TextBox();
-            this.label11 = new System.Windows.Forms.Label();
-            this.tbSpellDuration = new System.Windows.Forms.TextBox();
-            this.label10 = new System.Windows.Forms.Label();
             this.tbSpellEffect = new System.Windows.Forms.TextBox();
-            this.rtbSpellDescription = new System.Windows.Forms.RichTextBox();
-            this.cmsDescriptionMethods = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.decomposeLineBreaksToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.tableLayoutPanel20 = new System.Windows.Forms.TableLayoutPanel();
-            this.chkFavoriteSpell = new System.Windows.Forms.CheckBox();
+            this.label10 = new System.Windows.Forms.Label();
+            this.tbSpellCastingTime = new System.Windows.Forms.TextBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.tbSpellComponents = new System.Windows.Forms.TextBox();
+            this.tbSpellDomain = new System.Windows.Forms.TextBox();
             this.menuStripSpell = new System.Windows.Forms.MenuStrip();
             this.addSpellToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.saveSpellToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -186,9 +186,8 @@
             this.chkShowAllSpells = new System.Windows.Forms.CheckBox();
             this.tabPageTryParseSpell = new System.Windows.Forms.TabPage();
             this.rtbSpellText = new System.Windows.Forms.RichTextBox();
-            this.panel7 = new System.Windows.Forms.Panel();
-            this.btnTryParseSpell = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
+            this.btnTryParseSpell = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.btnRefreshSpells = new System.Windows.Forms.Button();
             this.tabPageConfig = new System.Windows.Forms.TabPage();
@@ -200,7 +199,6 @@
             this.changeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tbSummonsXML = new System.Windows.Forms.TextBox();
             this.label52 = new System.Windows.Forms.Label();
-            this.tbSource = new System.Windows.Forms.TextBox();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nudCasterLevel)).BeginInit();
             this.tcMain.SuspendLayout();
@@ -233,7 +231,6 @@
             this.panel13.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nudDurationMultiplier)).BeginInit();
             this.tabPageTryParseSummon.SuspendLayout();
-            this.panel10.SuspendLayout();
             this.tabPageSpells.SuspendLayout();
             this.panel4.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -242,11 +239,11 @@
             this.tlpDescriptionHolders.SuspendLayout();
             this.panel12.SuspendLayout();
             this.panel6.SuspendLayout();
+            this.cmsDescriptionMethods.SuspendLayout();
+            this.tableLayoutPanel20.SuspendLayout();
             this.tableLayoutPanel21.SuspendLayout();
             this.tableLayoutPanel9.SuspendLayout();
             this.tableLayoutPanel11.SuspendLayout();
-            this.cmsDescriptionMethods.SuspendLayout();
-            this.tableLayoutPanel20.SuspendLayout();
             this.menuStripSpell.SuspendLayout();
             this.panel3.SuspendLayout();
             this.tcSpells.SuspendLayout();
@@ -254,7 +251,6 @@
             this.tlpSpells.SuspendLayout();
             this.cmsSpells.SuspendLayout();
             this.tabPageTryParseSpell.SuspendLayout();
-            this.panel7.SuspendLayout();
             this.tabPageConfig.SuspendLayout();
             this.groupXMLFiles.SuspendLayout();
             this.cmsConfigXML.SuspendLayout();
@@ -264,9 +260,10 @@
             // 
             this.rtbSummonText.AcceptsTab = true;
             this.rtbSummonText.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.rtbSummonText.Location = new System.Drawing.Point(3, 3);
+            this.rtbSummonText.Location = new System.Drawing.Point(0, 0);
+            this.rtbSummonText.Margin = new System.Windows.Forms.Padding(0);
             this.rtbSummonText.Name = "rtbSummonText";
-            this.rtbSummonText.Size = new System.Drawing.Size(234, 326);
+            this.rtbSummonText.Size = new System.Drawing.Size(240, 332);
             this.rtbSummonText.TabIndex = 0;
             this.rtbSummonText.Text = "";
             // 
@@ -1275,19 +1272,19 @@
             this.columnHeader1});
             this.lvAugments.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.lvAugments.HideSelection = false;
-            listViewItem5.Checked = true;
-            listViewItem5.StateImageIndex = 1;
-            listViewItem6.Checked = true;
-            listViewItem6.StateImageIndex = 1;
-            listViewItem7.Checked = true;
-            listViewItem7.StateImageIndex = 1;
-            listViewItem8.Checked = true;
-            listViewItem8.StateImageIndex = 1;
+            listViewItem1.Checked = true;
+            listViewItem1.StateImageIndex = 1;
+            listViewItem2.Checked = true;
+            listViewItem2.StateImageIndex = 1;
+            listViewItem3.Checked = true;
+            listViewItem3.StateImageIndex = 1;
+            listViewItem4.Checked = true;
+            listViewItem4.StateImageIndex = 1;
             this.lvAugments.Items.AddRange(new System.Windows.Forms.ListViewItem[] {
-            listViewItem5,
-            listViewItem6,
-            listViewItem7,
-            listViewItem8});
+            listViewItem1,
+            listViewItem2,
+            listViewItem3,
+            listViewItem4});
             this.lvAugments.Location = new System.Drawing.Point(3, 179);
             this.lvAugments.Name = "lvAugments";
             this.lvAugments.Size = new System.Drawing.Size(234, 97);
@@ -1351,33 +1348,34 @@
             // tabPageTryParseSummon
             // 
             this.tabPageTryParseSummon.Controls.Add(this.rtbSummonText);
-            this.tabPageTryParseSummon.Controls.Add(this.panel10);
+            this.tabPageTryParseSummon.Controls.Add(this.label19);
+            this.tabPageTryParseSummon.Controls.Add(this.btnTryParseSummon);
+            this.tabPageTryParseSummon.Controls.Add(this.label16);
             this.tabPageTryParseSummon.Location = new System.Drawing.Point(4, 22);
             this.tabPageTryParseSummon.Name = "tabPageTryParseSummon";
-            this.tabPageTryParseSummon.Padding = new System.Windows.Forms.Padding(3);
             this.tabPageTryParseSummon.Size = new System.Drawing.Size(240, 411);
             this.tabPageTryParseSummon.TabIndex = 1;
             this.tabPageTryParseSummon.Text = "Try Parse Summon";
             this.tabPageTryParseSummon.UseVisualStyleBackColor = true;
             // 
-            // panel10
+            // label19
             // 
-            this.panel10.Controls.Add(this.btnTryParseSummon);
-            this.panel10.Controls.Add(this.label16);
-            this.panel10.Controls.Add(this.label19);
-            this.panel10.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel10.Location = new System.Drawing.Point(3, 329);
-            this.panel10.Name = "panel10";
-            this.panel10.Size = new System.Drawing.Size(234, 79);
-            this.panel10.TabIndex = 8;
+            this.label19.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.label19.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label19.Location = new System.Drawing.Point(0, 332);
+            this.label19.Name = "label19";
+            this.label19.Size = new System.Drawing.Size(240, 30);
+            this.label19.TabIndex = 3;
+            this.label19.Text = "Copy/Paste Summon SRD Wiki page and press";
+            this.label19.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // btnTryParseSummon
             // 
-            this.btnTryParseSummon.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnTryParseSummon.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.btnTryParseSummon.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnTryParseSummon.Location = new System.Drawing.Point(0, 30);
+            this.btnTryParseSummon.Location = new System.Drawing.Point(0, 362);
             this.btnTryParseSummon.Name = "btnTryParseSummon";
-            this.btnTryParseSummon.Size = new System.Drawing.Size(234, 34);
+            this.btnTryParseSummon.Size = new System.Drawing.Size(240, 34);
             this.btnTryParseSummon.TabIndex = 1;
             this.btnTryParseSummon.Text = "Try Parse";
             this.btnTryParseSummon.UseVisualStyleBackColor = true;
@@ -1387,23 +1385,12 @@
             // 
             this.label16.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.label16.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label16.Location = new System.Drawing.Point(0, 64);
+            this.label16.Location = new System.Drawing.Point(0, 396);
             this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(234, 15);
+            this.label16.Size = new System.Drawing.Size(240, 15);
             this.label16.TabIndex = 4;
-            this.label16.Text = "Fill in what is missing; then save";
+            this.label16.Text = "Fill in what\'s missing; then save";
             this.label16.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // label19
-            // 
-            this.label19.Dock = System.Windows.Forms.DockStyle.Top;
-            this.label19.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label19.Location = new System.Drawing.Point(0, 0);
-            this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(234, 30);
-            this.label19.TabIndex = 3;
-            this.label19.Text = "Copy/Paste Summon SRD Wiki page and press";
-            this.label19.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // btnRefreshSummons
             // 
@@ -1502,129 +1489,6 @@
             this.panel12.Size = new System.Drawing.Size(340, 212);
             this.panel12.TabIndex = 3;
             // 
-            // label9
-            // 
-            this.label9.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(3, 221);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(336, 12);
-            this.label9.TabIndex = 4;
-            this.label9.Text = "Target";
-            this.label9.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // tbSpellTarget
-            // 
-            this.tbSpellTarget.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tbSpellTarget.Location = new System.Drawing.Point(0, 233);
-            this.tbSpellTarget.Margin = new System.Windows.Forms.Padding(0);
-            this.tbSpellTarget.Name = "tbSpellTarget";
-            this.tbSpellTarget.Size = new System.Drawing.Size(342, 20);
-            this.tbSpellTarget.TabIndex = 7;
-            // 
-            // label8
-            // 
-            this.label8.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(3, 189);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(336, 12);
-            this.label8.TabIndex = 4;
-            this.label8.Text = "Range";
-            this.label8.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // tbSpellRange
-            // 
-            this.tbSpellRange.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tbSpellRange.Location = new System.Drawing.Point(0, 201);
-            this.tbSpellRange.Margin = new System.Windows.Forms.Padding(0);
-            this.tbSpellRange.Name = "tbSpellRange";
-            this.tbSpellRange.Size = new System.Drawing.Size(342, 20);
-            this.tbSpellRange.TabIndex = 6;
-            // 
-            // tbSpellCastingTime
-            // 
-            this.tbSpellCastingTime.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tbSpellCastingTime.Location = new System.Drawing.Point(0, 169);
-            this.tbSpellCastingTime.Margin = new System.Windows.Forms.Padding(0);
-            this.tbSpellCastingTime.Name = "tbSpellCastingTime";
-            this.tbSpellCastingTime.Size = new System.Drawing.Size(342, 20);
-            this.tbSpellCastingTime.TabIndex = 5;
-            // 
-            // label6
-            // 
-            this.label6.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(3, 125);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(336, 12);
-            this.label6.TabIndex = 4;
-            this.label6.Text = "Components";
-            this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // label7
-            // 
-            this.label7.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(3, 157);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(336, 12);
-            this.label7.TabIndex = 4;
-            this.label7.Text = "Casting Time";
-            this.label7.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // tbSpellComponents
-            // 
-            this.tbSpellComponents.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tbSpellComponents.Location = new System.Drawing.Point(0, 137);
-            this.tbSpellComponents.Margin = new System.Windows.Forms.Padding(0);
-            this.tbSpellComponents.Name = "tbSpellComponents";
-            this.tbSpellComponents.Size = new System.Drawing.Size(342, 20);
-            this.tbSpellComponents.TabIndex = 4;
-            // 
-            // label5
-            // 
-            this.label5.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(3, 61);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(336, 12);
-            this.label5.TabIndex = 4;
-            this.label5.Text = "Domain";
-            this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // tbSpellDomain
-            // 
-            this.tbSpellDomain.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tbSpellDomain.Location = new System.Drawing.Point(0, 73);
-            this.tbSpellDomain.Margin = new System.Windows.Forms.Padding(0);
-            this.tbSpellDomain.Name = "tbSpellDomain";
-            this.tbSpellDomain.Size = new System.Drawing.Size(342, 20);
-            this.tbSpellDomain.TabIndex = 3;
-            // 
-            // tbSpellName
-            // 
-            this.tbSpellName.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tbSpellName.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbSpellName.Location = new System.Drawing.Point(0, 37);
-            this.tbSpellName.Margin = new System.Windows.Forms.Padding(0);
-            this.tbSpellName.Name = "tbSpellName";
-            this.tbSpellName.Size = new System.Drawing.Size(342, 24);
-            this.tbSpellName.TabIndex = 0;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(3, 25);
-            this.label3.Margin = new System.Windows.Forms.Padding(3, 3, 3, 0);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(336, 12);
-            this.label3.TabIndex = 4;
-            this.label3.Text = "Name";
-            this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
             // rtbPersonalNotes
             // 
             this.rtbPersonalNotes.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -1666,191 +1530,6 @@
             this.panel6.Name = "panel6";
             this.panel6.Size = new System.Drawing.Size(340, 211);
             this.panel6.TabIndex = 2;
-            // 
-            // label50
-            // 
-            this.label50.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label50.Font = new System.Drawing.Font("Microsoft Sans Serif", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label50.Location = new System.Drawing.Point(3, 381);
-            this.label50.Name = "label50";
-            this.label50.Size = new System.Drawing.Size(336, 12);
-            this.label50.TabIndex = 12;
-            this.label50.Text = "Source";
-            this.label50.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // label13
-            // 
-            this.label13.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label13.Location = new System.Drawing.Point(3, 349);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(336, 12);
-            this.label13.TabIndex = 4;
-            this.label13.Text = "Spell Resistance";
-            this.label13.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // tableLayoutPanel21
-            // 
-            this.tableLayoutPanel21.AutoSize = true;
-            this.tableLayoutPanel21.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.tableLayoutPanel21.ColumnCount = 2;
-            this.tableLayoutPanel21.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel21.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel21.Controls.Add(this.tableLayoutPanel9, 0, 0);
-            this.tableLayoutPanel21.Controls.Add(this.tableLayoutPanel11, 1, 0);
-            this.tableLayoutPanel21.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel21.Location = new System.Drawing.Point(0, 93);
-            this.tableLayoutPanel21.Margin = new System.Windows.Forms.Padding(0);
-            this.tableLayoutPanel21.Name = "tableLayoutPanel21";
-            this.tableLayoutPanel21.RowCount = 1;
-            this.tableLayoutPanel21.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tableLayoutPanel21.Size = new System.Drawing.Size(342, 32);
-            this.tableLayoutPanel21.TabIndex = 32;
-            // 
-            // tableLayoutPanel9
-            // 
-            this.tableLayoutPanel9.AutoSize = true;
-            this.tableLayoutPanel9.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.tableLayoutPanel9.ColumnCount = 1;
-            this.tableLayoutPanel9.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel9.Controls.Add(this.label15, 0, 0);
-            this.tableLayoutPanel9.Controls.Add(this.tbSpellClass, 0, 1);
-            this.tableLayoutPanel9.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel9.Location = new System.Drawing.Point(0, 0);
-            this.tableLayoutPanel9.Margin = new System.Windows.Forms.Padding(0);
-            this.tableLayoutPanel9.Name = "tableLayoutPanel9";
-            this.tableLayoutPanel9.RowCount = 2;
-            this.tableLayoutPanel9.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tableLayoutPanel9.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tableLayoutPanel9.Size = new System.Drawing.Size(171, 32);
-            this.tableLayoutPanel9.TabIndex = 21;
-            // 
-            // label15
-            // 
-            this.label15.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label15.Font = new System.Drawing.Font("Microsoft Sans Serif", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label15.Location = new System.Drawing.Point(3, 0);
-            this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(165, 12);
-            this.label15.TabIndex = 4;
-            this.label15.Text = "Class";
-            this.label15.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // tbSpellClass
-            // 
-            this.tbSpellClass.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tbSpellClass.Location = new System.Drawing.Point(0, 12);
-            this.tbSpellClass.Margin = new System.Windows.Forms.Padding(0);
-            this.tbSpellClass.Name = "tbSpellClass";
-            this.tbSpellClass.Size = new System.Drawing.Size(171, 20);
-            this.tbSpellClass.TabIndex = 1;
-            // 
-            // tableLayoutPanel11
-            // 
-            this.tableLayoutPanel11.AutoSize = true;
-            this.tableLayoutPanel11.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.tableLayoutPanel11.ColumnCount = 1;
-            this.tableLayoutPanel11.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel11.Controls.Add(this.label4, 0, 0);
-            this.tableLayoutPanel11.Controls.Add(this.tbSpellLevel, 0, 1);
-            this.tableLayoutPanel11.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel11.Location = new System.Drawing.Point(171, 0);
-            this.tableLayoutPanel11.Margin = new System.Windows.Forms.Padding(0);
-            this.tableLayoutPanel11.Name = "tableLayoutPanel11";
-            this.tableLayoutPanel11.RowCount = 2;
-            this.tableLayoutPanel11.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tableLayoutPanel11.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tableLayoutPanel11.Size = new System.Drawing.Size(171, 32);
-            this.tableLayoutPanel11.TabIndex = 22;
-            // 
-            // label4
-            // 
-            this.label4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(3, 0);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(165, 12);
-            this.label4.TabIndex = 4;
-            this.label4.Text = "Level";
-            this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // tbSpellLevel
-            // 
-            this.tbSpellLevel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tbSpellLevel.Location = new System.Drawing.Point(0, 12);
-            this.tbSpellLevel.Margin = new System.Windows.Forms.Padding(0);
-            this.tbSpellLevel.Name = "tbSpellLevel";
-            this.tbSpellLevel.Size = new System.Drawing.Size(171, 20);
-            this.tbSpellLevel.TabIndex = 2;
-            // 
-            // tbSpellResistance
-            // 
-            this.tbSpellResistance.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tbSpellResistance.Location = new System.Drawing.Point(0, 361);
-            this.tbSpellResistance.Margin = new System.Windows.Forms.Padding(0);
-            this.tbSpellResistance.Name = "tbSpellResistance";
-            this.tbSpellResistance.Size = new System.Drawing.Size(342, 20);
-            this.tbSpellResistance.TabIndex = 11;
-            // 
-            // label12
-            // 
-            this.label12.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label12.Location = new System.Drawing.Point(3, 317);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(336, 12);
-            this.label12.TabIndex = 4;
-            this.label12.Text = "Saving Throw";
-            this.label12.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // tbSpellSaving
-            // 
-            this.tbSpellSaving.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tbSpellSaving.Location = new System.Drawing.Point(0, 329);
-            this.tbSpellSaving.Margin = new System.Windows.Forms.Padding(0);
-            this.tbSpellSaving.Name = "tbSpellSaving";
-            this.tbSpellSaving.Size = new System.Drawing.Size(342, 20);
-            this.tbSpellSaving.TabIndex = 10;
-            // 
-            // label11
-            // 
-            this.label11.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.Location = new System.Drawing.Point(3, 285);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(336, 12);
-            this.label11.TabIndex = 4;
-            this.label11.Text = "Duration";
-            this.label11.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // tbSpellDuration
-            // 
-            this.tbSpellDuration.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tbSpellDuration.Location = new System.Drawing.Point(0, 297);
-            this.tbSpellDuration.Margin = new System.Windows.Forms.Padding(0);
-            this.tbSpellDuration.Name = "tbSpellDuration";
-            this.tbSpellDuration.Size = new System.Drawing.Size(342, 20);
-            this.tbSpellDuration.TabIndex = 9;
-            // 
-            // label10
-            // 
-            this.label10.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.Location = new System.Drawing.Point(3, 253);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(336, 12);
-            this.label10.TabIndex = 4;
-            this.label10.Text = "Effect";
-            this.label10.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // tbSpellEffect
-            // 
-            this.tbSpellEffect.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tbSpellEffect.Location = new System.Drawing.Point(0, 265);
-            this.tbSpellEffect.Margin = new System.Windows.Forms.Padding(0);
-            this.tbSpellEffect.Name = "tbSpellEffect";
-            this.tbSpellEffect.Size = new System.Drawing.Size(342, 20);
-            this.tbSpellEffect.TabIndex = 8;
             // 
             // rtbSpellDescription
             // 
@@ -1946,6 +1625,66 @@
             this.tableLayoutPanel20.Size = new System.Drawing.Size(342, 449);
             this.tableLayoutPanel20.TabIndex = 31;
             // 
+            // tbSource
+            // 
+            this.tbSource.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tbSource.Location = new System.Drawing.Point(0, 393);
+            this.tbSource.Margin = new System.Windows.Forms.Padding(0);
+            this.tbSource.Name = "tbSource";
+            this.tbSource.Size = new System.Drawing.Size(342, 20);
+            this.tbSource.TabIndex = 13;
+            // 
+            // label50
+            // 
+            this.label50.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label50.Font = new System.Drawing.Font("Microsoft Sans Serif", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label50.Location = new System.Drawing.Point(3, 381);
+            this.label50.Name = "label50";
+            this.label50.Size = new System.Drawing.Size(336, 12);
+            this.label50.TabIndex = 12;
+            this.label50.Text = "Source";
+            this.label50.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // tbSpellTarget
+            // 
+            this.tbSpellTarget.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tbSpellTarget.Location = new System.Drawing.Point(0, 233);
+            this.tbSpellTarget.Margin = new System.Windows.Forms.Padding(0);
+            this.tbSpellTarget.Name = "tbSpellTarget";
+            this.tbSpellTarget.Size = new System.Drawing.Size(342, 20);
+            this.tbSpellTarget.TabIndex = 7;
+            // 
+            // label9
+            // 
+            this.label9.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.Location = new System.Drawing.Point(3, 221);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(336, 12);
+            this.label9.TabIndex = 4;
+            this.label9.Text = "Target";
+            this.label9.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // tbSpellResistance
+            // 
+            this.tbSpellResistance.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tbSpellResistance.Location = new System.Drawing.Point(0, 361);
+            this.tbSpellResistance.Margin = new System.Windows.Forms.Padding(0);
+            this.tbSpellResistance.Name = "tbSpellResistance";
+            this.tbSpellResistance.Size = new System.Drawing.Size(342, 20);
+            this.tbSpellResistance.TabIndex = 11;
+            // 
+            // label13
+            // 
+            this.label13.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label13.Location = new System.Drawing.Point(3, 349);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(336, 12);
+            this.label13.TabIndex = 4;
+            this.label13.Text = "Spell Resistance";
+            this.label13.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
             // chkFavoriteSpell
             // 
             this.chkFavoriteSpell.Appearance = System.Windows.Forms.Appearance.Button;
@@ -1961,6 +1700,263 @@
             this.chkFavoriteSpell.Tag = "";
             this.chkFavoriteSpell.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.chkFavoriteSpell.UseVisualStyleBackColor = true;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(3, 25);
+            this.label3.Margin = new System.Windows.Forms.Padding(3, 3, 3, 0);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(336, 12);
+            this.label3.TabIndex = 4;
+            this.label3.Text = "Name";
+            this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // tbSpellSaving
+            // 
+            this.tbSpellSaving.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tbSpellSaving.Location = new System.Drawing.Point(0, 329);
+            this.tbSpellSaving.Margin = new System.Windows.Forms.Padding(0);
+            this.tbSpellSaving.Name = "tbSpellSaving";
+            this.tbSpellSaving.Size = new System.Drawing.Size(342, 20);
+            this.tbSpellSaving.TabIndex = 10;
+            // 
+            // label12
+            // 
+            this.label12.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label12.Location = new System.Drawing.Point(3, 317);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(336, 12);
+            this.label12.TabIndex = 4;
+            this.label12.Text = "Saving Throw";
+            this.label12.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // tbSpellRange
+            // 
+            this.tbSpellRange.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tbSpellRange.Location = new System.Drawing.Point(0, 201);
+            this.tbSpellRange.Margin = new System.Windows.Forms.Padding(0);
+            this.tbSpellRange.Name = "tbSpellRange";
+            this.tbSpellRange.Size = new System.Drawing.Size(342, 20);
+            this.tbSpellRange.TabIndex = 6;
+            // 
+            // label8
+            // 
+            this.label8.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.Location = new System.Drawing.Point(3, 189);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(336, 12);
+            this.label8.TabIndex = 4;
+            this.label8.Text = "Range";
+            this.label8.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // tbSpellDuration
+            // 
+            this.tbSpellDuration.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tbSpellDuration.Location = new System.Drawing.Point(0, 297);
+            this.tbSpellDuration.Margin = new System.Windows.Forms.Padding(0);
+            this.tbSpellDuration.Name = "tbSpellDuration";
+            this.tbSpellDuration.Size = new System.Drawing.Size(342, 20);
+            this.tbSpellDuration.TabIndex = 9;
+            // 
+            // label11
+            // 
+            this.label11.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label11.Location = new System.Drawing.Point(3, 285);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(336, 12);
+            this.label11.TabIndex = 4;
+            this.label11.Text = "Duration";
+            this.label11.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // tbSpellName
+            // 
+            this.tbSpellName.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tbSpellName.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbSpellName.Location = new System.Drawing.Point(0, 37);
+            this.tbSpellName.Margin = new System.Windows.Forms.Padding(0);
+            this.tbSpellName.Name = "tbSpellName";
+            this.tbSpellName.Size = new System.Drawing.Size(342, 24);
+            this.tbSpellName.TabIndex = 0;
+            // 
+            // tableLayoutPanel21
+            // 
+            this.tableLayoutPanel21.AutoSize = true;
+            this.tableLayoutPanel21.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.tableLayoutPanel21.ColumnCount = 2;
+            this.tableLayoutPanel21.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel21.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel21.Controls.Add(this.tableLayoutPanel9, 0, 0);
+            this.tableLayoutPanel21.Controls.Add(this.tableLayoutPanel11, 1, 0);
+            this.tableLayoutPanel21.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel21.Location = new System.Drawing.Point(0, 93);
+            this.tableLayoutPanel21.Margin = new System.Windows.Forms.Padding(0);
+            this.tableLayoutPanel21.Name = "tableLayoutPanel21";
+            this.tableLayoutPanel21.RowCount = 1;
+            this.tableLayoutPanel21.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tableLayoutPanel21.Size = new System.Drawing.Size(342, 32);
+            this.tableLayoutPanel21.TabIndex = 32;
+            // 
+            // tableLayoutPanel9
+            // 
+            this.tableLayoutPanel9.AutoSize = true;
+            this.tableLayoutPanel9.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.tableLayoutPanel9.ColumnCount = 1;
+            this.tableLayoutPanel9.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel9.Controls.Add(this.label15, 0, 0);
+            this.tableLayoutPanel9.Controls.Add(this.tbSpellClass, 0, 1);
+            this.tableLayoutPanel9.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel9.Location = new System.Drawing.Point(0, 0);
+            this.tableLayoutPanel9.Margin = new System.Windows.Forms.Padding(0);
+            this.tableLayoutPanel9.Name = "tableLayoutPanel9";
+            this.tableLayoutPanel9.RowCount = 2;
+            this.tableLayoutPanel9.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tableLayoutPanel9.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tableLayoutPanel9.Size = new System.Drawing.Size(171, 32);
+            this.tableLayoutPanel9.TabIndex = 21;
+            // 
+            // label15
+            // 
+            this.label15.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label15.Font = new System.Drawing.Font("Microsoft Sans Serif", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label15.Location = new System.Drawing.Point(3, 0);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(165, 12);
+            this.label15.TabIndex = 4;
+            this.label15.Text = "Class";
+            this.label15.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // tbSpellClass
+            // 
+            this.tbSpellClass.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tbSpellClass.Location = new System.Drawing.Point(0, 12);
+            this.tbSpellClass.Margin = new System.Windows.Forms.Padding(0);
+            this.tbSpellClass.Name = "tbSpellClass";
+            this.tbSpellClass.Size = new System.Drawing.Size(171, 20);
+            this.tbSpellClass.TabIndex = 1;
+            // 
+            // tableLayoutPanel11
+            // 
+            this.tableLayoutPanel11.AutoSize = true;
+            this.tableLayoutPanel11.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.tableLayoutPanel11.ColumnCount = 1;
+            this.tableLayoutPanel11.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel11.Controls.Add(this.label4, 0, 0);
+            this.tableLayoutPanel11.Controls.Add(this.tbSpellLevel, 0, 1);
+            this.tableLayoutPanel11.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel11.Location = new System.Drawing.Point(171, 0);
+            this.tableLayoutPanel11.Margin = new System.Windows.Forms.Padding(0);
+            this.tableLayoutPanel11.Name = "tableLayoutPanel11";
+            this.tableLayoutPanel11.RowCount = 2;
+            this.tableLayoutPanel11.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tableLayoutPanel11.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tableLayoutPanel11.Size = new System.Drawing.Size(171, 32);
+            this.tableLayoutPanel11.TabIndex = 22;
+            // 
+            // label4
+            // 
+            this.label4.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(3, 0);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(165, 12);
+            this.label4.TabIndex = 4;
+            this.label4.Text = "Level";
+            this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // tbSpellLevel
+            // 
+            this.tbSpellLevel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tbSpellLevel.Location = new System.Drawing.Point(0, 12);
+            this.tbSpellLevel.Margin = new System.Windows.Forms.Padding(0);
+            this.tbSpellLevel.Name = "tbSpellLevel";
+            this.tbSpellLevel.Size = new System.Drawing.Size(171, 20);
+            this.tbSpellLevel.TabIndex = 2;
+            // 
+            // tbSpellEffect
+            // 
+            this.tbSpellEffect.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tbSpellEffect.Location = new System.Drawing.Point(0, 265);
+            this.tbSpellEffect.Margin = new System.Windows.Forms.Padding(0);
+            this.tbSpellEffect.Name = "tbSpellEffect";
+            this.tbSpellEffect.Size = new System.Drawing.Size(342, 20);
+            this.tbSpellEffect.TabIndex = 8;
+            // 
+            // label10
+            // 
+            this.label10.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label10.Location = new System.Drawing.Point(3, 253);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(336, 12);
+            this.label10.TabIndex = 4;
+            this.label10.Text = "Effect";
+            this.label10.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // tbSpellCastingTime
+            // 
+            this.tbSpellCastingTime.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tbSpellCastingTime.Location = new System.Drawing.Point(0, 169);
+            this.tbSpellCastingTime.Margin = new System.Windows.Forms.Padding(0);
+            this.tbSpellCastingTime.Name = "tbSpellCastingTime";
+            this.tbSpellCastingTime.Size = new System.Drawing.Size(342, 20);
+            this.tbSpellCastingTime.TabIndex = 5;
+            // 
+            // label5
+            // 
+            this.label5.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(3, 61);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(336, 12);
+            this.label5.TabIndex = 4;
+            this.label5.Text = "Domain";
+            this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // label7
+            // 
+            this.label7.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.Location = new System.Drawing.Point(3, 157);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(336, 12);
+            this.label7.TabIndex = 4;
+            this.label7.Text = "Casting Time";
+            this.label7.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // label6
+            // 
+            this.label6.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.Location = new System.Drawing.Point(3, 125);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(336, 12);
+            this.label6.TabIndex = 4;
+            this.label6.Text = "Components";
+            this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // tbSpellComponents
+            // 
+            this.tbSpellComponents.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tbSpellComponents.Location = new System.Drawing.Point(0, 137);
+            this.tbSpellComponents.Margin = new System.Windows.Forms.Padding(0);
+            this.tbSpellComponents.Name = "tbSpellComponents";
+            this.tbSpellComponents.Size = new System.Drawing.Size(342, 20);
+            this.tbSpellComponents.TabIndex = 4;
+            // 
+            // tbSpellDomain
+            // 
+            this.tbSpellDomain.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tbSpellDomain.Location = new System.Drawing.Point(0, 73);
+            this.tbSpellDomain.Margin = new System.Windows.Forms.Padding(0);
+            this.tbSpellDomain.Name = "tbSpellDomain";
+            this.tbSpellDomain.Size = new System.Drawing.Size(342, 20);
+            this.tbSpellDomain.TabIndex = 3;
             // 
             // menuStripSpell
             // 
@@ -2129,7 +2125,9 @@
             // tabPageTryParseSpell
             // 
             this.tabPageTryParseSpell.Controls.Add(this.rtbSpellText);
-            this.tabPageTryParseSpell.Controls.Add(this.panel7);
+            this.tabPageTryParseSpell.Controls.Add(this.label2);
+            this.tabPageTryParseSpell.Controls.Add(this.btnTryParseSpell);
+            this.tabPageTryParseSpell.Controls.Add(this.label1);
             this.tabPageTryParseSpell.Location = new System.Drawing.Point(4, 22);
             this.tabPageTryParseSpell.Name = "tabPageTryParseSpell";
             this.tabPageTryParseSpell.Size = new System.Drawing.Size(240, 411);
@@ -2143,53 +2141,42 @@
             this.rtbSpellText.EnableAutoDragDrop = true;
             this.rtbSpellText.Location = new System.Drawing.Point(0, 0);
             this.rtbSpellText.Name = "rtbSpellText";
-            this.rtbSpellText.Size = new System.Drawing.Size(240, 313);
+            this.rtbSpellText.Size = new System.Drawing.Size(240, 332);
             this.rtbSpellText.TabIndex = 4;
             this.rtbSpellText.Text = "";
             // 
-            // panel7
-            // 
-            this.panel7.Controls.Add(this.btnTryParseSpell);
-            this.panel7.Controls.Add(this.label2);
-            this.panel7.Controls.Add(this.label1);
-            this.panel7.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel7.Location = new System.Drawing.Point(0, 313);
-            this.panel7.Name = "panel7";
-            this.panel7.Size = new System.Drawing.Size(240, 98);
-            this.panel7.TabIndex = 5;
-            // 
-            // btnTryParseSpell
-            // 
-            this.btnTryParseSpell.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btnTryParseSpell.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnTryParseSpell.Location = new System.Drawing.Point(0, 30);
-            this.btnTryParseSpell.Name = "btnTryParseSpell";
-            this.btnTryParseSpell.Size = new System.Drawing.Size(240, 36);
-            this.btnTryParseSpell.TabIndex = 1;
-            this.btnTryParseSpell.Text = "Try Parse";
-            this.btnTryParseSpell.UseVisualStyleBackColor = true;
-            this.btnTryParseSpell.Click += new System.EventHandler(this.BtnTryParseSpell_Click);
-            // 
             // label2
             // 
-            this.label2.Dock = System.Windows.Forms.DockStyle.Top;
+            this.label2.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(0, 0);
+            this.label2.Location = new System.Drawing.Point(0, 332);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(240, 30);
             this.label2.TabIndex = 2;
             this.label2.Text = "Copy/Paste spell SRD Wiki page and press";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // btnTryParseSpell
+            // 
+            this.btnTryParseSpell.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.btnTryParseSpell.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnTryParseSpell.Location = new System.Drawing.Point(0, 362);
+            this.btnTryParseSpell.Name = "btnTryParseSpell";
+            this.btnTryParseSpell.Size = new System.Drawing.Size(240, 34);
+            this.btnTryParseSpell.TabIndex = 1;
+            this.btnTryParseSpell.Text = "Try Parse";
+            this.btnTryParseSpell.UseVisualStyleBackColor = true;
+            this.btnTryParseSpell.Click += new System.EventHandler(this.BtnTryParseSpell_Click);
+            // 
             // label1
             // 
             this.label1.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(0, 66);
+            this.label1.Location = new System.Drawing.Point(0, 396);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(240, 32);
+            this.label1.Size = new System.Drawing.Size(240, 15);
             this.label1.TabIndex = 2;
-            this.label1.Text = "Fill in what is missing; then save";
+            this.label1.Text = "Fill in what\'s missing; then save";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // btnRefreshSpells
@@ -2289,15 +2276,6 @@
             this.label52.TabIndex = 3;
             this.label52.Text = "Spells File";
             // 
-            // tbSource
-            // 
-            this.tbSource.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tbSource.Location = new System.Drawing.Point(0, 393);
-            this.tbSource.Margin = new System.Windows.Forms.Padding(0);
-            this.tbSource.Name = "tbSource";
-            this.tbSource.Size = new System.Drawing.Size(342, 20);
-            this.tbSource.TabIndex = 13;
-            // 
             // DruidMain
             // 
             this.AllowDrop = true;
@@ -2352,7 +2330,6 @@
             this.panel13.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nudDurationMultiplier)).EndInit();
             this.tabPageTryParseSummon.ResumeLayout(false);
-            this.panel10.ResumeLayout(false);
             this.tabPageSpells.ResumeLayout(false);
             this.panel4.ResumeLayout(false);
             this.panel4.PerformLayout();
@@ -2363,15 +2340,15 @@
             this.tlpDescriptionHolders.PerformLayout();
             this.panel12.ResumeLayout(false);
             this.panel6.ResumeLayout(false);
+            this.cmsDescriptionMethods.ResumeLayout(false);
+            this.tableLayoutPanel20.ResumeLayout(false);
+            this.tableLayoutPanel20.PerformLayout();
             this.tableLayoutPanel21.ResumeLayout(false);
             this.tableLayoutPanel21.PerformLayout();
             this.tableLayoutPanel9.ResumeLayout(false);
             this.tableLayoutPanel9.PerformLayout();
             this.tableLayoutPanel11.ResumeLayout(false);
             this.tableLayoutPanel11.PerformLayout();
-            this.cmsDescriptionMethods.ResumeLayout(false);
-            this.tableLayoutPanel20.ResumeLayout(false);
-            this.tableLayoutPanel20.PerformLayout();
             this.menuStripSpell.ResumeLayout(false);
             this.menuStripSpell.PerformLayout();
             this.panel3.ResumeLayout(false);
@@ -2381,7 +2358,6 @@
             this.tlpSpells.PerformLayout();
             this.cmsSpells.ResumeLayout(false);
             this.tabPageTryParseSpell.ResumeLayout(false);
-            this.panel7.ResumeLayout(false);
             this.tabPageConfig.ResumeLayout(false);
             this.groupXMLFiles.ResumeLayout(false);
             this.groupXMLFiles.PerformLayout();
@@ -2427,7 +2403,6 @@
         private System.Windows.Forms.RichTextBox rtbSpellDescription;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Button btnRefreshSummons;
-        private System.Windows.Forms.Panel panel7;
         private System.Windows.Forms.Button btnTryParseSpell;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
@@ -2440,7 +2415,6 @@
         private System.Windows.Forms.TabPage tabPageTryParseSummon;
         private System.Windows.Forms.Panel panel9;
         private System.Windows.Forms.Panel panel8;
-        private System.Windows.Forms.Panel panel10;
         private System.Windows.Forms.Button btnTryParseSummon;
         private System.Windows.Forms.Label label19;
         private System.Windows.Forms.Label label16;
