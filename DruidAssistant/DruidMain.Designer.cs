@@ -2240,19 +2240,19 @@
             this.createNewToolStripMenuItem,
             this.changeToolStripMenuItem});
             this.cmsConfigXML.Name = "cmsConfigXML";
-            this.cmsConfigXML.Size = new System.Drawing.Size(136, 48);
+            this.cmsConfigXML.Size = new System.Drawing.Size(181, 70);
             // 
             // createNewToolStripMenuItem
             // 
             this.createNewToolStripMenuItem.Name = "createNewToolStripMenuItem";
-            this.createNewToolStripMenuItem.Size = new System.Drawing.Size(135, 22);
+            this.createNewToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.createNewToolStripMenuItem.Text = "Create New";
             this.createNewToolStripMenuItem.Click += new System.EventHandler(this.CreateNewToolStripMenuItem_Click);
             // 
             // changeToolStripMenuItem
             // 
             this.changeToolStripMenuItem.Name = "changeToolStripMenuItem";
-            this.changeToolStripMenuItem.Size = new System.Drawing.Size(135, 22);
+            this.changeToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.changeToolStripMenuItem.Text = "Change";
             this.changeToolStripMenuItem.Click += new System.EventHandler(this.ChangeToolStripMenuItem_Click);
             // 

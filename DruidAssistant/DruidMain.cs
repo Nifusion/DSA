@@ -22,21 +22,34 @@ namespace DruidAssistant
         public Summon currentST;
         int sittingSpellID = 0;
         int sittingSummonIndex = 0;
-        string sittingSpellXML;
-        string sittingSummonXML;
 
         public DruidMain()
         {
             InitializeComponent();
             lvAugments.Columns[lvAugments.Columns.Count - 1].Width = -2;
+            Properties.Settings.Default.PropertyChanged += DSA_PropertyChanged;
             SetElementsFromSettings();
+        }
+
+        private void DSA_PropertyChanged(object sender, PropertyChangedEventArgs e)
+        {
+            Properties.Settings.Default.Save();
+
+            if (e.PropertyName == "SummonsXML")
+            {
+                RefreshSummonPage();
+            }
+            else if (e.PropertyName == "SpellsXML")
+            {
+                RefreshSpellPage();
+            }
         }
 
         private void SetElementsFromSettings()
         {
             nudCasterLevel.Value = Properties.Settings.Default.CasterLevel;
-            sittingSummonXML = tbSummonsXML.Text = Properties.Settings.Default.SummonsXML;
-            sittingSpellXML = tbSpellsXML.Text = Properties.Settings.Default.SpellsXML;
+            tbSummonsXML.Text = Properties.Settings.Default.SummonsXML;
+            tbSpellsXML.Text = Properties.Settings.Default.SpellsXML;
         }
 
         private void DruidMain_Load(object sender, EventArgs e)
@@ -104,7 +117,7 @@ namespace DruidAssistant
 
         private void RefreshSpellPage()
         {
-            if (!File.Exists(sittingSpellXML))
+            if (!File.Exists(Properties.Settings.Default.SpellsXML))
             {
                 MessageBox.Show("XML file was not found.", "File Not Found", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
@@ -135,7 +148,7 @@ namespace DruidAssistant
             TreeNode tnf8 = tvFavoritedSpells.Nodes.Add("Level 8");
             TreeNode tnf9 = tvFavoritedSpells.Nodes.Add("Level 9");
 
-            Spells spells = Spells.Retrieve(sittingSpellXML);
+            Spells spells = Spells.Retrieve(Properties.Settings.Default.SpellsXML);
 
             for (int i = 0; i < spells.Count; i++)
             {
@@ -173,7 +186,7 @@ namespace DruidAssistant
 
         private void RefreshSpellPage(bool[] expanders)
         {
-            if (!File.Exists(sittingSpellXML))
+            if (!File.Exists(Properties.Settings.Default.SpellsXML))
             {
                 MessageBox.Show("XML file was not found.", "File Not Found", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
@@ -204,7 +217,7 @@ namespace DruidAssistant
             TreeNode tnf8 = tvFavoritedSpells.Nodes.Add("Level 8");
             TreeNode tnf9 = tvFavoritedSpells.Nodes.Add("Level 9");
 
-            Spells spells = Spells.Retrieve(sittingSpellXML);
+            Spells spells = Spells.Retrieve(Properties.Settings.Default.SpellsXML);
 
             for (int i = 0; i < spells.Count; i++)
             {
@@ -268,13 +281,13 @@ namespace DruidAssistant
 
         private void RefreshSummonPage()
         {
-            if (!File.Exists(sittingSummonXML))
+            if (!File.Exists(Properties.Settings.Default.SummonsXML))
             {
                 MessageBox.Show("XML file was not found.", "File Not Found", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
 
-            Summons summons = Summons.Retrieve(sittingSummonXML);
+            Summons summons = Summons.Retrieve(Properties.Settings.Default.SummonsXML);
 
             tvTemplates.Nodes.Clear();
 
@@ -478,7 +491,7 @@ namespace DruidAssistant
         {
             if (e.KeyCode == Keys.Delete)
             {
-                if (!File.Exists(sittingSummonXML))
+                if (!File.Exists(Properties.Settings.Default.SummonsXML))
                 {
                     MessageBox.Show("XML file was not found.", "File Not Found", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
@@ -490,7 +503,7 @@ namespace DruidAssistant
                     {
                         if (MessageBox.Show(string.Format("Are you sure you want to delete {0} from this list?", ((Summon)tvTemplates.SelectedNode.Tag).Name), "Delete Summon Confirm", MessageBoxButtons.YesNo, MessageBoxIcon.Stop) == DialogResult.Yes)
                         {
-                            Summons summons = Summons.Retrieve(sittingSummonXML);
+                            Summons summons = Summons.Retrieve(Properties.Settings.Default.SummonsXML);
                             int indexMatch = summons.FindIndex(x => x.Name.ToUpper() == selSumm.Name.ToUpper() && x.SummonSpell.ToUpper() == selSumm.SummonSpell.ToUpper());
 
                             if (indexMatch > -1)
@@ -498,7 +511,7 @@ namespace DruidAssistant
                                 summons.RemoveAt(indexMatch);
                             }
 
-                            summons.Save(sittingSummonXML);
+                            summons.Save(Properties.Settings.Default.SummonsXML);
                             RefreshSummonPage();
                         }
                     }
@@ -510,7 +523,7 @@ namespace DruidAssistant
         {
             if (e.KeyCode == Keys.Delete)
             {
-                if (!File.Exists(sittingSpellXML))
+                if (!File.Exists(Properties.Settings.Default.SpellsXML))
                 {
                     MessageBox.Show("XML file was not found.", "File Not Found", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
@@ -522,7 +535,7 @@ namespace DruidAssistant
                     {
                         if (MessageBox.Show(string.Format("Are you sure you want to delete {0} from this list?", ((Spell)tvSpells.SelectedNode.Tag).Name), "Delete Summon Confirm", MessageBoxButtons.YesNo, MessageBoxIcon.Stop) == DialogResult.Yes)
                         {
-                            Spells spells = Spells.Retrieve(sittingSpellXML);
+                            Spells spells = Spells.Retrieve(Properties.Settings.Default.SpellsXML);
                             int indexMatch = spells.FindIndex(x => x.Name.ToUpper() == selSpell.Name.ToUpper() && x.Level.ToUpper() == selSpell.Level.ToUpper());
 
                             if (indexMatch > -1)
@@ -530,7 +543,7 @@ namespace DruidAssistant
                                 spells.RemoveAt(indexMatch);
                             }
 
-                            spells.Save(sittingSpellXML);
+                            spells.Save(Properties.Settings.Default.SpellsXML);
                             RefreshSpellPage(GetSpellNodesExpansion());
                         }
                     }
@@ -540,7 +553,7 @@ namespace DruidAssistant
 
         private void FavoriteToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Spells spells = Spells.Retrieve(sittingSpellXML);
+            Spells spells = Spells.Retrieve(Properties.Settings.Default.SpellsXML);
             Spell thisSpell = (Spell)((TreeView)((ContextMenuStrip)((ToolStripMenuItem)sender).GetCurrentParent()).SourceControl).SelectedNode.Tag;  //((TreeView)((ContextMenuStrip)((ToolStripMenuItem)sender).GetCurrentParent().tvSpells).SelectedNode.Tag;
             int indexMatch = spells.FindIndex(x => x.Name.ToUpper() == thisSpell.Name.ToUpper() && x.Level.ToUpper() == thisSpell.Level.ToUpper());
 
@@ -550,7 +563,7 @@ namespace DruidAssistant
                 else if (!spells[indexMatch].Favorited) { spells[indexMatch].Favorited = true; }
                 else { spells[indexMatch].Favorited = true; }
 
-                spells.Save(sittingSpellXML);
+                spells.Save(Properties.Settings.Default.SpellsXML);
             }
 
             RefreshSpellPage(GetSpellNodesExpansion());
@@ -598,7 +611,6 @@ namespace DruidAssistant
         private void NudCasterLevel_ValueChanged(object sender, EventArgs e)
         {
             Properties.Settings.Default.CasterLevel = nudCasterLevel.Value;
-            Properties.Settings.Default.Save();
         }
 
         private void ClearToolStripMenuItem_Click(object sender, EventArgs e)
@@ -608,7 +620,7 @@ namespace DruidAssistant
 
         private void AddToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if (!File.Exists(sittingSummonXML))
+            if (!File.Exists(Properties.Settings.Default.SummonsXML))
             {
                 MessageBox.Show("XML file was not found.", "File Not Found", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
@@ -656,7 +668,7 @@ namespace DruidAssistant
                 FullAttacks = Summon.GetFullAttacks(rtbFullAttacks.Text)
             };
 
-            Summons summons = Summons.Retrieve(sittingSummonXML);
+            Summons summons = Summons.Retrieve(Properties.Settings.Default.SummonsXML);
             int indexMatch = summons.FindIndex(x => x.Name.ToUpper() == addSummon.Name.ToUpper() && x.SummonSpell.ToUpper() == addSummon.SummonSpell.ToUpper());
 
             if (indexMatch > -1)
@@ -675,13 +687,13 @@ namespace DruidAssistant
                 ClearSummonPage();
             }
 
-            summons.Save(sittingSummonXML);
+            summons.Save(Properties.Settings.Default.SummonsXML);
             RefreshSummonPage();
         }
 
         private void SaveToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if (!File.Exists(sittingSummonXML))
+            if (!File.Exists(Properties.Settings.Default.SummonsXML))
             {
                 MessageBox.Show("XML file was not found.", "File Not Found", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
@@ -713,6 +725,7 @@ namespace DruidAssistant
 
                 Summon updateSummon = new Summon
                 {
+                    Index = sittingSummonIndex,
                     SummonSpell = cbSummonSpell.Text,
                     Name = tbName.Text,
                     Abilities = new Abilities((int)nudSTR.Value, (int)nudDEX.Value, (int)nudCON.Value, (int)nudINT.Value, (int)nudWIS.Value, (int)nudCHA.Value),
@@ -737,7 +750,7 @@ namespace DruidAssistant
                     FullAttacks = Summon.GetFullAttacks(rtbFullAttacks.Text)
                 };
 
-                Summons summons = Summons.Retrieve(sittingSummonXML);
+                Summons summons = Summons.Retrieve(Properties.Settings.Default.SummonsXML);
                 int indexMatch = summons.FindIndex(x => x.Index == sittingSummonIndex);
                 if (indexMatch > -1)
                 {
@@ -748,7 +761,7 @@ namespace DruidAssistant
                     MessageBox.Show("Summon cannot be found.", "Summon Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
 
-                summons.Save(sittingSummonXML);
+                summons.Save(Properties.Settings.Default.SummonsXML);
                 RefreshSummonPage();
             }
         }
@@ -791,7 +804,7 @@ namespace DruidAssistant
 
         private void AddSpellToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if (!File.Exists(sittingSpellXML))
+            if (!File.Exists(Properties.Settings.Default.SpellsXML))
             {
                 MessageBox.Show("XML file was not found.", "File Not Found", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
@@ -829,7 +842,7 @@ namespace DruidAssistant
                 PersonalNotes = rtbPersonalNotes.Text
             };
 
-            Spells spells = Spells.Retrieve(sittingSpellXML);
+            Spells spells = Spells.Retrieve(Properties.Settings.Default.SpellsXML);
             int indexMatch = spells.FindIndex(x => x.Name.ToUpper() == addSpell.Name.ToUpper() && x.Level.ToUpper() == addSpell.Level.ToUpper());
 
             if (indexMatch > -1)
@@ -848,13 +861,13 @@ namespace DruidAssistant
                 ClearSpellPage();
             }
             rtbSpellText.Clear();
-            spells.Save(sittingSpellXML);
+            spells.Save(Properties.Settings.Default.SpellsXML);
             RefreshSpellPage(GetSpellNodesExpansion());
         }
 
         private void SaveSpellToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if (!File.Exists(sittingSpellXML))
+            if (!File.Exists(Properties.Settings.Default.SpellsXML))
             {
                 MessageBox.Show("XML file was not found.", "File Not Found", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
@@ -900,7 +913,7 @@ namespace DruidAssistant
                     PersonalNotes = rtbPersonalNotes.Text
                 };
 
-                Spells spells = Spells.Retrieve(sittingSpellXML);
+                Spells spells = Spells.Retrieve(Properties.Settings.Default.SpellsXML);
                 int indexMatch = spells.FindIndex(x => x.Index == sittingSpellID);
 
                 if (indexMatch > -1)
@@ -912,7 +925,7 @@ namespace DruidAssistant
                     MessageBox.Show("Spell cannot be found.", "Spell Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
 
-                spells.Save(sittingSpellXML);
+                spells.Save(Properties.Settings.Default.SpellsXML);
                 RefreshSpellPage(GetSpellNodesExpansion());
             }
         }
@@ -927,8 +940,6 @@ namespace DruidAssistant
         {
             if (sender == tbSummonsXML) { Properties.Settings.Default.SummonsXML = tbSummonsXML.Text; }
             if (sender == tbSpellsXML) { Properties.Settings.Default.SpellsXML = tbSpellsXML.Text; }
-
-            Properties.Settings.Default.Save();
         }
 
         private void CreateNewToolStripMenuItem_Click(object sender, EventArgs e)
@@ -944,6 +955,7 @@ namespace DruidAssistant
                     {
                         Summons s = new Summons();
                         s.Save(sfd.FileName);
+                        tbSummonsXML.Text = sfd.FileName;
                     }
                 }
             }
@@ -957,6 +969,7 @@ namespace DruidAssistant
                     {
                         Spells s = new Spells();
                         s.Save(sfd.FileName);
+                        tbSpellsXML.Text = sfd.FileName;
                     }
                 }
             }

@@ -233,7 +233,7 @@ namespace DruidAssistant
                 }
             }
 
-            thisTemplate.Name = InputToFirstCharUpper(name.Replace(" click to see monster", ""));
+            thisTemplate.Name = CapitalizeFirstLetter(name.Replace(" click to see monster", ""));
             thisTemplate.Size = GetSize(sizetype, out string type);
             thisTemplate.Type = type;
             thisTemplate.Abilities = GetAbilities(abilities);
@@ -264,10 +264,11 @@ namespace DruidAssistant
             return thisTemplate;
         }
 
-        private static string InputToFirstCharUpper(string input)
+        public static string CapitalizeFirstLetter(string word)
         {
-            return input != "" ? input.First().ToString().ToUpper() + input.Substring(1).ToLower() : "";
+            return word != "" ? word.First().ToString().ToUpper() + word.Substring(1).ToLower() : "";
         }
+
 
         public static SkillMod CorrectSkillModBackward(SkillMod sm, Abilities a)
         {
@@ -727,13 +728,13 @@ namespace DruidAssistant
         public Attack(int c, string n, string e)
         {
             Count = c;
-            Name = n;
-            Extra = e;
+            Name = n.TrimStart(' ').TrimEnd(' ');
+            Extra = e.TrimStart(' ').TrimEnd(' ');
         }
 
         public override string ToString()
         {
-            return string.Format("{0} {1} ({2})", Count, Name, Extra);
+            return string.Format("{0} {1} ({2})", Count, Name.TrimStart(' ').TrimEnd(' '), Extra.TrimStart(' ').TrimEnd(' '));
         }
     }
 
