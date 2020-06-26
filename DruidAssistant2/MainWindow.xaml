@@ -52,7 +52,7 @@
                                 </Grid>
                                 <Button Padding="10" FontWeight="SemiBold" Content="Summon"></Button>
                             </StackPanel>
-                            <TreeView>
+                            <TreeView x:Name="TREEVIEW_Summons">
 
                             </TreeView>
                         </DockPanel>

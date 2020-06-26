@@ -153,13 +153,13 @@ namespace DruidAssistant
 
             labelACDex.Text = st.Abilities.DexMod.ToString();
             labelACNatural.Text = st.NaturalArmor.ToString();
-            labelACSize.Text = GetSizeMod(st.Size).ToString();
+            labelACSize.Text = Summon.GetSizeMod(st.Size).ToString();
 
             labelTouchDex.Text = st.Abilities.DexMod.ToString();
-            labelTouchSize.Text = GetSizeMod(st.Size).ToString();
+            labelTouchSize.Text = Summon.GetSizeMod(st.Size).ToString();
 
             labelFlatNatural.Text = st.NaturalArmor.ToString();
-            labelFlatSize.Text = GetSizeMod(st.Size).ToString();
+            labelFlatSize.Text = Summon.GetSizeMod(st.Size).ToString();
 
             tbSpaceReach.Text = string.Format("{0}, {1}", st.Space, st.Reach);
 
@@ -207,19 +207,19 @@ namespace DruidAssistant
             //nudGrappleBonus.Value =
             labelGrappleBase.Text = st.BAB.ToString();
             labelGrappleAbility.Text = st.Abilities.StrMod.ToString();
-            labelGrappleSize.Text = GetGrappleSizeMod(st.Size).ToString();
+            labelGrappleSize.Text = Summon.GetGrappleSizeMod(st.Size).ToString();
             nudGrappleMisc.Value = st.MiscGrapple;
 
             //nudMeleeBonus.Value =
             labelMeleeBase.Text = labelBaseAttackBonus.Text;
             labelMeleeAbility.Text = (HasWeaponFinesse(st) ? Math.Max(st.Abilities.StrMod, st.Abilities.DexMod) : st.Abilities.StrMod).ToString();
-            labelMeleeSize.Text = GetSizeMod(st.Size).ToString();
+            labelMeleeSize.Text = Summon.GetSizeMod(st.Size).ToString();
             nudMeleeMisc.Value = st.MiscMelee;
 
             //nudRangeBonus.Value = 
             labelRangeBase.Text = labelBaseAttackBonus.Text;
             labelRangeAbility.Text = st.Abilities.DexMod.ToString();
-            labelRangeSize.Text = GetSizeMod(st.Size).ToString();
+            labelRangeSize.Text = Summon.GetSizeMod(st.Size).ToString();
             nudRangeMisc.Value = st.MiscRange;
             flag1 = false;
         }
@@ -270,15 +270,6 @@ namespace DruidAssistant
             labelFlat.Text = (10 + Convert.ToInt32(labelFlatNatural.Text) + Convert.ToInt32(labelFlatSize.Text) + nudFlatMisc.Value).ToString();
         }
 
-        public int GetSizeMod(Size size)
-        {
-            return new[] { 8, 4, 2, 1, 0, -1, -2, -4, -8 }[Enum.GetValues(typeof(Size)).Cast<Size>().ToList().IndexOf(size)];
-        }
-
-        public static int GetGrappleSizeMod(Size size)
-        {
-            return new[] { -16, -12, -8, -4, 0, 4, 8, 12, 16 }[Enum.GetValues(typeof(Size)).Cast<Size>().ToList().IndexOf(size)];
-        }
         private static decimal ScoreToMod(decimal input)
         {
             return Math.Floor((input - 10) / 2);

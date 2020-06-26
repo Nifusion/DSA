@@ -139,7 +139,7 @@ namespace DruidAssistant
 
             Notes = new List<string>(s.Notes);
             BAB = s.BAB;
-            MiscGrapple = s.Grapple - s.BAB - s.Abilities.StrMod - Summoned.GetGrappleSizeMod(s.Size);
+            MiscGrapple = s.Grapple - s.BAB - s.Abilities.StrMod - Summon.GetGrappleSizeMod(s.Size);
             HitDie = s.HitDie;
             Level = s.Level;
         }
@@ -170,6 +170,16 @@ namespace DruidAssistant
         public string Space { get; set; }
         public string Reach { get; set; }
         public Saves Saves { get; set; }
+
+        public static int GetSizeMod(Size size)
+        {
+            return new[] { 8, 4, 2, 1, 0, -1, -2, -4, -8 }[Enum.GetValues(typeof(Size)).Cast<Size>().ToList().IndexOf(size)];
+        }
+
+        public static int GetGrappleSizeMod(Size size)
+        {
+            return new[] { -16, -12, -8, -4, 0, 4, 8, 12, 16 }[Enum.GetValues(typeof(Size)).Cast<Size>().ToList().IndexOf(size)];
+        }
 
         public static Summon GetSummonTemplateFromText(string text)
         {
